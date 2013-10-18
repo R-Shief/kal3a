@@ -1,0 +1,9 @@
+site_home:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'site_home.html.twig'
+
+_monitor:
+    resource: "@LiipMonitorBundle/Resources/config/routing.yml"
+    prefix: /monitor/health

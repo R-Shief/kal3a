@@ -18,7 +18,17 @@
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~2.3",
         "sensio/generator-bundle": "~2.3",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "doctrine/couchdb": "dev-master",
+        "doctrine/couchdb-odm": "dev-master",
+        "doctrine/couchdb-odm-bundle": "dev-master",
+        "robotsnowfall/enum": "dev-master",
+        "mjohnson/decoda": "~6.2.3",
+        "ddeboer/data-import-bundle": "dev-master",
+        "liip/monitor-bundle": "dev-master"
+    },
+    "require-dev": {
+        "jms/debugging-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -26,20 +36,22 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
         ]
     },
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

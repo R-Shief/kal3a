@@ -52,10 +52,16 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
+        mapping_types:
+
+            # Prototype
+            enum:                 string
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        mappings:
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -64,3 +70,28 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# Doctrine CouchDB Configuration
+doctrine_couch_db:
+    client:
+        dbname: symfony
+    odm:
+        auto_mapping: true
+
+# Liip monitor
+liip_monitor:
+    checks:
+        php_extensions: [ intl, mcrypt, twig ]
+
+
+services:
+    monitor.check.symfony_version:
+        class: Liip\MonitorBundle\Check\SymfonyVersionCheck
+        tags:
+            - { name: liip_monitor.check }
+
+    monitor.check.writeable_directory:
+        class: Liip\Monitor\Check\WritableDirectoryCheck
+        arguments: [ [ "%kernel.root_dir%/cache", "%kernel.root_dir%/logs" ] ]
+        tags:
+            - { name: liip_monitor.check }
