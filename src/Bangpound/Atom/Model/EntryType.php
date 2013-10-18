@@ -45,71 +45,119 @@ class EntryType
      * @var PersonType (atom:personType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $dauthor;
+    private $dauthor;
 
     /**
      * @var CategoryType (atom:categoryType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $dcategory;
+    private $dcategory;
 
     /**
      * @var ContentType (atom:contentType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $content;
+    private $content;
 
     /**
      * @var PersonType (atom:personType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $dcontributor;
+    private $dcontributor;
 
     /**
      * @var IdType (atom:idType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $id;
+    private $id;
 
     /**
      * @var LinkType (atom:linkType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $link;
+    private $link;
 
     /**
      * @var DateTimeType (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $published;
+    private $published;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $rights;
+    private $rights;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $source;
+    private $source;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $summary;
+    private $summary;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $title;
+    private $title;
 
     /**
      * @var DateTimeType (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $updated;
+    private $updated;
+
+    /**
+     * @return \Bangpound\Atom\Model\PersonType
+     */
+    public function getDauthor()
+    {
+        return $this->dauthor;
+    }
+
+    /**
+     * @param \Bangpound\Atom\Model\PersonType $dauthor
+     */
+    public function setDauthor($dauthor)
+    {
+        $this->dauthor = $dauthor;
+    }
+
+    /**
+     * @return \Bangpound\Atom\Model\CategoryType
+     */
+    public function getDcategory()
+    {
+        return $this->dcategory;
+    }
+
+    /**
+     * @param \Bangpound\Atom\Model\CategoryType $dcategory
+     */
+    public function setDcategory($dcategory)
+    {
+        $this->dcategory = $dcategory;
+    }
+
+    /**
+     * @return \Bangpound\Atom\Model\ContentType
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param \Bangpound\Atom\Model\ContentType $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
 }
