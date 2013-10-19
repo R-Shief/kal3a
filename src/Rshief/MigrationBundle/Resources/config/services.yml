@@ -25,6 +25,11 @@ services:
             - { name: console.command }
 
 
+    rshief_migration.check.couchdb:
+        class: Bangpound\Check\CouchDBCheck
+        arguments: [ @doctrine_couchdb ]
+        tags:
+            - { name: liip_monitor.check }
 
     rshief_migration.process_workflow.command:
         class: %rshief_migration.process_workflow.command.class%
