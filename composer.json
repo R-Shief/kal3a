@@ -27,7 +27,8 @@
         "ddeboer/data-import-bundle": "dev-master",
         "liip/monitor-bundle": "dev-master",
         "elao/web-profiler-extra-bundle" : "dev-master",
-        "coresphere/console-bundle": "dev-master"
+        "coresphere/console-bundle": "dev-master",
+        "raulfraile/ladybug-bundle": "1.0.2"
     },
     "require-dev": {
         "jms/debugging-bundle": "dev-master"
