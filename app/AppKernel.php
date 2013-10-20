@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Liip\MonitorBundle\LiipMonitorBundle(),
             new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
             new Rshief\MigrationBundle\RshiefMigrationBundle(),
+            new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

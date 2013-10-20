@@ -1,0 +1,7 @@
+parameters:
+#    bangpound_atom_data.example.class: Bangpound\Atom\DataBundle\Example
+
+services:
+#    bangpound_atom_data.example:
+#        class: %bangpound_atom_data.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
