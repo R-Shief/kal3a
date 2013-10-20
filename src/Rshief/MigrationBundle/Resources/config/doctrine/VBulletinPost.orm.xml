@@ -29,7 +29,7 @@
         <many-to-one field="thread" target-entity="Rshief\MigrationBundle\Entity\VBulletinThread" inversed-by="posts">
             <join-column name="threadid" referenced-column-name="threadid" />
         </many-to-one>
-        <many-to-one field="user" target-entity="Rshief\MigrationBundle\Entity\VBulletinUser" inversed-by="posts">
+        <many-to-one field="user" target-entity="Rshief\MigrationBundle\Entity\VBulletinUser" inversed-by="thePosts">
             <join-column name="userid" referenced-column-name="userid" />
         </many-to-one>
     </entity>

@@ -82,5 +82,6 @@
     <field name="ncodeImageresizerMode" type="string" column="ncode_imageresizer_mode" nullable="true"/>
     <field name="ncodeImageresizerMaxwidth" type="smallint" column="ncode_imageresizer_maxwidth" nullable="true"/>
     <field name="ncodeImageresizerMaxheight" type="smallint" column="ncode_imageresizer_maxheight" nullable="true"/>
+      <one-to-many field="thePosts" target-entity="VBulletinPost" mapped-by="user" />
   </entity>
 </doctrine-mapping>

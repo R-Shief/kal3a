@@ -179,7 +179,19 @@ class VBulletinForum
      */
     private $forumid;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $threads;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->threads = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Set styleid
      *
@@ -947,5 +959,38 @@ class VBulletinForum
     public function getForumid()
     {
         return $this->forumid;
+    }
+
+    /**
+     * Add threads
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinThread $threads
+     * @return VBulletinForum
+     */
+    public function addThread(\Rshief\MigrationBundle\Entity\VBulletinThread $threads)
+    {
+        $this->threads[] = $threads;
+    
+        return $this;
+    }
+
+    /**
+     * Remove threads
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinThread $threads
+     */
+    public function removeThread(\Rshief\MigrationBundle\Entity\VBulletinThread $threads)
+    {
+        $this->threads->removeElement($threads);
+    }
+
+    /**
+     * Get threads
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getThreads()
+    {
+        return $this->threads;
     }
 }

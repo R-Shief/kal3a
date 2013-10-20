@@ -369,7 +369,19 @@ class VBulletinUser
      */
     private $userid;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $thePosts;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->thePosts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Set usergroupid
      *
@@ -2011,5 +2023,38 @@ class VBulletinUser
     public function getUserid()
     {
         return $this->userid;
+    }
+
+    /**
+     * Add thePosts
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinPost $thePosts
+     * @return VBulletinUser
+     */
+    public function addThePost(\Rshief\MigrationBundle\Entity\VBulletinPost $thePosts)
+    {
+        $this->thePosts[] = $thePosts;
+    
+        return $this;
+    }
+
+    /**
+     * Remove thePosts
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinPost $thePosts
+     */
+    public function removeThePost(\Rshief\MigrationBundle\Entity\VBulletinPost $thePosts)
+    {
+        $this->thePosts->removeElement($thePosts);
+    }
+
+    /**
+     * Get thePosts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getThePosts()
+    {
+        return $this->thePosts;
     }
 }

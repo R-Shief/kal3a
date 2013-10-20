@@ -37,5 +37,6 @@
     <field name="vbseoModeraterefbacks" type="integer" column="vbseo_moderaterefbacks" nullable="false"/>
     <field name="vbseoEnableLikes" type="integer" column="vbseo_enable_likes" nullable="false"/>
     <field name="twitterenabled" type="boolean" column="twitterenabled" nullable="false"/>
+      <one-to-many mapped-by="forum" target-entity="VBulletinThread" field="threads" />
   </entity>
 </doctrine-mapping>
