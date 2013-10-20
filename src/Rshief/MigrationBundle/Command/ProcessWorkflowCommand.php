@@ -16,12 +16,15 @@ use Ddeboer\DataImport\Reader\CsvReader;
 use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Rshief\MigrationBundle\Compiler\TemplateDecompiler;
 
 /**
  * Class ProcessWorkflowCommand
  * @package Rshief\MigrationBundle\Command
  */
 class ProcessWorkflowCommand extends ContainerAwareCommand {
+
+    private $templates;
 
     /**
      * Configures the current command.
@@ -31,7 +34,6 @@ class ProcessWorkflowCommand extends ContainerAwareCommand {
         $this
             ->setName('migrate:workflow:process');
     }
-
 
     /**
      * @param InputInterface $input
@@ -53,6 +55,16 @@ class ProcessWorkflowCommand extends ContainerAwareCommand {
         // This is too presumptious. @todo
         $client = $this->getContainer()->get('doctrine_couchdb.client.default_connection');
 
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+
+        $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinRssFeed');
+        foreach ($repository->findAll() as $rssfeed) {
+            $regex = \Rshief\MigrationBundle\Compiler\TemplateDecompiler::compile($rssfeed->getBodytemplate());
+            $this->templates[$rssfeed->getForumid()][$rssfeed->getUserid()] = $regex['regex'];
+        }
+
+        $templates = $this->templates;
+
         if ($this->getContainer()->hasParameter('rshief_migration.decoda.config')) {
             $decoda_config = $this->getContainer()->getParameter('rshief_migration.decoda.config');
         }
@@ -64,6 +76,32 @@ class ProcessWorkflowCommand extends ContainerAwareCommand {
 
             ->addMapping('title', 'title')
             ->addMapping('pagetext', 'content')
+            ->addItemConverter(new CallbackItemConverter(function ($array) use ($em, $templates) {
+
+                $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
+                $thread = $repository->find($array['threadid']);
+                $forum = $thread->getForum();
+
+                $userid = $array['userid'];
+                $forumid = $forum->getForumid();
+
+                $template = isset($templates[$forumid][$userid]) ? $templates[$forumid][$userid] : '';
+
+                if (!empty($template)) {
+                    $matches = array();
+
+                    preg_match($template, $array['pagetext'], $matches);
+                    if (!empty($matches)) {
+                        foreach ($matches as $key => $value) {
+                            if (!is_int($key)) {
+                                $array[$key] = $value;
+                            }
+                        }
+                    }
+                }
+
+                return $array;
+            }))
 
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($decoda_config) {
 
