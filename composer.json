@@ -25,7 +25,9 @@
         "robotsnowfall/enum": "dev-master",
         "mjohnson/decoda": "~6.2.3",
         "ddeboer/data-import-bundle": "dev-master",
-        "liip/monitor-bundle": "dev-master"
+        "liip/monitor-bundle": "dev-master",
+        "elao/web-profiler-extra-bundle" : "dev-master",
+        "coresphere/console-bundle": "dev-master"
     },
     "require-dev": {
         "jms/debugging-bundle": "dev-master"
