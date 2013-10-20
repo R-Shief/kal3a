@@ -414,7 +414,24 @@ class VBulletinThread
      */
     private $threadid;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
 
+    /**
+     * @var \Rshief\MigrationBundle\Entity\VBulletinForum
+     */
+    private $forum;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Set title
      *
@@ -2263,5 +2280,61 @@ class VBulletinThread
     public function getThreadid()
     {
         return $this->threadid;
+    }
+
+    /**
+     * Add posts
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinPost $posts
+     * @return VBulletinThread
+     */
+    public function addPost(\Rshief\MigrationBundle\Entity\VBulletinPost $posts)
+    {
+        $this->posts[] = $posts;
+    
+        return $this;
+    }
+
+    /**
+     * Remove posts
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinPost $posts
+     */
+    public function removePost(\Rshief\MigrationBundle\Entity\VBulletinPost $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Set forum
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinForum $forum
+     * @return VBulletinThread
+     */
+    public function setForum(\Rshief\MigrationBundle\Entity\VBulletinForum $forum = null)
+    {
+        $this->forum = $forum;
+    
+        return $this;
+    }
+
+    /**
+     * Get forum
+     *
+     * @return \Rshief\MigrationBundle\Entity\VBulletinForum 
+     */
+    public function getForum()
+    {
+        return $this->forum;
     }
 }

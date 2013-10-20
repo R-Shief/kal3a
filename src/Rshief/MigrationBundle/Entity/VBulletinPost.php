@@ -5,7 +5,7 @@ namespace Rshief\MigrationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
+ * VBulletinPost
  */
 class VBulletinPost
 {
@@ -93,6 +93,16 @@ class VBulletinPost
      * @var integer
      */
     private $postid;
+
+    /**
+     * @var \Rshief\MigrationBundle\Entity\VBulletinThread
+     */
+    private $thread;
+
+    /**
+     * @var \Rshief\MigrationBundle\Entity\VBulletinUser
+     */
+    private $user;
 
 
     /**
@@ -471,5 +481,51 @@ class VBulletinPost
     public function getPostid()
     {
         return $this->postid;
+    }
+
+    /**
+     * Set thread
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinThread $thread
+     * @return VBulletinPost
+     */
+    public function setThread(\Rshief\MigrationBundle\Entity\VBulletinThread $thread = null)
+    {
+        $this->thread = $thread;
+    
+        return $this;
+    }
+
+    /**
+     * Get thread
+     *
+     * @return \Rshief\MigrationBundle\Entity\VBulletinThread 
+     */
+    public function getThread()
+    {
+        return $this->thread;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Rshief\MigrationBundle\Entity\VBulletinUser $user
+     * @return VBulletinPost
+     */
+    public function setUser(\Rshief\MigrationBundle\Entity\VBulletinUser $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Rshief\MigrationBundle\Entity\VBulletinUser 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
