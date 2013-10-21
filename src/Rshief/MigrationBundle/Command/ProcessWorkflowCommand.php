@@ -2,17 +2,14 @@
 
 namespace Rshief\MigrationBundle\Command;
 
+use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
-use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
-use Ddeboer\DataImport\Writer\DoctrineWriter;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Command\Command;
 use Ddeboer\DataImport\Workflow;
-use Ddeboer\DataImport\Source\HttpSource;
-use Ddeboer\DataImport\Source\Filter\Unzip;
-use Ddeboer\DataImport\Reader\CsvReader;
 use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,8 +19,8 @@ use Rshief\MigrationBundle\Compiler\TemplateDecompiler;
  * Class ProcessWorkflowCommand
  * @package Rshief\MigrationBundle\Command
  */
-class ProcessWorkflowCommand extends ContainerAwareCommand {
-
+class ProcessWorkflowCommand extends ContainerAwareCommand
+{
     private $templates;
 
     /**
@@ -36,10 +33,11 @@ class ProcessWorkflowCommand extends ContainerAwareCommand {
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
      */
-    function execute(InputInterface $input, OutputInterface $output) {
+    public function execute(InputInterface $input, OutputInterface $output)
+    {
         // @todo make $name into a command line argument..
         $name = 'vbulletinpost';
 
