@@ -9,8 +9,8 @@ use Liip\Monitor\Result\CheckResult;
  * Class CouchDBCheck
  * @package Bangpound\Check
  */
-class CouchDBCheck extends Check {
-
+class CouchDBCheck extends Check
+{
     /**
      * @var ManagerRegistry
      */
@@ -23,7 +23,7 @@ class CouchDBCheck extends Check {
 
     /**
      * @param ManagerRegistry $manager
-     * @param string $connectionName
+     * @param string          $connectionName
      */
     public function __construct(ManagerRegistry $manager, $connectionName = 'default')
     {

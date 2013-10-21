@@ -2,20 +2,16 @@
 
 namespace Rshief\MigrationBundle\Command;
 
-
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
 use JMS\JobQueueBundle\Entity\Job;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\DescriptorHelper;
-use Symfony\Component\Console\Helper\ProgressHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class EnqueueCommand extends DoctrineCommand {
-
+class EnqueueCommand extends DoctrineCommand
+{
     /**
      * Configures the current command.
      */
@@ -38,8 +34,7 @@ class EnqueueCommand extends DoctrineCommand {
             $job->addRelatedEntity($entity);
             $em->persist($job);
         }
-        if (count($entities) == $input->getOption('limit'))
-        {
+        if (count($entities) == $input->getOption('limit')) {
             $job = new Job('migrate:enqueue', [
                 '--limit', $input->getOption('limit'),
                 '--offset', $input->getOption('offset') + $input->getOption('limit'),

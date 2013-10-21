@@ -2,8 +2,6 @@
 
 namespace Rshief\MigrationBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * VBulletinForum
  */
@@ -191,24 +189,24 @@ class VBulletinForum
     {
         $this->threads = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Set styleid
      *
-     * @param integer $styleid
+     * @param  integer        $styleid
      * @return VBulletinForum
      */
     public function setStyleid($styleid)
     {
         $this->styleid = $styleid;
-    
+
         return $this;
     }
 
     /**
      * Get styleid
      *
-     * @return integer 
+     * @return integer
      */
     public function getStyleid()
     {
@@ -218,20 +216,20 @@ class VBulletinForum
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string         $title
      * @return VBulletinForum
      */
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -241,20 +239,20 @@ class VBulletinForum
     /**
      * Set titleClean
      *
-     * @param string $titleClean
+     * @param  string         $titleClean
      * @return VBulletinForum
      */
     public function setTitleClean($titleClean)
     {
         $this->titleClean = $titleClean;
-    
+
         return $this;
     }
 
     /**
      * Get titleClean
      *
-     * @return string 
+     * @return string
      */
     public function getTitleClean()
     {
@@ -264,20 +262,20 @@ class VBulletinForum
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string         $description
      * @return VBulletinForum
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -287,20 +285,20 @@ class VBulletinForum
     /**
      * Set descriptionClean
      *
-     * @param string $descriptionClean
+     * @param  string         $descriptionClean
      * @return VBulletinForum
      */
     public function setDescriptionClean($descriptionClean)
     {
         $this->descriptionClean = $descriptionClean;
-    
+
         return $this;
     }
 
     /**
      * Get descriptionClean
      *
-     * @return string 
+     * @return string
      */
     public function getDescriptionClean()
     {
@@ -310,20 +308,20 @@ class VBulletinForum
     /**
      * Set options
      *
-     * @param integer $options
+     * @param  integer        $options
      * @return VBulletinForum
      */
     public function setOptions($options)
     {
         $this->options = $options;
-    
+
         return $this;
     }
 
     /**
      * Get options
      *
-     * @return integer 
+     * @return integer
      */
     public function getOptions()
     {
@@ -333,20 +331,20 @@ class VBulletinForum
     /**
      * Set showprivate
      *
-     * @param boolean $showprivate
+     * @param  boolean        $showprivate
      * @return VBulletinForum
      */
     public function setShowprivate($showprivate)
     {
         $this->showprivate = $showprivate;
-    
+
         return $this;
     }
 
     /**
      * Get showprivate
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getShowprivate()
     {
@@ -356,20 +354,20 @@ class VBulletinForum
     /**
      * Set displayorder
      *
-     * @param integer $displayorder
+     * @param  integer        $displayorder
      * @return VBulletinForum
      */
     public function setDisplayorder($displayorder)
     {
         $this->displayorder = $displayorder;
-    
+
         return $this;
     }
 
     /**
      * Get displayorder
      *
-     * @return integer 
+     * @return integer
      */
     public function getDisplayorder()
     {
@@ -379,20 +377,20 @@ class VBulletinForum
     /**
      * Set replycount
      *
-     * @param integer $replycount
+     * @param  integer        $replycount
      * @return VBulletinForum
      */
     public function setReplycount($replycount)
     {
         $this->replycount = $replycount;
-    
+
         return $this;
     }
 
     /**
      * Get replycount
      *
-     * @return integer 
+     * @return integer
      */
     public function getReplycount()
     {
@@ -402,20 +400,20 @@ class VBulletinForum
     /**
      * Set lastpost
      *
-     * @param integer $lastpost
+     * @param  integer        $lastpost
      * @return VBulletinForum
      */
     public function setLastpost($lastpost)
     {
         $this->lastpost = $lastpost;
-    
+
         return $this;
     }
 
     /**
      * Get lastpost
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastpost()
     {
@@ -425,20 +423,20 @@ class VBulletinForum
     /**
      * Set lastposter
      *
-     * @param string $lastposter
+     * @param  string         $lastposter
      * @return VBulletinForum
      */
     public function setLastposter($lastposter)
     {
         $this->lastposter = $lastposter;
-    
+
         return $this;
     }
 
     /**
      * Get lastposter
      *
-     * @return string 
+     * @return string
      */
     public function getLastposter()
     {
@@ -448,20 +446,20 @@ class VBulletinForum
     /**
      * Set lastpostid
      *
-     * @param integer $lastpostid
+     * @param  integer        $lastpostid
      * @return VBulletinForum
      */
     public function setLastpostid($lastpostid)
     {
         $this->lastpostid = $lastpostid;
-    
+
         return $this;
     }
 
     /**
      * Get lastpostid
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastpostid()
     {
@@ -471,20 +469,20 @@ class VBulletinForum
     /**
      * Set lastthread
      *
-     * @param string $lastthread
+     * @param  string         $lastthread
      * @return VBulletinForum
      */
     public function setLastthread($lastthread)
     {
         $this->lastthread = $lastthread;
-    
+
         return $this;
     }
 
     /**
      * Get lastthread
      *
-     * @return string 
+     * @return string
      */
     public function getLastthread()
     {
@@ -494,20 +492,20 @@ class VBulletinForum
     /**
      * Set lastthreadid
      *
-     * @param integer $lastthreadid
+     * @param  integer        $lastthreadid
      * @return VBulletinForum
      */
     public function setLastthreadid($lastthreadid)
     {
         $this->lastthreadid = $lastthreadid;
-    
+
         return $this;
     }
 
     /**
      * Get lastthreadid
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastthreadid()
     {
@@ -517,20 +515,20 @@ class VBulletinForum
     /**
      * Set lasticonid
      *
-     * @param integer $lasticonid
+     * @param  integer        $lasticonid
      * @return VBulletinForum
      */
     public function setLasticonid($lasticonid)
     {
         $this->lasticonid = $lasticonid;
-    
+
         return $this;
     }
 
     /**
      * Get lasticonid
      *
-     * @return integer 
+     * @return integer
      */
     public function getLasticonid()
     {
@@ -540,20 +538,20 @@ class VBulletinForum
     /**
      * Set lastprefixid
      *
-     * @param string $lastprefixid
+     * @param  string         $lastprefixid
      * @return VBulletinForum
      */
     public function setLastprefixid($lastprefixid)
     {
         $this->lastprefixid = $lastprefixid;
-    
+
         return $this;
     }
 
     /**
      * Get lastprefixid
      *
-     * @return string 
+     * @return string
      */
     public function getLastprefixid()
     {
@@ -563,20 +561,20 @@ class VBulletinForum
     /**
      * Set threadcount
      *
-     * @param integer $threadcount
+     * @param  integer        $threadcount
      * @return VBulletinForum
      */
     public function setThreadcount($threadcount)
     {
         $this->threadcount = $threadcount;
-    
+
         return $this;
     }
 
     /**
      * Get threadcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getThreadcount()
     {
@@ -586,20 +584,20 @@ class VBulletinForum
     /**
      * Set daysprune
      *
-     * @param integer $daysprune
+     * @param  integer        $daysprune
      * @return VBulletinForum
      */
     public function setDaysprune($daysprune)
     {
         $this->daysprune = $daysprune;
-    
+
         return $this;
     }
 
     /**
      * Get daysprune
      *
-     * @return integer 
+     * @return integer
      */
     public function getDaysprune()
     {
@@ -609,20 +607,20 @@ class VBulletinForum
     /**
      * Set newpostemail
      *
-     * @param string $newpostemail
+     * @param  string         $newpostemail
      * @return VBulletinForum
      */
     public function setNewpostemail($newpostemail)
     {
         $this->newpostemail = $newpostemail;
-    
+
         return $this;
     }
 
     /**
      * Get newpostemail
      *
-     * @return string 
+     * @return string
      */
     public function getNewpostemail()
     {
@@ -632,20 +630,20 @@ class VBulletinForum
     /**
      * Set newthreademail
      *
-     * @param string $newthreademail
+     * @param  string         $newthreademail
      * @return VBulletinForum
      */
     public function setNewthreademail($newthreademail)
     {
         $this->newthreademail = $newthreademail;
-    
+
         return $this;
     }
 
     /**
      * Get newthreademail
      *
-     * @return string 
+     * @return string
      */
     public function getNewthreademail()
     {
@@ -655,20 +653,20 @@ class VBulletinForum
     /**
      * Set parentid
      *
-     * @param integer $parentid
+     * @param  integer        $parentid
      * @return VBulletinForum
      */
     public function setParentid($parentid)
     {
         $this->parentid = $parentid;
-    
+
         return $this;
     }
 
     /**
      * Get parentid
      *
-     * @return integer 
+     * @return integer
      */
     public function getParentid()
     {
@@ -678,20 +676,20 @@ class VBulletinForum
     /**
      * Set parentlist
      *
-     * @param string $parentlist
+     * @param  string         $parentlist
      * @return VBulletinForum
      */
     public function setParentlist($parentlist)
     {
         $this->parentlist = $parentlist;
-    
+
         return $this;
     }
 
     /**
      * Get parentlist
      *
-     * @return string 
+     * @return string
      */
     public function getParentlist()
     {
@@ -701,20 +699,20 @@ class VBulletinForum
     /**
      * Set password
      *
-     * @param string $password
+     * @param  string         $password
      * @return VBulletinForum
      */
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -724,20 +722,20 @@ class VBulletinForum
     /**
      * Set link
      *
-     * @param string $link
+     * @param  string         $link
      * @return VBulletinForum
      */
     public function setLink($link)
     {
         $this->link = $link;
-    
+
         return $this;
     }
 
     /**
      * Get link
      *
-     * @return string 
+     * @return string
      */
     public function getLink()
     {
@@ -747,20 +745,20 @@ class VBulletinForum
     /**
      * Set childlist
      *
-     * @param string $childlist
+     * @param  string         $childlist
      * @return VBulletinForum
      */
     public function setChildlist($childlist)
     {
         $this->childlist = $childlist;
-    
+
         return $this;
     }
 
     /**
      * Get childlist
      *
-     * @return string 
+     * @return string
      */
     public function getChildlist()
     {
@@ -770,20 +768,20 @@ class VBulletinForum
     /**
      * Set defaultsortfield
      *
-     * @param string $defaultsortfield
+     * @param  string         $defaultsortfield
      * @return VBulletinForum
      */
     public function setDefaultsortfield($defaultsortfield)
     {
         $this->defaultsortfield = $defaultsortfield;
-    
+
         return $this;
     }
 
     /**
      * Get defaultsortfield
      *
-     * @return string 
+     * @return string
      */
     public function getDefaultsortfield()
     {
@@ -793,20 +791,20 @@ class VBulletinForum
     /**
      * Set defaultsortorder
      *
-     * @param string $defaultsortorder
+     * @param  string         $defaultsortorder
      * @return VBulletinForum
      */
     public function setDefaultsortorder($defaultsortorder)
     {
         $this->defaultsortorder = $defaultsortorder;
-    
+
         return $this;
     }
 
     /**
      * Get defaultsortorder
      *
-     * @return string 
+     * @return string
      */
     public function getDefaultsortorder()
     {
@@ -816,20 +814,20 @@ class VBulletinForum
     /**
      * Set imageprefix
      *
-     * @param string $imageprefix
+     * @param  string         $imageprefix
      * @return VBulletinForum
      */
     public function setImageprefix($imageprefix)
     {
         $this->imageprefix = $imageprefix;
-    
+
         return $this;
     }
 
     /**
      * Get imageprefix
      *
-     * @return string 
+     * @return string
      */
     public function getImageprefix()
     {
@@ -839,20 +837,20 @@ class VBulletinForum
     /**
      * Set vbseoModeratepingbacks
      *
-     * @param integer $vbseoModeratepingbacks
+     * @param  integer        $vbseoModeratepingbacks
      * @return VBulletinForum
      */
     public function setVbseoModeratepingbacks($vbseoModeratepingbacks)
     {
         $this->vbseoModeratepingbacks = $vbseoModeratepingbacks;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoModeratepingbacks
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoModeratepingbacks()
     {
@@ -862,20 +860,20 @@ class VBulletinForum
     /**
      * Set vbseoModeratetrackbacks
      *
-     * @param integer $vbseoModeratetrackbacks
+     * @param  integer        $vbseoModeratetrackbacks
      * @return VBulletinForum
      */
     public function setVbseoModeratetrackbacks($vbseoModeratetrackbacks)
     {
         $this->vbseoModeratetrackbacks = $vbseoModeratetrackbacks;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoModeratetrackbacks
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoModeratetrackbacks()
     {
@@ -885,20 +883,20 @@ class VBulletinForum
     /**
      * Set vbseoModeraterefbacks
      *
-     * @param integer $vbseoModeraterefbacks
+     * @param  integer        $vbseoModeraterefbacks
      * @return VBulletinForum
      */
     public function setVbseoModeraterefbacks($vbseoModeraterefbacks)
     {
         $this->vbseoModeraterefbacks = $vbseoModeraterefbacks;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoModeraterefbacks
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoModeraterefbacks()
     {
@@ -908,20 +906,20 @@ class VBulletinForum
     /**
      * Set vbseoEnableLikes
      *
-     * @param integer $vbseoEnableLikes
+     * @param  integer        $vbseoEnableLikes
      * @return VBulletinForum
      */
     public function setVbseoEnableLikes($vbseoEnableLikes)
     {
         $this->vbseoEnableLikes = $vbseoEnableLikes;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoEnableLikes
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoEnableLikes()
     {
@@ -931,20 +929,20 @@ class VBulletinForum
     /**
      * Set twitterenabled
      *
-     * @param boolean $twitterenabled
+     * @param  boolean        $twitterenabled
      * @return VBulletinForum
      */
     public function setTwitterenabled($twitterenabled)
     {
         $this->twitterenabled = $twitterenabled;
-    
+
         return $this;
     }
 
     /**
      * Get twitterenabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getTwitterenabled()
     {
@@ -954,7 +952,7 @@ class VBulletinForum
     /**
      * Get forumid
      *
-     * @return integer 
+     * @return integer
      */
     public function getForumid()
     {
@@ -964,13 +962,13 @@ class VBulletinForum
     /**
      * Add threads
      *
-     * @param \Rshief\MigrationBundle\Entity\VBulletinThread $threads
+     * @param  \Rshief\MigrationBundle\Entity\VBulletinThread $threads
      * @return VBulletinForum
      */
     public function addThread(\Rshief\MigrationBundle\Entity\VBulletinThread $threads)
     {
         $this->threads[] = $threads;
-    
+
         return $this;
     }
 
@@ -987,7 +985,7 @@ class VBulletinForum
     /**
      * Get threads
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getThreads()
     {

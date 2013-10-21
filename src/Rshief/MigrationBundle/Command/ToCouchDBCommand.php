@@ -4,19 +4,18 @@ namespace Rshief\MigrationBundle\Command;
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
 use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\HTTP\Client;
-use JMS\DiExtraBundle\Annotation as DI;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ToCouchDBCommand
  * @package Rshief\MigrationBundle\Command
  */
-class ToCouchDBCommand extends DoctrineCommand {
-
-    public function setClient(CouchDBClient $client) {
+class ToCouchDBCommand extends DoctrineCommand
+{
+    public function setClient(CouchDBClient $client)
+    {
         $this->client = $client;
     }
 

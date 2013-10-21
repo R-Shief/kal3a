@@ -2,8 +2,6 @@
 
 namespace Rshief\MigrationBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * VBulletinRssFeed
  */
@@ -129,24 +127,23 @@ class VBulletinRssFeed
      */
     private $rssfeedid;
 
-
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string           $title
      * @return VBulletinRssFeed
      */
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -156,20 +153,20 @@ class VBulletinRssFeed
     /**
      * Set url
      *
-     * @param string $url
+     * @param  string           $url
      * @return VBulletinRssFeed
      */
     public function setUrl($url)
     {
         $this->url = $url;
-    
+
         return $this;
     }
 
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
@@ -179,20 +176,20 @@ class VBulletinRssFeed
     /**
      * Set port
      *
-     * @param integer $port
+     * @param  integer          $port
      * @return VBulletinRssFeed
      */
     public function setPort($port)
     {
         $this->port = $port;
-    
+
         return $this;
     }
 
     /**
      * Get port
      *
-     * @return integer 
+     * @return integer
      */
     public function getPort()
     {
@@ -202,20 +199,20 @@ class VBulletinRssFeed
     /**
      * Set ttl
      *
-     * @param integer $ttl
+     * @param  integer          $ttl
      * @return VBulletinRssFeed
      */
     public function setTtl($ttl)
     {
         $this->ttl = $ttl;
-    
+
         return $this;
     }
 
     /**
      * Get ttl
      *
-     * @return integer 
+     * @return integer
      */
     public function getTtl()
     {
@@ -225,20 +222,20 @@ class VBulletinRssFeed
     /**
      * Set maxresults
      *
-     * @param integer $maxresults
+     * @param  integer          $maxresults
      * @return VBulletinRssFeed
      */
     public function setMaxresults($maxresults)
     {
         $this->maxresults = $maxresults;
-    
+
         return $this;
     }
 
     /**
      * Get maxresults
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxresults()
     {
@@ -248,20 +245,20 @@ class VBulletinRssFeed
     /**
      * Set userid
      *
-     * @param integer $userid
+     * @param  integer          $userid
      * @return VBulletinRssFeed
      */
     public function setUserid($userid)
     {
         $this->userid = $userid;
-    
+
         return $this;
     }
 
     /**
      * Get userid
      *
-     * @return integer 
+     * @return integer
      */
     public function getUserid()
     {
@@ -271,20 +268,20 @@ class VBulletinRssFeed
     /**
      * Set forumid
      *
-     * @param integer $forumid
+     * @param  integer          $forumid
      * @return VBulletinRssFeed
      */
     public function setForumid($forumid)
     {
         $this->forumid = $forumid;
-    
+
         return $this;
     }
 
     /**
      * Get forumid
      *
-     * @return integer 
+     * @return integer
      */
     public function getForumid()
     {
@@ -294,20 +291,20 @@ class VBulletinRssFeed
     /**
      * Set prefixid
      *
-     * @param string $prefixid
+     * @param  string           $prefixid
      * @return VBulletinRssFeed
      */
     public function setPrefixid($prefixid)
     {
         $this->prefixid = $prefixid;
-    
+
         return $this;
     }
 
     /**
      * Get prefixid
      *
-     * @return string 
+     * @return string
      */
     public function getPrefixid()
     {
@@ -317,20 +314,20 @@ class VBulletinRssFeed
     /**
      * Set iconid
      *
-     * @param integer $iconid
+     * @param  integer          $iconid
      * @return VBulletinRssFeed
      */
     public function setIconid($iconid)
     {
         $this->iconid = $iconid;
-    
+
         return $this;
     }
 
     /**
      * Get iconid
      *
-     * @return integer 
+     * @return integer
      */
     public function getIconid()
     {
@@ -340,20 +337,20 @@ class VBulletinRssFeed
     /**
      * Set titletemplate
      *
-     * @param string $titletemplate
+     * @param  string           $titletemplate
      * @return VBulletinRssFeed
      */
     public function setTitletemplate($titletemplate)
     {
         $this->titletemplate = $titletemplate;
-    
+
         return $this;
     }
 
     /**
      * Get titletemplate
      *
-     * @return string 
+     * @return string
      */
     public function getTitletemplate()
     {
@@ -363,20 +360,20 @@ class VBulletinRssFeed
     /**
      * Set bodytemplate
      *
-     * @param string $bodytemplate
+     * @param  string           $bodytemplate
      * @return VBulletinRssFeed
      */
     public function setBodytemplate($bodytemplate)
     {
         $this->bodytemplate = $bodytemplate;
-    
+
         return $this;
     }
 
     /**
      * Get bodytemplate
      *
-     * @return string 
+     * @return string
      */
     public function getBodytemplate()
     {
@@ -386,20 +383,20 @@ class VBulletinRssFeed
     /**
      * Set searchwords
      *
-     * @param string $searchwords
+     * @param  string           $searchwords
      * @return VBulletinRssFeed
      */
     public function setSearchwords($searchwords)
     {
         $this->searchwords = $searchwords;
-    
+
         return $this;
     }
 
     /**
      * Get searchwords
      *
-     * @return string 
+     * @return string
      */
     public function getSearchwords()
     {
@@ -409,20 +406,20 @@ class VBulletinRssFeed
     /**
      * Set itemtype
      *
-     * @param string $itemtype
+     * @param  string           $itemtype
      * @return VBulletinRssFeed
      */
     public function setItemtype($itemtype)
     {
         $this->itemtype = $itemtype;
-    
+
         return $this;
     }
 
     /**
      * Get itemtype
      *
-     * @return string 
+     * @return string
      */
     public function getItemtype()
     {
@@ -432,20 +429,20 @@ class VBulletinRssFeed
     /**
      * Set threadactiondelay
      *
-     * @param integer $threadactiondelay
+     * @param  integer          $threadactiondelay
      * @return VBulletinRssFeed
      */
     public function setThreadactiondelay($threadactiondelay)
     {
         $this->threadactiondelay = $threadactiondelay;
-    
+
         return $this;
     }
 
     /**
      * Get threadactiondelay
      *
-     * @return integer 
+     * @return integer
      */
     public function getThreadactiondelay()
     {
@@ -455,20 +452,20 @@ class VBulletinRssFeed
     /**
      * Set endannouncement
      *
-     * @param integer $endannouncement
+     * @param  integer          $endannouncement
      * @return VBulletinRssFeed
      */
     public function setEndannouncement($endannouncement)
     {
         $this->endannouncement = $endannouncement;
-    
+
         return $this;
     }
 
     /**
      * Get endannouncement
      *
-     * @return integer 
+     * @return integer
      */
     public function getEndannouncement()
     {
@@ -478,20 +475,20 @@ class VBulletinRssFeed
     /**
      * Set options
      *
-     * @param integer $options
+     * @param  integer          $options
      * @return VBulletinRssFeed
      */
     public function setOptions($options)
     {
         $this->options = $options;
-    
+
         return $this;
     }
 
     /**
      * Get options
      *
-     * @return integer 
+     * @return integer
      */
     public function getOptions()
     {
@@ -501,20 +498,20 @@ class VBulletinRssFeed
     /**
      * Set lastrun
      *
-     * @param integer $lastrun
+     * @param  integer          $lastrun
      * @return VBulletinRssFeed
      */
     public function setLastrun($lastrun)
     {
         $this->lastrun = $lastrun;
-    
+
         return $this;
     }
 
     /**
      * Get lastrun
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastrun()
     {
@@ -524,20 +521,20 @@ class VBulletinRssFeed
     /**
      * Set threadid
      *
-     * @param integer $threadid
+     * @param  integer          $threadid
      * @return VBulletinRssFeed
      */
     public function setThreadid($threadid)
     {
         $this->threadid = $threadid;
-    
+
         return $this;
     }
 
     /**
      * Get threadid
      *
-     * @return integer 
+     * @return integer
      */
     public function getThreadid()
     {
@@ -547,20 +544,20 @@ class VBulletinRssFeed
     /**
      * Set tuMaxtime
      *
-     * @param integer $tuMaxtime
+     * @param  integer          $tuMaxtime
      * @return VBulletinRssFeed
      */
     public function setTuMaxtime($tuMaxtime)
     {
         $this->tuMaxtime = $tuMaxtime;
-    
+
         return $this;
     }
 
     /**
      * Get tuMaxtime
      *
-     * @return integer 
+     * @return integer
      */
     public function getTuMaxtime()
     {
@@ -570,20 +567,20 @@ class VBulletinRssFeed
     /**
      * Set tuReason
      *
-     * @param string $tuReason
+     * @param  string           $tuReason
      * @return VBulletinRssFeed
      */
     public function setTuReason($tuReason)
     {
         $this->tuReason = $tuReason;
-    
+
         return $this;
     }
 
     /**
      * Get tuReason
      *
-     * @return string 
+     * @return string
      */
     public function getTuReason()
     {
@@ -593,20 +590,20 @@ class VBulletinRssFeed
     /**
      * Set tuHs
      *
-     * @param string $tuHs
+     * @param  string           $tuHs
      * @return VBulletinRssFeed
      */
     public function setTuHs($tuHs)
     {
         $this->tuHs = $tuHs;
-    
+
         return $this;
     }
 
     /**
      * Get tuHs
      *
-     * @return string 
+     * @return string
      */
     public function getTuHs()
     {
@@ -616,20 +613,20 @@ class VBulletinRssFeed
     /**
      * Set tuHe
      *
-     * @param string $tuHe
+     * @param  string           $tuHe
      * @return VBulletinRssFeed
      */
     public function setTuHe($tuHe)
     {
         $this->tuHe = $tuHe;
-    
+
         return $this;
     }
 
     /**
      * Get tuHe
      *
-     * @return string 
+     * @return string
      */
     public function getTuHe()
     {
@@ -639,20 +636,20 @@ class VBulletinRssFeed
     /**
      * Set sntaXP
      *
-     * @param integer $sntaXP
+     * @param  integer          $sntaXP
      * @return VBulletinRssFeed
      */
     public function setSntaXP($sntaXP)
     {
         $this->sntaXP = $sntaXP;
-    
+
         return $this;
     }
 
     /**
      * Get sntaXP
      *
-     * @return integer 
+     * @return integer
      */
     public function getSntaXP()
     {
@@ -662,7 +659,7 @@ class VBulletinRssFeed
     /**
      * Get rssfeedid
      *
-     * @return integer 
+     * @return integer
      */
     public function getRssfeedid()
     {

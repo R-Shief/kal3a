@@ -2,8 +2,6 @@
 
 namespace Rshief\MigrationBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * VBulletinUser
  */
@@ -381,24 +379,24 @@ class VBulletinUser
     {
         $this->thePosts = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Set usergroupid
      *
-     * @param integer $usergroupid
+     * @param  integer       $usergroupid
      * @return VBulletinUser
      */
     public function setUsergroupid($usergroupid)
     {
         $this->usergroupid = $usergroupid;
-    
+
         return $this;
     }
 
     /**
      * Get usergroupid
      *
-     * @return integer 
+     * @return integer
      */
     public function getUsergroupid()
     {
@@ -408,20 +406,20 @@ class VBulletinUser
     /**
      * Set membergroupids
      *
-     * @param string $membergroupids
+     * @param  string        $membergroupids
      * @return VBulletinUser
      */
     public function setMembergroupids($membergroupids)
     {
         $this->membergroupids = $membergroupids;
-    
+
         return $this;
     }
 
     /**
      * Get membergroupids
      *
-     * @return string 
+     * @return string
      */
     public function getMembergroupids()
     {
@@ -431,20 +429,20 @@ class VBulletinUser
     /**
      * Set displaygroupid
      *
-     * @param integer $displaygroupid
+     * @param  integer       $displaygroupid
      * @return VBulletinUser
      */
     public function setDisplaygroupid($displaygroupid)
     {
         $this->displaygroupid = $displaygroupid;
-    
+
         return $this;
     }
 
     /**
      * Get displaygroupid
      *
-     * @return integer 
+     * @return integer
      */
     public function getDisplaygroupid()
     {
@@ -454,20 +452,20 @@ class VBulletinUser
     /**
      * Set username
      *
-     * @param string $username
+     * @param  string        $username
      * @return VBulletinUser
      */
     public function setUsername($username)
     {
         $this->username = $username;
-    
+
         return $this;
     }
 
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
@@ -477,20 +475,20 @@ class VBulletinUser
     /**
      * Set password
      *
-     * @param string $password
+     * @param  string        $password
      * @return VBulletinUser
      */
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -500,20 +498,20 @@ class VBulletinUser
     /**
      * Set passworddate
      *
-     * @param \DateTime $passworddate
+     * @param  \DateTime     $passworddate
      * @return VBulletinUser
      */
     public function setPassworddate($passworddate)
     {
         $this->passworddate = $passworddate;
-    
+
         return $this;
     }
 
     /**
      * Get passworddate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPassworddate()
     {
@@ -523,20 +521,20 @@ class VBulletinUser
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string        $email
      * @return VBulletinUser
      */
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -546,20 +544,20 @@ class VBulletinUser
     /**
      * Set styleid
      *
-     * @param integer $styleid
+     * @param  integer       $styleid
      * @return VBulletinUser
      */
     public function setStyleid($styleid)
     {
         $this->styleid = $styleid;
-    
+
         return $this;
     }
 
     /**
      * Get styleid
      *
-     * @return integer 
+     * @return integer
      */
     public function getStyleid()
     {
@@ -569,20 +567,20 @@ class VBulletinUser
     /**
      * Set parentemail
      *
-     * @param string $parentemail
+     * @param  string        $parentemail
      * @return VBulletinUser
      */
     public function setParentemail($parentemail)
     {
         $this->parentemail = $parentemail;
-    
+
         return $this;
     }
 
     /**
      * Get parentemail
      *
-     * @return string 
+     * @return string
      */
     public function getParentemail()
     {
@@ -592,20 +590,20 @@ class VBulletinUser
     /**
      * Set homepage
      *
-     * @param string $homepage
+     * @param  string        $homepage
      * @return VBulletinUser
      */
     public function setHomepage($homepage)
     {
         $this->homepage = $homepage;
-    
+
         return $this;
     }
 
     /**
      * Get homepage
      *
-     * @return string 
+     * @return string
      */
     public function getHomepage()
     {
@@ -615,20 +613,20 @@ class VBulletinUser
     /**
      * Set icq
      *
-     * @param string $icq
+     * @param  string        $icq
      * @return VBulletinUser
      */
     public function setIcq($icq)
     {
         $this->icq = $icq;
-    
+
         return $this;
     }
 
     /**
      * Get icq
      *
-     * @return string 
+     * @return string
      */
     public function getIcq()
     {
@@ -638,20 +636,20 @@ class VBulletinUser
     /**
      * Set aim
      *
-     * @param string $aim
+     * @param  string        $aim
      * @return VBulletinUser
      */
     public function setAim($aim)
     {
         $this->aim = $aim;
-    
+
         return $this;
     }
 
     /**
      * Get aim
      *
-     * @return string 
+     * @return string
      */
     public function getAim()
     {
@@ -661,20 +659,20 @@ class VBulletinUser
     /**
      * Set yahoo
      *
-     * @param string $yahoo
+     * @param  string        $yahoo
      * @return VBulletinUser
      */
     public function setYahoo($yahoo)
     {
         $this->yahoo = $yahoo;
-    
+
         return $this;
     }
 
     /**
      * Get yahoo
      *
-     * @return string 
+     * @return string
      */
     public function getYahoo()
     {
@@ -684,20 +682,20 @@ class VBulletinUser
     /**
      * Set msn
      *
-     * @param string $msn
+     * @param  string        $msn
      * @return VBulletinUser
      */
     public function setMsn($msn)
     {
         $this->msn = $msn;
-    
+
         return $this;
     }
 
     /**
      * Get msn
      *
-     * @return string 
+     * @return string
      */
     public function getMsn()
     {
@@ -707,20 +705,20 @@ class VBulletinUser
     /**
      * Set skype
      *
-     * @param string $skype
+     * @param  string        $skype
      * @return VBulletinUser
      */
     public function setSkype($skype)
     {
         $this->skype = $skype;
-    
+
         return $this;
     }
 
     /**
      * Get skype
      *
-     * @return string 
+     * @return string
      */
     public function getSkype()
     {
@@ -730,20 +728,20 @@ class VBulletinUser
     /**
      * Set showvbcode
      *
-     * @param integer $showvbcode
+     * @param  integer       $showvbcode
      * @return VBulletinUser
      */
     public function setShowvbcode($showvbcode)
     {
         $this->showvbcode = $showvbcode;
-    
+
         return $this;
     }
 
     /**
      * Get showvbcode
      *
-     * @return integer 
+     * @return integer
      */
     public function getShowvbcode()
     {
@@ -753,20 +751,20 @@ class VBulletinUser
     /**
      * Set showbirthday
      *
-     * @param integer $showbirthday
+     * @param  integer       $showbirthday
      * @return VBulletinUser
      */
     public function setShowbirthday($showbirthday)
     {
         $this->showbirthday = $showbirthday;
-    
+
         return $this;
     }
 
     /**
      * Get showbirthday
      *
-     * @return integer 
+     * @return integer
      */
     public function getShowbirthday()
     {
@@ -776,20 +774,20 @@ class VBulletinUser
     /**
      * Set usertitle
      *
-     * @param string $usertitle
+     * @param  string        $usertitle
      * @return VBulletinUser
      */
     public function setUsertitle($usertitle)
     {
         $this->usertitle = $usertitle;
-    
+
         return $this;
     }
 
     /**
      * Get usertitle
      *
-     * @return string 
+     * @return string
      */
     public function getUsertitle()
     {
@@ -799,20 +797,20 @@ class VBulletinUser
     /**
      * Set customtitle
      *
-     * @param integer $customtitle
+     * @param  integer       $customtitle
      * @return VBulletinUser
      */
     public function setCustomtitle($customtitle)
     {
         $this->customtitle = $customtitle;
-    
+
         return $this;
     }
 
     /**
      * Get customtitle
      *
-     * @return integer 
+     * @return integer
      */
     public function getCustomtitle()
     {
@@ -822,20 +820,20 @@ class VBulletinUser
     /**
      * Set joindate
      *
-     * @param integer $joindate
+     * @param  integer       $joindate
      * @return VBulletinUser
      */
     public function setJoindate($joindate)
     {
         $this->joindate = $joindate;
-    
+
         return $this;
     }
 
     /**
      * Get joindate
      *
-     * @return integer 
+     * @return integer
      */
     public function getJoindate()
     {
@@ -845,20 +843,20 @@ class VBulletinUser
     /**
      * Set daysprune
      *
-     * @param integer $daysprune
+     * @param  integer       $daysprune
      * @return VBulletinUser
      */
     public function setDaysprune($daysprune)
     {
         $this->daysprune = $daysprune;
-    
+
         return $this;
     }
 
     /**
      * Get daysprune
      *
-     * @return integer 
+     * @return integer
      */
     public function getDaysprune()
     {
@@ -868,20 +866,20 @@ class VBulletinUser
     /**
      * Set lastvisit
      *
-     * @param integer $lastvisit
+     * @param  integer       $lastvisit
      * @return VBulletinUser
      */
     public function setLastvisit($lastvisit)
     {
         $this->lastvisit = $lastvisit;
-    
+
         return $this;
     }
 
     /**
      * Get lastvisit
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastvisit()
     {
@@ -891,20 +889,20 @@ class VBulletinUser
     /**
      * Set lastactivity
      *
-     * @param integer $lastactivity
+     * @param  integer       $lastactivity
      * @return VBulletinUser
      */
     public function setLastactivity($lastactivity)
     {
         $this->lastactivity = $lastactivity;
-    
+
         return $this;
     }
 
     /**
      * Get lastactivity
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastactivity()
     {
@@ -914,20 +912,20 @@ class VBulletinUser
     /**
      * Set lastpost
      *
-     * @param integer $lastpost
+     * @param  integer       $lastpost
      * @return VBulletinUser
      */
     public function setLastpost($lastpost)
     {
         $this->lastpost = $lastpost;
-    
+
         return $this;
     }
 
     /**
      * Get lastpost
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastpost()
     {
@@ -937,20 +935,20 @@ class VBulletinUser
     /**
      * Set lastpostid
      *
-     * @param integer $lastpostid
+     * @param  integer       $lastpostid
      * @return VBulletinUser
      */
     public function setLastpostid($lastpostid)
     {
         $this->lastpostid = $lastpostid;
-    
+
         return $this;
     }
 
     /**
      * Get lastpostid
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastpostid()
     {
@@ -960,20 +958,20 @@ class VBulletinUser
     /**
      * Set posts
      *
-     * @param integer $posts
+     * @param  integer       $posts
      * @return VBulletinUser
      */
     public function setPosts($posts)
     {
         $this->posts = $posts;
-    
+
         return $this;
     }
 
     /**
      * Get posts
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosts()
     {
@@ -983,20 +981,20 @@ class VBulletinUser
     /**
      * Set reputation
      *
-     * @param integer $reputation
+     * @param  integer       $reputation
      * @return VBulletinUser
      */
     public function setReputation($reputation)
     {
         $this->reputation = $reputation;
-    
+
         return $this;
     }
 
     /**
      * Get reputation
      *
-     * @return integer 
+     * @return integer
      */
     public function getReputation()
     {
@@ -1006,20 +1004,20 @@ class VBulletinUser
     /**
      * Set reputationlevelid
      *
-     * @param integer $reputationlevelid
+     * @param  integer       $reputationlevelid
      * @return VBulletinUser
      */
     public function setReputationlevelid($reputationlevelid)
     {
         $this->reputationlevelid = $reputationlevelid;
-    
+
         return $this;
     }
 
     /**
      * Get reputationlevelid
      *
-     * @return integer 
+     * @return integer
      */
     public function getReputationlevelid()
     {
@@ -1029,20 +1027,20 @@ class VBulletinUser
     /**
      * Set timezoneoffset
      *
-     * @param string $timezoneoffset
+     * @param  string        $timezoneoffset
      * @return VBulletinUser
      */
     public function setTimezoneoffset($timezoneoffset)
     {
         $this->timezoneoffset = $timezoneoffset;
-    
+
         return $this;
     }
 
     /**
      * Get timezoneoffset
      *
-     * @return string 
+     * @return string
      */
     public function getTimezoneoffset()
     {
@@ -1052,20 +1050,20 @@ class VBulletinUser
     /**
      * Set pmpopup
      *
-     * @param integer $pmpopup
+     * @param  integer       $pmpopup
      * @return VBulletinUser
      */
     public function setPmpopup($pmpopup)
     {
         $this->pmpopup = $pmpopup;
-    
+
         return $this;
     }
 
     /**
      * Get pmpopup
      *
-     * @return integer 
+     * @return integer
      */
     public function getPmpopup()
     {
@@ -1075,20 +1073,20 @@ class VBulletinUser
     /**
      * Set avatarid
      *
-     * @param integer $avatarid
+     * @param  integer       $avatarid
      * @return VBulletinUser
      */
     public function setAvatarid($avatarid)
     {
         $this->avatarid = $avatarid;
-    
+
         return $this;
     }
 
     /**
      * Get avatarid
      *
-     * @return integer 
+     * @return integer
      */
     public function getAvatarid()
     {
@@ -1098,20 +1096,20 @@ class VBulletinUser
     /**
      * Set avatarrevision
      *
-     * @param integer $avatarrevision
+     * @param  integer       $avatarrevision
      * @return VBulletinUser
      */
     public function setAvatarrevision($avatarrevision)
     {
         $this->avatarrevision = $avatarrevision;
-    
+
         return $this;
     }
 
     /**
      * Get avatarrevision
      *
-     * @return integer 
+     * @return integer
      */
     public function getAvatarrevision()
     {
@@ -1121,20 +1119,20 @@ class VBulletinUser
     /**
      * Set profilepicrevision
      *
-     * @param integer $profilepicrevision
+     * @param  integer       $profilepicrevision
      * @return VBulletinUser
      */
     public function setProfilepicrevision($profilepicrevision)
     {
         $this->profilepicrevision = $profilepicrevision;
-    
+
         return $this;
     }
 
     /**
      * Get profilepicrevision
      *
-     * @return integer 
+     * @return integer
      */
     public function getProfilepicrevision()
     {
@@ -1144,20 +1142,20 @@ class VBulletinUser
     /**
      * Set sigpicrevision
      *
-     * @param integer $sigpicrevision
+     * @param  integer       $sigpicrevision
      * @return VBulletinUser
      */
     public function setSigpicrevision($sigpicrevision)
     {
         $this->sigpicrevision = $sigpicrevision;
-    
+
         return $this;
     }
 
     /**
      * Get sigpicrevision
      *
-     * @return integer 
+     * @return integer
      */
     public function getSigpicrevision()
     {
@@ -1167,20 +1165,20 @@ class VBulletinUser
     /**
      * Set options
      *
-     * @param integer $options
+     * @param  integer       $options
      * @return VBulletinUser
      */
     public function setOptions($options)
     {
         $this->options = $options;
-    
+
         return $this;
     }
 
     /**
      * Get options
      *
-     * @return integer 
+     * @return integer
      */
     public function getOptions()
     {
@@ -1190,20 +1188,20 @@ class VBulletinUser
     /**
      * Set akvbghsfsOptionsfield
      *
-     * @param integer $akvbghsfsOptionsfield
+     * @param  integer       $akvbghsfsOptionsfield
      * @return VBulletinUser
      */
     public function setAkvbghsfsOptionsfield($akvbghsfsOptionsfield)
     {
         $this->akvbghsfsOptionsfield = $akvbghsfsOptionsfield;
-    
+
         return $this;
     }
 
     /**
      * Get akvbghsfsOptionsfield
      *
-     * @return integer 
+     * @return integer
      */
     public function getAkvbghsfsOptionsfield()
     {
@@ -1213,20 +1211,20 @@ class VBulletinUser
     /**
      * Set birthday
      *
-     * @param string $birthday
+     * @param  string        $birthday
      * @return VBulletinUser
      */
     public function setBirthday($birthday)
     {
         $this->birthday = $birthday;
-    
+
         return $this;
     }
 
     /**
      * Get birthday
      *
-     * @return string 
+     * @return string
      */
     public function getBirthday()
     {
@@ -1236,20 +1234,20 @@ class VBulletinUser
     /**
      * Set birthdaySearch
      *
-     * @param \DateTime $birthdaySearch
+     * @param  \DateTime     $birthdaySearch
      * @return VBulletinUser
      */
     public function setBirthdaySearch($birthdaySearch)
     {
         $this->birthdaySearch = $birthdaySearch;
-    
+
         return $this;
     }
 
     /**
      * Get birthdaySearch
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBirthdaySearch()
     {
@@ -1259,20 +1257,20 @@ class VBulletinUser
     /**
      * Set maxposts
      *
-     * @param integer $maxposts
+     * @param  integer       $maxposts
      * @return VBulletinUser
      */
     public function setMaxposts($maxposts)
     {
         $this->maxposts = $maxposts;
-    
+
         return $this;
     }
 
     /**
      * Get maxposts
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxposts()
     {
@@ -1282,20 +1280,20 @@ class VBulletinUser
     /**
      * Set startofweek
      *
-     * @param integer $startofweek
+     * @param  integer       $startofweek
      * @return VBulletinUser
      */
     public function setStartofweek($startofweek)
     {
         $this->startofweek = $startofweek;
-    
+
         return $this;
     }
 
     /**
      * Get startofweek
      *
-     * @return integer 
+     * @return integer
      */
     public function getStartofweek()
     {
@@ -1305,20 +1303,20 @@ class VBulletinUser
     /**
      * Set ipaddress
      *
-     * @param string $ipaddress
+     * @param  string        $ipaddress
      * @return VBulletinUser
      */
     public function setIpaddress($ipaddress)
     {
         $this->ipaddress = $ipaddress;
-    
+
         return $this;
     }
 
     /**
      * Get ipaddress
      *
-     * @return string 
+     * @return string
      */
     public function getIpaddress()
     {
@@ -1328,20 +1326,20 @@ class VBulletinUser
     /**
      * Set referrerid
      *
-     * @param integer $referrerid
+     * @param  integer       $referrerid
      * @return VBulletinUser
      */
     public function setReferrerid($referrerid)
     {
         $this->referrerid = $referrerid;
-    
+
         return $this;
     }
 
     /**
      * Get referrerid
      *
-     * @return integer 
+     * @return integer
      */
     public function getReferrerid()
     {
@@ -1351,20 +1349,20 @@ class VBulletinUser
     /**
      * Set languageid
      *
-     * @param integer $languageid
+     * @param  integer       $languageid
      * @return VBulletinUser
      */
     public function setLanguageid($languageid)
     {
         $this->languageid = $languageid;
-    
+
         return $this;
     }
 
     /**
      * Get languageid
      *
-     * @return integer 
+     * @return integer
      */
     public function getLanguageid()
     {
@@ -1374,20 +1372,20 @@ class VBulletinUser
     /**
      * Set emailstamp
      *
-     * @param integer $emailstamp
+     * @param  integer       $emailstamp
      * @return VBulletinUser
      */
     public function setEmailstamp($emailstamp)
     {
         $this->emailstamp = $emailstamp;
-    
+
         return $this;
     }
 
     /**
      * Get emailstamp
      *
-     * @return integer 
+     * @return integer
      */
     public function getEmailstamp()
     {
@@ -1397,20 +1395,20 @@ class VBulletinUser
     /**
      * Set threadedmode
      *
-     * @param integer $threadedmode
+     * @param  integer       $threadedmode
      * @return VBulletinUser
      */
     public function setThreadedmode($threadedmode)
     {
         $this->threadedmode = $threadedmode;
-    
+
         return $this;
     }
 
     /**
      * Get threadedmode
      *
-     * @return integer 
+     * @return integer
      */
     public function getThreadedmode()
     {
@@ -1420,20 +1418,20 @@ class VBulletinUser
     /**
      * Set autosubscribe
      *
-     * @param integer $autosubscribe
+     * @param  integer       $autosubscribe
      * @return VBulletinUser
      */
     public function setAutosubscribe($autosubscribe)
     {
         $this->autosubscribe = $autosubscribe;
-    
+
         return $this;
     }
 
     /**
      * Get autosubscribe
      *
-     * @return integer 
+     * @return integer
      */
     public function getAutosubscribe()
     {
@@ -1443,20 +1441,20 @@ class VBulletinUser
     /**
      * Set pmtotal
      *
-     * @param integer $pmtotal
+     * @param  integer       $pmtotal
      * @return VBulletinUser
      */
     public function setPmtotal($pmtotal)
     {
         $this->pmtotal = $pmtotal;
-    
+
         return $this;
     }
 
     /**
      * Get pmtotal
      *
-     * @return integer 
+     * @return integer
      */
     public function getPmtotal()
     {
@@ -1466,20 +1464,20 @@ class VBulletinUser
     /**
      * Set pmunread
      *
-     * @param integer $pmunread
+     * @param  integer       $pmunread
      * @return VBulletinUser
      */
     public function setPmunread($pmunread)
     {
         $this->pmunread = $pmunread;
-    
+
         return $this;
     }
 
     /**
      * Get pmunread
      *
-     * @return integer 
+     * @return integer
      */
     public function getPmunread()
     {
@@ -1489,20 +1487,20 @@ class VBulletinUser
     /**
      * Set salt
      *
-     * @param string $salt
+     * @param  string        $salt
      * @return VBulletinUser
      */
     public function setSalt($salt)
     {
         $this->salt = $salt;
-    
+
         return $this;
     }
 
     /**
      * Get salt
      *
-     * @return string 
+     * @return string
      */
     public function getSalt()
     {
@@ -1512,20 +1510,20 @@ class VBulletinUser
     /**
      * Set ipoints
      *
-     * @param integer $ipoints
+     * @param  integer       $ipoints
      * @return VBulletinUser
      */
     public function setIpoints($ipoints)
     {
         $this->ipoints = $ipoints;
-    
+
         return $this;
     }
 
     /**
      * Get ipoints
      *
-     * @return integer 
+     * @return integer
      */
     public function getIpoints()
     {
@@ -1535,20 +1533,20 @@ class VBulletinUser
     /**
      * Set infractions
      *
-     * @param integer $infractions
+     * @param  integer       $infractions
      * @return VBulletinUser
      */
     public function setInfractions($infractions)
     {
         $this->infractions = $infractions;
-    
+
         return $this;
     }
 
     /**
      * Get infractions
      *
-     * @return integer 
+     * @return integer
      */
     public function getInfractions()
     {
@@ -1558,20 +1556,20 @@ class VBulletinUser
     /**
      * Set warnings
      *
-     * @param integer $warnings
+     * @param  integer       $warnings
      * @return VBulletinUser
      */
     public function setWarnings($warnings)
     {
         $this->warnings = $warnings;
-    
+
         return $this;
     }
 
     /**
      * Get warnings
      *
-     * @return integer 
+     * @return integer
      */
     public function getWarnings()
     {
@@ -1581,20 +1579,20 @@ class VBulletinUser
     /**
      * Set infractiongroupids
      *
-     * @param string $infractiongroupids
+     * @param  string        $infractiongroupids
      * @return VBulletinUser
      */
     public function setInfractiongroupids($infractiongroupids)
     {
         $this->infractiongroupids = $infractiongroupids;
-    
+
         return $this;
     }
 
     /**
      * Get infractiongroupids
      *
-     * @return string 
+     * @return string
      */
     public function getInfractiongroupids()
     {
@@ -1604,20 +1602,20 @@ class VBulletinUser
     /**
      * Set infractiongroupid
      *
-     * @param integer $infractiongroupid
+     * @param  integer       $infractiongroupid
      * @return VBulletinUser
      */
     public function setInfractiongroupid($infractiongroupid)
     {
         $this->infractiongroupid = $infractiongroupid;
-    
+
         return $this;
     }
 
     /**
      * Get infractiongroupid
      *
-     * @return integer 
+     * @return integer
      */
     public function getInfractiongroupid()
     {
@@ -1627,20 +1625,20 @@ class VBulletinUser
     /**
      * Set adminoptions
      *
-     * @param integer $adminoptions
+     * @param  integer       $adminoptions
      * @return VBulletinUser
      */
     public function setAdminoptions($adminoptions)
     {
         $this->adminoptions = $adminoptions;
-    
+
         return $this;
     }
 
     /**
      * Get adminoptions
      *
-     * @return integer 
+     * @return integer
      */
     public function getAdminoptions()
     {
@@ -1650,20 +1648,20 @@ class VBulletinUser
     /**
      * Set profilevisits
      *
-     * @param integer $profilevisits
+     * @param  integer       $profilevisits
      * @return VBulletinUser
      */
     public function setProfilevisits($profilevisits)
     {
         $this->profilevisits = $profilevisits;
-    
+
         return $this;
     }
 
     /**
      * Get profilevisits
      *
-     * @return integer 
+     * @return integer
      */
     public function getProfilevisits()
     {
@@ -1673,20 +1671,20 @@ class VBulletinUser
     /**
      * Set friendcount
      *
-     * @param integer $friendcount
+     * @param  integer       $friendcount
      * @return VBulletinUser
      */
     public function setFriendcount($friendcount)
     {
         $this->friendcount = $friendcount;
-    
+
         return $this;
     }
 
     /**
      * Get friendcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getFriendcount()
     {
@@ -1696,20 +1694,20 @@ class VBulletinUser
     /**
      * Set friendreqcount
      *
-     * @param integer $friendreqcount
+     * @param  integer       $friendreqcount
      * @return VBulletinUser
      */
     public function setFriendreqcount($friendreqcount)
     {
         $this->friendreqcount = $friendreqcount;
-    
+
         return $this;
     }
 
     /**
      * Get friendreqcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getFriendreqcount()
     {
@@ -1719,20 +1717,20 @@ class VBulletinUser
     /**
      * Set vmunreadcount
      *
-     * @param integer $vmunreadcount
+     * @param  integer       $vmunreadcount
      * @return VBulletinUser
      */
     public function setVmunreadcount($vmunreadcount)
     {
         $this->vmunreadcount = $vmunreadcount;
-    
+
         return $this;
     }
 
     /**
      * Get vmunreadcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getVmunreadcount()
     {
@@ -1742,20 +1740,20 @@ class VBulletinUser
     /**
      * Set vmmoderatedcount
      *
-     * @param integer $vmmoderatedcount
+     * @param  integer       $vmmoderatedcount
      * @return VBulletinUser
      */
     public function setVmmoderatedcount($vmmoderatedcount)
     {
         $this->vmmoderatedcount = $vmmoderatedcount;
-    
+
         return $this;
     }
 
     /**
      * Get vmmoderatedcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getVmmoderatedcount()
     {
@@ -1765,20 +1763,20 @@ class VBulletinUser
     /**
      * Set socgroupinvitecount
      *
-     * @param integer $socgroupinvitecount
+     * @param  integer       $socgroupinvitecount
      * @return VBulletinUser
      */
     public function setSocgroupinvitecount($socgroupinvitecount)
     {
         $this->socgroupinvitecount = $socgroupinvitecount;
-    
+
         return $this;
     }
 
     /**
      * Get socgroupinvitecount
      *
-     * @return integer 
+     * @return integer
      */
     public function getSocgroupinvitecount()
     {
@@ -1788,20 +1786,20 @@ class VBulletinUser
     /**
      * Set socgroupreqcount
      *
-     * @param integer $socgroupreqcount
+     * @param  integer       $socgroupreqcount
      * @return VBulletinUser
      */
     public function setSocgroupreqcount($socgroupreqcount)
     {
         $this->socgroupreqcount = $socgroupreqcount;
-    
+
         return $this;
     }
 
     /**
      * Get socgroupreqcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getSocgroupreqcount()
     {
@@ -1811,20 +1809,20 @@ class VBulletinUser
     /**
      * Set pcunreadcount
      *
-     * @param integer $pcunreadcount
+     * @param  integer       $pcunreadcount
      * @return VBulletinUser
      */
     public function setPcunreadcount($pcunreadcount)
     {
         $this->pcunreadcount = $pcunreadcount;
-    
+
         return $this;
     }
 
     /**
      * Get pcunreadcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getPcunreadcount()
     {
@@ -1834,20 +1832,20 @@ class VBulletinUser
     /**
      * Set pcmoderatedcount
      *
-     * @param integer $pcmoderatedcount
+     * @param  integer       $pcmoderatedcount
      * @return VBulletinUser
      */
     public function setPcmoderatedcount($pcmoderatedcount)
     {
         $this->pcmoderatedcount = $pcmoderatedcount;
-    
+
         return $this;
     }
 
     /**
      * Get pcmoderatedcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getPcmoderatedcount()
     {
@@ -1857,20 +1855,20 @@ class VBulletinUser
     /**
      * Set gmmoderatedcount
      *
-     * @param integer $gmmoderatedcount
+     * @param  integer       $gmmoderatedcount
      * @return VBulletinUser
      */
     public function setGmmoderatedcount($gmmoderatedcount)
     {
         $this->gmmoderatedcount = $gmmoderatedcount;
-    
+
         return $this;
     }
 
     /**
      * Get gmmoderatedcount
      *
-     * @return integer 
+     * @return integer
      */
     public function getGmmoderatedcount()
     {
@@ -1880,20 +1878,20 @@ class VBulletinUser
     /**
      * Set vbseoLikesIn
      *
-     * @param integer $vbseoLikesIn
+     * @param  integer       $vbseoLikesIn
      * @return VBulletinUser
      */
     public function setVbseoLikesIn($vbseoLikesIn)
     {
         $this->vbseoLikesIn = $vbseoLikesIn;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoLikesIn
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoLikesIn()
     {
@@ -1903,20 +1901,20 @@ class VBulletinUser
     /**
      * Set vbseoLikesOut
      *
-     * @param integer $vbseoLikesOut
+     * @param  integer       $vbseoLikesOut
      * @return VBulletinUser
      */
     public function setVbseoLikesOut($vbseoLikesOut)
     {
         $this->vbseoLikesOut = $vbseoLikesOut;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoLikesOut
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoLikesOut()
     {
@@ -1926,20 +1924,20 @@ class VBulletinUser
     /**
      * Set vbseoLikesUnread
      *
-     * @param integer $vbseoLikesUnread
+     * @param  integer       $vbseoLikesUnread
      * @return VBulletinUser
      */
     public function setVbseoLikesUnread($vbseoLikesUnread)
     {
         $this->vbseoLikesUnread = $vbseoLikesUnread;
-    
+
         return $this;
     }
 
     /**
      * Get vbseoLikesUnread
      *
-     * @return integer 
+     * @return integer
      */
     public function getVbseoLikesUnread()
     {
@@ -1949,20 +1947,20 @@ class VBulletinUser
     /**
      * Set ncodeImageresizerMode
      *
-     * @param string $ncodeImageresizerMode
+     * @param  string        $ncodeImageresizerMode
      * @return VBulletinUser
      */
     public function setNcodeImageresizerMode($ncodeImageresizerMode)
     {
         $this->ncodeImageresizerMode = $ncodeImageresizerMode;
-    
+
         return $this;
     }
 
     /**
      * Get ncodeImageresizerMode
      *
-     * @return string 
+     * @return string
      */
     public function getNcodeImageresizerMode()
     {
@@ -1972,20 +1970,20 @@ class VBulletinUser
     /**
      * Set ncodeImageresizerMaxwidth
      *
-     * @param integer $ncodeImageresizerMaxwidth
+     * @param  integer       $ncodeImageresizerMaxwidth
      * @return VBulletinUser
      */
     public function setNcodeImageresizerMaxwidth($ncodeImageresizerMaxwidth)
     {
         $this->ncodeImageresizerMaxwidth = $ncodeImageresizerMaxwidth;
-    
+
         return $this;
     }
 
     /**
      * Get ncodeImageresizerMaxwidth
      *
-     * @return integer 
+     * @return integer
      */
     public function getNcodeImageresizerMaxwidth()
     {
@@ -1995,20 +1993,20 @@ class VBulletinUser
     /**
      * Set ncodeImageresizerMaxheight
      *
-     * @param integer $ncodeImageresizerMaxheight
+     * @param  integer       $ncodeImageresizerMaxheight
      * @return VBulletinUser
      */
     public function setNcodeImageresizerMaxheight($ncodeImageresizerMaxheight)
     {
         $this->ncodeImageresizerMaxheight = $ncodeImageresizerMaxheight;
-    
+
         return $this;
     }
 
     /**
      * Get ncodeImageresizerMaxheight
      *
-     * @return integer 
+     * @return integer
      */
     public function getNcodeImageresizerMaxheight()
     {
@@ -2018,7 +2016,7 @@ class VBulletinUser
     /**
      * Get userid
      *
-     * @return integer 
+     * @return integer
      */
     public function getUserid()
     {
@@ -2028,13 +2026,13 @@ class VBulletinUser
     /**
      * Add thePosts
      *
-     * @param \Rshief\MigrationBundle\Entity\VBulletinPost $thePosts
+     * @param  \Rshief\MigrationBundle\Entity\VBulletinPost $thePosts
      * @return VBulletinUser
      */
     public function addThePost(\Rshief\MigrationBundle\Entity\VBulletinPost $thePosts)
     {
         $this->thePosts[] = $thePosts;
-    
+
         return $this;
     }
 
@@ -2051,7 +2049,7 @@ class VBulletinUser
     /**
      * Get thePosts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getThePosts()
     {

@@ -2,8 +2,6 @@
 
 namespace Rshief\MigrationBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * VBulletinPost
  */
@@ -104,24 +102,23 @@ class VBulletinPost
      */
     private $user;
 
-
     /**
      * Set threadid
      *
-     * @param integer $threadid
+     * @param  integer       $threadid
      * @return VBulletinPost
      */
     public function setThreadid($threadid)
     {
         $this->threadid = $threadid;
-    
+
         return $this;
     }
 
     /**
      * Get threadid
      *
-     * @return integer 
+     * @return integer
      */
     public function getThreadid()
     {
@@ -131,20 +128,20 @@ class VBulletinPost
     /**
      * Set parentid
      *
-     * @param integer $parentid
+     * @param  integer       $parentid
      * @return VBulletinPost
      */
     public function setParentid($parentid)
     {
         $this->parentid = $parentid;
-    
+
         return $this;
     }
 
     /**
      * Get parentid
      *
-     * @return integer 
+     * @return integer
      */
     public function getParentid()
     {
@@ -154,20 +151,20 @@ class VBulletinPost
     /**
      * Set username
      *
-     * @param string $username
+     * @param  string        $username
      * @return VBulletinPost
      */
     public function setUsername($username)
     {
         $this->username = $username;
-    
+
         return $this;
     }
 
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
@@ -177,20 +174,20 @@ class VBulletinPost
     /**
      * Set userid
      *
-     * @param integer $userid
+     * @param  integer       $userid
      * @return VBulletinPost
      */
     public function setUserid($userid)
     {
         $this->userid = $userid;
-    
+
         return $this;
     }
 
     /**
      * Get userid
      *
-     * @return integer 
+     * @return integer
      */
     public function getUserid()
     {
@@ -200,20 +197,20 @@ class VBulletinPost
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string        $title
      * @return VBulletinPost
      */
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -223,20 +220,20 @@ class VBulletinPost
     /**
      * Set dateline
      *
-     * @param integer $dateline
+     * @param  integer       $dateline
      * @return VBulletinPost
      */
     public function setDateline($dateline)
     {
         $this->dateline = $dateline;
-    
+
         return $this;
     }
 
     /**
      * Get dateline
      *
-     * @return integer 
+     * @return integer
      */
     public function getDateline()
     {
@@ -246,20 +243,20 @@ class VBulletinPost
     /**
      * Set pagetext
      *
-     * @param string $pagetext
+     * @param  string        $pagetext
      * @return VBulletinPost
      */
     public function setPagetext($pagetext)
     {
         $this->pagetext = $pagetext;
-    
+
         return $this;
     }
 
     /**
      * Get pagetext
      *
-     * @return string 
+     * @return string
      */
     public function getPagetext()
     {
@@ -269,20 +266,20 @@ class VBulletinPost
     /**
      * Set allowsmilie
      *
-     * @param integer $allowsmilie
+     * @param  integer       $allowsmilie
      * @return VBulletinPost
      */
     public function setAllowsmilie($allowsmilie)
     {
         $this->allowsmilie = $allowsmilie;
-    
+
         return $this;
     }
 
     /**
      * Get allowsmilie
      *
-     * @return integer 
+     * @return integer
      */
     public function getAllowsmilie()
     {
@@ -292,20 +289,20 @@ class VBulletinPost
     /**
      * Set showsignature
      *
-     * @param integer $showsignature
+     * @param  integer       $showsignature
      * @return VBulletinPost
      */
     public function setShowsignature($showsignature)
     {
         $this->showsignature = $showsignature;
-    
+
         return $this;
     }
 
     /**
      * Get showsignature
      *
-     * @return integer 
+     * @return integer
      */
     public function getShowsignature()
     {
@@ -315,20 +312,20 @@ class VBulletinPost
     /**
      * Set ipaddress
      *
-     * @param string $ipaddress
+     * @param  string        $ipaddress
      * @return VBulletinPost
      */
     public function setIpaddress($ipaddress)
     {
         $this->ipaddress = $ipaddress;
-    
+
         return $this;
     }
 
     /**
      * Get ipaddress
      *
-     * @return string 
+     * @return string
      */
     public function getIpaddress()
     {
@@ -338,20 +335,20 @@ class VBulletinPost
     /**
      * Set iconid
      *
-     * @param integer $iconid
+     * @param  integer       $iconid
      * @return VBulletinPost
      */
     public function setIconid($iconid)
     {
         $this->iconid = $iconid;
-    
+
         return $this;
     }
 
     /**
      * Get iconid
      *
-     * @return integer 
+     * @return integer
      */
     public function getIconid()
     {
@@ -361,20 +358,20 @@ class VBulletinPost
     /**
      * Set visible
      *
-     * @param integer $visible
+     * @param  integer       $visible
      * @return VBulletinPost
      */
     public function setVisible($visible)
     {
         $this->visible = $visible;
-    
+
         return $this;
     }
 
     /**
      * Get visible
      *
-     * @return integer 
+     * @return integer
      */
     public function getVisible()
     {
@@ -384,20 +381,20 @@ class VBulletinPost
     /**
      * Set attach
      *
-     * @param integer $attach
+     * @param  integer       $attach
      * @return VBulletinPost
      */
     public function setAttach($attach)
     {
         $this->attach = $attach;
-    
+
         return $this;
     }
 
     /**
      * Get attach
      *
-     * @return integer 
+     * @return integer
      */
     public function getAttach()
     {
@@ -407,20 +404,20 @@ class VBulletinPost
     /**
      * Set infraction
      *
-     * @param integer $infraction
+     * @param  integer       $infraction
      * @return VBulletinPost
      */
     public function setInfraction($infraction)
     {
         $this->infraction = $infraction;
-    
+
         return $this;
     }
 
     /**
      * Get infraction
      *
-     * @return integer 
+     * @return integer
      */
     public function getInfraction()
     {
@@ -430,20 +427,20 @@ class VBulletinPost
     /**
      * Set reportthreadid
      *
-     * @param integer $reportthreadid
+     * @param  integer       $reportthreadid
      * @return VBulletinPost
      */
     public function setReportthreadid($reportthreadid)
     {
         $this->reportthreadid = $reportthreadid;
-    
+
         return $this;
     }
 
     /**
      * Get reportthreadid
      *
-     * @return integer 
+     * @return integer
      */
     public function getReportthreadid()
     {
@@ -453,20 +450,20 @@ class VBulletinPost
     /**
      * Set ameFlag
      *
-     * @param boolean $ameFlag
+     * @param  boolean       $ameFlag
      * @return VBulletinPost
      */
     public function setAmeFlag($ameFlag)
     {
         $this->ameFlag = $ameFlag;
-    
+
         return $this;
     }
 
     /**
      * Get ameFlag
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getAmeFlag()
     {
@@ -476,7 +473,7 @@ class VBulletinPost
     /**
      * Get postid
      *
-     * @return integer 
+     * @return integer
      */
     public function getPostid()
     {
@@ -486,20 +483,20 @@ class VBulletinPost
     /**
      * Set thread
      *
-     * @param \Rshief\MigrationBundle\Entity\VBulletinThread $thread
+     * @param  \Rshief\MigrationBundle\Entity\VBulletinThread $thread
      * @return VBulletinPost
      */
     public function setThread(\Rshief\MigrationBundle\Entity\VBulletinThread $thread = null)
     {
         $this->thread = $thread;
-    
+
         return $this;
     }
 
     /**
      * Get thread
      *
-     * @return \Rshief\MigrationBundle\Entity\VBulletinThread 
+     * @return \Rshief\MigrationBundle\Entity\VBulletinThread
      */
     public function getThread()
     {
@@ -509,20 +506,20 @@ class VBulletinPost
     /**
      * Set user
      *
-     * @param \Rshief\MigrationBundle\Entity\VBulletinUser $user
+     * @param  \Rshief\MigrationBundle\Entity\VBulletinUser $user
      * @return VBulletinPost
      */
     public function setUser(\Rshief\MigrationBundle\Entity\VBulletinUser $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Rshief\MigrationBundle\Entity\VBulletinUser 
+     * @return \Rshief\MigrationBundle\Entity\VBulletinUser
      */
     public function getUser()
     {

@@ -85,8 +85,8 @@ class TemplateDecompiler
     /**
      * Computes the regexp used to match a specific token. It can be static text or a subpattern.
      *
-     * @param array   $tokens        The route tokens
-     * @param integer $index         The index of the current token
+     * @param array   $tokens The route tokens
+     * @param integer $index  The index of the current token
      *
      * @return string The regexp pattern for a single token
      */
