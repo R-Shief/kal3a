@@ -15,7 +15,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model\Enum;
+namespace Bangpound\Atom\DataBundle\Model\Enum;
 
 /**
  * TextConstructType
@@ -26,7 +26,7 @@ namespace Bangpound\Atom\Model\Enum;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class TextConstructType extends \RobotSnowfall\Enum
+final class TextConstructType extends \RobotSnowfall\Enum
 {
 
     /**

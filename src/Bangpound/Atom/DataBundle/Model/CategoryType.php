@@ -25,7 +25,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
 
 /**
  * CategoryType
@@ -38,24 +38,72 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class CategoryType
+abstract class CategoryType
 {
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $term;
+    protected $term;
 
     /**
      * @var string (xs:anyURI)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $scheme;
+    protected $scheme;
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $label;
+    protected $label;
+
+    /**
+     * @return string
+     */
+    public function getTerm()
+    {
+        return $this->term;
+    }
+
+    /**
+     * @param string $term
+     */
+    public function setTerm($term)
+    {
+        $this->term = $term;
+    }
+
+    /**
+     * @return string
+     */
+    public function getScheme()
+    {
+        return $this->scheme;
+    }
+
+    /**
+     * @param string $scheme
+     */
+    public function setScheme($scheme)
+    {
+        $this->scheme = $scheme;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
 }

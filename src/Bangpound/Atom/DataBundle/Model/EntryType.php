@@ -25,7 +25,13 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
+
+use Bangpound\Atom\DataBundle\Model\SourceType;
+use Bangpound\Atom\DataBundle\Model\TextType;
+use Bangpound\Atom\Model\ContentType;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ODM\CouchDB\Types\DateTimeType;
 
 /**
  * EntryType
@@ -38,115 +44,71 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class EntryType
+abstract class EntryType
 {
-
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    private $dauthor;
-
-    /**
-     * @var CategoryType (atom:categoryType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    private $dcategory;
+    use CommonTypes;
 
     /**
      * @var ContentType (atom:contentType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $content;
+    protected $content;
 
     /**
-     * @var PersonType (atom:personType)
+     * @var string (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $dcontributor;
+    protected $id;
 
     /**
-     * @var IdType (atom:idType)
+     * @var \DateTime (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $id;
+    protected $published;
 
     /**
-     * @var LinkType (atom:linkType)
+     * @var string (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $link;
+    protected $rights;
 
     /**
-     * @var DateTimeType (atom:dateTimeType)
+     * @var string (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $published;
+    protected $source;
 
     /**
-     * @var TextType (atom:textType)
+     * @var string (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $rights;
+    protected $summary;
 
     /**
-     * @var TextType (atom:textType)
+     * @var string (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $source;
+    protected $title;
 
     /**
-     * @var TextType (atom:textType)
+     * @var \DateTime (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    private $summary;
+    protected $updated;
 
     /**
-     * @var TextType (atom:textType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
+     * Constructor
      */
-    private $title;
-
-    /**
-     * @var DateTimeType (atom:dateTimeType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    private $updated;
-
-    /**
-     * @return \Bangpound\Atom\Model\PersonType
-     */
-    public function getDauthor()
+    public function __construct()
     {
-        return $this->dauthor;
+        $this->authors = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     /**
-     * @param \Bangpound\Atom\Model\PersonType $dauthor
-     */
-    public function setDauthor($dauthor)
-    {
-        $this->dauthor = $dauthor;
-    }
-
-    /**
-     * @return \Bangpound\Atom\Model\CategoryType
-     */
-    public function getDcategory()
-    {
-        return $this->dcategory;
-    }
-
-    /**
-     * @param \Bangpound\Atom\Model\CategoryType $dcategory
-     */
-    public function setDcategory($dcategory)
-    {
-        $this->dcategory = $dcategory;
-    }
-
-    /**
-     * @return \Bangpound\Atom\Model\ContentType
+     * @return ContentType
      */
     public function getContent()
     {
@@ -154,10 +116,122 @@ class EntryType
     }
 
     /**
-     * @param \Bangpound\Atom\Model\ContentType $content
+     * @param ContentType $content
      */
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTime $updated
+     */
+    public function setUpdated(\DateTime $updated)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * @param string $summary
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param \DateTime $published
+     */
+    public function setPublished(\DateTime $published)
+    {
+        $this->published = $published;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param string $rights
+     */
+    public function setRights($rights)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
+     * @return SourceType
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param SourceType $source
+     */
+    public function setSource(SourceType $source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 }

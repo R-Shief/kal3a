@@ -25,7 +25,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
 
 /**
  * SourceType
@@ -38,78 +38,183 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class SourceType
+abstract class SourceType
 {
-
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $dauthor;
-
-    /**
-     * @var CategoryType (atom:categoryType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $dcategory;
-
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $dcontributor;
+    use CommonTypes;
 
     /**
      * @var GeneratorType (atom:generatorType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $dgenerator;
+    protected $generator;
 
     /**
      * @var IconType (atom:iconType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $icon;
+    protected $icon;
 
     /**
      * @var IdType (atom:idType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $id;
-
-    /**
-     * @var LinkType (atom:linkType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $link;
+    protected $id;
 
     /**
      * @var LogoType (atom:logoType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $logo;
+    protected $logo;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $rights;
+    protected $rights;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $subtitle;
+    protected $subtitle;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $title;
+    protected $title;
 
     /**
      * @var DateTimeType (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $updated;
+    protected $updated;
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\DateTimeType
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\DateTimeType $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\TextType
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\TextType $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\TextType
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\TextType $subtitle
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\TextType
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\TextType $rights
+     */
+    public function setRights($rights)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\LogoType
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\LogoType $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\IdType
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\IdType $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\IconType
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\IconType $icon
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\GeneratorType
+     */
+    public function getGenerator()
+    {
+        return $this->generator;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\GeneratorType $generator
+     */
+    public function setGenerator($generator)
+    {
+        $this->generator = $generator;
+    }
 }

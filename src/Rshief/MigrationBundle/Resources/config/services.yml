@@ -1,4 +1,5 @@
 parameters:
+    rshief_migration.vbulletinpost.writer.class: Rshief\MigrationBundle\Writer\DoctrineWriter
     rshief_migration.enqueue.command.class: Rshief\MigrationBundle\Command\EnqueueCommand
     rshief_migration.to_couchdb.command.class: Rshief\MigrationBundle\Command\ToCouchDBCommand
     rshief_migration.process_workflow.command.class: Rshief\MigrationBundle\Command\ProcessWorkflowCommand
@@ -43,8 +44,12 @@ services:
     rshief_migration.vbulletinpost.workflow:
         class: %rshief_migration.vbulletinpost.workflow.class%
         arguments: [ @rshief_migration.vbulletinpost.reader ]
+        calls:
+            - [ "addWriter", [ @rshief_migration.vbulletinpost.writer ]]
 
-
+    rshief_migration.vbulletinpost.writer:
+        class: %rshief_migration.vbulletinpost.writer.class%
+        arguments: [ @doctrine_couchdb.odm.document_manager, %bangpound_atom_data.document.entry.class% ]
 
     rshief_migration.bbcode.converter:
         class: %rshief_migration.bbcode.converter.class%

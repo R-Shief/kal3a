@@ -25,7 +25,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
 
 /**
  * FeedType
@@ -38,84 +38,72 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class FeedType
+abstract class FeedType
 {
+    use CommonTypes;
 
     /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
+     * Constructor
      */
-    public $dauthor;
-
-    /**
-     * @var CategoryType (atom:categoryType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $dcategory;
-
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $dcontributor;
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
+        $this->links = new ArrayCollection();
+    }
 
     /**
      * @var GeneratorType (atom:generatorType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $dgenerator;
+    protected $generator;
 
     /**
      * @var IconType (atom:iconType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $icon;
+    protected $icon;
 
     /**
      * @var IdType (atom:idType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $id;
-
-    /**
-     * @var LinkType (atom:linkType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    public $link;
+    protected $id;
 
     /**
      * @var LogoType (atom:logoType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $logo;
+    protected $logo;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $rights;
+    protected $rights;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $subtitle;
+    protected $subtitle;
 
     /**
      * @var TextType (atom:textType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $title;
+    protected $title;
 
     /**
      * @var DateTimeType (atom:dateTimeType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $updated;
+    protected $updated;
 
     /**
      * @var EntryType (atom:entryType)
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
-    public $entry;
+    protected $entry;
 }

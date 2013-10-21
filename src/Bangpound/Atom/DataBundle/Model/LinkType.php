@@ -25,7 +25,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
 
 /**
  * LinkType
@@ -38,42 +38,138 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class LinkType
+abstract class LinkType
 {
 
     /**
      * @var string (xs:anyURI)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $href;
+    protected $href;
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $rel;
+    protected $rel;
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $type;
+    protected $type;
 
     /**
      * @var string (xs:NMTOKEN)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $hreflang;
+    protected $hreflang;
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $title;
+    protected $title;
 
     /**
      * @var int (xs:positiveInteger)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $length;
+    protected $length;
+
+    /**
+     * @return string
+     */
+    public function getHref()
+    {
+        return $this->href;
+    }
+
+    /**
+     * @param string $href
+     */
+    public function setHref($href)
+    {
+        $this->href = $href;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRel()
+    {
+        return $this->rel;
+    }
+
+    /**
+     * @param string $rel
+     */
+    public function setRel($rel)
+    {
+        $this->rel = $rel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHreflang()
+    {
+        return $this->hreflang;
+    }
+
+    /**
+     * @param string $hreflang
+     */
+    public function setHreflang($hreflang)
+    {
+        $this->hreflang = $hreflang;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * @param int $length
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+    }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <embedded-document name="Bangpound\Atom\DataBundle\CouchDocument\CategoryType">
+        <field name="term" type="string" />
+        <field name="scheme" type="string" />
+        <field name="label" type="string" />
+    </embedded-document>
+</doctrine-mapping>

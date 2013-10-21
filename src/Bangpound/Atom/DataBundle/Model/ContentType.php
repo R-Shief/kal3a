@@ -25,7 +25,7 @@
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
 
-namespace Bangpound\Atom\Model;
+namespace Bangpound\Atom\DataBundle\Model;
 
 /**
  * ContentType
@@ -38,18 +38,50 @@ namespace Bangpound\Atom\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-class ContentType
+abstract class ContentType
 {
 
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $type;
+    protected $type;
 
     /**
      * @var string (xs:anyURI)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    public $src;
+    protected $src;
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
+    }
+
+    /**
+     * @param string $src
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+    }
 }

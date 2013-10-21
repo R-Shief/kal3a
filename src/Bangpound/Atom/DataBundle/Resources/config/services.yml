@@ -1,5 +1,5 @@
 parameters:
-#    bangpound_atom_data.example.class: Bangpound\Atom\DataBundle\Example
+    bangpound_atom_data.document.entry.class: Bangpound\Atom\DataBundle\CouchDocument\EntryType
 
 services:
 #    bangpound_atom_data.example:

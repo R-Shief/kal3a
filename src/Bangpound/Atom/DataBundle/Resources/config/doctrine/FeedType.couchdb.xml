@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <document name="Bangpound\Atom\DataBundle\CouchDocument\FeedType">
+        <field name="href" json-name="href" type="string" />
+        <field name="rel" json-name="rel" type="string" />
+        <field name="type" json-name="linkType" type="string" />
+        <field name="hreflang" json-name="hreflang" type="string" />
+        <field name="title" json-name="title" type="string" />
+        <field name="length" json-name="length" type="string" />
+        <embed-many target-document="EntryType" field="entries" />
+    </document>
+</doctrine-mapping>

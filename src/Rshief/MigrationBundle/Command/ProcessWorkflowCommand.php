@@ -3,6 +3,7 @@
 namespace Rshief\MigrationBundle\Command;
 
 use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
+use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
@@ -42,10 +43,13 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
         $name = 'vbulletinpost';
 
         /** @var \Ddeboer\DataImport\Reader\ReaderInterface $reader */
-        $reader = $this->getContainer()->get('rshief_migration.'. $name .'.reader');
+        $reader = $this->getContainer()->get(sprintf('rshief_migration.%s.reader', $name));
 
         /** @var \Ddeboer\DataImport\Workflow $workflow */
-        $workflow = $this->getContainer()->get('rshief_migration.'. $name .'.workflow');
+        $workflow = $this->getContainer()->get(sprintf('rshief_migration.%s.workflow', $name));
+
+        /** @var \Ddeboer\DataImport\Writer\WriterInterface $writer */
+        $writer = $this->getContainer()->get(sprintf('rshief_migration.%s.writer', $name));
 
         $dateTimeConverter = new DateTimeValueConverter('U');
 
@@ -74,6 +78,10 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
 
             ->addMapping('title', 'title')
             ->addMapping('pagetext', 'content')
+            ->addMapping('postid', 'identifier')
+
+            // This converter replaces reverses the template output to extract original link
+            // and description fields.
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($em, $templates) {
 
                 $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
@@ -88,11 +96,32 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 if (!empty($template)) {
                     $matches = array();
 
-                    preg_match($template, $array['pagetext'], $matches);
+                    $pagetext = $array['pagetext'];
+                    $pagetext = preg_replace('~\R~u', "\r\n", $pagetext);
+
+                    preg_match($template, $pagetext, $matches);
                     if (!empty($matches)) {
                         foreach ($matches as $key => $value) {
                             if (!is_int($key)) {
-                                $array[$key] = $value;
+                                switch ($key) {
+
+                                    case 'feedlink':
+                                        $link = new LinkType();
+                                        $link->setHref($value);
+                                        $array['links'] = new ArrayCollection([
+                                            $link,
+                                        ]);
+                                        break;
+
+                                    case 'feeddescription':
+                                        $array['summary'] = $value;
+                                        break;
+
+                                    default:
+                                        $array[$key] = $value;
+                                        break;
+
+                                }
                             }
                         }
                     }
@@ -101,6 +130,31 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 return $array;
             }))
 
+            ->addItemConverter(new CallbackItemConverter(function ($array) use ($em) {
+
+                $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
+                $thread = $repository->find($array['threadid']);
+                $forum = $thread->getForum();
+
+                $userid = $array['userid'];
+                $forumid = $forum->getForumid();
+
+                $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinRssFeed');
+                $feeds = $repository->findBy(['forumid' => $forumid, 'userid' => $userid]);
+                if (count($feeds) === 1) {
+                    /** @var \Rshief\MigrationBundle\Entity\VBulletinRssFeed $feed */
+                    $feed = array_shift($feeds);
+                    $source = new SourceType();
+                    $source->setTitle($feed->getTitle());
+                    $link = new LinkType();
+                    $link->setHref($feed->getUrl());
+                    $source->addLink($link);
+                    $array['source'] = $source;
+                }
+                return $array;
+            }))
+
+            // This converter removes all BBCode.
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($decoda_config) {
 
                 // Ideally this would be a service, but because the configuration is
@@ -119,19 +173,15 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
 
             // Use one of the writers supplied with this bundle, implement your own, or use
             // a closure:
+            /**
+             * Boilerplate
+             *
             ->addWriter(new CallbackWriter(
-                function($item, $originalItem) use ($client) {
-                    $id = (string) $originalItem['postid'];
-                    $rev = null;
-
-                    $response = $client->findDocument($id);
-                    if ($response->status != 404) {
-                        $rev = $response->body['_rev'];
-                    }
-
+                function ($item, $originalItem) use ($client) {
                     list($id, $rev) = $client->putDocument($item, $id, $rev);
                 }
             ))
+             */
         ;
 
         // Process the workflow
