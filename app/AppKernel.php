@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
             new Rshief\MigrationBundle\RshiefMigrationBundle(),
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
+            new Bangpound\ElasticsearchBundle\BangpoundElasticsearchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

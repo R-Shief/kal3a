@@ -1,3 +1,7 @@
+bangpound_elasticsearch:
+    resource: "@BangpoundElasticsearchBundle/Resources/config/routing.yml"
+    prefix:   /
+
 site_home:
     path: /
     defaults:
