@@ -3,7 +3,6 @@
 namespace Bangpound\ElasticsearchBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -60,8 +59,7 @@ class ResetCommand extends ContainerAwareCommand
             if (null === $index) {
                 $this->resetter->resetAllIndexes();
                 $output->writeln(sprintf('<info>Resetting</info> all indexes', $index));
-            }
-            else {
+            } else {
                 $indexes = array($index);
 
                 foreach ($indexes as $index) {

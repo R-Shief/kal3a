@@ -73,8 +73,8 @@ class Configuration implements ConfigurationInterface
                     ->prototype('array')
                         ->performNoDeepMerging()
                         ->beforeNormalization()
-                            ->ifTrue(function($v) { return isset($v['host']) && isset($v['port']); })
-                            ->then(function($v) {
+                            ->ifTrue(function ($v) { return isset($v['host']) && isset($v['port']); })
+                            ->then(function ($v) {
                                 return array(
                                     'servers' => array(
                                         array(
@@ -86,8 +86,8 @@ class Configuration implements ConfigurationInterface
                             })
                         ->end()
                         ->beforeNormalization()
-                            ->ifTrue(function($v) { return isset($v['url']); })
-                            ->then(function($v) {
+                            ->ifTrue(function ($v) { return isset($v['url']); })
+                            ->then(function ($v) {
                                 return array(
                                     'servers' => array(
                                         array(

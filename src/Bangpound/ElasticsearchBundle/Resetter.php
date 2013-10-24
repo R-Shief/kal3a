@@ -32,7 +32,7 @@ class Resetter
     /**
      * Deletes and recreates the named index
      *
-     * @param string $indexName
+     * @param  string                    $indexName
      * @throws \InvalidArgumentException if no index exists for the given name
      */
     public function resetIndex($indexName)
@@ -59,8 +59,8 @@ class Resetter
     /**
      * Deletes and recreates a mapping type for the named index
      *
-     * @param string $indexName
-     * @param string $typeName
+     * @param  string                    $indexName
+     * @param  string                    $typeName
      * @throws \InvalidArgumentException if no index or type mapping exists for the given names
      */
     public function resetIndexType($indexName, $typeName)
@@ -82,7 +82,7 @@ class Resetter
     /**
      * create type mapping object
      *
-     * @param array $indexConfig
+     * @param  array   $indexConfig
      * @return Mapping
      */
     protected function createMapping($indexConfig)
