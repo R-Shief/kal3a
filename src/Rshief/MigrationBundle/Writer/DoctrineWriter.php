@@ -4,8 +4,8 @@ namespace Rshief\MigrationBundle\Writer;
 
 use Ddeboer\DataImport\Writer\AbstractWriter;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\Common\Persistence\ObjectRepository;
 
 /**
  * A bulk Doctrine writer
@@ -20,28 +20,28 @@ class DoctrineWriter extends AbstractWriter
     /**
      * Doctrine entity manager
      *
-     * @var EntityManager
+     * @var ObjectManager
      */
     protected $objectManager;
 
     /**
-     * Fully qualified entity name
+     * Fully qualified class name
      *
      * @var string
      */
-    protected $entityName;
+    protected $className;
 
     /**
-     * Doctrine entity repository
+     * Doctrine object repository
      *
-     * @var EntityRepository
+     * @var ObjectRepository
      */
-    protected $entityRepository;
+    protected $objectRepository;
 
     /**
      * @var ClassMetadata
      */
-    protected $entityMetadata;
+    protected $classMetadata;
 
     /**
      * Number of entities to be persisted per flush
@@ -58,17 +58,24 @@ class DoctrineWriter extends AbstractWriter
     protected $counter = 0;
 
     /**
+     * Whether to truncate the table first
      *
-     * @param EntityManager $objectManager
-     * @param string        $entityName
+     * @var boolean
+     */
+    protected $truncate = true;
+
+    /**
+     *
+     * @param ObjectManager $objectManager
+     * @param string        $className
      * @param string        $index         Index to find current entities by
      */
-    public function __construct(ObjectManager $objectManager, $entityName, $index = null)
+    public function __construct(ObjectManager $objectManager, $className, $index = null)
     {
         $this->objectManager = $objectManager;
-        $this->entityName = $entityName;
-        $this->entityRepository = $objectManager->getRepository($entityName);
-        $this->entityMetadata = $objectManager->getClassMetadata($entityName);
+        $this->className = $className;
+        $this->objectRepository = $objectManager->getRepository($className);
+        $this->classMetadata = $objectManager->getClassMetadata($className);
         $this->index = $index;
     }
 
@@ -94,10 +101,43 @@ class DoctrineWriter extends AbstractWriter
     }
 
     /**
+     * @return bool
+     */
+    public function getTruncate()
+    {
+        return $this->truncate;
+    }
+
+    /**
+     * @param $truncate
+     * @return $this
+     */
+    public function setTruncate($truncate)
+    {
+        $this->truncate = $truncate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function disableTruncate()
+    {
+        $this->truncate = false;
+
+        return $this;
+    }
+
+    /**
      * @return DoctrineWriter
      */
     public function prepare()
     {
+        if (true === $this->truncate) {
+            $this->truncateTable();
+        }
+
         return $this;
     }
 
@@ -151,20 +191,22 @@ class DoctrineWriter extends AbstractWriter
 
         // If the table was not truncated to begin with, find current entities
         // first
-        if ($this->index) {
-            $entity = $this->entityRepository->findOneBy(array(
-                $this->index => $item[$this->index]
-            ));
-        } else {
-            $entity = $this->entityRepository->find(current($item));
+        if (false === $this->truncate) {
+            if ($this->index) {
+                $entity = $this->objectRepository->findOneBy(array(
+                    $this->index => $item[$this->index]
+                ));
+            } else {
+                $entity = $this->objectRepository->find(current($item));
+            }
         }
 
         if (!$entity) {
-            $className = $this->entityMetadata->getName();
+            $className = $this->classMetadata->getName();
             $entity = $this->getNewInstance($className, $item);
         }
 
-        foreach ($this->entityMetadata->getFieldNames() as $fieldName) {
+        foreach ($this->classMetadata->getFieldNames() as $fieldName) {
 
             $value = null;
             if (isset($item[$fieldName])) {
@@ -178,7 +220,7 @@ class DoctrineWriter extends AbstractWriter
             }
 
             if (!($value instanceof \DateTime)
-                || $value != $this->entityMetadata->getFieldValue(
+                || $value != $this->classMetadata->getFieldValue(
                     $entity, $fieldName
                 ))
             {
@@ -193,5 +235,19 @@ class DoctrineWriter extends AbstractWriter
             $this->objectManager->flush();
             $this->objectManager->clear();
         }
+    }
+
+    /**
+     * Truncate the database table for this writer
+     *
+     */
+    protected function truncateTable()
+    {
+        $repository = $this->objectRepository;
+        foreach ($repository->findAll() as $object) {
+            $this->objectManager->remove($object);
+        }
+        $this->objectManager->flush();
+        $this->objectManager->clear();
     }
 }

@@ -78,7 +78,6 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
 
             ->addMapping('title', 'title')
             ->addMapping('pagetext', 'content')
-            ->addMapping('postid', 'identifier')
 
             // This converter replaces reverses the template output to extract original link
             // and description fields.
@@ -91,14 +90,14 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 $userid = $array['userid'];
                 $forumid = $forum->getForumid();
 
-                $template = isset($templates[$forumid][$userid]) ? $templates[$forumid][$userid] : '';
+                $template = isset($templates[$forumid][$userid]) ? $templates[$forumid][$userid] : null;
 
-                if (!empty($template)) {
+                if ($template) {
+
+                    // Normalize line endings for more reliable matching against templates.
+                    $pagetext = preg_replace('~\R~u', "\r\n", $array['pagetext']);
+
                     $matches = array();
-
-                    $pagetext = $array['pagetext'];
-                    $pagetext = preg_replace('~\R~u', "\r\n", $pagetext);
-
                     preg_match($template, $pagetext, $matches);
                     if (!empty($matches)) {
                         foreach ($matches as $key => $value) {
@@ -130,6 +129,7 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 return $array;
             }))
 
+            // This converter sets the source on the atom entity.
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($em) {
 
                 $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
@@ -140,17 +140,28 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 $forumid = $forum->getForumid();
 
                 $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinRssFeed');
-                $feeds = $repository->findBy(['forumid' => $forumid, 'userid' => $userid]);
-                if (count($feeds) === 1) {
-                    /** @var \Rshief\MigrationBundle\Entity\VBulletinRssFeed $feed */
-                    $feed = array_shift($feeds);
+
+                // This is imperfect because a few feds were being imported with the same
+                // user and destination $feeds
+                // @todo confirm the validity of using the first result among several.
+                /** @var \Rshief\MigrationBundle\Entity\VBulletinRssFeed $feed */
+                $feed = $repository->findOneBy([
+                    'forumid' => $forumid,
+                    'userid' => $userid,
+                ]);
+
+                if ($feed) {
                     $source = new SourceType();
                     $source->setTitle($feed->getTitle());
+
                     $link = new LinkType();
                     $link->setHref($feed->getUrl());
+
                     $source->addLink($link);
+
                     $array['source'] = $source;
                 }
+
                 return $array;
             }))
 
@@ -169,18 +180,18 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 return $array;
             }))
 
-            ->addWriter(new ConsoleProgressWriter($output, $reader))
-
             // Use one of the writers supplied with this bundle, implement your own, or use
             // a closure:
+            ->addWriter(new ConsoleProgressWriter($output, $reader))
+
             /**
              * Boilerplate
              *
-            ->addWriter(new CallbackWriter(
-                function ($item, $originalItem) use ($client) {
-                    list($id, $rev) = $client->putDocument($item, $id, $rev);
-                }
-            ))
+             * ->addWriter(new CallbackWriter(
+             * function ($item, $originalItem) use ($client) {
+             * list($id, $rev) = $client->putDocument($item, $id, $rev);
+             * }
+             * ))
              */
         ;
 
