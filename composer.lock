@@ -708,12 +708,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "e62f205c834a23e3a8c5933b1748f3336721bcc1"
+                "reference": "525576eb863b9e2ff6af98d959cdf390f2571ddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e62f205c834a23e3a8c5933b1748f3336721bcc1",
-                "reference": "e62f205c834a23e3a8c5933b1748f3336721bcc1",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/525576eb863b9e2ff6af98d959cdf390f2571ddc",
+                "reference": "525576eb863b9e2ff6af98d959cdf390f2571ddc",
                 "shasum": ""
             },
             "require": {
@@ -792,7 +792,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-10-16 00:14:18"
+            "time": "2013-10-24 00:04:09"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1142,12 +1142,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "620922356a36d8903d213c986568fe159b530747"
+                "reference": "c600461b0f1a8943696f931fc11db475193f62cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/620922356a36d8903d213c986568fe159b530747",
-                "reference": "620922356a36d8903d213c986568fe159b530747",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c600461b0f1a8943696f931fc11db475193f62cd",
+                "reference": "c600461b0f1a8943696f931fc11db475193f62cd",
                 "shasum": ""
             },
             "require": {
@@ -1197,7 +1197,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-16 16:27:10"
+            "time": "2013-10-24 12:32:52"
         },
         {
             "name": "pimple/pimple",
@@ -2077,12 +2077,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "1206176fc40eb22b00cb2419de3f832c9afecb76"
+                "reference": "10751c89fb8ae2c1894fbe651f3baf24585b5be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/1206176fc40eb22b00cb2419de3f832c9afecb76",
-                "reference": "1206176fc40eb22b00cb2419de3f832c9afecb76",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/10751c89fb8ae2c1894fbe651f3baf24585b5be5",
+                "reference": "10751c89fb8ae2c1894fbe651f3baf24585b5be5",
                 "shasum": ""
             },
             "require": {
@@ -2182,7 +2182,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-18 15:01:47"
+            "time": "2013-10-24 15:58:31"
         },
         {
             "name": "twig/extensions",
