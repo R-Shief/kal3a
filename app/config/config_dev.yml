@@ -37,14 +37,14 @@ assetic:
 
 web_profiler_extra:
     routing:
-        enabled:        true
-        display_in_wdt: true
+        enabled:        false
+        display_in_wdt: false
     container:
         enabled:        true
-        display_in_wdt: true
+        display_in_wdt: false
     assetic:
-        enabled:        true
-        display_in_wdt: true
+        enabled:        false
+        display_in_wdt: false
     twig:
-        enabled:        true
-        display_in_wdt: true
+        enabled:        false
+        display_in_wdt: false

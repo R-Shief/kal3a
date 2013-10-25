@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: elasticsearch.yml }
+    - { resource: '@BangpoundTwitterStreamingBundle/Resources/config/admin.yml' }
 
 framework:
     #esi:             ~
@@ -53,15 +54,24 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
-        mapping_types:
 
-            # Prototype
+        types:
+            json:       Rshief\TwitterMinerBundle\Types\JsonType
+            Geometry:   CrEOF\Spatial\DBAL\Types\GeometryType
+            Point:      CrEOF\Spatial\DBAL\Types\Geometry\PointType
+            Polygon:    CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
+            LineString: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
+        mapping_types:
             enum:                 string
+            polygon: Polygon
+            point: Point
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
         mappings:
+            ApplicationSonataUserBundle: ~
+            SonataUserBundle: ~
 
 
 # Swiftmailer Configuration
@@ -72,10 +82,112 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+sonata_notification:
+    backend: sonata.notification.backend.rabbitmq
+    queues:
+        - { queue: twitter_stream, recover: true, routing_key: twitter_data.tweet }
+        - { queue: catchall, default: true }
+    backends:
+        rabbitmq:
+            exchange: amq.direct
+            connection:
+                host:     %rabbitmq_host%
+                user:     %rabbitmq_user%
+                pass:     %rabbitmq_pass%
+                port:     %rabbitmq_port%
+                vhost:    %rabbitmq_vhost%
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.rss:
+
+sonata_doctrine_orm_admin:
+    # default value is null, so doctrine uses the value defined in the configuration
+    entity_manager: ~
+
+    templates:
+        form:
+            - SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig
+        filter:
+            - SonataDoctrineORMAdminBundle:Form:filter_admin_fields.html.twig
+        types:
+            list:
+                array:      SonataAdminBundle:CRUD:list_array.html.twig
+                boolean:    SonataAdminBundle:CRUD:list_boolean.html.twig
+                date:       SonataAdminBundle:CRUD:list_date.html.twig
+                time:       SonataAdminBundle:CRUD:list_time.html.twig
+                datetime:   SonataAdminBundle:CRUD:list_datetime.html.twig
+                text:       SonataAdminBundle:CRUD:base_list_field.html.twig
+                trans:      SonataAdminBundle:CRUD:list_trans.html.twig
+                string:     SonataAdminBundle:CRUD:base_list_field.html.twig
+                smallint:   SonataAdminBundle:CRUD:base_list_field.html.twig
+                bigint:     SonataAdminBundle:CRUD:base_list_field.html.twig
+                integer:    SonataAdminBundle:CRUD:base_list_field.html.twig
+                decimal:    SonataAdminBundle:CRUD:base_list_field.html.twig
+                identifier: SonataAdminBundle:CRUD:base_list_field.html.twig
+
+            show:
+                array:      SonataAdminBundle:CRUD:show_array.html.twig
+                boolean:    SonataAdminBundle:CRUD:show_boolean.html.twig
+                date:       SonataAdminBundle:CRUD:show_date.html.twig
+                time:       SonataAdminBundle:CRUD:show_time.html.twig
+                datetime:   SonataAdminBundle:CRUD:show_datetime.html.twig
+                text:       SonataAdminBundle:CRUD:base_show_field.html.twig
+                trans:      SonataAdminBundle:CRUD:show_trans.html.twig
+                string:     SonataAdminBundle:CRUD:base_show_field.html.twig
+                smallint:   SonataAdminBundle:CRUD:base_show_field.html.twig
+                bigint:     SonataAdminBundle:CRUD:base_show_field.html.twig
+                integer:    SonataAdminBundle:CRUD:base_show_field.html.twig
+                decimal:    SonataAdminBundle:CRUD:base_show_field.html.twig
+
+sonata_admin:
+    title:      kal3a
+    title_logo: /bundles/rshieftwitterminer/logo_title.png
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        # default actions templates, should extend a global templates
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
+
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+
+sensio_framework_extra:
+    router:  { annotations: true }
+    request: { converters: true }
+    view:    { annotations: false }
+    cache:   { annotations: true }
+
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
-        dbname: symfony
+        connections:
+            default:
+                dbname: symfony
+            twitter_data:
+                dbname: symfony
     odm:
         auto_mapping: true
 

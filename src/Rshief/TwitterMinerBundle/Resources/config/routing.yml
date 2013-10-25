@@ -1,0 +1,3 @@
+rshief_twitter_miner_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: RshiefTwitterMinerBundle:Default:index }

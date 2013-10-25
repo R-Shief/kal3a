@@ -13,3 +13,21 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    bangpound_phirehose.twitter_consumer_key:
+    bangpound_phirehose.twitter_consumer_secret:
+
+    bangpound_phirehose.oauth_token:
+    bangpound_phirehose.oauth_secret:
+
+    bangpound_phirehose.track: []
+    bangpound_phirehose.locations: []
+    bangpound_phirehose.follow: []
+
+    bangpound_phirehose.stream.class: ~
+
+    rabbitmq_host: localhost
+    rabbitmq_user: guest
+    rabbitmq_pass: guest
+    rabbitmq_port: 5672
+    rabbitmq_vhost: /

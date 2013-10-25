@@ -1,11 +1,25 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "rshief/kal3a",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "Aggregation and collection engine.",
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/SonataDoctrineORMAdminBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/SonataNotificationBundle.git"
+        },
+        {
+            "type": "composer",
+            "url": "http://bangpound.github.io/satis-repository"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "~2.4",
@@ -19,6 +33,11 @@
         "sensio/framework-extra-bundle": "~2.3",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
+        "jms/serializer-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-patch-1",
+        "sonata-project/user-bundle": "dev-master",
+        "sonata-project/notification-bundle": "dev-patch-1",
         "doctrine/couchdb": "dev-master",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-master",
@@ -29,7 +48,13 @@
         "elao/web-profiler-extra-bundle" : "dev-master",
         "coresphere/console-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "~1.0.2",
-        "elasticsearch/elasticsearch": "dev-master"
+        "elasticsearch/elasticsearch": "dev-master",
+        "bangpound/phirehose-bundle": "dev-master",
+        "bangpound/twitter-data-bundle": "dev-master",
+        "bangpound/twitter-streaming-bundle": "dev-master",
+        "creof/doctrine2-spatial": "dev-master",
+        "phayes/geophp": "dev-master",
+        "videlalvaro/php-amqplib": "2.0.*"
     },
     "require-dev": {
         "jms/debugging-bundle": "dev-master"

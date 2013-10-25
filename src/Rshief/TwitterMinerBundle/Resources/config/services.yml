@@ -1,0 +1,41 @@
+parameters:
+    rshief_twitter.consumer.notification.class: Rshief\TwitterMinerBundle\Consumer\PhirehoseConsumer
+    rshief_twitter.stream.class: Rshief\TwitterMinerBundle\Stream\RshiefStream
+    rshief_twitter.stream.notify.class: Rshief\TwitterMinerBundle\Subscriber\StreamNotifySubscriber
+    rshief_twitter.stream.logger.class: Rshief\TwitterMinerBundle\Subscriber\StreamLoggerSubscriber
+
+    rshief_twitter.stream.notify.type: 'twitter_data.tweet'
+
+services:
+    rshief_twitter.stream:
+        class: %rshief_twitter.stream.class%
+        arguments:
+            - %bangpound_phirehose.oauth_token%
+            - %bangpound_phirehose.oauth_secret%
+            - 'filter'
+            - 'json'
+        calls:
+            - [setContainer, ["@service_container"]]
+            - [setBackend, ["@sonata.notification.backend"]]
+        properties:
+            consumerKey: %bangpound_phirehose.twitter_consumer_key%
+            consumerSecret: %bangpound_phirehose.twitter_consumer_secret%
+
+    rshief_twitter.consumer.notification:
+        class: %rshief_twitter.consumer.notification.class%
+        tags:
+            - { name: sonata.notification.consumer, type: twitter_data.tweet }
+        arguments: [ '@service_container' ]
+
+    rshief_twitter.stream.notify:
+        class: %rshief_twitter.stream.notify.class%
+        arguments: [ "@sonata.notification.backend", %rshief_twitter.stream.notify.type% ]
+        tags:
+            - { name: bangpound_phirehose.event_subscriber }
+
+    rshief_twitter.stream.logger:
+        class: %rshief_twitter.stream.logger.class%
+        arguments: [ '@logger', '@database_connection' ]
+        tags:
+            - { name: bangpound_phirehose.event_subscriber }
+            - { name: monolog.logger, channel: twitter_data }
