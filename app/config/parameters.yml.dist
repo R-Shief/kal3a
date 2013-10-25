@@ -14,6 +14,9 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
+    superfeedr_user: user
+    superfeedr_password: password
+
     bangpound_phirehose.twitter_consumer_key:
     bangpound_phirehose.twitter_consumer_secret:
 

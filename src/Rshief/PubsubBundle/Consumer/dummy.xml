@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"> 
+    <id>tag:superfeedr.com,2005:/hubbub/dummy</id> 
+    <link type="text/html" rel="alternate" href="http://superfeedr.com"/> 
+    <link type="application/atom+xml" rel="self" href="http://superfeedr.com/dummy.xml"/> 
+    <title>The Dummy Time Feed</title> 
+    <updated>2010-03-03T23:35:22-08:00</updated> 
+    <entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375786346</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375786346"/>
+      <title>10:52:26</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Tuesday August 06 10:52:26 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-06T10:52:26+00:00</published>
+      <updated>2013-08-06T10:52:26+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375786133</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375786133"/>
+      <title>10:48:53</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Tuesday August 06 10:48:53 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-06T10:48:53+00:00</published>
+      <updated>2013-08-06T10:48:53+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375743466</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375743466"/>
+      <title>22:57:46</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:57:46 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:57:46+00:00</published>
+      <updated>2013-08-05T22:57:46+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375743466</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375743466"/>
+      <title>22:57:46</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:57:46 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:57:46+00:00</published>
+      <updated>2013-08-05T22:57:46+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375743462</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375743462"/>
+      <title>22:57:42</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:57:42 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:57:42+00:00</published>
+      <updated>2013-08-05T22:57:42+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375743454</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375743454"/>
+      <title>22:57:34</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:57:34 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:57:34+00:00</published>
+      <updated>2013-08-05T22:57:34+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375743435</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375743435"/>
+      <title>22:57:15</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:57:15 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:57:15+00:00</published>
+      <updated>2013-08-05T22:57:15+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375740156</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375740156"/>
+      <title>22:02:36</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 22:02:36 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T22:02:36+00:00</published>
+      <updated>2013-08-05T22:02:36+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375735801</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375735801"/>
+      <title>20:50:01</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Monday August 05 20:50:01 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-08-05T20:50:01+00:00</published>
+      <updated>2013-08-05T20:50:01+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry><entry xml:lang="en">
+      <id>tag:superfeedr.com,2005:String/1375156399</id>
+      <link type="text/html" rel="alternate" href="http://superfeedr.com/?1375156399"/>
+      <title>03:53:19</title>
+      <point xmlns="http://www.georss.org/georss">37.773721,-122.414957</point>
+      <content type="text">Tuesday July 30 03:53:19 UTC 2013 Somebody wanted to know what time it was.</content>
+      <published>2013-07-30T03:53:19+00:00</published>
+      <updated>2013-07-30T03:53:19+00:00</updated>
+      <category term="tests"/>
+      <author>
+        <name>Superfeedr</name>
+        <uri>http://superfeedr.com/</uri>
+        <email>julien@superfeedr.com</email>
+      </author>
+    </entry>
+    
+    
+    
+    
+    
+    
+    
+     
+</feed>

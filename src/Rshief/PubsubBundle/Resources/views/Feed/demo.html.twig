@@ -1,0 +1,9 @@
+{% extends "TwigBundle::layout.html.twig" %}
+
+{% block title 'Devel output' %}
+
+{% block body %}
+<p style="white-space: pre-wrap">
+{{ output|raw }}
+</p>
+{% endblock %}

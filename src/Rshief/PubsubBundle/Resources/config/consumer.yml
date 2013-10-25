@@ -1,0 +1,6 @@
+services:
+    rshief_bundle.consumer.notification:
+        class: Rshief\PubsubBundle\Consumer\NotificationConsumer
+        tags:
+            - { name: sonata.notification.consumer, type: pubsub_notification }
+        arguments: [ '@service_container' ]

@@ -45,8 +45,6 @@
         "mjohnson/decoda": "~6.2.3",
         "ddeboer/data-import-bundle": "dev-master",
         "liip/monitor-bundle": "dev-master",
-        "elao/web-profiler-extra-bundle" : "dev-master",
-        "coresphere/console-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "~1.0.2",
         "elasticsearch/elasticsearch": "dev-master",
         "bangpound/phirehose-bundle": "dev-master",
@@ -54,9 +52,13 @@
         "bangpound/twitter-streaming-bundle": "dev-master",
         "creof/doctrine2-spatial": "dev-master",
         "phayes/geophp": "dev-master",
-        "videlalvaro/php-amqplib": "2.0.*"
+        "videlalvaro/php-amqplib": "2.0.*",
+        "sputnik/pubsub-bundle": "~0.3.0",
+        "sensiolabs/security-checker": "~1.2"
     },
     "require-dev": {
+        "elao/web-profiler-extra-bundle" : "dev-master",
+        "coresphere/console-bundle": "dev-master",
         "jms/debugging-bundle": "dev-master"
     },
     "scripts": {

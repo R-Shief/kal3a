@@ -1,0 +1,17 @@
+parameters:
+    rshief_pubsub.guzzle_factory.class: Rshief\PubsubBundle\Guzzle\Factory
+
+services:
+    rshief_pubsub.guzzle:
+        class: %sputnik_pubsub.guzzle.class%
+        factory_service: rshief_pubsub.guzzle_factory
+        factory_method: get
+        calls:
+            - [ addSubscriber, [ '@sputnik_pubsub.guzzle.plugin.log' ] ]
+
+    rshief_pubsub.guzzle_factory:
+        class: %rshief_pubsub.guzzle_factory.class%
+        arguments: [ '@sputnik_pubsub.hub_provider' ]
+
+    rshief_pubsub.http_client:
+        alias: rshief_pubsub.guzzle

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cbff4a1c8e823ad48aedbfa3475131e8",
+    "hash": "cd9d9d8c2edd19c25c0fbd183c43d1b5",
     "packages": [
         {
             "name": "bangpound/phirehose-bundle",
@@ -122,56 +122,6 @@
                 "issues": "https://github.com/bangpound/TwitterStreamingBundle/issues"
             },
             "time": "2013-06-20 13:25:38"
-        },
-        {
-            "name": "coresphere/console-bundle",
-            "version": "dev-master",
-            "target-dir": "CoreSphere/ConsoleBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CoreSphere/ConsoleBundle.git",
-                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/6b602c985c0b9b779b64441dcb93647763f13eb8",
-                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/framework-bundle": ">=2.1.0,<3.0"
-            },
-            "require-dev": {
-                "symfony/console": ">=2.1.0,<3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CoreSphere\\ConsoleBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Laszlo Korte",
-                    "email": "coresphere@laszlokorte.de"
-                },
-                {
-                    "name": "Marmus Ullman",
-                    "email": "mail@markus-ullmann.de"
-                }
-            ],
-            "description": "This bundle allows you accessing the symfony2 console via your browser",
-            "keywords": [
-                "console",
-                "javascript",
-                "symfony"
-            ],
-            "time": "2013-07-07 15:09:57"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -892,61 +842,6 @@
                 "orm"
             ],
             "time": "2013-09-08 14:03:26"
-        },
-        {
-            "name": "elao/web-profiler-extra-bundle",
-            "version": "dev-master",
-            "target-dir": "Elao/WebProfilerExtraBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Elao/WebProfilerExtraBundle.git",
-                "reference": "20993853c6595026daaca4b2fc549c6120829527"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Elao/WebProfilerExtraBundle/zipball/20993853c6595026daaca4b2fc549c6120829527",
-                "reference": "20993853c6595026daaca4b2fc549c6120829527",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/framework-bundle": "~2.1",
-                "symfony/twig-bundle": "~2.0",
-                "twig/twig": "~1.12"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Elao\\WebProfilerExtraBundle": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Elao Team",
-                    "homepage": "http://www.elao.com"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "http://github.com/Elao/WebProfilerExtraBundle/contributors"
-                }
-            ],
-            "description": "Add routing, container, assetic & twig information inside the profiler",
-            "homepage": "http://github.com/Elao/WebProfilerExtraBundle",
-            "keywords": [
-                "bundle",
-                "elao",
-                "extra",
-                "profiler"
-            ],
-            "time": "2013-09-07 08:02:24"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -2679,6 +2574,51 @@
             "time": "2013-10-15 18:51:32"
         },
         {
+            "name": "sensiolabs/security-checker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/security-checker.git",
+                "reference": "254540f5e6cd7fcb3b5b859a4bffbf04f8151ad6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/254540f5e6cd7fcb3b5b859a4bffbf04f8151ad6",
+                "reference": "254540f5e6cd7fcb3b5b859a4bffbf04f8151ad6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "symfony/console": "~2.0"
+            },
+            "bin": [
+                "security-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SensioLabs\\Security": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien.potencier@gmail.com"
+                }
+            ],
+            "description": "A security checker for your composer.lock",
+            "time": "2013-10-24 16:05:00"
+        },
+        {
             "name": "sonata-project/admin-bundle",
             "version": "dev-master",
             "target-dir": "Sonata/AdminBundle",
@@ -3269,6 +3209,63 @@
             "time": "2013-10-24 15:30:07"
         },
         {
+            "name": "sputnik/pubsub-bundle",
+            "version": "dev-master",
+            "target-dir": "Sputnik/Bundle/PubsubBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sputnik-project/SputnikPubsubBundle.git",
+                "reference": "82f555cb15ca3a2decab27ebd8e83b3128e2a161"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sputnik-project/SputnikPubsubBundle/zipball/82f555cb15ca3a2decab27ebd8e83b3128e2a161",
+                "reference": "82f555cb15ca3a2decab27ebd8e83b3128e2a161",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/http": "~3.1",
+                "guzzle/log": "~3.1",
+                "guzzle/plugin-log": "~3.1",
+                "php": ">=5.3.2",
+                "phpoption/phpoption": "~1.2",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "require-dev": {
+                "symfony/console": "~2.2"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "Required for ORM backend.",
+                "doctrine/mongodb-odm-bundle": "Required for ODM backend."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sputnik\\Bundle\\PubsubBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Dmitri Lakachauskis",
+                    "email": "lakiboy83@gmail.com"
+                }
+            ],
+            "description": "Pubsubhubbub subscriber implementation.",
+            "homepage": "http://sputnikproject.org",
+            "keywords": [
+                "hub",
+                "pubsubhubbub",
+                "subscriber"
+            ],
+            "time": "2013-08-17 20:02:45"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.0.2",
             "source": {
@@ -3797,6 +3794,111 @@
     ],
     "packages-dev": [
         {
+            "name": "coresphere/console-bundle",
+            "version": "dev-master",
+            "target-dir": "CoreSphere/ConsoleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CoreSphere/ConsoleBundle.git",
+                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/6b602c985c0b9b779b64441dcb93647763f13eb8",
+                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": ">=2.1.0,<3.0"
+            },
+            "require-dev": {
+                "symfony/console": ">=2.1.0,<3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "CoreSphere\\ConsoleBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laszlo Korte",
+                    "email": "coresphere@laszlokorte.de"
+                },
+                {
+                    "name": "Marmus Ullman",
+                    "email": "mail@markus-ullmann.de"
+                }
+            ],
+            "description": "This bundle allows you accessing the symfony2 console via your browser",
+            "keywords": [
+                "console",
+                "javascript",
+                "symfony"
+            ],
+            "time": "2013-07-07 15:09:57"
+        },
+        {
+            "name": "elao/web-profiler-extra-bundle",
+            "version": "dev-master",
+            "target-dir": "Elao/WebProfilerExtraBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Elao/WebProfilerExtraBundle.git",
+                "reference": "20993853c6595026daaca4b2fc549c6120829527"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Elao/WebProfilerExtraBundle/zipball/20993853c6595026daaca4b2fc549c6120829527",
+                "reference": "20993853c6595026daaca4b2fc549c6120829527",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "~2.1",
+                "symfony/twig-bundle": "~2.0",
+                "twig/twig": "~1.12"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Elao\\WebProfilerExtraBundle": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elao Team",
+                    "homepage": "http://www.elao.com"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "http://github.com/Elao/WebProfilerExtraBundle/contributors"
+                }
+            ],
+            "description": "Add routing, container, assetic & twig information inside the profiler",
+            "homepage": "http://github.com/Elao/WebProfilerExtraBundle",
+            "keywords": [
+                "bundle",
+                "elao",
+                "extra",
+                "profiler"
+            ],
+            "time": "2013-09-07 08:02:24"
+        },
+        {
             "name": "jms/debugging-bundle",
             "version": "dev-master",
             "target-dir": "JMS/DebuggingBundle",
@@ -3857,14 +3959,14 @@
         "robotsnowfall/enum": 20,
         "ddeboer/data-import-bundle": 20,
         "liip/monitor-bundle": 20,
-        "elao/web-profiler-extra-bundle": 20,
-        "coresphere/console-bundle": 20,
         "elasticsearch/elasticsearch": 20,
         "bangpound/phirehose-bundle": 20,
         "bangpound/twitter-data-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
+        "elao/web-profiler-extra-bundle": 20,
+        "coresphere/console-bundle": 20,
         "jms/debugging-bundle": 20
     },
     "platform": {

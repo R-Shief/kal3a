@@ -1,0 +1,28 @@
+services:
+    rshief.pubsub.topic:
+        class: Rshief\PubsubBundle\Admin\TopicAdmin
+        arguments: [ ~ , '%sputnik_pubsub.model.topic.class%', 'RshiefPubsubBundle:CRUD' ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: PubSub, label: Topic }
+        calls:
+            - [ setTranslationDomain, [ 'RshiefPubsubBundle' ] ]
+            - [ setParentAssociationMapping, [ 'feedTopic' ] ]
+            - [ setHubSubscriber, [ '@sputnik_pubsub.hub_subscriber' ] ]
+
+    rshief.pubsub.feed_topic:
+        class: Rshief\PubsubBundle\Admin\FeedTopicAdmin
+        arguments: [ ~ , '%rshief_pubsub.model.feed_topic.class%', 'SonataAdminBundle:CRUD' ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: PubSub, label: Feed Topic }
+        calls:
+            - [ setTranslationDomain, [ 'RshiefPubsubBundle' ] ]
+            - [ addChild, [ '@rshief.pubsub.status' ] ]
+
+    rshief.pubsub.status:
+        class: Rshief\PubsubBundle\Admin\StatusAdmin
+        arguments: [ ~ , '%rshief_pubsub.model.status.class%', 'SonataAdminBundle:CRUD' ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: PubSub, label: Status }
+        calls:
+            - [ setTranslationDomain, [ 'RshiefPubsubBundle' ] ]
+            - [ setParentAssociationMapping, [ 'feedTopic' ] ]

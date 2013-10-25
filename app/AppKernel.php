@@ -37,6 +37,8 @@ class AppKernel extends Kernel
             new Rshief\MigrationBundle\RshiefMigrationBundle(),
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
             new Bangpound\ElasticsearchBundle\BangpoundElasticsearchBundle(),
+            new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
+            new Rshief\PubsubBundle\RshiefPubsubBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

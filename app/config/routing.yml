@@ -67,3 +67,12 @@ fos_user_change_password:
 fos_user_group:
     resource: "@FOSUserBundle/Resources/config/routing/group.xml"
     prefix: /group
+
+sputnik_pubsub_hub:
+    resource: "@SputnikPubsubBundle/Resources/config/routing/hub.xml"
+    prefix:   /hub
+
+sputnik_pubsub_callback:
+    resource: "@SputnikPubsubBundle/Resources/config/routing/callback.xml"
+    prefix:   /push
+
