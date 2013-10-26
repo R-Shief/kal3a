@@ -18,15 +18,24 @@ class TopicAdmin extends Admin
 {
     private $subscriber;
 
+    /**
+     * @param HubSubscriberInterface $subscriber
+     */
     public function setHubSubscriber(HubSubscriberInterface $subscriber) {
         $this->subscriber = $subscriber;
     }
 
+    /**
+     * @param $associationMapping
+     */
     public function setParentAssociationMapping($associationMapping)
     {
         $this->parentAssociationMapping = $associationMapping;
     }
 
+    /**
+     * @param FormMapper $formMapper
+     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -48,6 +57,9 @@ class TopicAdmin extends Admin
         });
     }
 
+    /**
+     * @param DatagridMapper $datagridMapper
+     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
@@ -56,6 +68,9 @@ class TopicAdmin extends Admin
         ;
     }
 
+    /**
+     * @param ListMapper $listMapper
+     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -66,6 +81,9 @@ class TopicAdmin extends Admin
         ;
     }
 
+    /**
+     * @param ShowMapper $filter
+     */
     protected function configureShowFields(ShowMapper $filter)
     {
         $filter
@@ -76,6 +94,9 @@ class TopicAdmin extends Admin
         ;
     }
 
+    /**
+     * @param mixed $object
+     */
     public function create($object) {
         $this->prePersist($object);
         $this->postPersist($object);

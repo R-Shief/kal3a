@@ -50,7 +50,7 @@ class CRUDController extends BaseController
             $form = $this->admin->getForm();
             $form->setData($object);
 
-            $form->bind($this->get('request'));
+            $form->submit($this->get('request'));
 
             $isFormValid = $form->isValid();
 
@@ -60,7 +60,9 @@ class CRUDController extends BaseController
                   'topicUrl' => $object->getTopicUrl(),
                   'hubName' => $object->getHubName(),
                 );
-                $object = $this->get('sputnik_pubsub.topic_manager')->findOneBy($criteria);
+                /** @var \Sputnik\Bundle\PubsubBundle\Model\TopicManagerInterface $manager */
+                $manager = $this->get('sputnik_pubsub.topic_manager');
+                $object = $manager->findTopicBy($criteria)->get();
 
                 if ($this->isXmlHttpRequest()) {
                     return $this->renderJson(array(
