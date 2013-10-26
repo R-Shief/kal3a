@@ -8,18 +8,31 @@ use Symfony\Component\Form\Exception\FormException;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+/**
+ * Class HubNameType
+ * @package Rshief\PubsubBundle\Form\Type
+ */
 class HubNameType extends AbstractType
 {
     private $provider;
 
+    /**
+     * @param HubProviderInterface $provider
+     */
     public function __construct(HubProviderInterface $provider) {
         $this->provider = $provider;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getParent() {
         return 'choice';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName() {
         return 'hub_name';
     }

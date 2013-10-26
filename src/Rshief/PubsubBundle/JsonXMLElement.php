@@ -2,6 +2,10 @@
 
 namespace Rshief\PubsubBundle;
 
+/**
+ * Class JsonXMLElement
+ * @package Rshief\PubsubBundle
+ */
 class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
 
     /**
@@ -11,6 +15,9 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
       */
     public static $maxRecursionDepthAllowed = 25;
 
+    /**
+     * @return array
+     */
     public function jsonSerialize() {
         $resultArray = static::_processXml($this, $ignoreXmlAttributes = false);
         return $resultArray;
@@ -32,6 +39,13 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
         return (trim(strval($simpleXmlElementObject)));
     }
 
+    /**
+     * @param $simpleXmlElementObject
+     * @param $ignoreXmlAttributes
+     * @param int $recursionDepth
+     * @return array
+     * @throws Exception
+     */
     protected static function _processXml($simpleXmlElementObject, $ignoreXmlAttributes, $recursionDepth = 0) {
         // Keep an eye on how deeply we are involved in recursion.
         if ($recursionDepth > static::$maxRecursionDepthAllowed) {
@@ -47,7 +61,7 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
         $value      = static::_getXmlValue($simpleXmlElementObject);
         $attributes = (array) $simpleXmlElementObject->attributes();
 
-        if (in_array($name, array('content', 'summary', 'rights', 'title', 'subtitle')) {
+        if (in_array($name, array('content', 'summary', 'rights', 'title', 'subtitle'))) {
             if (!empty($attributes) && !$ignoreXmlAttributes) {
                 foreach ($attributes['@attributes'] as $k => $v) {
                     $attributes['@attributes'][$k] = static::_getXmlValue($v);
