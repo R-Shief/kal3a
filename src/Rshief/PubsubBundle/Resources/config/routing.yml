@@ -1,3 +1,0 @@
-devel:
-    pattern: devel
-    defaults: { _controller: RshiefPubsubBundle:Feed:demo }
