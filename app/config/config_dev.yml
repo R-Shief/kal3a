@@ -48,3 +48,6 @@ web_profiler_extra:
     twig:
         enabled:        false
         display_in_wdt: false
+
+sputnik_pubsub:
+    live_hub: false
