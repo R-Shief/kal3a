@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/phirehose-bundle.git",
-                "reference": "ce152feadc4b2b4bed7ef10277cd0d695cbfe835"
+                "reference": "2cd56ff493468b0d4d375edeb87359bbf64700a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/phirehose-bundle/zipball/ce152feadc4b2b4bed7ef10277cd0d695cbfe835",
-                "reference": "ce152feadc4b2b4bed7ef10277cd0d695cbfe835",
+                "url": "https://api.github.com/repos/bangpound/phirehose-bundle/zipball/2cd56ff493468b0d4d375edeb87359bbf64700a1",
+                "reference": "2cd56ff493468b0d4d375edeb87359bbf64700a1",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "Symfony2 bundle to integrate Phirehose",
-            "time": "2013-10-25 01:52:06"
+            "time": "2013-10-26 13:08:57"
         },
         {
             "name": "bangpound/twitter-data-bundle",
@@ -779,12 +779,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "66d8b43f69105f3e3f0fb7d042f805eec1107e22"
+                "reference": "08e636368471c4232e83be0abf2f31b35336d641"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/66d8b43f69105f3e3f0fb7d042f805eec1107e22",
-                "reference": "66d8b43f69105f3e3f0fb7d042f805eec1107e22",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/08e636368471c4232e83be0abf2f31b35336d641",
+                "reference": "08e636368471c4232e83be0abf2f31b35336d641",
                 "shasum": ""
             },
             "require": {
@@ -841,7 +841,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-09-08 14:03:26"
+            "time": "2013-10-26 09:18:16"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -849,12 +849,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elasticsearch/elasticsearch-php.git",
-                "reference": "3db0bc2fdcca34476971a41bb8960e284907412f"
+                "reference": "acdc1791477b852ca7ac8af55ee28e4b8d856cb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/3db0bc2fdcca34476971a41bb8960e284907412f",
-                "reference": "3db0bc2fdcca34476971a41bb8960e284907412f",
+                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/acdc1791477b852ca7ac8af55ee28e4b8d856cb6",
+                "reference": "acdc1791477b852ca7ac8af55ee28e4b8d856cb6",
                 "shasum": ""
             },
             "require": {
@@ -894,7 +894,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2013-10-18 18:33:51"
+            "time": "2013-10-25 18:20:23"
         },
         {
             "name": "fennb/phirehose",
@@ -1545,12 +1545,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "0cee699eca14f7c23d0667fa5f7e14d1a8b3af87"
+                "reference": "d4680d449a9da80fb82e17627270c91b93a0d46d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/0cee699eca14f7c23d0667fa5f7e14d1a8b3af87",
-                "reference": "0cee699eca14f7c23d0667fa5f7e14d1a8b3af87",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/d4680d449a9da80fb82e17627270c91b93a0d46d",
+                "reference": "d4680d449a9da80fb82e17627270c91b93a0d46d",
                 "shasum": ""
             },
             "require": {
@@ -1608,7 +1608,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-10-05 09:46:50"
+            "time": "2013-10-25 15:17:36"
         },
         {
             "name": "liip/monitor",
@@ -3547,12 +3547,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "10751c89fb8ae2c1894fbe651f3baf24585b5be5"
+                "reference": "a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/10751c89fb8ae2c1894fbe651f3baf24585b5be5",
-                "reference": "10751c89fb8ae2c1894fbe651f3baf24585b5be5",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba",
+                "reference": "a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba",
                 "shasum": ""
             },
             "require": {
@@ -3652,7 +3652,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-24 15:58:31"
+            "time": "2013-10-26 07:53:03"
         },
         {
             "name": "twig/extensions",
@@ -3707,12 +3707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673"
+                "reference": "5eb8373b1cb91770f251a14086817346abfc5d17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/27bd8b185f9e7e217952de05756fdfce6bdc4673",
-                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5eb8373b1cb91770f251a14086817346abfc5d17",
+                "reference": "5eb8373b1cb91770f251a14086817346abfc5d17",
                 "shasum": ""
             },
             "require": {
@@ -3748,7 +3748,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-17 08:34:06"
+            "time": "2013-10-26 07:59:29"
         },
         {
             "name": "videlalvaro/php-amqplib",
