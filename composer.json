@@ -49,7 +49,6 @@
         "raulfraile/ladybug-bundle": "~1.0.2",
         "elasticsearch/elasticsearch": "dev-master",
         "bangpound/phirehose-bundle": "dev-master",
-        "bangpound/twitter-data-bundle": "dev-master",
         "bangpound/twitter-streaming-bundle": "dev-master",
         "creof/doctrine2-spatial": "dev-master",
         "phayes/geophp": "dev-master",

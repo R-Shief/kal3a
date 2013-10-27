@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a585bec974a36764516db727ca9bcca0",
+    "hash": "61fd40603f1016bf5a4e2870f2e828af",
     "packages": [
         {
             "name": "bangpound/phirehose-bundle",
@@ -41,47 +41,6 @@
             ],
             "description": "Symfony2 bundle to integrate Phirehose",
             "time": "2013-10-26 13:08:57"
-        },
-        {
-            "name": "bangpound/twitter-data-bundle",
-            "version": "dev-master",
-            "target-dir": "Bangpound/Twitter/DataBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/TwitterDataBundle.git",
-                "reference": "1a9165ae5d1b5e7368ab2459a7e9a68785d198aa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/TwitterDataBundle/zipball/1a9165ae5d1b5e7368ab2459a7e9a68785d198aa",
-                "reference": "1a9165ae5d1b5e7368ab2459a7e9a68785d198aa",
-                "shasum": ""
-            },
-            "require": {
-                "jms/serializer-bundle": "dev-master",
-                "sonata-project/admin-bundle": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Bangpound\\Twitter\\DataBundle\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Tweet entities and admin controllers",
-            "support": {
-                "source": "https://github.com/bangpound/TwitterDataBundle/tree/master",
-                "issues": "https://github.com/bangpound/TwitterDataBundle/issues"
-            },
-            "time": "2013-08-07 23:03:07"
         },
         {
             "name": "bangpound/twitter-streaming-bundle",
@@ -3962,7 +3921,6 @@
         "liip/monitor-bundle": 20,
         "elasticsearch/elasticsearch": 20,
         "bangpound/phirehose-bundle": 20,
-        "bangpound/twitter-data-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
