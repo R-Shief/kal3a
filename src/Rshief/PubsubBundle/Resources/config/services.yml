@@ -28,7 +28,7 @@ services:
         arguments: [ "@sonata.notification.backend" ]
         class: %rshief_pubsub.notification_listener.class%
         tags:
-            - { name: sputnik_pubsub.event_subscriber }
+            - { name: kernel.event_subscriber }
 
     rshief_pubsub.form.type.hub_name:
         class: %rshief_pubsub.form.type.hub_name.class%
