@@ -14,6 +14,10 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+/**
+ * Class TopicAdmin
+ * @package Rshief\PubsubBundle\Admin
+ */
 class TopicAdmin extends Admin
 {
     private $subscriber;
@@ -23,14 +27,6 @@ class TopicAdmin extends Admin
      */
     public function setHubSubscriber(HubSubscriberInterface $subscriber) {
         $this->subscriber = $subscriber;
-    }
-
-    /**
-     * @param $associationMapping
-     */
-    public function setParentAssociationMapping($associationMapping)
-    {
-        $this->parentAssociationMapping = $associationMapping;
     }
 
     /**
