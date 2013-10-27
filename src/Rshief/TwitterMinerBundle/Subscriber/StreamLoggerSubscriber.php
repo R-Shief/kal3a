@@ -9,11 +9,19 @@ use Rshief\TwitterMinerBundle\Logger\DBALHandler;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+/**
+ * Class StreamLoggerSubscriber
+ * @package Rshief\TwitterMinerBundle\Subscriber
+ */
 class StreamLoggerSubscriber implements EventSubscriberInterface
 {
     private $logger;
     private $connection;
 
+    /**
+     * @param Logger $logger
+     * @param Connection $connection
+     */
     public function __construct(Logger $logger, Connection $connection)
     {
         $this->logger = $logger;
@@ -21,6 +29,9 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
         $this->logger->pushHandler(new DBALHandler($this->connection, Logger::DEBUG, false));
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return array(
@@ -34,18 +45,27 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
         );
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onDelete(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
         $this->logger->addInfo('delete', $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onScrubGeo(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
         $this->logger->addInfo('scrub_geo', $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onLimit(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
@@ -53,24 +73,36 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
         $this->logger->addInfo($message, $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onStatusWithheld(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
         $this->logger->addInfo('status_withheld', $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onUserWithheld(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
         $this->logger->addInfo('user_withheld', $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onDisconnect(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
         $this->logger->addInfo('disconnect', $context);
     }
 
+    /**
+     * @param StreamMessageEvent $event
+     */
     public function onWarning(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
