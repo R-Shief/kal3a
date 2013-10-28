@@ -136,9 +136,6 @@ sensio_framework_extra:
     view:    { annotations: false }
     cache:   { annotations: true }
 
-sputnik_pubsub:
-    live_hub: true
-
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
