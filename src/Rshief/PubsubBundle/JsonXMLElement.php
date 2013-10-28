@@ -31,7 +31,7 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
      * matches the pattern that try to detect if it is a new Zend\Json\Expr
      * if it matches, we return a new Zend\Json\Expr instead of a text node
      *
-     * @param SimpleXMLElement $simpleXmlElementObject
+     * @param \SimpleXMLElement $simpleXmlElementObject
      * @return Expr|string
      */
     protected static function _getXmlValue($simpleXmlElementObject)
@@ -46,7 +46,7 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
      * @return array
      * @throws Exception
      */
-    protected static function _processXml($simpleXmlElementObject, $ignoreXmlAttributes, $recursionDepth = 0) {
+    protected static function _processXml(\SimpleXMLElement $simpleXmlElementObject, $ignoreXmlAttributes, $recursionDepth = 0) {
         // Keep an eye on how deeply we are involved in recursion.
         if ($recursionDepth > static::$maxRecursionDepthAllowed) {
             // XML tree is too deep. Exit now by throwing an exception.
@@ -66,7 +66,9 @@ class JsonXMLElement extends \SimpleXMLElement implements \JsonSerializable {
                 foreach ($attributes['@attributes'] as $k => $v) {
                     $attributes['@attributes'][$k] = static::_getXmlValue($v);
                 }
-                $attributes['@text'] = $simpleXmlElementObject->children()->asXml();
+                // XHTML content is parsed as XML but we always want it as a single element. HTML and text
+                // are only available as the text of the element.
+                $attributes['@text'] = $value ? $value : $simpleXmlElementObject->children()->asXml();
                 return array($name => $attributes);
             }
 

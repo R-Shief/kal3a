@@ -1,7 +1,5 @@
 parameters:
     rshief_migration.vbulletinpost.writer.class: Rshief\MigrationBundle\Writer\DoctrineWriter
-    rshief_migration.enqueue.command.class: Rshief\MigrationBundle\Command\EnqueueCommand
-    rshief_migration.to_couchdb.command.class: Rshief\MigrationBundle\Command\ToCouchDBCommand
     rshief_migration.process_workflow.command.class: Rshief\MigrationBundle\Command\ProcessWorkflowCommand
     rshief_migration.vbulletinpost.entity.class: Rshief\MigrationBundle\Entity\VBulletinPost
     rshief_migration.vbulletinpost.reader.class: Ddeboer\DataImport\Reader\DoctrineReader
@@ -13,19 +11,6 @@ parameters:
         escapeHtml: true
 
 services:
-    rshief_migration.enqueue.command:
-        class: %rshief_migration.enqueue.command.class%
-        tags:
-            - { name: console.command }
-
-    rshief_migration.to_couchdb.command:
-        class: %rshief_migration.to_couchdb.command.class%
-        calls:
-            - ["setClient", [ @doctrine_couchdb.client.default_connection ] ]
-        tags:
-            - { name: console.command }
-
-
     rshief_migration.check.couchdb:
         class: Bangpound\Check\CouchDBCheck
         arguments: [ @doctrine_couchdb ]
@@ -50,6 +35,8 @@ services:
     rshief_migration.vbulletinpost.writer:
         class: %rshief_migration.vbulletinpost.writer.class%
         arguments: [ @doctrine_couchdb.odm.document_manager, %bangpound_atom_data.document.entry.class% ]
+        calls:
+            - [ "disableTruncate", [] ]
 
     rshief_migration.bbcode.converter:
         class: %rshief_migration.bbcode.converter.class%

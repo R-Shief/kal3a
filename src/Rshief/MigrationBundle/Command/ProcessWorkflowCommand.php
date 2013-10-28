@@ -2,9 +2,12 @@
 
 namespace Rshief\MigrationBundle\Command;
 
+use Bangpound\Atom\DataBundle\CouchDocument\ContentType;
 use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
+use Bangpound\Atom\DataBundle\CouchDocument\TextType;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
+use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -71,6 +74,19 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
             $decoda_config = $this->getContainer()->getParameter('rshief_migration.decoda.config');
         }
 
+        $contentConstructConverter = new CallbackValueConverter(function ($input) {
+            $construct = new ContentType();
+            $construct->setType('html');
+            $construct->setContent($input);
+            return $construct;
+        });
+
+        $textConstructConverter = new CallbackValueConverter(function ($input) {
+            $construct = new TextType();
+            $construct->setText($input);
+            return $construct;
+        });
+
         // Add converters to the workflow
         $workflow
             ->addValueConverter('dateline', $dateTimeConverter)
@@ -78,6 +94,12 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
 
             ->addMapping('title', 'title')
             ->addMapping('pagetext', 'content')
+
+            ->addValueConverter('summary', $textConstructConverter)
+            ->addValueConverter('title', $textConstructConverter)
+            ->addValueConverter('rights', $textConstructConverter)
+
+            ->addValueConverter('pagetext', $contentConstructConverter)
 
             // This converter replaces reverses the template output to extract original link
             // and description fields.

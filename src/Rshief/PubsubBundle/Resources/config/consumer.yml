@@ -3,4 +3,4 @@ services:
         class: Rshief\PubsubBundle\Consumer\NotificationConsumer
         tags:
             - { name: sonata.notification.consumer, type: pubsub_notification }
-        arguments: [ '@service_container' ]
+        arguments: [ '@doctrine_couchdb.odm.document_manager', '@jms_serializer' ]

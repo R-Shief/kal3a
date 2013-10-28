@@ -36,3 +36,6 @@ liip_monitor:
             path:                 /
             status_code:          200
             content:              ~
+
+sputnik_pubsub:
+    live_hub: true

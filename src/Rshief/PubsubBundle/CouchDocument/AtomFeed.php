@@ -1,14 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 10/28/13
- * Time: 5:45 AM
- */
 
 namespace Rshief\PubsubBundle\CouchDocument;
 
+use Bangpound\Atom\DataBundle\CouchDocument\FeedType;
 
-class AtomFeed {
+/**
+ * Class AtomFeed
+ * @package Rshief\PubsubBundle\CouchDocument
+ */
+class AtomFeed extends FeedType {
 
-} 
+    /**
+     * @var AtomEntry (atom:entryType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $entries;
+}

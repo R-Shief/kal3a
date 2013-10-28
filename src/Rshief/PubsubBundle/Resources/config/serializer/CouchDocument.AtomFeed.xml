@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Rshief\PubsubBundle\CouchDocument\AtomFeed" xml-root-name="feed" access-type="public_method">
+        <property name="entries" >
+            <xml-list entry-name="entry" inline="true"/>
+            <type><![CDATA[ArrayCollection<Rshief\PubsubBundle\CouchDocument\AtomEntry>]]></type>
+        </property>
+    </class>
+</serializer>
