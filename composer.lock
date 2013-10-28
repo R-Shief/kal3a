@@ -1167,12 +1167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "a33d43d572538aee1ba51edd7e00801a60491378"
+                "reference": "5dcd47c8b8ff98963663388a13cdb5f1b4cc2a5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/a33d43d572538aee1ba51edd7e00801a60491378",
-                "reference": "a33d43d572538aee1ba51edd7e00801a60491378",
+                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/5dcd47c8b8ff98963663388a13cdb5f1b4cc2a5c",
+                "reference": "5dcd47c8b8ff98963663388a13cdb5f1b4cc2a5c",
                 "shasum": ""
             },
             "require": {
@@ -1211,7 +1211,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2013-10-24 08:10:25"
+            "time": "2013-10-28 16:45:34"
         },
         {
             "name": "jms/parser-lib",
@@ -1254,12 +1254,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "a53384ff91a383c8fc12ff47eb1dd49a249a0be7"
+                "reference": "f8ab5e63eb87aa683264f13bdec49e7c1f86a32e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/a53384ff91a383c8fc12ff47eb1dd49a249a0be7",
-                "reference": "a53384ff91a383c8fc12ff47eb1dd49a249a0be7",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/f8ab5e63eb87aa683264f13bdec49e7c1f86a32e",
+                "reference": "f8ab5e63eb87aa683264f13bdec49e7c1f86a32e",
                 "shasum": ""
             },
             "require": {
@@ -1313,7 +1313,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2013-10-11 19:10:14"
+            "time": "2013-10-28 12:33:05"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1744,12 +1744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c600461b0f1a8943696f931fc11db475193f62cd"
+                "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c600461b0f1a8943696f931fc11db475193f62cd",
-                "reference": "c600461b0f1a8943696f931fc11db475193f62cd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0f3c054dff866aa687ab07572b731fb2ba32e703",
+                "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703",
                 "shasum": ""
             },
             "require": {
@@ -1799,7 +1799,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-24 12:32:52"
+            "time": "2013-10-28 09:41:17"
         },
         {
             "name": "phayes/geophp",
@@ -3506,12 +3506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba"
+                "reference": "d866a5acc45426f3c48c82b7cedb985d9e24568c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba",
-                "reference": "a8acbf8fed2a4244715ea7aa8f5f367f8c08bcba",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d866a5acc45426f3c48c82b7cedb985d9e24568c",
+                "reference": "d866a5acc45426f3c48c82b7cedb985d9e24568c",
                 "shasum": ""
             },
             "require": {
@@ -3611,7 +3611,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-26 07:53:03"
+            "time": "2013-10-28 14:29:55"
         },
         {
             "name": "twig/extensions",
@@ -3666,12 +3666,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "5eb8373b1cb91770f251a14086817346abfc5d17"
+                "reference": "5d31b14cbf2986aec8fbd91d6429ee08bae4b452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5eb8373b1cb91770f251a14086817346abfc5d17",
-                "reference": "5eb8373b1cb91770f251a14086817346abfc5d17",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5d31b14cbf2986aec8fbd91d6429ee08bae4b452",
+                "reference": "5d31b14cbf2986aec8fbd91d6429ee08bae4b452",
                 "shasum": ""
             },
             "require": {
@@ -3707,7 +3707,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-26 07:59:29"
+            "time": "2013-10-28 13:44:04"
         },
         {
             "name": "videlalvaro/php-amqplib",
