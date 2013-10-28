@@ -25,7 +25,7 @@ services:
         class: %rshief_twitter.consumer.notification.class%
         tags:
             - { name: sonata.notification.consumer, type: twitter_data.tweet }
-        arguments: [ '@service_container' ]
+        arguments: [ '@doctrine_couchdb.odm.document_manager', '@jms_serializer' ]
 
     rshief_twitter.stream.notify:
         class: %rshief_twitter.stream.notify.class%
