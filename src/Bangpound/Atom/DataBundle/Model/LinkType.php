@@ -38,7 +38,7 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class LinkType
+abstract class LinkType extends CommonAttributes
 {
 
     /**

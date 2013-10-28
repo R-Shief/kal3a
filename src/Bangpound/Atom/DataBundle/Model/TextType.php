@@ -26,6 +26,7 @@
  */
 
 namespace Bangpound\Atom\DataBundle\Model;
+use Bangpound\Atom\DataBundle\Model\Enum\TextConstructType;
 
 /**
  * TextType
@@ -38,12 +39,58 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class TextType
+abstract class TextType extends CommonAttributes implements \JsonSerializable
 {
 
     /**
-     * @var  (type)
+     * @var Enum\TextConstructType
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    protected $type;
+    protected $type = TextConstructType::text;
+
+    /**
+     * @var string
+     */
+    protected $text;
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $content
+     */
+    public function setText($content)
+    {
+        $this->text = $content;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\Enum\TextConstructType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\Enum\TextConstructType $type
+     */
+    public function setType(TextConstructType $type)
+    {
+        $this->type = $type;
+    }
+
+    public function jsonSerialize()
+    {
+        if ($this->type == TextConstructType::text) {
+            return $this->getText();
+        } else {
+            return [$this->getType() => $this->getText()];
+        }
+    }
 }

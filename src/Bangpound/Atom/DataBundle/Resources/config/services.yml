@@ -1,7 +1,23 @@
 parameters:
+    bangpound_atom_data.document.category.class: Bangpound\Atom\DataBundle\CouchDocument\CategoryType
+    bangpound_atom_data.document.content.class: Bangpound\Atom\DataBundle\CouchDocument\ContentType
     bangpound_atom_data.document.entry.class: Bangpound\Atom\DataBundle\CouchDocument\EntryType
+    bangpound_atom_data.document.feed.class: Bangpound\Atom\DataBundle\CouchDocument\FeedType
+    bangpound_atom_data.document.generator.class: Bangpound\Atom\DataBundle\CouchDocument\GeneratorType
+    bangpound_atom_data.document.link.class: Bangpound\Atom\DataBundle\CouchDocument\LinkType
+    bangpound_atom_data.document.person.class: Bangpound\Atom\DataBundle\CouchDocument\PersonType
+    bangpound_atom_data.document.source.class: Bangpound\Atom\DataBundle\CouchDocument\SourceType
+    bangpound_atom_data.document.text.class: Bangpound\Atom\DataBundle\CouchDocument\TextType
+    bangpound_atom_data.deserialize_nil_dates.class: Bangpound\Atom\DataBundle\EventDispatcher\Subscriber\DeserializeNilDates
+    bangpound_atom_data.deserialize_xml_attributes.class: Bangpound\Atom\DataBundle\EventDispatcher\Subscriber\DeserializeXmlAttributes
 
 services:
-#    bangpound_atom_data.example:
-#        class: %bangpound_atom_data.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    bangpound_atom_data.deserialize_nil_dates:
+        class: %bangpound_atom_data.deserialize_nil_dates.class%
+        tags:
+            - { name: jms_serializer.event_subscriber }
+
+    bangpound_atom_data.deserialize_xml_attributes:
+        class: %bangpound_atom_data.deserialize_xml_attributes.class%
+        tags:
+            - { name: jms_serializer.event_subscriber }

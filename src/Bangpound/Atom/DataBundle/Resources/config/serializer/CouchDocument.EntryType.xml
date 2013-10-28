@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Bangpound\Atom\DataBundle\CouchDocument\EntryType" xml-root-name="entry" access-type="public_method">
+        <property name="identifier" serialized-name="_id" type="string"/>
+    </class>
+</serializer>

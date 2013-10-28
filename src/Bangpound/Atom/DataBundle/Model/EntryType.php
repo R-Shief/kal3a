@@ -29,7 +29,7 @@ namespace Bangpound\Atom\DataBundle\Model;
 
 use Bangpound\Atom\DataBundle\Model\SourceType;
 use Bangpound\Atom\DataBundle\Model\TextType;
-use Bangpound\Atom\Model\ContentType;
+use Bangpound\Atom\DataBundle\Model\ContentType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\CouchDB\Types\DateTimeType;
 
@@ -44,12 +44,36 @@ use Doctrine\ODM\CouchDB\Types\DateTimeType;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class EntryType
+abstract class EntryType extends CommonAttributes
 {
     use CommonTypes;
 
     /**
-     * @var ContentType (atom:contentType)
+     * @var PersonType (atom:personType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $authors;
+
+    /**
+     * @var CategoryType (atom:categoryType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $categories;
+
+    /**
+     * @var PersonType (atom:personType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $contributors;
+
+    /**
+     * @var LinkType (atom:linksType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $links;
+
+    /**
+     * @var ContentType $content
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $content;
@@ -67,25 +91,25 @@ abstract class EntryType
     protected $published;
 
     /**
-     * @var string (atom:textType)
+     * @var TextType $rights
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $rights;
 
     /**
-     * @var string (atom:textType)
+     * @var SourceType
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $source;
 
     /**
-     * @var string (atom:textType)
+     * @var TextType $summary
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $summary;
 
     /**
-     * @var string (atom:textType)
+     * @var TextType $title
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $title;
@@ -156,7 +180,7 @@ abstract class EntryType
     }
 
     /**
-     * @return string
+     * @return TextType
      */
     public function getSummary()
     {
@@ -164,9 +188,9 @@ abstract class EntryType
     }
 
     /**
-     * @param string $summary
+     * @param TextType $summary
      */
-    public function setSummary($summary)
+    public function setSummary(TextType $summary)
     {
         $this->summary = $summary;
     }
@@ -188,7 +212,7 @@ abstract class EntryType
     }
 
     /**
-     * @return string
+     * @return TextType
      */
     public function getRights()
     {
@@ -196,9 +220,9 @@ abstract class EntryType
     }
 
     /**
-     * @param string $rights
+     * @param TextType $rights
      */
-    public function setRights($rights)
+    public function setRights(TextType $rights)
     {
         $this->rights = $rights;
     }
@@ -230,7 +254,7 @@ abstract class EntryType
     /**
      * @param string $title
      */
-    public function setTitle($title)
+    public function setTitle(TextType $title)
     {
         $this->title = $title;
     }

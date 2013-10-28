@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Rshief\\PubsubBundle\\CouchDocument\\AtomEntry" xml-root-name="entry">
+        <property name="content">
+        </property>
+    </class>
+</serializer>

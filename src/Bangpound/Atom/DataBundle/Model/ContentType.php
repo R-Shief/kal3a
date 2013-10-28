@@ -38,9 +38,8 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class ContentType
+abstract class ContentType extends CommonAttributes implements \JsonSerializable
 {
-
     /**
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
@@ -52,6 +51,11 @@ abstract class ContentType
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
     protected $src;
+
+    /**
+     * @var string
+     */
+    protected $content;
 
     /**
      * @return string
@@ -83,5 +87,34 @@ abstract class ContentType
     public function setSrc($src)
     {
         $this->src = $src;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    public function jsonSerialize()
+    {
+        if ($this->type == 'text' || $this->type == null) {
+            return $this->getContent();
+        } else {
+            return array(
+                'type' => $this->getType(),
+                'src' => $this->getSrc(),
+                'content' => $this->getContent(),
+            );
+        }
     }
 }

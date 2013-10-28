@@ -13,7 +13,7 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class PersonType
+abstract class PersonType extends CommonAttributes
 {
 
     /**
@@ -33,4 +33,52 @@ abstract class PersonType
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $email;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return \Bangpound\Atom\DataBundle\Model\UriType
+     */
+    public function getUri()
+    {
+        return $this->uri;
+    }
+
+    /**
+     * @param \Bangpound\Atom\DataBundle\Model\UriType $uri
+     */
+    public function setUri($uri)
+    {
+        $this->uri = $uri;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 }

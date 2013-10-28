@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 10/20/13
- * Time: 10:13 PM
- */
 
 namespace Bangpound\Atom\DataBundle\Model;
 
@@ -12,30 +6,6 @@ use Doctrine\Common\Collections\Collection;
 
 trait CommonTypes
 {
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    protected $authors;
-
-    /**
-     * @var CategoryType (atom:categoryType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    protected $categories;
-
-    /**
-     * @var PersonType (atom:personType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    protected $contributors;
-
-    /**
-     * @var LinkType (atom:linksType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
-     */
-    protected $links;
-
     /**
      * Add author
      *

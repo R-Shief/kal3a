@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Bangpound\Atom\DataBundle\Model\EntryType" xml-root-name="entry" access-type="public_method">
+        <property name="title" type="Bangpound\Atom\DataBundle\CouchDocument\TextType"/>
+        <property name="id" type="string"/>
+        <property name="content" type="Bangpound\Atom\DataBundle\CouchDocument\ContentType"/>
+        <property name="updated" type="DateTime"/>
+        <property name="published" type="DateTime"/>
+        <property name="rights" type="Bangpound\Atom\DataBundle\CouchDocument\TextType"/>
+        <property name="summary" type="Bangpound\Atom\DataBundle\CouchDocument\TextType"/>
+        <property name="source" type="Bangpound\Atom\DataBundle\CouchDocument\SourceType"/>
+        <property name="authors">
+            <xml-list entry-name="author" inline="true"/>
+            <type><![CDATA[ArrayCollection<Bangpound\Atom\DataBundle\CouchDocument\PersonType>]]></type>
+        </property>
+        <property name="categories">
+            <xml-list entry-name="category" inline="true"/>
+            <type><![CDATA[ArrayCollection<Bangpound\Atom\DataBundle\CouchDocument\CategoryType>]]></type>
+        </property>
+        <property name="contributors">
+            <xml-list entry-name="contributor" inline="true"/>
+            <type><![CDATA[ArrayCollection<Bangpound\Atom\DataBundle\CouchDocument\PersonType>]]></type>
+        </property>
+        <property name="links">
+            <xml-list entry-name="link" inline="true"/>
+            <type><![CDATA[ArrayCollection<Bangpound\Atom\DataBundle\CouchDocument\LinkType>]]></type>
+        </property>
+    </class>
+</serializer>

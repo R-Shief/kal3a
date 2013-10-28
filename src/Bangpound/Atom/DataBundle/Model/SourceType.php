@@ -38,9 +38,33 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class SourceType
+abstract class SourceType extends CommonAttributes
 {
     use CommonTypes;
+
+    /**
+     * @var PersonType (atom:personType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $authors;
+
+    /**
+     * @var CategoryType (atom:categoryType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $categories;
+
+    /**
+     * @var PersonType (atom:personType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $contributors;
+
+    /**
+     * @var LinkType (atom:linksType)
+     * @internal element (http://www.w3.org/2001/XMLSchema)
+     */
+    protected $links;
 
     /**
      * @var GeneratorType (atom:generatorType)
