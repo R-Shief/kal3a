@@ -14,6 +14,7 @@ parameters:
 services:
     bangpound_atom_data.deserialize_nil_dates:
         class: %bangpound_atom_data.deserialize_nil_dates.class%
+        arguments: [ @validator ]
         tags:
             - { name: jms_serializer.event_subscriber }
 

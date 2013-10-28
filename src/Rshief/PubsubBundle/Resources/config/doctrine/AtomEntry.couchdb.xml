@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doctrine-mapping>
-    <document name="Bangpound\Atom\DataBundle\CouchDocument\EntryType">
+    <document name="Rshief\PubsubBundle\CouchDocument\AtomEntry">
         <id name="identifier" json-name="_id" strategy="UUID" />
         <field name="id" json-name="id" type="string" />
         <field name="content" json-name="content" type="mixed" />
-        <field name="published" json-name="published" type="datetime" index="true" />
+        <field name="published" json-name="published" type="datetime" />
         <field name="rights" json-name="rights" type="mixed" />
         <field name="summary" json-name="summary" type="mixed" />
-        <field name="title" json-name="title" type="mixed"  index="true" />
-        <field name="updated" json-name="updated" type="datetime"  index="true" />
+        <field name="title" json-name="title" type="mixed" />
+        <field name="updated" json-name="updated" type="datetime" />
 
         <embed-one target-document="SourceType" field="source" />
 
@@ -16,5 +16,7 @@
         <embed-many target-document="CategoryType" field="categories" />
         <embed-many target-document="PersonType" field="contributors" />
         <embed-many target-document="LinkType" field="links" />
+
+        <attachments field="attachments" />
     </document>
 </doctrine-mapping>

@@ -174,7 +174,7 @@ abstract class EntryType extends CommonAttributes
     /**
      * @param \DateTime $updated
      */
-    public function setUpdated(\DateTime $updated)
+    public function setUpdated($updated)
     {
         $this->updated = $updated;
     }
@@ -206,7 +206,7 @@ abstract class EntryType extends CommonAttributes
     /**
      * @param \DateTime $published
      */
-    public function setPublished(\DateTime $published)
+    public function setPublished($published)
     {
         $this->published = $published;
     }
