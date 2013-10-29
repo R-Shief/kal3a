@@ -47,7 +47,7 @@ class PhirehoseConsumer extends ContainerAware implements ConsumerInterface
      * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
      * @param \JMS\Serializer\SerializerInterface $serializer
      */
-    public function __construct(ObjectManager $objectManager, Serializer $serializer) {
+    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer) {
         $this->objectManager = $objectManager;
         $this->serializer = $serializer;
         $this->jsonOptions = (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0', '>=')) ? JSON_BIGINT_AS_STRING : 0;
