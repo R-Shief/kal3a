@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sputnik\Bundle\PubsubBundle\Hub\HubSubscriberInterface;
 use Sputnik\Bundle\PubsubBundle\Model\Topic;
@@ -25,7 +24,8 @@ class TopicAdmin extends Admin
     /**
      * @param HubSubscriberInterface $subscriber
      */
-    public function setHubSubscriber(HubSubscriberInterface $subscriber) {
+    public function setHubSubscriber(HubSubscriberInterface $subscriber)
+    {
         $this->subscriber = $subscriber;
     }
 
@@ -40,7 +40,7 @@ class TopicAdmin extends Admin
         ;
 
         $subscriber = $this->subscriber;
-        
+
         $formMapper->getFormBuilder()->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($subscriber) {
             $data = $event->getData();
 
@@ -93,7 +93,8 @@ class TopicAdmin extends Admin
     /**
      * @param mixed $object
      */
-    public function create($object) {
+    public function create($object)
+    {
         $this->prePersist($object);
         $this->postPersist($object);
         $this->createObjectSecurity($object);

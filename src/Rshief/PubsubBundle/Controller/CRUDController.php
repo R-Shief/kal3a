@@ -12,14 +12,10 @@
 namespace Rshief\PubsubBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as BaseController;
-use Sonata\AdminBundle\Exception\ModelManagerException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class CRUDController extends BaseController

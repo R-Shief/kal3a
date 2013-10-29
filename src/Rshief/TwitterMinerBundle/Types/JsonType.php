@@ -21,15 +21,14 @@ class JsonType extends BaseType
 {
     /**
      * @param $value
-     * @param \Doctrine\DBAL\Platforms\AbstractPlatform $platform
+     * @param  \Doctrine\DBAL\Platforms\AbstractPlatform $platform
      * @return mixed
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
             return json_decode($value, true, 512, JSON_BIGINT_AS_STRING);
-        }
-        else {
+        } else {
             return json_decode($value, true, 512);
         }
     }

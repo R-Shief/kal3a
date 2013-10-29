@@ -19,7 +19,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     private $connection;
 
     /**
-     * @param Logger $logger
+     * @param Logger     $logger
      * @param Connection $connection
      */
     public function __construct(Logger $logger, Connection $connection)

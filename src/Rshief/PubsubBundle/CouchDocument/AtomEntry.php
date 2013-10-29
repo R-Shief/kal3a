@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 10/27/13
- * Time: 5:31 PM
- */
 
 namespace Rshief\PubsubBundle\CouchDocument;
 
 use Bangpound\Atom\DataBundle\CouchDocument\EntryType;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\CouchDB\Attachment;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
@@ -19,21 +12,23 @@ use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
  * @package Rshief\PubsubBundle\CouchDocument
  * @ODM\Document
  */
-class AtomEntry extends EntryType {
-
-    /** @var array<\Doctrine\CouchDB\Attachment> $attachments */
+class AtomEntry extends EntryType
+{
+    /** @var array<Attachment> $attachments */
     protected $attachments;
 
     /**
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->attachments = array();
     }
 
     /**
      * Add attachment
      *
+     * @param $filename
      * @param  Attachment $attachment
      * @return AtomEntry
      */
@@ -47,6 +42,7 @@ class AtomEntry extends EntryType {
     /**
      * Remove attachment
      *
+     * @param $filename
      * @param Attachment $attachment
      */
     public function removeAttachment($filename, Attachment $attachment)

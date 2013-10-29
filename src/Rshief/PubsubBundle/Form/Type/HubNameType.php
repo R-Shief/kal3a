@@ -19,24 +19,26 @@ class HubNameType extends AbstractType
     /**
      * @param HubProviderInterface $provider
      */
-    public function __construct(HubProviderInterface $provider) {
+    public function __construct(HubProviderInterface $provider)
+    {
         $this->provider = $provider;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getParent() {
+    public function getParent()
+    {
         return 'choice';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return 'hub_name';
     }
-
 
     /**
      * {@inheritdoc}

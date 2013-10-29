@@ -16,8 +16,8 @@ use Sonata\NotificationBundle\Backend\BackendInterface;
  * Class PubsubNotification
  * @package Rshief\PubsubBundle\EventListener
  */
-class PubsubNotification implements EventSubscriberInterface {
-
+class PubsubNotification implements EventSubscriberInterface
+{
     private $backend;
 
     /**

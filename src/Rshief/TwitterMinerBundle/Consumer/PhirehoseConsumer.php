@@ -7,16 +7,9 @@ use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\PersonType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
-use Bangpound\Twitter\DataBundle\Entity\DataRepository;
 use Bangpound\Twitter\DataBundle\Entity\Tweet;
-use Doctrine\Bundle\DoctrineBundle\Registry;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\EventManager;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\CouchDB\Attachment;
-use Doctrine\DBAL\Connection;
-use Doctrine\ORM\Configuration;
-use Doctrine\ORM\EntityManager;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerInterface;
 use Rshief\PubsubBundle\CouchDocument\AtomEntry;
@@ -24,9 +17,6 @@ use Sonata\NotificationBundle\Consumer\ConsumerEvent;
 use Sonata\NotificationBundle\Consumer\ConsumerInterface;
 use Sonata\NotificationBundle\Model\Message;
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Doctrine\CouchDB\CouchDBClient;
-use Doctrine\CouchDB\Utils\BulkUpdater;
 
 /**
  * Class PhirehoseConsumer
@@ -45,9 +35,10 @@ class PhirehoseConsumer extends ContainerAware implements ConsumerInterface
 
     /**
      * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
-     * @param \JMS\Serializer\SerializerInterface $serializer
+     * @param \JMS\Serializer\SerializerInterface        $serializer
      */
-    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer) {
+    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer)
+    {
         $this->objectManager = $objectManager;
         $this->serializer = $serializer;
         $this->jsonOptions = (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0', '>=')) ? JSON_BIGINT_AS_STRING : 0;

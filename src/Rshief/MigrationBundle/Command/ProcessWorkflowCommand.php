@@ -37,8 +37,9 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
+     * @param  InputInterface  $input
+     * @param  OutputInterface $output
+     * @return int|null|void
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
@@ -78,12 +79,14 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
             $construct = new ContentType();
             $construct->setType('html');
             $construct->setContent($input);
+
             return $construct;
         });
 
         $textConstructConverter = new CallbackValueConverter(function ($input) {
             $construct = new TextType();
             $construct->setText($input);
+
             return $construct;
         });
 

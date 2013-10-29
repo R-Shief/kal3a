@@ -31,6 +31,7 @@ class DBALHandler extends AbstractProcessingHandler
         if ($record['channel'] != 'twitter_data') {
             return false;
         }
+
         return parent::handle($record);
     }
 
@@ -53,8 +54,7 @@ class DBALHandler extends AbstractProcessingHandler
     private function initialize()
     {
         $schemaManager = $this->connection->getSchemaManager();
-        if (!$schemaManager->tablesExist(array('monolog')))
-        {
+        if (!$schemaManager->tablesExist(array('monolog'))) {
             $table = new Table('monolog');
             $table->addColumn("channel", "string", array("length" => 255));
             $table->addColumn("level", "integer");
