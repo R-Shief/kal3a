@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <document name="Rshief\TwitterMinerBundle\CouchDocument\AtomEntry">
+        <attachments field="attachments" />
+    </document>
+</doctrine-mapping>

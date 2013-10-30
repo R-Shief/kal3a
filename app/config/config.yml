@@ -139,13 +139,7 @@ sensio_framework_extra:
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
-        connections:
-            default:
-                dbname: symfony
-            twitter_data:
-                dbname: symfony
-            feedmanager:
-                dbname: symfony
+        dbname: %doctrine_couch_db.default.dbname%
     odm:
         auto_mapping: true
 

@@ -665,4 +665,9 @@ class VBulletinRssFeed
     {
         return $this->rssfeedid;
     }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

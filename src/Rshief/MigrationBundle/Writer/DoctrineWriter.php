@@ -229,6 +229,8 @@ class DoctrineWriter extends AbstractWriter
             }
         }
 
+        $entity->setOriginalData(json_encode($originalItem, true), 'application/json');
+
         $this->objectManager->persist($entity);
 
         if (($this->counter % $this->batchSize) == 0) {

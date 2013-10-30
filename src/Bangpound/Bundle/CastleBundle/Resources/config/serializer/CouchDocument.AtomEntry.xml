@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry" xml-root-name="entry" access-type="public_method">
+        <property name="attachments">
+            <type><![CDATA[ArrayCollection<Doctrine\CouchDB\Attachment>]]></type>
+        </property>
+    </class>
+</serializer>

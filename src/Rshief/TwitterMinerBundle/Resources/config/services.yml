@@ -3,6 +3,7 @@ parameters:
     rshief_twitter.stream.class: Rshief\TwitterMinerBundle\Stream\RshiefStream
     rshief_twitter.stream.notify.class: Rshief\TwitterMinerBundle\Subscriber\StreamNotifySubscriber
     rshief_twitter.stream.logger.class: Rshief\TwitterMinerBundle\Subscriber\StreamLoggerSubscriber
+    rshief_twitter.persistent_atom_entry.class: Rshief\TwitterMinerBundle\CouchDocument\AtomEntry
 
     rshief_twitter.stream.notify.type: 'twitter_data.tweet'
 
@@ -25,7 +26,9 @@ services:
         class: %rshief_twitter.consumer.notification.class%
         tags:
             - { name: sonata.notification.consumer, type: twitter_data.tweet }
-        arguments: [ '@doctrine_couchdb.odm.document_manager', '@jms_serializer' ]
+        arguments: [ '@doctrine_couchdb.odm.document_manager', '@jms_serializer', %rshief_twitter.persistent_atom_entry.class% ]
+        calls:
+            - [ setLogger, [ @logger ] ]
 
     rshief_twitter.stream.notify:
         class: %rshief_twitter.stream.notify.class%

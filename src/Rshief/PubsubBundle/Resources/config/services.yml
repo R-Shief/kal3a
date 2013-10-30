@@ -1,7 +1,7 @@
 parameters:
     rshief_pubsub.notification_listener.class: Rshief\PubsubBundle\EventListener\PubsubNotification
     rshief_pubsub.form.type.hub_name.class: Rshief\PubsubBundle\Form\Type\HubNameType
-    rshief_pubsub.guzzle.plugin.accept_json.class: Rshief\PubsubBundle\Guzzle\Plugin\AcceptJson
+    rshief_pubsub.persistent_atom_entry.class: Rshief\PubsubBundle\CouchDocument\AtomEntry
 
 services:
     hub.superfeedr:

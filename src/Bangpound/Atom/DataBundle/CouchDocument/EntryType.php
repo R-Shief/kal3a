@@ -10,13 +10,12 @@ use Bangpound\Atom\DataBundle\Model\EntryType as BaseEntryType;
 class EntryType extends BaseEntryType
 {
     /**
-     * @var IdType (atom:idType)
-     * @internal element (http://www.w3.org/2001/XMLSchema)
+     * @var string
      */
     private $identifier;
 
     /**
-     * @return \Bangpound\Atom\DataBundle\CouchDocument\IdType
+     * @return string
      */
     public function getIdentifier()
     {
@@ -24,7 +23,7 @@ class EntryType extends BaseEntryType
     }
 
     /**
-     * @param \Bangpound\Atom\DataBundle\CouchDocument\IdType $identifier
+     * @param string $identifier
      */
     public function setIdentifier($identifier)
     {

@@ -2,7 +2,7 @@ parameters:
     rshief_migration.vbulletinpost.writer.class: Rshief\MigrationBundle\Writer\DoctrineWriter
     rshief_migration.process_workflow.command.class: Rshief\MigrationBundle\Command\ProcessWorkflowCommand
     rshief_migration.vbulletinpost.entity.class: Rshief\MigrationBundle\Entity\VBulletinPost
-    rshief_migration.vbulletinpost.reader.class: Ddeboer\DataImport\Reader\DoctrineReader
+    rshief_migration.vbulletinpost.reader.class: Rshief\MigrationBundle\Reader\DoctrineReader
     rshief_migration.vbulletinpost.workflow.class: Ddeboer\DataImport\Workflow
     rshief_migration.bbcode.converter.class: Decoda\Decoda
     rshief_migration.decoda.config:
@@ -34,7 +34,7 @@ services:
 
     rshief_migration.vbulletinpost.writer:
         class: %rshief_migration.vbulletinpost.writer.class%
-        arguments: [ @doctrine_couchdb.odm.document_manager, %bangpound_atom_data.document.entry.class% ]
+        arguments: [ @doctrine_couchdb.odm.document_manager, 'Rshief\MigrationBundle\CouchDocument\AtomEntry', 'id' ]
         calls:
             - [ "disableTruncate", [] ]
 

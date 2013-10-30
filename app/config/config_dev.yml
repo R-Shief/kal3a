@@ -54,3 +54,7 @@ sputnik_pubsub:
 
 raul_fraile_ladybug:
     object_max_nesting_level: 5
+
+jns_xhprof:
+    location_web:    http://xhprof.localhost
+    enabled:         true

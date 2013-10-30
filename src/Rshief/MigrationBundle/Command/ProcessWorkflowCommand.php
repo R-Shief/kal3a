@@ -2,10 +2,13 @@
 
 namespace Rshief\MigrationBundle\Command;
 
+use Bangpound\Atom\DataBundle\CouchDocument\CategoryType;
 use Bangpound\Atom\DataBundle\CouchDocument\ContentType;
 use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
+use Bangpound\Atom\DataBundle\Model\Enum\TextConstructType;
+use Ddeboer\DataImport\Filter\CallbackFilter;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
 use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
@@ -16,6 +19,7 @@ use Symfony\Component\Console\Command\Command;
 use Ddeboer\DataImport\Workflow;
 use Ddeboer\DataImport\ValueConverter\DateTimeValueConverter;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Rshief\MigrationBundle\Compiler\TemplateDecompiler;
 
@@ -25,15 +29,15 @@ use Rshief\MigrationBundle\Compiler\TemplateDecompiler;
  */
 class ProcessWorkflowCommand extends ContainerAwareCommand
 {
-    private $templates;
-
     /**
      * Configures the current command.
      */
     protected function configure()
     {
         $this
-            ->setName('migrate:workflow:process');
+            ->setName('migrate:workflow:process')
+            ->addOption('max-results', null, InputOption::VALUE_REQUIRED)
+            ->addOption('first-result', null, InputOption::VALUE_REQUIRED);
     }
 
     /**
@@ -43,11 +47,22 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
+//        xhprof_enable(XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);
+//        register_shutdown_function(function() {
+//            $xhprof_data = xhprof_disable();
+//            $xhprof_runs = new \XHProfRuns_Default('/tmp');
+//            $runId = $xhprof_runs->save_run($xhprof_data, "Symfony");
+//            var_dump($runId);
+//        });
+
+
         // @todo make $name into a command line argument..
         $name = 'vbulletinpost';
 
         /** @var \Ddeboer\DataImport\Reader\ReaderInterface $reader */
         $reader = $this->getContainer()->get(sprintf('rshief_migration.%s.reader', $name));
+        $reader->setMaxResults($input->getOption('max-results'));
+        $reader->setFirstResult($input->getOption('first-result'));
 
         /** @var \Ddeboer\DataImport\Workflow $workflow */
         $workflow = $this->getContainer()->get(sprintf('rshief_migration.%s.workflow', $name));
@@ -62,14 +77,15 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
         $client = $this->getContainer()->get('doctrine_couchdb.client.default_connection');
 
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $dm = $this->getContainer()->get('doctrine_couchdb.odm.document_manager');
 
         $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinRssFeed');
+        $templates = array();
         foreach ($repository->findAll() as $rssfeed) {
-            $regex = \Rshief\MigrationBundle\Compiler\TemplateDecompiler::compile($rssfeed->getBodytemplate());
-            $this->templates[$rssfeed->getForumid()][$rssfeed->getUserid()] = $regex['regex'];
+            $em->detach($rssfeed);
+            $regex = TemplateDecompiler::compile($rssfeed->getBodytemplate());
+            $templates[$rssfeed->getForumid()][$rssfeed->getUserid()] = $regex['regex'];
         }
-
-        $templates = $this->templates;
 
         if ($this->getContainer()->hasParameter('rshief_migration.decoda.config')) {
             $decoda_config = $this->getContainer()->getParameter('rshief_migration.decoda.config');
@@ -90,10 +106,25 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
             return $construct;
         });
 
+        $generateAtomId = function ($key) {
+            return 'tag:vbulletin/'. $key;
+        };
+
         // Add converters to the workflow
         $workflow
+            ->addFilter(new CallbackFilter(function ($data) use ($generateAtomId, $em, $dm) {
+                $repository = $dm->getRepository('Rshief\MigrationBundle\CouchDocument\AtomEntry');
+                $existing = $repository->findOneBy(['id' => $generateAtomId($data['postid'])]);
+                if ($existing) {
+                    $dm->detach($existing);
+                    return false;
+                }
+                return true;
+            }))
             ->addValueConverter('dateline', $dateTimeConverter)
             ->addMapping('dateline', 'published')
+
+            ->addMapping('postid', 'id')
 
             ->addMapping('title', 'title')
             ->addMapping('pagetext', 'content')
@@ -102,15 +133,26 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
             ->addValueConverter('title', $textConstructConverter)
             ->addValueConverter('rights', $textConstructConverter)
 
+            // This converter adds an atom ID.
+            ->addValueConverter('postid', new CallbackValueConverter(function ($input) use ($generateAtomId) {
+                return $generateAtomId($input);
+            }))
+
             ->addValueConverter('pagetext', $contentConstructConverter)
 
             // This converter replaces reverses the template output to extract original link
             // and description fields.
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($em, $templates) {
 
+                $array['originalData'] = $array;
+                $array['links'] = array();
+                $array['categories'] = array();
+
                 $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
                 $thread = $repository->find($array['threadid']);
+                $em->detach($thread);
                 $forum = $thread->getForum();
+                $em->detach($forum);
 
                 $userid = $array['userid'];
                 $forumid = $forum->getForumid();
@@ -132,9 +174,8 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                                     case 'feedlink':
                                         $link = new LinkType();
                                         $link->setHref($value);
-                                        $array['links'] = new ArrayCollection([
-                                            $link,
-                                        ]);
+                                        $link->setRel('alternate');
+                                        $array['links'][] = $link;
                                         break;
 
                                     case 'feeddescription':
@@ -159,6 +200,7 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
 
                 $repository = $em->getRepository('Rshief\MigrationBundle\Entity\VBulletinThread');
                 $thread = $repository->find($array['threadid']);
+                $em->detach($thread);
                 $forum = $thread->getForum();
 
                 $userid = $array['userid'];
@@ -176,8 +218,13 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 ]);
 
                 if ($feed) {
+                    $em->detach($feed);
                     $source = new SourceType();
-                    $source->setTitle($feed->getTitle());
+
+                    $title = new TextType();
+                    $title->setText($feed->getTitle());
+
+                    $source->setTitle($title);
 
                     $link = new LinkType();
                     $link->setHref($feed->getUrl());
@@ -201,6 +248,33 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 $pagetext = $decoda->parse();
 
                 $array['pagetext'] = $pagetext;
+
+                return $array;
+            }))
+
+            // This extracts hashtags and URLs where possible.
+            ->addItemConverter(new CallbackItemConverter(function ($array) {
+                $extractor = new \Twitter_Extractor($array['pagetext']);
+                $values = $extractor->extract();
+
+                foreach ($values['hashtags'] as $hashtag) {
+                    $category = new CategoryType();
+                    $category->setTerm($hashtag);
+                    $array['categories'][] = $category;
+                }
+
+                foreach ($values['urls'] as $url) {
+                    $href = html_entity_decode($url);
+                    foreach ($array['links'] as $link) {
+                        // This prevents duplicate links.
+                        if ($href == $link->getHref()) {
+                            continue 2;
+                        }
+                    }
+                    $link = new LinkType();
+                    $link->setHref($href);
+                    $array['links'][] = $link;
+                }
 
                 return $array;
             }))

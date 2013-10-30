@@ -35,7 +35,7 @@ class DeserializeXmlAttributes implements EventSubscriberInterface
     {
         $type = $event->getType();
         $data = $event->getData();
-        if (strpos($type['name'], 'Bangpound\Atom\DataBundle') === 0) {
+        if (is_subclass_of($type['name'], 'Bangpound\Atom\DataBundle\Model\CommonAttributes')) {
             $namespaces = $data->getNamespaces(true);
             foreach ($namespaces as $prefix => $namespace) {
                 foreach ($data->attributes($namespace) as $key => $value) {

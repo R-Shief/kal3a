@@ -13,7 +13,7 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class PersonType extends CommonAttributes
+abstract class PersonType extends CommonAttributes implements \JsonSerializable
 {
 
     /**

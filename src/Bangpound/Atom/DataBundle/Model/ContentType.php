@@ -44,7 +44,7 @@ abstract class ContentType extends CommonAttributes implements \JsonSerializable
      * @var string (xs:string)
      * @internal attribute (http://www.w3.org/2001/XMLSchema)
      */
-    protected $type;
+    protected $type = 'text';
 
     /**
      * @var string (xs:anyURI)
@@ -105,16 +105,15 @@ abstract class ContentType extends CommonAttributes implements \JsonSerializable
         $this->content = $content;
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize()
     {
-        if ($this->type == 'text' || $this->type == null) {
-            return $this->getContent();
-        } else {
-            return array(
-                'type' => $this->getType(),
-                'src' => $this->getSrc(),
-                'content' => $this->getContent(),
-            );
-        }
+        return array_filter(array(
+            'type' => $this->getType(),
+            'src' => $this->getSrc(),
+            'content' => $this->getContent(),
+        ));
     }
 }

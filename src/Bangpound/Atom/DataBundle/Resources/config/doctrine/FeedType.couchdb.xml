@@ -9,10 +9,12 @@
         <field name="rights" json-name="rights" type="mixed" />
         <field name="updated" json-name="updated" type="datetime" />
         <embed-one target-document="GeneratorType" field="generator" />
-        <embed-many target-document="PersonType" field="authors" />
-        <embed-many target-document="CategoryType" field="categories" />
-        <embed-many target-document="PersonType" field="contributors" />
-        <embed-many target-document="LinkType" field="links" />
+
+        <field name="authors" type="mixed" />
+        <field name="categories" type="mixed" />
+        <field name="contributors" type="mixed" />
+        <field name="links" type="mixed" />
+
         <embed-many target-document="EntryType" field="entries" />
     </document>
 </doctrine-mapping>

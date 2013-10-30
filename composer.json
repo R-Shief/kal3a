@@ -16,6 +16,10 @@
             "url": "git@github.com:bangpound/SonataNotificationBundle.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/bangpound/php-activitystreams.git"
+        },
+        {
             "type": "composer",
             "url": "http://bangpound.github.io/satis-repository"
         }
@@ -54,7 +58,10 @@
         "phayes/geophp": "dev-master",
         "videlalvaro/php-amqplib": "2.0.*",
         "sputnik/pubsub-bundle": "~0.3.0",
-        "sensiolabs/security-checker": "~1.2"
+        "sensiolabs/security-checker": "~1.2",
+        "activitystreams/activitystreams": "dev-patch-1",
+        "nojimage/twitter-text-php": "dev-master",
+        "jns/xhprof-bundle": "dev-master"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle" : "dev-master",

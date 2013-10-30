@@ -38,6 +38,7 @@ class AppKernel extends Kernel
             new Bangpound\ElasticsearchBundle\BangpoundElasticsearchBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
             new Rshief\PubsubBundle\RshiefPubsubBundle(),
+            new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -47,6 +48,7 @@ class AppKernel extends Kernel
             $bundles[] = new Elao\WebProfilerExtraBundle\WebProfilerExtraBundle();
             $bundles[] = new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle();
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+            $bundles[] = new Jns\Bundle\XhprofBundle\JnsXhprofBundle();
         }
 
         return $bundles;

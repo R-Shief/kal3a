@@ -62,11 +62,11 @@ abstract class TextType extends CommonAttributes implements \JsonSerializable
     }
 
     /**
-     * @param mixed $content
+     * @param mixed $text
      */
-    public function setText($content)
+    public function setText($text)
     {
-        $this->text = $content;
+        $this->text = $text;
     }
 
     /**
@@ -85,12 +85,11 @@ abstract class TextType extends CommonAttributes implements \JsonSerializable
         $this->type = $type;
     }
 
-    public function jsonSerialize()
+    /**
+     * @return mixed
+     */
+    public function __toString()
     {
-        if ($this->type == TextConstructType::text) {
-            return $this->getText();
-        } else {
-            return [$this->getType() => $this->getText()];
-        }
+        return $this->getText();
     }
 }

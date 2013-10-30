@@ -2,19 +2,9 @@
 /**
  * PHP classes for atom.xsd.xml
  *
- *
- *
  * This version of the Atom schema is based on version 1.0 of the format specifications,
- *
  * found here http://www.atomenabled.org/developers/syndication/atom-format-spec.php.
- *
- *
- *
- *
- *
  * An Atom document may have two root elements, feed and entry, as defined in section 2.
- *
- *
  *
  * PHP Version 5.3
  *
@@ -125,10 +115,10 @@ abstract class EntryType extends CommonAttributes
      */
     public function __construct()
     {
-        $this->authors = new ArrayCollection();
-        $this->categories = new ArrayCollection();
-        $this->contributors = new ArrayCollection();
-        $this->links = new ArrayCollection();
+        $this->authors = array();
+        $this->categories = array();
+        $this->contributors = array();
+        $this->links = array();
     }
 
     /**
@@ -252,7 +242,7 @@ abstract class EntryType extends CommonAttributes
     }
 
     /**
-     * @param string $title
+     * @param TextType $title
      */
     public function setTitle(TextType $title)
     {

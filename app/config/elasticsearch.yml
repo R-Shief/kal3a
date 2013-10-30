@@ -11,397 +11,397 @@ bangpound_elasticsearch:
                 twitter:
                     properties:
                         _rev:
-                            type: "string"
+                            type: string
                         coordinates:
                             properties:
                                 coordinates:
-                                    type: "double"
-                                    index: "no"
+                                    type: double
+                                    index: no
                                 type:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                         created_at:
-                            type: "date"
+                            type: date
                             format: "EE MMM d HH:mm:ss Z yyyy"
                         entities:
                             properties:
                                 hashtags:
                                     properties:
                                         indices:
-                                            type: "long"
-                                            index: "no"
+                                            type: long
+                                            index: no
                                         text:
-                                            type: "string"
+                                            type: string
                                 media:
                                     properties:
                                         display_url:
-                                            type: "string"
+                                            type: string
                                         expanded_url:
-                                            type: "string"
+                                            type: string
                                         id:
-                                            type: "long"
+                                            type: long
                                         id_str:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         indices:
-                                            type: "long"
-                                            index: "no"
+                                            type: long
+                                            index: no
                                         media_url:
-                                            type: "string"
+                                            type: string
                                         media_url_https:
-                                            type: "string"
+                                            type: string
                                         sizes:
                                             properties:
                                                 large:
                                                     properties:
                                                         h:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                                         resize:
-                                                            type: "string"
-                                                            index: "no"
+                                                            type: string
+                                                            index: no
                                                         w:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                                 medium:
                                                     properties:
                                                         h:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                                         resize:
-                                                            type: "string"
-                                                            index: "no"
+                                                            type: string
+                                                            index: no
                                                         w:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                                 small:
                                                     properties:
                                                         h:
-                                                            type: "long"
+                                                            type: long
                                                         resize:
-                                                            type: "string"
+                                                            type: string
                                                         w:
-                                                            type: "long"
+                                                            type: long
                                                 thumb:
                                                     properties:
                                                         h:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                                         resize:
-                                                            type: "string"
-                                                            index: "no"
+                                                            type: string
+                                                            index: no
                                                         w:
-                                                            type: "long"
-                                                            index: "no"
+                                                            type: long
+                                                            index: no
                                         source_status_id:
-                                            type: "long"
+                                            type: long
                                         source_status_id_str:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         type:
-                                            type: "string"
+                                            type: string
                                         url:
-                                            type: "string"
+                                            type: string
                                 symbols:
                                     properties:
                                         indices:
-                                            type: "long"
-                                            index: "no"
+                                            type: long
+                                            index: no
                                         text:
-                                            type: "string"
+                                            type: string
                                 urls:
                                     properties:
                                         display_url:
-                                            type: "string"
+                                            type: string
                                         expanded_url:
-                                            type: "string"
+                                            type: string
                                         indices:
-                                            type: "long"
-                                            index: "no"
+                                            type: long
+                                            index: no
                                         url:
-                                            type: "string"
+                                            type: string
                                 user_mentions:
                                     properties:
                                         id:
-                                            type: "long"
+                                            type: long
                                         id_str:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         indices:
-                                            type: "long"
-                                            index: "no"
+                                            type: long
+                                            index: no
                                         name:
-                                            type: "string"
+                                            type: string
                                         screen_name:
-                                            type: "string"
+                                            type: string
                         favorite_count:
-                            type: "long"
+                            type: long
                         favorited:
                             type: "boolean"
                         filter_level:
-                            type: "string"
+                            type: string
                         geo:
                             properties:
                                 coordinates:
-                                    type: "double"
-                                    index: "no"
+                                    type: double
+                                    index: no
                                 type:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                         id:
-                            type: "long"
+                            type: long
                         in_reply_to_screen_name:
-                            type: "string"
+                            type: string
                         in_reply_to_status_id:
-                            type: "long"
+                            type: long
                         in_reply_to_user_id:
-                            type: "long"
+                            type: long
                         lang:
-                            type: "string"
+                            type: string
                         place:
                             type: "nested"
                             properties:
                                 attributes:
                                     properties:
                                         locality:
-                                            type: "string"
+                                            type: string
                                         region:
-                                            type: "string"
+                                            type: string
                                         street_address:
-                                            type: "string"
+                                            type: string
                                 bounding_box:
                                     properties:
                                         coordinates:
-                                            type: "double"
+                                            type: double
                                         type:
-                                            type: "string"
+                                            type: string
                                 country:
-                                    type: "string"
+                                    type: string
                                 country_code:
-                                    type: "string"
+                                    type: string
                                 full_name:
-                                    type: "string"
+                                    type: string
                                 id:
-                                    type: "string"
+                                    type: string
                                 name:
-                                    type: "string"
+                                    type: string
                                 place_type:
-                                    type: "string"
+                                    type: string
                                 url:
-                                    type: "string"
+                                    type: string
                         possibly_sensitive:
                             type: "boolean"
                         rShief:
                             properties:
                                 author:
-                                    type: "string"
+                                    type: string
                                 created_at:
-                                    type: "date"
+                                    type: date
                                     format: "EE MMM d HH:mm:ss Z yyyy"
                                 lang:
-                                    type: "string"
+                                    type: string
                                 source:
-                                    type: "string"
+                                    type: string
                                 tag:
-                                    type: "string"
+                                    type: string
                         retweet_count:
-                            type: "long"
+                            type: long
                         retweeted:
                             type: "boolean"
                         retweeted_status:
                             type: "nested"
                             properties:
                                 contributors:
-                                    type: "long"
+                                    type: long
                                 coordinates:
                                     properties:
                                         coordinates:
-                                            type: "double"
-                                            index: "no"
+                                            type: double
+                                            index: no
                                         type:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                 created_at:
-                                    type: "date"
+                                    type: date
                                     format: "EE MMM d HH:mm:ss Z yyyy"
                                 entities:
                                     properties:
                                         hashtags:
                                             properties:
                                                 indices:
-                                                    type: "long"
-                                                    index: "no"
+                                                    type: long
+                                                    index: no
                                                 text:
-                                                    type: "string"
+                                                    type: string
                                         media:
                                             properties:
                                                 display_url:
-                                                    type: "string"
+                                                    type: string
                                                 expanded_url:
-                                                    type: "string"
+                                                    type: string
                                                 id:
-                                                    type: "long"
+                                                    type: long
                                                 id_str:
-                                                    type: "string"
-                                                    index: "no"
+                                                    type: string
+                                                    index: no
                                                 indices:
-                                                    type: "long"
-                                                    index: "no"
+                                                    type: long
+                                                    index: no
                                                 media_url:
-                                                    type: "string"
+                                                    type: string
                                                 media_url_https:
-                                                    type: "string"
+                                                    type: string
                                                 sizes:
                                                     properties:
                                                         large:
                                                             properties:
                                                                 h:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                                 resize:
-                                                                    type: "string"
-                                                                    index: "no"
+                                                                    type: string
+                                                                    index: no
                                                                 w:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                         medium:
                                                             properties:
                                                                 h:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                                 resize:
-                                                                    type: "string"
-                                                                    index: "no"
+                                                                    type: string
+                                                                    index: no
                                                                 w:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                         small:
                                                             properties:
                                                                 h:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                                 resize:
-                                                                    type: "string"
-                                                                    index: "no"
+                                                                    type: string
+                                                                    index: no
                                                                 w:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                         thumb:
                                                             properties:
                                                                 h:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                                 resize:
-                                                                    type: "string"
-                                                                    index: "no"
+                                                                    type: string
+                                                                    index: no
                                                                 w:
-                                                                    type: "long"
-                                                                    index: "no"
+                                                                    type: long
+                                                                    index: no
                                                 source_status_id:
-                                                    type: "long"
+                                                    type: long
                                                 source_status_id_str:
-                                                    type: "string"
-                                                    index: "no"
+                                                    type: string
+                                                    index: no
                                                 type:
-                                                    type: "string"
+                                                    type: string
                                                 url:
-                                                    type: "string"
+                                                    type: string
                                         symbols:
                                             properties:
                                                 indices:
-                                                    type: "long"
-                                                    index: "no"
+                                                    type: long
+                                                    index: no
                                                 text:
-                                                    type: "string"
+                                                    type: string
                                         urls:
                                             properties:
                                                 display_url:
-                                                    type: "string"
+                                                    type: string
                                                 expanded_url:
-                                                    type: "string"
+                                                    type: string
                                                 indices:
-                                                    type: "long"
-                                                    index: "no"
+                                                    type: long
+                                                    index: no
                                                 url:
-                                                    type: "string"
+                                                    type: string
                                         user_mentions:
                                             properties:
                                                 id:
-                                                    type: "long"
+                                                    type: long
                                                 id_str:
-                                                    type: "string"
-                                                    index: "no"
+                                                    type: string
+                                                    index: no
                                                 indices:
-                                                    type: "long"
-                                                    index: "no"
+                                                    type: long
+                                                    index: no
                                                 name:
-                                                    type: "string"
+                                                    type: string
                                                 screen_name:
-                                                    type: "string"
+                                                    type: string
                                 favorite_count:
-                                    type: "long"
+                                    type: long
                                 favorited:
                                     type: "boolean"
                                 geo:
                                     properties:
                                         coordinates:
-                                            type: "double"
-                                            index: "no"
+                                            type: double
+                                            index: no
                                         type:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                 id:
-                                    type: "long"
+                                    type: long
                                 id_str:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 in_reply_to_screen_name:
-                                    type: "string"
+                                    type: string
                                 in_reply_to_status_id:
-                                    type: "long"
+                                    type: long
                                 in_reply_to_status_id_str:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 in_reply_to_user_id:
-                                    type: "long"
+                                    type: long
                                 in_reply_to_user_id_str:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 lang:
-                                    type: "string"
+                                    type: string
                                 place:
                                     type: "nested"
                                     properties:
                                         attributes:
                                             properties:
                                                 street_address:
-                                                    type: "string"
+                                                    type: string
                                         bounding_box:
                                             properties:
                                                 coordinates:
-                                                    type: "double"
-                                                    index: "no"
+                                                    type: double
+                                                    index: no
                                                 type:
-                                                    type: "string"
-                                                    index: "no"
+                                                    type: string
+                                                    index: no
                                         country:
-                                            type: "string"
+                                            type: string
                                         country_code:
-                                            type: "string"
+                                            type: string
                                         full_name:
-                                            type: "string"
+                                            type: string
                                         id:
-                                            type: "string"
+                                            type: string
                                         name:
-                                            type: "string"
+                                            type: string
                                         place_type:
-                                            type: "string"
+                                            type: string
                                         url:
-                                            type: "string"
+                                            type: string
                                 possibly_sensitive:
                                     type: "boolean"
                                 retweet_count:
-                                    type: "long"
+                                    type: long
                                 retweeted:
                                     type: "boolean"
                                 scopes:
@@ -409,9 +409,9 @@ bangpound_elasticsearch:
                                         followers:
                                             type: "boolean"
                                 source:
-                                    type: "string"
+                                    type: string
                                 text:
-                                    type: "string"
+                                    type: string
                                 truncated:
                                     type: "boolean"
                                 user:
@@ -420,95 +420,95 @@ bangpound_elasticsearch:
                                         contributors_enabled:
                                             type: "boolean"
                                         created_at:
-                                            type: "date"
+                                            type: date
                                             format: "EE MMM d HH:mm:ss Z yyyy"
                                         default_profile:
                                             type: "boolean"
                                         default_profile_image:
                                             type: "boolean"
                                         description:
-                                            type: "string"
+                                            type: string
                                         favourites_count:
-                                            type: "long"
+                                            type: long
                                         followers_count:
-                                            type: "long"
+                                            type: long
                                         friends_count:
-                                            type: "long"
+                                            type: long
                                         geo_enabled:
                                             type: "boolean"
                                         id:
-                                            type: "long"
+                                            type: long
                                         id_str:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         is_translator:
                                             type: "boolean"
                                         lang:
-                                            type: "string"
+                                            type: string
                                         listed_count:
-                                            type: "long"
+                                            type: long
                                         location:
-                                            type: "string"
+                                            type: string
                                         name:
-                                            type: "string"
+                                            type: string
                                         profile_background_color:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_background_image_url:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_background_image_url_https:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_background_tile:
                                             type: "boolean"
-                                            index: "no"
+                                            index: no
                                         profile_banner_url:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_image_url:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_image_url_https:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_link_color:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_sidebar_border_color:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_sidebar_fill_color:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_text_color:
-                                            type: "string"
-                                            index: "no"
+                                            type: string
+                                            index: no
                                         profile_use_background_image:
                                             type: "boolean"
-                                            index: "no"
+                                            index: no
                                         protected:
                                             type: "boolean"
                                         screen_name:
-                                            type: "string"
+                                            type: string
                                         statuses_count:
-                                            type: "long"
+                                            type: long
                                         time_zone:
-                                            type: "string"
+                                            type: string
                                         url:
-                                            type: "string"
+                                            type: string
                                         utc_offset:
-                                            type: "long"
+                                            type: long
                                         verified:
                                             type: "boolean"
                         scopes:
                             properties:
                                 place_ids:
-                                    type: "string"
+                                    type: string
                         source:
-                            type: "string"
+                            type: string
                         text:
-                            type: "string"
+                            type: string
                         truncated:
                             type: "boolean"
                         user:
@@ -517,82 +517,82 @@ bangpound_elasticsearch:
                                 contributors_enabled:
                                     type: "boolean"
                                 created_at:
-                                    type: "date"
+                                    type: date
                                     format: "EE MMM d HH:mm:ss Z yyyy"
                                 default_profile:
                                     type: "boolean"
                                 default_profile_image:
                                     type: "boolean"
                                 description:
-                                    type: "string"
+                                    type: string
                                 favourites_count:
-                                    type: "long"
+                                    type: long
                                 followers_count:
-                                    type: "long"
+                                    type: long
                                 friends_count:
-                                    type: "long"
+                                    type: long
                                 geo_enabled:
                                     type: "boolean"
                                 id:
-                                    type: "long"
+                                    type: long
                                 is_translator:
                                     type: "boolean"
                                 lang:
-                                    type: "string"
+                                    type: string
                                 listed_count:
-                                    type: "long"
+                                    type: long
                                 location:
-                                    type: "string"
+                                    type: string
                                 name:
-                                    type: "string"
+                                    type: string
                                 profile_background_color:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_background_image_url:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_background_image_url_https:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_background_tile:
                                     type: "boolean"
-                                    index: "no"
+                                    index: no
                                 profile_banner_url:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_image_url:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_image_url_https:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_link_color:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_sidebar_border_color:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_sidebar_fill_color:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_text_color:
-                                    type: "string"
-                                    index: "no"
+                                    type: string
+                                    index: no
                                 profile_use_background_image:
                                     type: "boolean"
-                                    index: "no"
+                                    index: no
                                 protected:
                                     type: "boolean"
                                 screen_name:
-                                    type: "string"
+                                    type: string
                                 statuses_count:
-                                    type: "long"
+                                    type: long
                                 time_zone:
-                                    type: "string"
+                                    type: string
                                 url:
-                                    type: "string"
+                                    type: string
                                 utc_offset:
-                                    type: "long"
+                                    type: long
                                 verified:
                                     type: "boolean"
                 pubsub:
@@ -602,121 +602,121 @@ bangpound_elasticsearch:
                                 entry.xml:
                                     properties:
                                         content_type:
-                                            type: "string"
+                                            type: string
                                         digest:
-                                            type: "string"
+                                            type: string
                                         length:
-                                            type: "long"
+                                            type: long
                                         revpos:
-                                            type: "long"
+                                            type: long
                                         stub:
                                             type: "boolean"
                         _rev:
-                            type: "string"
+                            type: string
                         author:
                             properties:
                                 email:
-                                    type: "string"
+                                    type: string
                                 id:
-                                    type: "string"
+                                    type: string
                                 link:
                                     properties:
                                         @attributes:
                                             properties:
                                                 href:
-                                                    type: "string"
+                                                    type: string
                                                 rel:
-                                                    type: "string"
+                                                    type: string
                                                 title:
-                                                    type: "string"
+                                                    type: string
                                                 type:
-                                                    type: "string"
+                                                    type: string
                                 name:
                                     type: "multi_field"
                                     fields:
                                         name:
-                                            type: "string"
+                                            type: string
                                         exact:
-                                            type: "string"
+                                            type: string
                                             index: "not_analyzed"
                                             omit_norms: true
                                             index_options: "docs"
                                             include_in_all: false
                                 object-type:
-                                    type: "string"
+                                    type: string
                                 uri:
-                                    type: "string"
+                                    type: string
                         category:
                             properties:
                                 @attributes:
                                     properties:
                                         term:
-                                            type: "string"
+                                            type: string
                                             index_name: "tag"
                         content:
                             properties:
                                 @attributes:
                                     properties:
                                         type:
-                                            type: "string"
+                                            type: string
                                 @text:
-                                    type: "string"
+                                    type: string
                         id:
-                            type: "string"
+                            type: string
                         link:
                             properties:
                                 @attributes:
                                     properties:
                                         href:
-                                            type: "string"
+                                            type: string
                                         rel:
-                                            type: "string"
+                                            type: string
                                         title:
-                                            type: "string"
+                                            type: string
                                         type:
-                                            type: "string"
+                                            type: string
                         message:
-                            type: "string"
+                            type: string
                         object:
                             properties:
                                 author:
                                     properties:
                                         id:
-                                            type: "string"
+                                            type: string
                                         name:
-                                            type: "string"
+                                            type: string
                                         uri:
-                                            type: "string"
+                                            type: string
                                 content:
-                                    type: "string"
+                                    type: string
                                 id:
-                                    type: "string"
+                                    type: string
                                 link:
                                     properties:
                                         @attributes:
                                             properties:
                                                 href:
-                                                    type: "string"
+                                                    type: string
                                                 rel:
-                                                    type: "string"
+                                                    type: string
                                                 title:
-                                                    type: "string"
+                                                    type: string
                                                 type:
-                                                    type: "string"
+                                                    type: string
                                 object-type:
-                                    type: "string"
+                                    type: string
                                 published:
-                                    type: "date"
+                                    type: date
                                     format: "dateOptionalTime"
                                 title:
-                                    type: "string"
+                                    type: string
                                 updated:
-                                    type: "date"
+                                    type: date
                                     format: "dateOptionalTime"
                         point:
-                            type: "string"
+                            type: string
                         published:
-                            type: "date"
+                            type: date
                             index_name: "created_at"
                             format: "dateOptionalTime"
                         source:
@@ -724,115 +724,282 @@ bangpound_elasticsearch:
                                 author:
                                     properties:
                                         email:
-                                            type: "string"
+                                            type: string
                                         id:
-                                            type: "string"
+                                            type: string
                                         name:
                                             type: "multi_field"
                                             fields:
                                                 name:
-                                                    type: "string"
+                                                    type: string
                                                 exact:
-                                                    type: "string"
+                                                    type: string
                                                     index: "not_analyzed"
                                                     omit_norms: true
                                                     index_options: "docs"
                                                     include_in_all: false
                                         uri:
-                                            type: "string"
+                                            type: string
                                 category:
                                     properties:
                                         @attributes:
                                             properties:
                                                 term:
-                                                    type: "string"
+                                                    type: string
                                 id:
-                                    type: "string"
+                                    type: string
                                 link:
                                     properties:
                                         @attributes:
                                             properties:
                                                 href:
-                                                    type: "string"
+                                                    type: string
                                                 rel:
-                                                    type: "string"
+                                                    type: string
                                                 title:
-                                                    type: "string"
+                                                    type: string
                                                 type:
-                                                    type: "string"
+                                                    type: string
                                 title:
                                     type: "multi_field"
                                     fields:
                                         title:
-                                            type: "string"
+                                            type: string
                                         exact:
-                                            type: "string"
+                                            type: string
                                             index: "not_analyzed"
                                             omit_norms: true
                                             index_options: "docs"
                                             include_in_all: false
                                 updated:
-                                    type: "date"
+                                    type: date
                                     format: "dateOptionalTime"
                         summary:
                             properties:
                                 @attributes:
                                     properties:
                                         type:
-                                            type: "string"
+                                            type: string
                                 @text:
-                                    type: "string"
+                                    type: string
                         title:
-                            type: "string"
+                            type: string
                         updated:
-                            type: "date"
+                            type: date
                             format: "dateOptionalTime"
                         user:
-                            type: "string"
+                            type: string
                         verb:
-                            type: "string"
+                            type: string
                 legacy_vb3:
                     properties:
                         _rev:
-                            type: "string"
+                            type: string
                         content:
-                            type: "string"
+                            type: string
                         links:
                             properties:
                                 href:
-                                    type: "string"
+                                    type: string
                                 type:
-                                    type: "string"
+                                    type: string
                         published:
-                            type: "string"
+                            type: string
                         rShief:
                             properties:
                                 author:
-                                    type: "string"
+                                    type: string
                                 created_at:
-                                    type: "date"
+                                    type: date
                                     format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
                                 lang:
-                                    type: "string"
+                                    type: string
                                 source:
-                                    type: "string"
+                                    type: string
                                 tag:
-                                    type: "string"
+                                    type: string
                         source:
                             properties:
                                 links:
                                     properties:
                                         href:
-                                            type: "string"
+                                            type: string
                                         type:
-                                            type: "string"
+                                            type: string
                                 title:
-                                    type: "string"
+                                    type: string
                                 type:
-                                    type: "string"
+                                    type: string
                         summary:
-                            type: "string"
+                            type: string
                         title:
-                            type: "string"
+                            type: string
                         type:
-                            type: "string"
+                            type: string
+
+
+                atom:
+                    properties:
+                        _attachments:
+                            properties:
+                                entry.xml:
+                                    properties:
+                                        content_type:
+                                            type: string
+                                        digest:
+                                            type: string
+                                        length:
+                                            type: long
+                                        revpos:
+                                            type: long
+                                        stub:
+                                            type: "boolean"
+                                tweet.json:
+                                    properties:
+                                        content_type:
+                                            type: string
+                                        digest:
+                                            type: string
+                                        length:
+                                            type: long
+                                        revpos:
+                                            type: long
+                                        stub:
+                                            type: "boolean"
+                        _rev:
+                            type: string
+                        authors:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                name:
+                                    type: string
+                                type:
+                                    type: string
+                                    index: no
+                                    store: no
+                                uri:
+                                    type: string
+                        categories:
+                            type: object
+                            properties:
+                                term:
+                                    type: string
+                                scheme:
+                                    type: string
+                                label:
+                                    type: string
+                                type:
+                                    type: string
+                                    index: no
+                                    store: no
+                        content:
+                            type: object
+                            properties:
+                                content:
+                                    type: string
+                                type:
+                                    type: string
+                        doctrine_metadata:
+                            type: "object"
+                            enabled: false
+                        id:
+                            type: string
+                        links:
+                            properties:
+                                href:
+                                    type: string
+                                linkType:
+                                    type: string
+                                rel:
+                                    type: string
+                                title:
+                                    type: string
+                                type:
+                                    type: string
+                                    index: no
+                                    store: no
+                        published:
+                            type: date
+                            format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                        source:
+                            properties:
+                                authors:
+                                    type: object
+                                    properties:
+                                        email:
+                                            type: string
+                                        name:
+                                            type: string
+                                        type:
+                                            type: string
+                                            store: no
+                                            index: no
+                                        uri:
+                                            type: string
+                                categories:
+                                    type: object
+                                    properties:
+                                        term:
+                                            type: string
+                                        term:
+                                            type: string
+                                        scheme:
+                                            type: string
+                                        label:
+                                            type: string
+                                        type:
+                                            type: string
+                                            store: no
+                                            index: no
+                                id:
+                                    type: string
+                                links:
+                                    type: object
+                                    properties:
+                                        href:
+                                            type: string
+                                        linkType:
+                                            type: string
+                                        rel:
+                                            type: string
+                                        title:
+                                            type: string
+                                        type:
+                                            type: string
+                                            index: no
+                                            store: no
+                                title:
+                                    type: object
+                                    properties:
+                                        text:
+                                            type: string
+                                        type:
+                                            type: string
+                                type:
+                                    type: string
+                                updated:
+                                    type: date
+                                    format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                        summary:
+                            type: object
+                            properties:
+                                text:
+                                    type: string
+                                type:
+                                    type: string
+                        title:
+                            type: object
+                            properties:
+                                text:
+                                    type: string
+                                type:
+                                    type: string
+                        type:
+                            type: string
+                            index: no
+                            store: no
+                        updated:
+                            type: date
+                            format: "yyyy-MM-dd HH:mm:ss.SSSSSS"

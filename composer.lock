@@ -3,8 +3,46 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "61fd40603f1016bf5a4e2870f2e828af",
+    "hash": "2bb5b866bbcb167df360f0c68ffdcf14",
     "packages": [
+        {
+            "name": "activitystreams/activitystreams",
+            "version": "dev-patch-1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/php-activitystreams.git",
+                "reference": "bc6aa09ebf6a93f83fc9b2806a078b8e7323ec95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/php-activitystreams/zipball/bc6aa09ebf6a93f83fc9b2806a078b8e7323ec95",
+                "reference": "bc6aa09ebf6a93f83fc9b2806a078b8e7323ec95",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "symfony/http-foundation": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ActivityStreams": ""
+                }
+            },
+            "description": "A set of PSR-0 autoloadable classes for representing ActivityStreams activities and objects in PHP",
+            "keywords": [
+                "activity",
+                "activitystreams",
+                "federated",
+                "indieweb",
+                "social",
+                "web"
+            ],
+            "support": {
+                "source": "https://github.com/bangpound/php-activitystreams/tree/patch-1"
+            },
+            "time": "2013-10-30 04:05:39"
+        },
         {
             "name": "bangpound/phirehose-bundle",
             "version": "dev-master",
@@ -856,6 +894,42 @@
             "time": "2013-10-25 18:20:23"
         },
         {
+            "name": "facebook/xhprof",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/xhprof.git",
+                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/xhprof/zipball/ec8b884ffdae5dfa5e1e271ab6762115123989c5",
+                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "xhprof_lib/utils/xhprof_lib.php",
+                    "xhprof_lib/utils/xhprof_runs.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "XHProf: A Hierarchical Profiler for PHP",
+            "homepage": "http://pecl.php.net/package/xhprof",
+            "keywords": [
+                "performance",
+                "profiling"
+            ],
+            "time": "2013-08-09 16:22:45"
+        },
+        {
             "name": "fennb/phirehose",
             "version": "dev-master",
             "source": {
@@ -1386,6 +1460,56 @@
             "time": "2013-10-16 00:35:01"
         },
         {
+            "name": "jns/xhprof-bundle",
+            "version": "dev-master",
+            "target-dir": "Jns/Bundle/XhprofBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonaswouters/XhprofBundle.git",
+                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonaswouters/XhprofBundle/zipball/08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
+                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/xhprof": "*",
+                "php": ">=5.3.2",
+                "symfony/dependency-injection": "2.*",
+                "symfony/http-kernel": "2.*"
+            },
+            "suggest": {
+                "doctrine/orm": "Persist details in a storage via doctrine",
+                "ext-xhprof": "Hierarchical Profiler for PHP"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Jns\\Bundle\\XhprofBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jonas Wouters",
+                    "email": "hello@jonaswouters.be"
+                }
+            ],
+            "description": "Symfony JnsXhprofBundle",
+            "homepage": "https://github.com/jonaswouters/XhprofBundle",
+            "keywords": [
+                "xhprof"
+            ],
+            "time": "2013-10-29 16:11:30"
+        },
+        {
             "name": "knplabs/knp-menu",
             "version": "1.1.x-dev",
             "source": {
@@ -1800,6 +1924,70 @@
                 "psr-3"
             ],
             "time": "2013-10-28 09:41:17"
+        },
+        {
+            "name": "nojimage/twitter-text-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nojimage/twitter-text-php.git",
+                "reference": "f05009678b20e948905166b278d88aa70284f192"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nojimage/twitter-text-php/zipball/f05009678b20e948905166b278d88aa70284f192",
+                "reference": "f05009678b20e948905166b278d88aa70284f192",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.8"
+            },
+            "require-dev": {
+                "php": ">=5.3.3",
+                "symfony/yaml": "*",
+                "twitter/twitter-text-conformance": "v1.6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twitter_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Takashi Nojima",
+                    "homepage": "http://php-tips.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Matt Sanford",
+                    "email": "matt@mzsanford.com",
+                    "homepage": "http://mzsanford.com"
+                },
+                {
+                    "name": "Mike Cochrane",
+                    "email": "mikec@mikenz.geek.nz",
+                    "homepage": "http://mikenz.geek.nz"
+                },
+                {
+                    "name": "Nick Pope",
+                    "email": "git@nickpope.me.uk",
+                    "homepage": "http://www.nickpope.me.uk"
+                }
+            ],
+            "description": "A library of PHP classes that provide auto-linking and extraction of usernames, lists, hashtags and URLs from tweets.",
+            "homepage": "https://github.com/nojimage/twitter-text-php",
+            "keywords": [
+                "autolink",
+                "extract",
+                "text",
+                "twitter"
+            ],
+            "time": "2013-10-05 08:25:13"
         },
         {
             "name": "phayes/geophp",
@@ -3924,6 +4112,9 @@
         "bangpound/twitter-streaming-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
+        "activitystreams/activitystreams": 20,
+        "nojimage/twitter-text-php": 20,
+        "jns/xhprof-bundle": 20,
         "elao/web-profiler-extra-bundle": 20,
         "coresphere/console-bundle": 20,
         "jms/debugging-bundle": 20

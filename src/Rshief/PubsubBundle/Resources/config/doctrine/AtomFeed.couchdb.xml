@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <document name="Rshief\PubsubBundle\CouchDocument\AtomFeed">
+        <property name="entries" >
+            <xml-list entry-name="entry" inline="true"/>
+            <type><![CDATA[ArrayCollection<Rshief\PubsubBundle\CouchDocument\AtomEntry>]]></type>
+        </property>
+    </document>
+</doctrine-mapping>

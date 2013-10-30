@@ -3,24 +3,20 @@ namespace Rshief\PubsubBundle\Consumer;
 
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Doctrine\CouchDB\Attachment;
-use Doctrine\CouchDB\CouchDBClient;
-use Doctrine\CouchDB\Utils\BulkUpdater;
-use Doctrine\ODM\CouchDB\DocumentManager;
 use Doctrine\Common\Persistence\ObjectManager;
 use JMS\Serializer\Exception\RuntimeException;
-use Rshief\PubsubBundle\JsonXMLElement;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 use Sonata\NotificationBundle\Consumer\ConsumerEvent;
 use Sonata\NotificationBundle\Consumer\ConsumerInterface;
 use Sonata\NotificationBundle\Model\Message;
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use JMS\Serializer\SerializerInterface;
 
 /**
  * Class NotificationConsumer
  * @package Rshief\PubsubBundle\Consumer
  */
-class NotificationConsumer implements ConsumerInterface
+class NotificationConsumer implements ConsumerInterface, LoggerAwareInterface
 {
     /**
      *
@@ -28,18 +24,49 @@ class NotificationConsumer implements ConsumerInterface
      */
     private $objectManager;
 
+    /**
+     * @var \JMS\Serializer\SerializerInterface
+     */
     private $serializer;
 
+    private $atomEntryClass;
+
+    /**
+     * @var int
+     */
     private $batchSize = 100;
+
+    /**
+     * @var int
+     */
     private $cursor = 0;
 
     /**
-     * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
-     * @param \JMS\Serializer\SerializerInterface $serializer
+     * @var LoggerInterface
      */
-    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer) {
+    private $logger;
+
+    /**
+     * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
+     * @param \JMS\Serializer\SerializerInterface        $serializer
+     * @param $atomEntryClass
+     */
+    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer, $atomEntryClass)
+    {
         $this->objectManager = $objectManager;
         $this->serializer = $serializer;
+        $this->atomEntryClass = $atomEntryClass;
+    }
+
+    /**
+     * Sets a logger instance on the object
+     *
+     * @param  LoggerInterface $logger
+     * @return null
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
     }
 
     /**
@@ -53,6 +80,9 @@ class NotificationConsumer implements ConsumerInterface
         $serializer = $this->serializer;
         $content = $message->getValue('content');
         $xml = new \SimpleXMLElement($content);
+
+        /** @var \Doctrine\Common\Persistence\ObjectRepository $repository */
+        $repository = $this->objectManager->getRepository($this->atomEntryClass);
 
         try {
             /** @var \Rshief\PubsubBundle\CouchDocument\AtomFeed $feed */
@@ -76,13 +106,18 @@ class NotificationConsumer implements ConsumerInterface
             $execute = FALSE;
             /** @var \Rshief\PubsubBundle\CouchDocument\AtomEntry $entry */
             foreach ($feed->getEntries() as $key => $entry) {
+                $id = $entry->getId();
+                $existing = $repository->findOneBy(['id' => $id]);
+                if ($existing) {
+                    $this->logger->info(sprintf('Duplicate notification sent for %s - %s', $id, $entry->getTitle()), ['existing' => $existing, 'new' => $entry]);
+                    continue;
+                }
                 $execute = TRUE;
                 if (!$entry->getSource()) {
                     $entry->setSource(clone $source);
                 }
 
-                $attachment = Attachment::createFromBinaryData($xml->entry[$key]->asXml(), 'text/xml');
-                $entry->setAttachment('entry.xml', $attachment);
+                $entry->setOriginalData($xml->entry[$key]->asXml(), 'text/xml');
 
                 $this->objectManager->persist($entry);
             }
@@ -90,8 +125,7 @@ class NotificationConsumer implements ConsumerInterface
                 $this->objectManager->flush();
             }
             $this->objectManager->clear();
-        }
-        catch (RuntimeException $e) {
+        } catch (RuntimeException $e) {
             throw $e;
         }
     }

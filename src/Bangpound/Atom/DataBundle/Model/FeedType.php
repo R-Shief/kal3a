@@ -50,10 +50,10 @@ abstract class FeedType extends CommonAttributes
      */
     public function __construct()
     {
-        $this->authors = new ArrayCollection();
-        $this->categories = new ArrayCollection();
-        $this->contributors = new ArrayCollection();
-        $this->links = new ArrayCollection();
+        $this->authors = array();
+        $this->categories = array();
+        $this->contributors = array();
+        $this->links = array();
     }
 
     /**

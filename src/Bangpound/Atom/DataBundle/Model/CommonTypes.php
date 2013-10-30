@@ -32,7 +32,7 @@ trait CommonTypes
     /**
      * Get authors
      *
-     * @return Collection
+     * @return array
      */
     public function getAuthors()
     {
@@ -42,10 +42,10 @@ trait CommonTypes
     /**
      * Set authors
      *
-     * @param  Collection $authors
+     * @param  array $authors
      * @return EntryType
      */
-    public function setAuthors(Collection $authors)
+    public function setAuthors($authors)
     {
         $this->authors = $authors;
 
@@ -78,7 +78,7 @@ trait CommonTypes
     /**
      * Get category
      *
-     * @return Collection
+     * @return array
      */
     public function getCategories()
     {
@@ -88,10 +88,10 @@ trait CommonTypes
     /**
      * Set category
      *
-     * @param  Collection $categories
+     * @param  array $categories
      * @return EntryType
      */
-    public function setCategories(Collection $categories)
+    public function setCategories($categories)
     {
         $this->categories = $categories;
 
@@ -124,7 +124,7 @@ trait CommonTypes
     /**
      * Get contributors
      *
-     * @return Collection
+     * @return array
      */
     public function getContributors()
     {
@@ -134,10 +134,10 @@ trait CommonTypes
     /**
      * Set contributors
      *
-     * @param  Collection $contributors
+     * @param  array $contributors
      * @return EntryType
      */
-    public function setContributors(Collection $contributors)
+    public function setContributors($contributors)
     {
         $this->contributors = $contributors;
 
@@ -170,7 +170,7 @@ trait CommonTypes
     /**
      * Get links
      *
-     * @return Collection
+     * @return array
      */
     public function getLinks()
     {
@@ -180,10 +180,10 @@ trait CommonTypes
     /**
      * Set links
      *
-     * @param  Collection $links
+     * @param  array $links
      * @return EntryType
      */
-    public function setLinks(Collection $links)
+    public function setLinks($links)
     {
         $this->links = $links;
 

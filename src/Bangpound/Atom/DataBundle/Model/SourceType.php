@@ -38,7 +38,7 @@ namespace Bangpound\Atom\DataBundle\Model;
  * @internal targetNamespace = http://www.w3.org/2005/Atom
  * @internal file:/Users/bjd/workspace/rshief/migration/xsd-php/atom.xsd.xml
  */
-abstract class SourceType extends CommonAttributes
+abstract class SourceType extends CommonAttributes implements \JsonSerializable
 {
     use CommonTypes;
 
@@ -113,6 +113,13 @@ abstract class SourceType extends CommonAttributes
      * @internal element (http://www.w3.org/2001/XMLSchema)
      */
     protected $updated;
+
+    public function __construct() {
+        $this->authors = array();
+        $this->categories = array();
+        $this->contributors = array();
+        $this->links = array();
+    }
 
     /**
      * @return \Bangpound\Atom\DataBundle\Model\DateTimeType

@@ -5,6 +5,7 @@ parameters:
     database_name:     symfony
     database_user:     root
     database_password: ~
+    database_path:     %kernel.root_dir%/data/data.db3
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
@@ -34,3 +35,9 @@ parameters:
     rabbitmq_pass: guest
     rabbitmq_port: 5672
     rabbitmq_vhost: /
+
+    router.request_context.host: localhost
+    router.request_context.scheme: http
+    router.request_context.base_url: ~
+
+    doctrine_couch_db.default.dbname: symfony

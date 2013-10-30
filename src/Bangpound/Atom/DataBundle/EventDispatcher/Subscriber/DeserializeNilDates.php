@@ -1,12 +1,13 @@
 <?php
 
 namespace Bangpound\Atom\DataBundle\EventDispatcher\Subscriber;
-
+use JMS\Serializer\Exception\RuntimeException;
+use JMS\Serializer\Handler\DateHandler;
 use JMS\Serializer\EventDispatcher\Event;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
+use JMS\Serializer\VisitorInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
-use Symfony\Component\Validator\ValidatorInterface;
 
 /**
  * Class DeserializeNilDates
@@ -14,11 +15,14 @@ use Symfony\Component\Validator\ValidatorInterface;
  */
 class DeserializeNilDates implements EventSubscriberInterface
 {
-    private $validator;
+    private $handler;
 
-    public function __construct(ValidatorInterface $validator)
+    /**
+     * @param DateHandler $handler
+     */
+    public function __construct(DateHandler $handler)
     {
-        $this->validator = $validator;
+        $this->handler = $handler;
     }
 
     /**
@@ -32,21 +36,26 @@ class DeserializeNilDates implements EventSubscriberInterface
     }
 
     /**
+     * Bad dates cause fatal errors, and this is the best remedy I've found so far.
+     * The date time handler is brought in so that I can trap the exception that
+     * happens when feeds have dates like NaN/NaN/NaN NaN:NaN:NaN.
+     *
      * @param PreDeserializeEvent $event
      */
     public function onPreDeserialize(PreDeserializeEvent $event)
     {
         $type = $event->getType();
         if ($type['name'] == 'DateTime') {
+            /** @var VisitorInterface $visitor */
+            $visitor = $event->getVisitor();
+
             /** @var \SimpleXMLElement $data */
             $data = $event->getData();
-            $defaultFormat = \DateTime::ISO8601;
-            $defaultTimezone = new \DateTimeZone('UTC');
-            $timezone = isset($type['params'][1]) ? new \DateTimeZone($type['params'][1]) : $defaultTimezone;
-            $format = isset($type['params'][0]) ? $type['params'][0] : $defaultFormat;
-            $datetime = \DateTime::createFromFormat($format, (string) $data, $timezone);
-            $errors = $this->validator->validateValue($datetime, new DateTime());
-            if (count($errors)) {
+
+
+            try {
+                $this->handler->deserializeDateTimeFromXml($visitor, $data, $type);
+            } catch (RuntimeException $e) {
                 $attributes = $data->attributes('xsi', true);
                 if (!isset($attributes['nil'][0]) || (string) $attributes['nil'][0] ==! 'true') {
                     $data->addAttribute('xsi:nil', 'true', 'http://www.w3.org/2001/XMLSchema-instance');
