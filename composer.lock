@@ -87,12 +87,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/TwitterStreamingBundle.git",
-                "reference": "0842c427a9d5accd4f4e897c2d46409666afbaaa"
+                "reference": "8327d1ee71c0beea98531c968a817c77bd357d47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/TwitterStreamingBundle/zipball/0842c427a9d5accd4f4e897c2d46409666afbaaa",
-                "reference": "0842c427a9d5accd4f4e897c2d46409666afbaaa",
+                "url": "https://api.github.com/repos/bangpound/TwitterStreamingBundle/zipball/8327d1ee71c0beea98531c968a817c77bd357d47",
+                "reference": "8327d1ee71c0beea98531c968a817c77bd357d47",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "source": "https://github.com/bangpound/TwitterStreamingBundle/tree/master",
                 "issues": "https://github.com/bangpound/TwitterStreamingBundle/issues"
             },
-            "time": "2013-06-20 13:25:38"
+            "time": "2013-10-26 13:08:30"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -430,12 +430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/couchdb-client.git",
-                "reference": "c744f09ed8705ed6f022fe8dbd0521989f9b6aef"
+                "reference": "484531a6459bae10305fe65247ce7981535a59e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/couchdb-client/zipball/c744f09ed8705ed6f022fe8dbd0521989f9b6aef",
-                "reference": "c744f09ed8705ed6f022fe8dbd0521989f9b6aef",
+                "url": "https://api.github.com/repos/doctrine/couchdb-client/zipball/484531a6459bae10305fe65247ce7981535a59e3",
+                "reference": "484531a6459bae10305fe65247ce7981535a59e3",
                 "shasum": ""
             },
             "require": {
@@ -473,7 +473,7 @@
                 "couchdb",
                 "persistence"
             ],
-            "time": "2013-09-11 12:13:16"
+            "time": "2013-10-29 10:52:31"
         },
         {
             "name": "doctrine/couchdb-odm",
@@ -481,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/couchdb-odm.git",
-                "reference": "a5b7cd9cb93804afa94f864a0de00a8f3b40ad9c"
+                "reference": "e53ad8b56c65fdbbe6af1b7974a9066f1e97933c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/couchdb-odm/zipball/a5b7cd9cb93804afa94f864a0de00a8f3b40ad9c",
-                "reference": "a5b7cd9cb93804afa94f864a0de00a8f3b40ad9c",
+                "url": "https://api.github.com/repos/doctrine/couchdb-odm/zipball/e53ad8b56c65fdbbe6af1b7974a9066f1e97933c",
+                "reference": "e53ad8b56c65fdbbe6af1b7974a9066f1e97933c",
                 "shasum": ""
             },
             "require": {
@@ -527,7 +527,7 @@
                 "couchdb",
                 "persistence"
             ],
-            "time": "2013-10-02 08:58:35"
+            "time": "2013-10-30 14:40:48"
         },
         {
             "name": "doctrine/couchdb-odm-bundle",
@@ -776,12 +776,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "08e636368471c4232e83be0abf2f31b35336d641"
+                "reference": "1a30e0a2e069999de835722bfbafe3da146b8ebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/08e636368471c4232e83be0abf2f31b35336d641",
-                "reference": "08e636368471c4232e83be0abf2f31b35336d641",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1a30e0a2e069999de835722bfbafe3da146b8ebb",
+                "reference": "1a30e0a2e069999de835722bfbafe3da146b8ebb",
                 "shasum": ""
             },
             "require": {
@@ -838,7 +838,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-10-26 09:18:16"
+            "time": "2013-10-29 08:25:52"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -1047,12 +1047,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "525576eb863b9e2ff6af98d959cdf390f2571ddc"
+                "reference": "57e96c16fecc32f07736dc9645fdfe1b0160a07c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/525576eb863b9e2ff6af98d959cdf390f2571ddc",
-                "reference": "525576eb863b9e2ff6af98d959cdf390f2571ddc",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/57e96c16fecc32f07736dc9645fdfe1b0160a07c",
+                "reference": "57e96c16fecc32f07736dc9645fdfe1b0160a07c",
                 "shasum": ""
             },
             "require": {
@@ -1131,7 +1131,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-10-24 00:04:09"
+            "time": "2013-10-30 02:57:15"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2772,12 +2772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "1af21e442e390c145e6d1980998d38fc8afe3a72"
+                "reference": "902e23050119be51bae27c79bb47324dda3acff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/1af21e442e390c145e6d1980998d38fc8afe3a72",
-                "reference": "1af21e442e390c145e6d1980998d38fc8afe3a72",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/902e23050119be51bae27c79bb47324dda3acff6",
+                "reference": "902e23050119be51bae27c79bb47324dda3acff6",
                 "shasum": ""
             },
             "require": {
@@ -2842,7 +2842,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-10-26 14:59:46"
+            "time": "2013-10-29 18:18:52"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3694,12 +3694,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d866a5acc45426f3c48c82b7cedb985d9e24568c"
+                "reference": "72f1b62ffb0094e1453bf4f484d6d64cd946857c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d866a5acc45426f3c48c82b7cedb985d9e24568c",
-                "reference": "d866a5acc45426f3c48c82b7cedb985d9e24568c",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/72f1b62ffb0094e1453bf4f484d6d64cd946857c",
+                "reference": "72f1b62ffb0094e1453bf4f484d6d64cd946857c",
                 "shasum": ""
             },
             "require": {
@@ -3799,7 +3799,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-28 14:29:55"
+            "time": "2013-10-30 15:13:28"
         },
         {
             "name": "twig/extensions",
@@ -3854,12 +3854,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "5d31b14cbf2986aec8fbd91d6429ee08bae4b452"
+                "reference": "8fcde6a0914ca7b134ed5bc43bfd31e37f50c127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/5d31b14cbf2986aec8fbd91d6429ee08bae4b452",
-                "reference": "5d31b14cbf2986aec8fbd91d6429ee08bae4b452",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8fcde6a0914ca7b134ed5bc43bfd31e37f50c127",
+                "reference": "8fcde6a0914ca7b134ed5bc43bfd31e37f50c127",
                 "shasum": ""
             },
             "require": {
@@ -3895,7 +3895,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-28 13:44:04"
+            "time": "2013-10-30 08:31:01"
         },
         {
             "name": "videlalvaro/php-amqplib",
