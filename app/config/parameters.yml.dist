@@ -41,3 +41,5 @@ parameters:
     router.request_context.base_url: ~
 
     doctrine_couch_db.default.dbname: symfony
+    doctrine_couch_db.default.user: guest
+    doctrine_couch_db.default.password: guest
