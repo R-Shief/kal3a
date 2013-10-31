@@ -77,7 +77,7 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
         $id = 'tag:twitter.com,'. $created_at->format('Y-m-d') .':/'. $tweet_path;
         $existing = $repository->findOneBy(['id' => $id]);
         if ($existing) {
-            $this->logger->info(sprintf('Duplicate tweet sent for %s from %s', $id, $data['user']['screen_name']), ['existing' => $existing, 'new' => $entry]);
+            $this->logger->info(sprintf('Duplicate tweet sent for %s from %s', $id, $data['user']['screen_name']), ['existing' => $existing, 'new' => $data]);
             return;
         }
 
