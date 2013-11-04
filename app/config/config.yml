@@ -112,7 +112,7 @@ sonata_doctrine_orm_admin:
 
 sonata_admin:
     title:      kal3a
-    title_logo: /bundles/rshieftwitterminer/logo_title.png
+    title_logo: /images/logo_title.png
     dashboard:
         blocks:
             # display a dashboard block
