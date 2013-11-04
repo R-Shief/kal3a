@@ -53,6 +53,7 @@
         "bangpound/atom-data-bundle": "dev-master",
         "bangpound/twitter-streaming-bundle": "dev-master",
         "bangpound/pubsub-bundle": "dev-master",
+        "bangpound/castle-bundle": "dev-master",
         "creof/doctrine2-spatial": "dev-master",
         "phayes/geophp": "dev-master",
         "videlalvaro/php-amqplib": "2.0.*",

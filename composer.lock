@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "560b10e1b0d95648c6fe4b7325d6ca55",
+    "hash": "13bef851f64964db443ec70244a32994",
     "packages": [
         {
             "name": "activitystreams/activitystreams",
@@ -80,6 +80,40 @@
             ],
             "description": "Atom entities and admin controllers",
             "time": "2013-11-04 09:08:18"
+        },
+        {
+            "name": "bangpound/castle-bundle",
+            "version": "dev-master",
+            "target-dir": "Bangpound/Bundle/CastleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/castle-bundle.git",
+                "reference": "4639a52ad41dae6df4d2ab5fb8265b89c9a9c057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/4639a52ad41dae6df4d2ab5fb8265b89c9a9c057",
+                "reference": "4639a52ad41dae6df4d2ab5fb8265b89c9a9c057",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bangpound\\Bundle\\CastleBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Castle application bundle",
+            "time": "2013-11-04 09:31:24"
         },
         {
             "name": "bangpound/elasticsearch-bundle",
@@ -4224,6 +4258,7 @@
         "bangpound/atom-data-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "bangpound/pubsub-bundle": 20,
+        "bangpound/castle-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
         "activitystreams/activitystreams": 20,
