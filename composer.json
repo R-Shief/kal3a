@@ -9,11 +9,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/SonataDoctrineORMAdminBundle.git"
+            "url": "https://github.com/bangpound/SonataDoctrineORMAdminBundle.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/SonataNotificationBundle.git"
+            "url": "https://github.com/bangpound/SonataNotificationBundle.git"
         },
         {
             "type": "vcs",
@@ -60,12 +60,12 @@
         "sputnik/pubsub-bundle": "~0.3.0",
         "sensiolabs/security-checker": "~1.2",
         "activitystreams/activitystreams": "dev-patch-1",
-        "nojimage/twitter-text-php": "dev-master",
-        "jns/xhprof-bundle": "dev-master"
+        "nojimage/twitter-text-php": "dev-master"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle" : "dev-master",
         "coresphere/console-bundle": "dev-master",
+        "jns/xhprof-bundle": "dev-master",
         "jms/debugging-bundle": "dev-master"
     },
     "scripts": {

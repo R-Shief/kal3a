@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2bb5b866bbcb167df360f0c68ffdcf14",
+    "hash": "281837e61a4cfb91ceabb9b58192b404",
     "packages": [
         {
             "name": "activitystreams/activitystreams",
@@ -896,42 +896,6 @@
             "time": "2013-10-30 21:17:41"
         },
         {
-            "name": "facebook/xhprof",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facebook/xhprof.git",
-                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facebook/xhprof/zipball/ec8b884ffdae5dfa5e1e271ab6762115123989c5",
-                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "xhprof_lib/utils/xhprof_lib.php",
-                    "xhprof_lib/utils/xhprof_runs.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "XHProf: A Hierarchical Profiler for PHP",
-            "homepage": "http://pecl.php.net/package/xhprof",
-            "keywords": [
-                "performance",
-                "profiling"
-            ],
-            "time": "2013-08-09 16:22:45"
-        },
-        {
             "name": "fennb/phirehose",
             "version": "dev-master",
             "source": {
@@ -1461,56 +1425,6 @@
                 "xml"
             ],
             "time": "2013-10-16 00:35:01"
-        },
-        {
-            "name": "jns/xhprof-bundle",
-            "version": "dev-master",
-            "target-dir": "Jns/Bundle/XhprofBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jonaswouters/XhprofBundle.git",
-                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jonaswouters/XhprofBundle/zipball/08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
-                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
-                "shasum": ""
-            },
-            "require": {
-                "facebook/xhprof": "*",
-                "php": ">=5.3.2",
-                "symfony/dependency-injection": "2.*",
-                "symfony/http-kernel": "2.*"
-            },
-            "suggest": {
-                "doctrine/orm": "Persist details in a storage via doctrine",
-                "ext-xhprof": "Hierarchical Profiler for PHP"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Jns\\Bundle\\XhprofBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Jonas Wouters",
-                    "email": "hello@jonaswouters.be"
-                }
-            ],
-            "description": "Symfony JnsXhprofBundle",
-            "homepage": "https://github.com/jonaswouters/XhprofBundle",
-            "keywords": [
-                "xhprof"
-            ],
-            "time": "2013-10-29 16:11:30"
         },
         {
             "name": "knplabs/knp-menu",
@@ -4049,6 +3963,42 @@
             "time": "2013-09-07 08:02:24"
         },
         {
+            "name": "facebook/xhprof",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/xhprof.git",
+                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/xhprof/zipball/ec8b884ffdae5dfa5e1e271ab6762115123989c5",
+                "reference": "ec8b884ffdae5dfa5e1e271ab6762115123989c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "xhprof_lib/utils/xhprof_lib.php",
+                    "xhprof_lib/utils/xhprof_runs.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "XHProf: A Hierarchical Profiler for PHP",
+            "homepage": "http://pecl.php.net/package/xhprof",
+            "keywords": [
+                "performance",
+                "profiling"
+            ],
+            "time": "2013-08-09 16:22:45"
+        },
+        {
             "name": "jms/debugging-bundle",
             "version": "dev-master",
             "target-dir": "JMS/DebuggingBundle",
@@ -4091,6 +4041,56 @@
                 "debugging"
             ],
             "time": "2013-08-04 10:47:51"
+        },
+        {
+            "name": "jns/xhprof-bundle",
+            "version": "dev-master",
+            "target-dir": "Jns/Bundle/XhprofBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonaswouters/XhprofBundle.git",
+                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonaswouters/XhprofBundle/zipball/08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
+                "reference": "08b953c26a51b0f1c3be997ab9bcd421deb7c5b2",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/xhprof": "*",
+                "php": ">=5.3.2",
+                "symfony/dependency-injection": "2.*",
+                "symfony/http-kernel": "2.*"
+            },
+            "suggest": {
+                "doctrine/orm": "Persist details in a storage via doctrine",
+                "ext-xhprof": "Hierarchical Profiler for PHP"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Jns\\Bundle\\XhprofBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jonas Wouters",
+                    "email": "hello@jonaswouters.be"
+                }
+            ],
+            "description": "Symfony JnsXhprofBundle",
+            "homepage": "https://github.com/jonaswouters/XhprofBundle",
+            "keywords": [
+                "xhprof"
+            ],
+            "time": "2013-10-29 16:11:30"
         }
     ],
     "aliases": [
@@ -4117,9 +4117,9 @@
         "phayes/geophp": 20,
         "activitystreams/activitystreams": 20,
         "nojimage/twitter-text-php": 20,
-        "jns/xhprof-bundle": 20,
         "elao/web-profiler-extra-bundle": 20,
         "coresphere/console-bundle": 20,
+        "jns/xhprof-bundle": 20,
         "jms/debugging-bundle": 20
     },
     "platform": {
