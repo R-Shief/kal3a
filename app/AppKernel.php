@@ -29,7 +29,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Bangpound\Twitter\StreamingBundle\BangpoundTwitterStreamingBundle(),
+            new Bangpound\Bundle\TwitterStreamingBundle\BangpoundTwitterStreamingBundle(),
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
             new Liip\MonitorBundle\LiipMonitorBundle(),
             new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),

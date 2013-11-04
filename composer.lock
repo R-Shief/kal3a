@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bec3640463caf9436b91389cb3228426",
+    "hash": "43fbd625654a617e1c3ae13caa8dff87",
     "packages": [
         {
             "name": "activitystreams/activitystreams",
@@ -121,27 +121,29 @@
         {
             "name": "bangpound/twitter-streaming-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Twitter/StreamingBundle",
+            "target-dir": "Bangpound/Bundle/TwitterStreamingBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bangpound/TwitterStreamingBundle.git",
-                "reference": "8327d1ee71c0beea98531c968a817c77bd357d47"
+                "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
+                "reference": "2371a595538c1b2aa153fc03297cb4c7f9b9afcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/TwitterStreamingBundle/zipball/8327d1ee71c0beea98531c968a817c77bd357d47",
-                "reference": "8327d1ee71c0beea98531c968a817c77bd357d47",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/2371a595538c1b2aa153fc03297cb4c7f9b9afcf",
+                "reference": "2371a595538c1b2aa153fc03297cb4c7f9b9afcf",
                 "shasum": ""
             },
             "require": {
+                "bangpound/phirehose-bundle": "dev-master",
                 "sonata-project/admin-bundle": "dev-master"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Bangpound\\Twitter\\StreamingBundle\\": ""
+                    "Bangpound\\Bundle\\TwitterStreamingBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -152,11 +154,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "support": {
-                "source": "https://github.com/bangpound/TwitterStreamingBundle/tree/master",
-                "issues": "https://github.com/bangpound/TwitterStreamingBundle/issues"
-            },
-            "time": "2013-10-26 13:08:30"
+            "time": "2013-11-04 08:40:44"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -1823,12 +1821,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "7f99ac07d38fd367d1f5f85693ae8433738f7f94"
+                "reference": "a5010756d905264ea2b3f7f27c7df22fb9a3bd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f99ac07d38fd367d1f5f85693ae8433738f7f94",
-                "reference": "7f99ac07d38fd367d1f5f85693ae8433738f7f94",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5010756d905264ea2b3f7f27c7df22fb9a3bd8e",
+                "reference": "a5010756d905264ea2b3f7f27c7df22fb9a3bd8e",
                 "shasum": ""
             },
             "require": {
@@ -1878,7 +1876,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-31 21:38:39"
+            "time": "2013-11-04 08:48:35"
         },
         {
             "name": "nojimage/twitter-text-php",
@@ -4148,7 +4146,6 @@
         "ddeboer/data-import-bundle": 20,
         "liip/monitor-bundle": 20,
         "elasticsearch/elasticsearch": 20,
-        "bangpound/phirehose-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "bangpound/pubsub-bundle": 20,
         "creof/doctrine2-spatial": 20,
