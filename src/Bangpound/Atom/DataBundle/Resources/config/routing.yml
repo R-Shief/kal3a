@@ -1,3 +1,0 @@
-bangpound_atom_data_homepage:
-    path:  /hello/{name}
-    defaults: { _controller: BangpoundAtomDataBundle:Default:index }

@@ -50,6 +50,7 @@
         "ddeboer/data-import-bundle": "dev-master",
         "liip/monitor-bundle": "dev-master",
         "bangpound/elasticsearch-bundle": "dev-master",
+        "bangpound/atom-data-bundle": "dev-master",
         "bangpound/twitter-streaming-bundle": "dev-master",
         "bangpound/pubsub-bundle": "dev-master",
         "creof/doctrine2-spatial": "dev-master",

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<serializer>
-    <class name="Bangpound\Atom\DataBundle\CouchDocument\ContentType" xml-root-name="content" access-type="public_method">
-    </class>
-</serializer>

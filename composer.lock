@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7908a64f058101b5bbfbf93543042e62",
+    "hash": "560b10e1b0d95648c6fe4b7325d6ca55",
     "packages": [
         {
             "name": "activitystreams/activitystreams",
@@ -42,6 +42,44 @@
                 "source": "https://github.com/bangpound/php-activitystreams/tree/patch-1"
             },
             "time": "2013-10-30 04:05:39"
+        },
+        {
+            "name": "bangpound/atom-data-bundle",
+            "version": "dev-master",
+            "target-dir": "Bangpound/Atom/DataBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/atom-data-bundle.git",
+                "reference": "c6e200535cdba4250aa183c2ba34cb6f474919d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/atom-data-bundle/zipball/c6e200535cdba4250aa183c2ba34cb6f474919d2",
+                "reference": "c6e200535cdba4250aa183c2ba34cb6f474919d2",
+                "shasum": ""
+            },
+            "require": {
+                "jms/serializer-bundle": "dev-master",
+                "sonata-project/admin-bundle": "2.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bangpound\\Atom\\DataBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Atom entities and admin controllers",
+            "time": "2013-11-04 09:08:18"
         },
         {
             "name": "bangpound/elasticsearch-bundle",
@@ -162,12 +200,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "2371a595538c1b2aa153fc03297cb4c7f9b9afcf"
+                "reference": "9e53c5260971cf73834e7693995beafc8a44d290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/2371a595538c1b2aa153fc03297cb4c7f9b9afcf",
-                "reference": "2371a595538c1b2aa153fc03297cb4c7f9b9afcf",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/9e53c5260971cf73834e7693995beafc8a44d290",
+                "reference": "9e53c5260971cf73834e7693995beafc8a44d290",
                 "shasum": ""
             },
             "require": {
@@ -191,7 +229,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2013-11-04 08:40:44"
+            "time": "2013-11-04 09:17:15"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -3349,12 +3387,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "db54be3e0d062fff0942a504bd03139d7a6111a6"
+                "reference": "88906277988d3b0de562b1b99e5c49c146d4f2f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/db54be3e0d062fff0942a504bd03139d7a6111a6",
-                "reference": "db54be3e0d062fff0942a504bd03139d7a6111a6",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/88906277988d3b0de562b1b99e5c49c146d4f2f2",
+                "reference": "88906277988d3b0de562b1b99e5c49c146d4f2f2",
                 "shasum": ""
             },
             "require": {
@@ -3454,7 +3492,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-11-04 06:14:12"
+            "time": "2013-11-04 09:03:40"
         },
         {
             "name": "twig/extensions",
@@ -4183,6 +4221,7 @@
         "ddeboer/data-import-bundle": 20,
         "liip/monitor-bundle": 20,
         "bangpound/elasticsearch-bundle": 20,
+        "bangpound/atom-data-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "bangpound/pubsub-bundle": 20,
         "creof/doctrine2-spatial": 20,
