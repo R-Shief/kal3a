@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "4639a52ad41dae6df4d2ab5fb8265b89c9a9c057"
+                "reference": "d227c9622d64dc5125b92b2f1ba78afa73fdac09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/4639a52ad41dae6df4d2ab5fb8265b89c9a9c057",
-                "reference": "4639a52ad41dae6df4d2ab5fb8265b89c9a9c057",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/d227c9622d64dc5125b92b2f1ba78afa73fdac09",
+                "reference": "d227c9622d64dc5125b92b2f1ba78afa73fdac09",
                 "shasum": ""
             },
             "type": "library",
@@ -113,7 +113,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2013-11-04 09:31:24"
+            "time": "2013-11-04 10:16:54"
         },
         {
             "name": "bangpound/elasticsearch-bundle",
@@ -234,17 +234,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "9e53c5260971cf73834e7693995beafc8a44d290"
+                "reference": "962b1dd5da5b71bda63c2b83ae04444581d90657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/9e53c5260971cf73834e7693995beafc8a44d290",
-                "reference": "9e53c5260971cf73834e7693995beafc8a44d290",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/962b1dd5da5b71bda63c2b83ae04444581d90657",
+                "reference": "962b1dd5da5b71bda63c2b83ae04444581d90657",
                 "shasum": ""
             },
             "require": {
                 "bangpound/phirehose-bundle": "dev-master",
-                "sonata-project/admin-bundle": "dev-master"
+                "sonata-project/admin-bundle": "dev-master",
+                "sonata-project/notification-bundle": "dev-patch-1",
+                "symfony/dependency-injection": "~2.3"
             },
             "type": "library",
             "autoload": {
@@ -263,7 +265,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2013-11-04 09:17:15"
+            "time": "2013-11-04 10:14:53"
         },
         {
             "name": "creof/doctrine2-spatial",
