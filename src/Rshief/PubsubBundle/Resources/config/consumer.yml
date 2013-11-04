@@ -1,8 +1,0 @@
-services:
-    rshief_bundle.consumer.notification:
-        class: Rshief\PubsubBundle\Consumer\NotificationConsumer
-        tags:
-            - { name: sonata.notification.consumer, type: pubsub_notification }
-        arguments: [ '@doctrine_couchdb.odm.document_manager', '@jms_serializer', %rshief_pubsub.persistent_atom_entry.class% ]
-        calls:
-            - [ setLogger, [ @logger ] ]

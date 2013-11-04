@@ -37,7 +37,7 @@ class AppKernel extends Kernel
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
             new Bangpound\ElasticsearchBundle\BangpoundElasticsearchBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
-            new Rshief\PubsubBundle\RshiefPubsubBundle(),
+            new Bangpound\Bundle\PubsubBundle\BangpoundPubsubBundle(),
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
         );
 

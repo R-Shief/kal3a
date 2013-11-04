@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "281837e61a4cfb91ceabb9b58192b404",
+    "hash": "bec3640463caf9436b91389cb3228426",
     "packages": [
         {
             "name": "activitystreams/activitystreams",
@@ -79,6 +79,44 @@
             ],
             "description": "Symfony2 bundle to integrate Phirehose",
             "time": "2013-10-26 13:08:57"
+        },
+        {
+            "name": "bangpound/pubsub-bundle",
+            "version": "dev-master",
+            "target-dir": "Bangpound/Bundle/PubsubBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/pubsub-bundle.git",
+                "reference": "aa1b5742d3df5d5e81f12b16e4419b8dc38a8ed9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/aa1b5742d3df5d5e81f12b16e4419b8dc38a8ed9",
+                "reference": "aa1b5742d3df5d5e81f12b16e4419b8dc38a8ed9",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/admin-bundle": "~2.2.7",
+                "sputnik/pubsub-bundle": "~0.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bangpound\\Bundle\\PubsubBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Pubsub bundle for Castle.",
+            "time": "2013-11-04 08:08:17"
         },
         {
             "name": "bangpound/twitter-streaming-bundle",
@@ -4100,7 +4138,6 @@
     "stability-flags": {
         "symfony/icu": 20,
         "jms/serializer-bundle": 20,
-        "sonata-project/admin-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/user-bundle": 20,
         "sonata-project/notification-bundle": 20,
@@ -4113,6 +4150,7 @@
         "elasticsearch/elasticsearch": 20,
         "bangpound/phirehose-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
+        "bangpound/pubsub-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
         "activitystreams/activitystreams": 20,
