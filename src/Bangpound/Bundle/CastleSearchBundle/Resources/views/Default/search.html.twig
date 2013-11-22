@@ -51,4 +51,21 @@
 
 {% block content %}
     {{ form(form) }}
+
+    <table class="table table-condensed">
+        {% for date,value in results_daily %}
+            <tr>
+                <th>{{ date }}</th>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table table-condensed">
+        {% for date,value in results_hourly %}
+            <tr>
+                <th>{{ date }}</th>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
