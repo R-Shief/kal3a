@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3b68891a30007eabf7d519f07e69c106",
+    "hash": "32297df832f92f1dc5baa02ac51b5ad3",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -3635,6 +3635,51 @@
                 "rabbitmq"
             ],
             "time": "2013-02-13 19:43:51"
+        },
+        {
+            "name": "yohang/dependency-tools",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yohang/dependency-tools.git",
+                "reference": "f68be8d3a709eff931cb1b892a9e572a09f0d18c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yohang/dependency-tools/zipball/f68be8d3a709eff931cb1b892a9e572a09f0d18c",
+                "reference": "f68be8d3a709eff931cb1b892a9e572a09f0d18c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/process": ">=2.0,<3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Yohang": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yohan Giarelli",
+                    "email": "yohan@giarel.li",
+                    "homepage": "http://yohan.giarel.li"
+                }
+            ],
+            "description": "A simple Composer script to install NPM and/or Bower dependencies",
+            "homepage": "https://github.com/yohang/dependency-tools",
+            "keywords": [
+                "bower",
+                "composer",
+                "dependency",
+                "npm"
+            ],
+            "time": "2013-07-09 08:57:03"
         }
     ],
     "packages-dev": [

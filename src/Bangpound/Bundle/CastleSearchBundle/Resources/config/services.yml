@@ -1,0 +1,7 @@
+parameters:
+#    bangpound_castle_search.example.class: Bangpound\Bundle\CastleSearchBundle\Example
+
+services:
+#    bangpound_castle_search.example:
+#        class: %bangpound_castle_search.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

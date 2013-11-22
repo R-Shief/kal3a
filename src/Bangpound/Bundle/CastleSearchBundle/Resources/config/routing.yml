@@ -1,0 +1,13 @@
+bangpound_castle_search_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: BangpoundCastleSearchBundle:Default:index }
+
+bangpound_castle_search_start:
+    path:  /search
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'BangpoundCastleSearchBundle:Default:search.html.twig'
+
+bangpound_castle_search_result:
+    path:  /result
+    defaults: { _controller: BangpoundCastleSearchBundle:Default:result }

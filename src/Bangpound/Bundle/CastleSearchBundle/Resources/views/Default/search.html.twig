@@ -1,0 +1,138 @@
+{% extends "@BangpoundCastleSearch/layout.html.twig" %}
+
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite'
+        "vendor/bootstrap/dist/css/bootstrap.css"
+        "vendor/bootstrap/dist/css/bootstrap-theme.css"
+        "vendor/font-awesome/css/font-awesome.css"
+        "vendor/dangle/css/dangle.css"
+    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {#{{ dump() }}#}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script>
+        var castle = {
+            serverUrl: {{ ('http://localhost:9200' ~ '/' ~ 'production') | json_encode | raw }},
+            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }},
+            baseurl: {{ 'http://localhost:8000' | json_encode | raw }}
+        };
+    </script>
+    {% javascripts
+        "vendor/underscore/underscore.js"
+        "vendor/underscore.string/dist/underscore.string.min.js"
+        "vendor/jquery/jquery.js"
+        "vendor/angular/angular.js"
+        "vendor/angular-promise-tracker/promise-tracker.js"
+        "vendor/elastic.js/dist/elastic.js"
+        "vendor/elastic.js/dist/elastic-angular-client.js"
+        "vendor/d3/d3.js"
+        "vendor/dangle/dist/dangle.js"
+        "vendor/twitter-text/twitter-text.js"
+        "vendor/bootstrap/dist/js/bootstrap.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/filters.js"
+    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+{% endblock %}
+
+{% block content %}
+    <div ng-app="castleSearch">
+    <div ng-controller="SearchCtrl" ng-cloak>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Castle</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form ng-submit="search()" class="navbar-form navbar-left" role="search">
+                    <div class="btn-group">
+                        <a class="search-info btn btn-default" title="Search Help" data-toggle="modal" data-target="#search-help">
+                            <i class="glyphicon glyphicon-question-sign"></i>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" ng-model="queryTerm" type="search" placeholder="Search" />
+                    </div>
+                    <div class="btn-group search-variables">
+                        <a title="change result set size" class="btn btn-default" data-toggle="modal" data-target="#modal-results">
+                            {% verbatim %}{{ query.size() }}{% endverbatim %}
+                        </a>
+                        <a class="btn btn-default" ng-click="toggleSort()">
+                            <i ng-class="{'asc': 'glyphicon-sort-by-attributes glyphicon-flip-vertical', 'desc': 'glyphicon-sort-by-attributes-alt'}[sort.order]" class="glyphicon"></i>
+                        </a>
+                    </div>
+                    <button ng-click="search()" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        <section id="pagetop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="pagetitle"><span class="notify_loading" ng-show="ninjaFinder.active()"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pagemain">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <fs-date-histo bind="results.facets['Date posted']" height="200" on-click="filterByDate" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <div class="panel panel-default" ng-repeat="(key, value) in results.facets" ng-show="value._type == 'terms' && (value.total > 0 || value._type != 'terms')" ng-switch on="value._type">
+                            <div class="panel-heading" data-toggle="collapse" data-target="#facet-{% verbatim %}{{$index}}{% endverbatim %}">
+                                <h3 class="panel-title">{% verbatim %}{{ key }}{% endverbatim %}</h3>
+                            </div>
+                            <ul id="facet-{% verbatim %}{{$index}}{% endverbatim %}" class="list-group list-unstyled facets collapse in" ng-switch-when="terms" ng-controller="TermFacet" ng-init="init(key, query)">
+                                <li class="list-group-item" ng-repeat="entry in value.terms" dir="{% verbatim %}{{ entry.term | directionality }}{% endverbatim %}">
+                                    <a ng-click="filter(key, entry.term)">
+                                        <i class="glyphicon glyphicon-remove-sign" ng-show="isActive(key, entry.term)"></i> {% verbatim %}{{ entry.term }}{% endverbatim %}
+                                    </a> <span class="badge">{% verbatim %}{{ entry.count | number }}{% endverbatim %}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <ul class="list-unstyled">
+                            <li ng-repeat="doc in results.hits.hits" class="media well well-sm">
+                                <search-result doc="doc"></search-result>
+                            </li>
+                        </ul>
+                        <ul class="pagination">
+                            <li class="prev" ng-class="{disabled: (query.from() - query.size()) < 0}">
+                                <a ng-click="pager.prev()">&laquo; Prev</a>
+                            </li>
+                            <li>
+                                <span>{% verbatim %}{{ query.from() + 1 | number }}{% endverbatim %} &ndash; {% verbatim %}{{ query.from() + query.size() | number }}{% endverbatim %} of {% verbatim %}{{ results.hits.total | number }}{% endverbatim %}</span>
+                            </li>
+                            <li class="next" ng-class="{disabled: (query.from() + query.size()) > results.hits.total}">
+                                <a ng-click="pager.next()">Next &raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% include '@BangpoundCastleSearch/modal_help.html.twig' %}
+        {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
+
+    </div>
+    </div>
+{% endblock %}
