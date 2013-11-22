@@ -138,14 +138,13 @@ castleSearch
                             }
                         });
 
-                        var castleView = {
+                        $scope.results.hits.hits[key].castleView = {
                             thumbnailLink: thumbnailLink,
                             authorLink: authorLink,
                             canonicalLink: canonicalLink,
                             alternateLink: alternateLink,
                             displayLinks: displayLinks
                         };
-                        $scope.results.hits.hits[key].castleView = castleView;
                     });
                 });
         };
