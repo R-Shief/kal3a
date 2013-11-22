@@ -1,4 +1,5 @@
 castleSearch = angular.module('castleSearch', [
+        'ngSanitize',
         'ajoslin.promise-tracker',
         'elasticjs.service',
         'dangle'

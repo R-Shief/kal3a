@@ -15,8 +15,16 @@ class DefaultController extends Controller
         return $this->render('BangpoundCastleSearchBundle:Default:index.html.twig', array('name' => $name));
     }
 
-    public function resultAction()
+    public function searchAction()
     {
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('bangpound_castle_search_result'))
+            ->setMethod('GET')
+            ->add('queryTerm', 'text')
+            ->add('date', 'date')
+            ->add('search', 'submit')
+            ->getForm();
 
+        return $this->render('BangpoundCastleSearchBundle:Default:search.html.twig', array('form' => $form->createView()));
     }
 }

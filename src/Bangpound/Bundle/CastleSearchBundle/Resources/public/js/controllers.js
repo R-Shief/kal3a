@@ -2,8 +2,9 @@ castleSearch
     .controller('SearchCtrl', function($location, $scope, ejsResource, ejsConfig, promiseTracker) {
         var ejs = ejsResource(ejsConfig);
         var oQuery = ejs.QueryStringQuery();
+        var search = $location.search();
 
-        $scope.queryTerm = $location.search()['queryTerm'];
+        $scope.queryTerm = search['form[queryTerm]'];
 
         $scope.query = ejs.Request();
 

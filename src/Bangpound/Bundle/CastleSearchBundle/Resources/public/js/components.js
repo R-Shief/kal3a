@@ -20,7 +20,7 @@ castleSearch
 
                 type = scope.atomElement.hasOwnProperty('type') ? scope.atomElement.type : 'text';
 
-                if (type == 'html' || type == 'xhtml') {
+                if (type === 'html' || type === 'xhtml') {
                     html = scope.atomElement.text;
                 }
                 else {
@@ -42,16 +42,5 @@ castleSearch
                 });
             }
         }
-    })
-    .directive('twitterText', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                tweet: '='
-            },
-            link: function(scope, element, attrs) {
-                element.replaceWith(twttr.txt.autoLink(tweet.text.text, { urlEntities: tweet.entities.urls }));
-            }
-        };
     });
 

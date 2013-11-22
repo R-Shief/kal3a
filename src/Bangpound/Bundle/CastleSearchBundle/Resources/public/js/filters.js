@@ -5,6 +5,12 @@ castleSearch
         };
     })
 
+    .filter('unsafe', function($sce) {
+        return function(val) {
+            return $sce.trustAsHtml(val);
+        };
+    })
+
     .filter('badDate', function($filter) {
         return function (input) {
 

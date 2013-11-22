@@ -13,11 +13,11 @@
     "underscore.string": null,
     "bootstrap": null,
     "font-awesome": null,
-    "twitter-text": null,
     "elastic.js": "master",
     "angular": null,
     "angular-promise-tracker": "master",
     "dangle": "git://github.com/fullscale/dangle.git",
-    "d3": null
+    "d3": null,
+    "angular-sanitize": "~1.2.1"
   }
 }

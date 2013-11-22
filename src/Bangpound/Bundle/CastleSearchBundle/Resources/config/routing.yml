@@ -5,9 +5,11 @@ bangpound_castle_search_homepage:
 bangpound_castle_search_start:
     path:  /search
     defaults:
-        _controller: FrameworkBundle:Template:template
+        _controller: BangpoundCastleSearchBundle:Default:search
         template: 'BangpoundCastleSearchBundle:Default:search.html.twig'
 
 bangpound_castle_search_result:
     path:  /result
-    defaults: { _controller: BangpoundCastleSearchBundle:Default:result }
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'BangpoundCastleSearchBundle:Default:result.html.twig'
