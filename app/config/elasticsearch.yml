@@ -22,26 +22,26 @@ bangpound_elasticsearch:
                                             type: long
                                         revpos:
                                             type: long
-                                        stub:
-                                            type: "boolean"
                         _rev:
                             type: string
                         authors:
-                            type: object
                             properties:
                                 email:
                                     type: string
                                 name:
                                     type: string
                                     index: not_analyzed
+                                    omit_norms: true
+                                    index_options: docs
                                 uri:
                                     type: string
                         categories:
-                            type: object
                             properties:
                                 term:
                                     type: string
                                     index: not_analyzed
+                                    omit_norms: true
+                                    index_options: docs
                                 scheme:
                                     type: string
                                 label:
@@ -49,7 +49,6 @@ bangpound_elasticsearch:
                                 type:
                                     type: string
                         content:
-                            type: object
                             properties:
                                 content:
                                     type: string
@@ -58,7 +57,7 @@ bangpound_elasticsearch:
                                 type:
                                     type: string
                         doctrine_metadata:
-                            type: "object"
+                            type: object
                             enabled: false
                         id:
                             type: string
@@ -75,26 +74,25 @@ bangpound_elasticsearch:
                         published:
                             type: date
                             format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                            ignore_malformed: true
                         source:
                             properties:
                                 authors:
-                                    type: object
                                     properties:
                                         email:
                                             type: string
                                         name:
                                             type: string
                                             index: not_analyzed
+                                            omit_norms: true
+                                            index_options: docs
                                         uri:
                                             type: string
                                 categories:
-                                    type: object
                                     properties:
                                         term:
                                             type: string
                                             index: not_analyzed
-                                        term:
-                                            type: string
                                         scheme:
                                             type: string
                                         label:
@@ -102,7 +100,6 @@ bangpound_elasticsearch:
                                 id:
                                     type: string
                                 links:
-                                    type: object
                                     properties:
                                         href:
                                             type: string
@@ -113,11 +110,12 @@ bangpound_elasticsearch:
                                         title:
                                             type: string
                                 title:
-                                    type: object
                                     properties:
                                         text:
                                             type: string
                                             index: not_analyzed
+                                            omit_norms: true
+                                            index_options: docs
                                         type:
                                             type: string
                                 type:
@@ -125,20 +123,22 @@ bangpound_elasticsearch:
                                 updated:
                                     type: date
                                     format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                                    ignore_malformed: true
                         summary:
-                            type: object
                             properties:
                                 text:
                                     type: string
                                 type:
                                     type: string
                         title:
-                            type: object
                             properties:
                                 text:
                                     type: string
                                 type:
                                     type: string
+                        type:
+                            type: string
                         updated:
                             type: date
                             format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                            ignore_malformed: true
