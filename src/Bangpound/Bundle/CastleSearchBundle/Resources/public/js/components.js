@@ -1,38 +1,4 @@
 castleSearch
-    .directive('searchResult', ['$compile', '$http', '$templateCache', function($compile, $http, $templateCache) {
-
-        var getTemplate = function(type) {
-            var templateLoader,
-            baseUrl = castle.basepath + '/templates/components/result/',
-            templateMap = {
-                atom: 'atom.html',
-                error_message: 'error_message.html'
-            };
-
-            var templateUrl = baseUrl + templateMap[type];
-            templateLoader = $http.get(templateUrl, { cache: $templateCache });
-
-            return templateLoader;
-
-        }
-
-        var linker = function(scope, element, attrs) {
-            var loader = getTemplate(scope.doc._type);
-            var promise = loader.success(function(html) {
-                element.html(html);
-            }).then(function (response) {
-                element.replaceWith($compile(element.html())(scope));
-            });
-        }
-
-        return {
-            restrict: 'E',
-            scope: {
-                doc: '='
-            },
-            link: linker
-        };
-    }])
     .directive('atomTextConstruct', function() {
       return {
         restrict: 'E',

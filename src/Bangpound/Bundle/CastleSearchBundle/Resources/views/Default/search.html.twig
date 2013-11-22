@@ -110,8 +110,41 @@
                     </div>
                     <div class="col-12 col-lg-8">
                         <ul class="list-unstyled">
-                            <li ng-repeat="doc in results.hits.hits" class="media well well-sm">
-                                <search-result doc="doc"></search-result>
+                            <li ng-repeat="doc in results.hits.hits" class="media row">
+                                <div class="pull-left col-sm-6 col-md-3">
+                                    <span class="thumbnail">
+                                        <img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <strong>
+                                        <a ng-if="doc.castleView.authorLink" ng-href="{% verbatim %}{{ doc.castleView.authorLink.href }}{% endverbatim %}" target="_blank">
+                                            {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
+                                        </a>
+                                        <span ng-if="!doc.castleView.authorLink">
+                                            {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
+                                        </span>
+                                    </strong>
+                                    {% verbatim %}{{ doc._source.source.title.text}}{% endverbatim %}
+                                    {% verbatim %}{{ doc._source.published | badDate | date:'medium' }}{% endverbatim %}
+                                    <h4>
+                                        <a ng-if="doc.castleView.alternateLink" ng-href="{% verbatim %}{{ doc.castleView.alternateLink.href }}{% endverbatim %}" target="_blank">
+                                            {% verbatim %}{{doc._source.title.text}}{% endverbatim %}
+                                        </a>
+                                        <span ng-if="!doc.castleView.alternateLink">
+                                            {% verbatim %}{{doc._source.title.text}}{% endverbatim %}
+                                        </span>
+                                        <a ng-show="doc.castleView.canonicalLink" ng-href="{% verbatim %}{{ doc.castleView.canonicalLink.href }}{% endverbatim %}" target="_blank">
+                                            <i class="glyphicon glyphicon-link"></i>
+                                        </a>
+                                    </h4>
+                                    <atom-text-construct atom-element="doc._source.summary"></atom-text-construct>
+                                    <ul>
+                                        <li ng-repeat="(key, value) in doc.castleView.displayLinks">
+                                            <a rel="{% verbatim %}{{ value.rel }}{% endverbatim %}" href="{% verbatim %}{{ value.href }}{% endverbatim %}" target="_blank">{% verbatim %}{{ value.title }}{% endverbatim %}</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                         <ul class="pagination">
@@ -129,10 +162,8 @@
                 </div>
             </div>
         </section>
-
         {% include '@BangpoundCastleSearch/modal_help.html.twig' %}
         {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
-
     </div>
     </div>
 {% endblock %}

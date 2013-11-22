@@ -112,9 +112,40 @@ castleSearch
                 .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')))
                 .doSearch()
                 .then(function (results) {
-                    $scope.results = {};
-                    angular.forEach(results, function (value, key) {
-                        $scope.results[key] = value;
+                    $scope.results = results;
+                    angular.forEach(results.hits.hits, function (value, key) {
+
+                        var thumbnailLink = _.findWhere(value._source.links, { rel: 'thumbnail' })
+                            || _.findWhere(value._source.links, { rel: 'image' })
+                            || _.findWhere(value._source.links, { type: 'image' })
+                            || _.findWhere(value._source.links, { rel: 'author thumbnail' })
+                            || { href: 'http://placehold.it/96x96' };
+
+                        var authorLink = _.findWhere(value._source.links, { rel: 'author' });
+
+                        var canonicalLink = _.findWhere(value._source.links, { rel: 'canonical' });
+
+                        var alternateLink = _.findWhere(value._source.links, { rel: 'alternate' }) || _.findWhere(value._source.links, { rel: '' });
+
+                        var displayLinks = _.without(value._source.links, thumbnailLink, authorLink, canonicalLink, alternateLink);
+
+                        angular.forEach(displayLinks, function (link) {
+                            if (!link.hasOwnProperty('title')) {
+                                link.title = link.href
+                            }
+                            if (link.hasOwnProperty('rel') && link.rel === 'canonical') {
+                                link.title = link.rel;
+                            }
+                        });
+
+                        var castleView = {
+                            thumbnailLink: thumbnailLink,
+                            authorLink: authorLink,
+                            canonicalLink: canonicalLink,
+                            alternateLink: alternateLink,
+                            displayLinks: displayLinks
+                        };
+                        $scope.results.hits.hits[key].castleView = castleView;
                     });
                 });
         };
