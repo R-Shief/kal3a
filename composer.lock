@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fbf121d86380daaae57620e4e3cedfa8",
+    "hash": "3f9e41afbd52589f1a84f1636dfa9c0b",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -4376,6 +4376,7 @@
         "elao/web-profiler-extra-bundle": 20,
         "coresphere/console-bundle": 20,
         "jns/xhprof-bundle": 20,
+        "facebook/xhprof": 20,
         "jms/debugging-bundle": 20
     },
     "platform": {

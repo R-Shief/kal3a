@@ -49,6 +49,7 @@
         "elao/web-profiler-extra-bundle" : "dev-master",
         "coresphere/console-bundle": "dev-master",
         "jns/xhprof-bundle": "dev-master",
+        "facebook/xhprof": "dev-master",
         "jms/debugging-bundle": "dev-master"
     },
     "scripts": {
