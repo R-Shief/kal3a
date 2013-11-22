@@ -6,24 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/SonataDoctrineORMAdminBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/SonataNotificationBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/php-activitystreams.git"
-        },
-        {
-            "type": "composer",
-            "url": "http://bangpound.github.io/satis-repository"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/icu": "1.1.*@dev",
@@ -39,9 +21,9 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "dev-master",
-        "sonata-project/doctrine-orm-admin-bundle": "dev-patch-1",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
-        "sonata-project/notification-bundle": "dev-patch-1",
+        "sonata-project/notification-bundle": "dev-master",
         "doctrine/couchdb": "dev-master",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-master",
@@ -58,7 +40,6 @@
         "phayes/geophp": "dev-master",
         "videlalvaro/php-amqplib": "2.0.*",
         "sensiolabs/security-checker": "~1.2",
-        "activitystreams/activitystreams": "dev-patch-1",
         "nojimage/twitter-text-php": "dev-master"
     },
     "require-dev": {
