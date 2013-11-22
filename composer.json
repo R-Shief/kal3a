@@ -21,6 +21,8 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "dev-master",
+        "yohang/dependency-tools": "1.0.*",
+        "friendsofsymfony/jsrouting-bundle": "~1.1",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/notification-bundle": "dev-master",
@@ -51,6 +53,7 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "Yohang\\DependencyTools::installDeps",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -59,6 +62,7 @@
             "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
         ],
         "post-update-cmd": [
+            "Yohang\\DependencyTools::installDeps",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -79,6 +83,9 @@
         },
         "branch-alias": {
             "dev-master": "2.4-dev"
+        },
+        "dependency-tools": {
+            "bower": true
         }
     }
 }

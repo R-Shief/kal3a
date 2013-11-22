@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\NotificationBundle\SonataNotificationBundle(),
             new Bangpound\PhirehoseBundle\BangpoundPhirehoseBundle(),
@@ -38,6 +39,7 @@ class AppKernel extends Kernel
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
             new Bangpound\Bundle\PubsubBundle\BangpoundPubsubBundle(),
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
+            new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
