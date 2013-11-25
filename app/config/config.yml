@@ -149,7 +149,6 @@ doctrine_couch_db:
 liip_monitor:
     checks:
         php_extensions: [ intl, mcrypt, twig, curl ]
-        process_active: "sonata:notification:start --type=pubsub_notification"
         writable_directory:
             - %kernel.cache_dir%
             - %kernel.logs_dir%
