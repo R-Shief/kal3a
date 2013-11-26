@@ -23,6 +23,7 @@
         "jms/serializer-bundle": "dev-master",
         "yohang/dependency-tools": "1.0.*",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
+        "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/notification-bundle": "dev-master",
@@ -32,9 +33,11 @@
         "robotsnowfall/enum": "dev-master",
         "mjohnson/decoda": "~6.2.3",
         "ddeboer/data-import-bundle": "dev-master",
+        "ddeboer/data-import": "dev-master",
         "liip/monitor-bundle": "dev-master",
         "bangpound/elasticsearch-bundle": "dev-master",
         "bangpound/atom-data-bundle": "dev-master",
+        "fennb/phirehose": "dev-master",
         "bangpound/twitter-streaming-bundle": "dev-master",
         "bangpound/pubsub-bundle": "dev-master",
         "bangpound/castle-bundle": "dev-master",
@@ -75,7 +78,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "RC",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
