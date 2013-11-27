@@ -1,3 +1,7 @@
+bangpound_guzzle_proxy:
+    resource: "@BangpoundGuzzleProxyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
     prefix:   /

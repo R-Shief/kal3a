@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2d04644f45b2a9a81a98d5b603ae411f",
+    "hash": "06d603a05cec431b3bb6f1dc0f04b7db",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -113,6 +113,43 @@
             ],
             "description": "Symfony bundle for Elasticsearch PHP library",
             "time": "2013-11-22 07:37:43"
+        },
+        {
+            "name": "bangpound/guzzle-proxy-bundle",
+            "version": "dev-master",
+            "target-dir": "Bangpound/Bundle/GuzzleProxyBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/guzzle-proxy-bundle.git",
+                "reference": "98fed8aeb28d9e03a42a974ef475f1348af3fb91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/98fed8aeb28d9e03a42a974ef475f1348af3fb91",
+                "reference": "98fed8aeb28d9e03a42a974ef475f1348af3fb91",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bangpound\\Bundle\\GuzzleProxyBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Proxy requests through Symfony application",
+            "time": "2013-11-27 11:48:24"
         },
         {
             "name": "bangpound/phirehose-bundle",
@@ -4362,6 +4399,7 @@
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
         "nojimage/twitter-text-php": 20,
+        "bangpound/guzzle-proxy-bundle": 20,
         "elao/web-profiler-extra-bundle": 20,
         "coresphere/console-bundle": 20,
         "jns/xhprof-bundle": 20,

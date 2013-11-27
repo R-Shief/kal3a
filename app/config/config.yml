@@ -157,3 +157,8 @@ liip_monitor:
         symfony_version_check:    ~
         security_advisory:
             lock_file:            %kernel.root_dir%/../composer.lock
+
+bangpound_guzzle_proxy:
+    endpoint:
+        elasticsearch:
+            host: http://localhost:9200
