@@ -11,12 +11,6 @@
     {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-    <script>
-        var castle = {
-            serverUrl: {{ ('http://localhost:9200/production') | json_encode | raw }},
-            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }}
-        };
-    </script>
     {% javascripts
     %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
 {% endblock %}
