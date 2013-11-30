@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "3ec98396cdb9de3e22b41e573d5f1b9a5f5fe375"
+                "reference": "adbccf28f9b1c13b1086264ee70c40e8237d5e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/3ec98396cdb9de3e22b41e573d5f1b9a5f5fe375",
-                "reference": "3ec98396cdb9de3e22b41e573d5f1b9a5f5fe375",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/adbccf28f9b1c13b1086264ee70c40e8237d5e73",
+                "reference": "adbccf28f9b1c13b1086264ee70c40e8237d5e73",
                 "shasum": ""
             },
             "type": "library",
@@ -75,7 +75,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2013-11-28 05:17:38"
+            "time": "2013-11-30 09:53:08"
         },
         {
             "name": "bangpound/elasticsearch-bundle",
