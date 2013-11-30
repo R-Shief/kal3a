@@ -101,16 +101,34 @@
             'template': 'BangpoundCastleSearchBundle:Block:block_view_grouping.html.twig'
         }
     }) }}
+    <h2>Today</h2>
     {{ sonata_block_render({
-        'type': 'bangpound_castle_search.block.date_view',
+        'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
             'design_document': 'stats',
-            'view': 'tag',
+            'view': 'top_tag',
+            'list': 'top',
             'reduce': true,
             'group': true,
             'group_level': 4,
-            'date_key': 1,
-            'template': 'BangpoundCastleSearchBundle:Block:block_view_grouping.html.twig'
+            'startkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
+            'endkey': [ (date('+1 day') | date('Y')) + 0, (date('+1 day') | date('m')) + 0, (date('+1 day') | date('d')) + 0 ],
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
+        }
+    }) }}
+    <h2>Yesterday</h2>
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.top_tag_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'top_tag',
+            'list': 'top',
+            'reduce': true,
+            'group': true,
+            'group_level': 4,
+            'startkey': [ (date('-1 day') | date('Y')) + 0, (date('-1 day') | date('m')) + 0, (date('-1 day') | date('d')) + 0 ],
+            'endkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
     }) }}
 {% endblock %}
