@@ -1352,16 +1352,16 @@
         },
         {
             "name": "jdorn/sql-formatter",
-            "version": "v1.2.9",
+            "version": "v1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "bd1f09133f6dbbe0713856910e58ea9480c2be58"
+                "reference": "8859d664737492d313c34796731b35eca851b362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/bd1f09133f6dbbe0713856910e58ea9480c2be58",
-                "reference": "bd1f09133f6dbbe0713856910e58ea9480c2be58",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/8859d664737492d313c34796731b35eca851b362",
+                "reference": "8859d664737492d313c34796731b35eca851b362",
                 "shasum": ""
             },
             "require": {
@@ -1398,7 +1398,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2013-04-26 18:42:52"
+            "time": "2013-11-27 22:51:13"
         },
         {
             "name": "jms/metadata",
@@ -2553,12 +2553,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "d02b7e0b5246556c338ba004050db4f456f06690"
+                "reference": "dfb6195a5853b64c554253fddc256c65debac8ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d02b7e0b5246556c338ba004050db4f456f06690",
-                "reference": "d02b7e0b5246556c338ba004050db4f456f06690",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/dfb6195a5853b64c554253fddc256c65debac8ba",
+                "reference": "dfb6195a5853b64c554253fddc256c65debac8ba",
                 "shasum": ""
             },
             "require": {
@@ -2623,7 +2623,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-11-25 11:47:35"
+            "time": "2013-11-29 18:11:24"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2742,12 +2742,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "15ed873424fb30af43569014a48f6d216fdefe78"
+                "reference": "228b47b990f781422a45f478d65c821bdcac45f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/15ed873424fb30af43569014a48f6d216fdefe78",
-                "reference": "15ed873424fb30af43569014a48f6d216fdefe78",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/228b47b990f781422a45f478d65c821bdcac45f8",
+                "reference": "228b47b990f781422a45f478d65c821bdcac45f8",
                 "shasum": ""
             },
             "require": {
@@ -2790,7 +2790,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2013-11-14 12:36:59"
+            "time": "2013-11-28 16:27:11"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -3075,12 +3075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "d2393713fcf87438af3d474cbf90223b42c6fae6"
+                "reference": "7eb1535d648a1d2be3c93a1578275e3066e6cff7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/d2393713fcf87438af3d474cbf90223b42c6fae6",
-                "reference": "d2393713fcf87438af3d474cbf90223b42c6fae6",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/7eb1535d648a1d2be3c93a1578275e3066e6cff7",
+                "reference": "7eb1535d648a1d2be3c93a1578275e3066e6cff7",
                 "shasum": ""
             },
             "require": {
@@ -3130,7 +3130,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2013-11-14 14:43:53"
+            "time": "2013-11-29 18:13:27"
         },
         {
             "name": "sputnik/pubsub-bundle",
