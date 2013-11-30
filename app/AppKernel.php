@@ -41,6 +41,7 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
             new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
+            new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

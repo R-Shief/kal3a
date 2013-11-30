@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite'
+    "vendor/bootstrap/dist/css/bootstrap.css"
+    "vendor/bootstrap/dist/css/bootstrap-theme.css"
+    "vendor/font-awesome/css/font-awesome.css"
+    "bundles/rshiefkal3a/css/style.css"
+    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script>
+        var castle = {
+            serverUrl: {{ (url('bangpound_guzzle_proxy_endpoint', { 'endpoint': 'elasticsearch', 'path': 'production' })) | json_encode | raw }},
+            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }}
+        };
+    </script>
+    {% javascripts
+    "vendor/jquery/jquery.js"
+    "vendor/bootstrap/dist/js/bootstrap.js"
+    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    <div ng-app="castleSearch">
+        <div ng-controller="SearchCtrl" ng-cloak>
+            {% block navbar %}{% endblock %}
+            <section id="pagetop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            {% block header %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="pagemain">
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div>
+            </section>
+        </div>
+    </div>
+    {% block footer %}{% endblock %}
+{% endblock %}

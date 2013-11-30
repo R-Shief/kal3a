@@ -1,0 +1,166 @@
+{% extends "@BangpoundCastleSearch/layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='cssrewrite'
+    "vendor/dangle/css/dangle.css"
+    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    {% javascripts
+    "vendor/underscore/underscore.js"
+    "vendor/underscore.string/dist/underscore.string.min.js"
+    "vendor/angular/angular.js"
+    "vendor/angular-sanitize/angular-sanitize.js"
+    "vendor/angular-promise-tracker/promise-tracker.js"
+    "vendor/elastic.js/dist/elastic.js"
+    "vendor/elastic.js/dist/elastic-angular-client.js"
+    "vendor/d3/d3.js"
+    "vendor/dangle/dist/dangle.js"
+    "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
+    "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
+    "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
+    "@BangpoundCastleSearchBundle/Resources/public/js/filters.js"
+    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+{% endblock %}
+
+{% block navbar %}
+    <header class="rshief-header">
+        <div class="main-nav navbar-fixed-top">
+
+            <a class="navbar-brand" href="http://r-shief.org"><img src="bundles/rshiefkal3a/images/star.png" alt="R-Shief"></a>
+
+            <ul id="nav" class="nav navbar-nav">
+                <li><a href="http://r-shief.org/about">About</a></li>
+                <li><a href="http://r-shief.org/blog">Blog</a></li>
+                <li><a href="http://r-shief.org/community">Community</a></li>
+                <li><a href="http://r-shief.org/visualizers">Visualizers</a></li>
+                <li><a href="http://r-shief.org/educational">Education</a></li>
+                <li><a href="http://r-shief.org/api/arabic-entity-api/">API Sandbox</a></li>
+                <li><a href="http://r-shief.org/index">Index</a></li>
+            </ul>
+            <ul class="nav navbar-nav social-nav pull-right">
+                <li class="divider-vertical"></li>
+                <li><a href="http://r-shief.org/register">Register</a></li>
+            </ul>
+        </div>
+    </header>
+<div class="global-search active">
+    <div class="search-logo"><a href="/"><img src="bundles/rshiefkal3a/images/rshief-gray.png" alt="R-Shief"></a></div>
+    <form ng-submit="search()" class="form-inline facetview_search_options_container">
+        <div class="btn-group">
+            <a class="search-info" title="Search Help" data-toggle="modal" data-target="#search-help">
+                <i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+        </div>
+        <div class="form-group">
+            <input class="form-control" ng-model="queryTerm" placeholder="Search our Archive" type="search" />
+        </div>
+        <div class="search-variables">
+            <a title="change result set size" data-toggle="modal" data-target="#modal-results">
+                {% verbatim %}{{ query.size() }}{% endverbatim %}
+            </a>
+            <a ng-click="toggleSort()">
+                <i ng-class="{'asc': 'glyphicon-sort-by-attributes glyphicon-flip-vertical', 'desc': 'glyphicon-sort-by-attributes-alt'}[sort.order]" class="glyphicon"></i>
+            </a>
+        </div>
+        <button ng-click="search()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+    </form>
+</div>
+{% endblock %}
+
+{% block header %}
+    <h1 class="pagetitle">
+        <span class="notify_loading" ng-show="ninjaFinder.active()"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results
+    </h1>
+{% endblock %}
+
+{% block footer %}
+    {% include '@BangpoundCastleSearch/modal_help.html.twig' %}
+    {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="panel panel-default" ng-repeat="(key, value) in results.facets" ng-show="value._type == 'terms' && (value.total > 0 || value._type != 'terms')" ng-switch on="value._type">
+        <div class="panel-heading" data-toggle="collapse" data-target="#facet-{% verbatim %}{{$index}}{% endverbatim %}">
+            <h3 class="panel-title">{% verbatim %}{{ key }}{% endverbatim %}</h3>
+        </div>
+        <ul id="facet-{% verbatim %}{{$index}}{% endverbatim %}" class="list-group list-unstyled facets collapse in" ng-switch-when="terms" ng-controller="TermFacet" ng-init="init(key, query)">
+            <li class="list-group-item" ng-repeat="entry in value.terms" dir="{% verbatim %}{{ entry.term | directionality }}{% endverbatim %}">
+                <a ng-click="filter(key, entry.term)">
+                    <i class="glyphicon glyphicon-remove-sign" ng-show="isActive(key, entry.term)"></i> {% verbatim %}{{ entry.term }}{% endverbatim %}
+                </a> <span class="badge">{% verbatim %}{{ entry.count | number }}{% endverbatim %}</span>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <ul class="list-unstyled">
+        <li ng-repeat="doc in results.hits.hits" class="media row">
+            <div class="pull-left col-sm-2 col-md-2">
+                <span class="thumbnail">
+                    <img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
+                </span>
+            </div>
+            <div class="media-body">
+                <strong>
+                    <a ng-if="doc.castleView.authorLink" href="{% verbatim %}{{ doc.castleView.authorLink.href }}{% endverbatim %}" target="_blank">
+                        {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
+                    </a>
+                    <span ng-if="!doc.castleView.authorLink">
+                        {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
+                    </span>
+                </strong>
+                <span>{% verbatim %}{{ doc._source.source.title.text}}{% endverbatim %}</span>
+                <span>{% verbatim %}{{ doc._source.published | badDate | date:'medium' }}{% endverbatim %}</span>
+                <h4>
+                    <a ng-if="doc.castleView.alternateLink" ng-bind-html="doc._source.title.text | unsafe" ng-href="{% verbatim %}{{ doc.castleView.alternateLink.href }}{% endverbatim %}" target="_blank"></a>
+                    <span ng-if="!doc.castleView.alternateLink" ng-bind-html="doc._source.title.text | unsafe"></span>
+                    <small ng-show="doc.castleView.canonicalLink">
+                        <a ng-href="{% verbatim %}{{ doc.castleView.canonicalLink.href }}{% endverbatim %}" target="_blank">
+                            <i class="glyphicon glyphicon-link"></i>
+                        </a>
+                    </small>
+                </h4>
+                <atom-text-construct atom-element="doc._source.summary"></atom-text-construct>
+                <ul>
+                    <li ng-repeat="(key, value) in doc.castleView.displayLinks">
+                        <a rel="{% verbatim %}{{ value.rel }}{% endverbatim %}" href="{% verbatim %}{{ value.href }}{% endverbatim %}" target="_blank">{% verbatim %}{{ value.title }}{% endverbatim %}</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="pagination">
+        <li class="prev" ng-class="{disabled: (query.from() - query.size()) < 0}">
+            <a ng-click="pager.prev()">&laquo; Prev</a>
+        </li>
+        <li>
+            <span>{% verbatim %}{{ query.from() + 1 | number }}{% endverbatim %} &ndash; {% verbatim %}{{ query.from() + query.size() | number }}{% endverbatim %} of {% verbatim %}{{ results.hits.total | number }}{% endverbatim %}</span>
+        </li>
+        <li class="next" ng-class="{disabled: (query.from() + query.size()) > results.hits.total}">
+            <a ng-click="pager.next()">Next &raquo;</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <fs-date-histo bind="results.facets['Date posted']" on-click="filterByDate" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            {{ block('sidebar') }}
+        </div>
+        <div class="col-12 col-lg-8">
+            {{ block('main') }}
+        </div>
+    </div>
+{% endblock %}

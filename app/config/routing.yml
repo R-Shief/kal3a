@@ -1,3 +1,7 @@
+rshief_kal3a:
+    resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
+    prefix:   /
+
 bangpound_guzzle_proxy:
     resource: "@BangpoundGuzzleProxyBundle/Resources/config/routing.yml"
     prefix:   /
