@@ -1,0 +1,17 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <table class="table table-condensed">
+    {% for grouping,values in results %}
+        {% for date,value in values %}
+            <tr>
+                <td>{{ grouping }}</td>
+                <td>{{ date }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+            No feeds available.
+    {% endfor %}
+    </table>
+{% endblock %}

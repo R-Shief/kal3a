@@ -1,7 +1,9 @@
 parameters:
-#    bangpound_castle_search.example.class: Bangpound\Bundle\CastleSearchBundle\Example
+    bangpound_castle_search.block.date_view.class: Bangpound\Bundle\CastleSearchBundle\Block\DateViewBlockService
 
 services:
-#    bangpound_castle_search.example:
-#        class: %bangpound_castle_search.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    bangpound_castle_search.block.date_view:
+        class: %bangpound_castle_search.block.date_view.class%
+        arguments: [ 'bangpound_castle_search.block.date_view', @templating, @doctrine_couchdb.odm.default_document_manager ]
+        tags:
+            - { name: sonata.block }

@@ -44,22 +44,73 @@
 {% endblock %}
 
 {% block content %}
-    {{ form(form) }}
+    <div class="row">
+        <div class="col-md-4">
+            {{ block('first_sidebar') }}
+        </div>
+        <div class="col-md-4">
+            {{ block('main') }}
+        </div>
+        <div class="col-md-4">
+            {{ block('second_sidebar') }}
+        </div>
+    </div>
+{% endblock %}
 
-    <table class="table table-condensed">
-        {% for date,value in results_daily %}
-            <tr>
-                <th>{{ date }}</th>
-                <td>{{ value }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <table class="table table-condensed">
-        {% for date,value in results_hourly %}
-            <tr>
-                <th>{{ date }}</th>
-                <td>{{ value }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+{% block main %}
+    {{ form(form) }}
+{% endblock %}
+
+{% block first_sidebar %}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'daily',
+            'reduce': true,
+            'group': true,
+            'descending': true,
+            'group_level': 3
+        }
+    }) }}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'daily',
+            'reduce': true,
+            'group': true,
+            'descending': true,
+            'group_level': 4,
+            'date_format': 'M-d-Y H:i:s'
+        }
+    }) }}
+{% endblock %}
+
+{% block second_sidebar %}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'collection',
+            'reduce': true,
+            'group': true,
+            'descending': true,
+            'group_level': 4,
+            'date_key': 1,
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_grouping.html.twig'
+        }
+    }) }}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'tag',
+            'reduce': true,
+            'group': true,
+            'group_level': 4,
+            'date_key': 1,
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_grouping.html.twig'
+        }
+    }) }}
 {% endblock %}

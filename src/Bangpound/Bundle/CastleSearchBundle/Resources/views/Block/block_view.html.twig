@@ -1,0 +1,14 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <table class="table table-condensed">
+    {% for date,value in results %}
+        <tr>
+            <th>{{ date }}</th>
+            <td>{{ value }}</td>
+        </tr>
+    {% else %}
+            No feeds available.
+    {% endfor %}
+    </table>
+{% endblock %}
