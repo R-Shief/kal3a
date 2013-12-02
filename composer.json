@@ -6,6 +6,12 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/elasticsearch-bundle-1.git"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/icu": "1.1.*@dev",
@@ -36,6 +42,7 @@
         "ddeboer/data-import": "dev-master",
         "liip/monitor-bundle": "dev-master",
         "bangpound/elasticsearch-bundle": "dev-master",
+        "ushios/elasticsearch-bundle": "dev-develop",
         "bangpound/atom-data-bundle": "dev-master",
         "fennb/phirehose": "dev-master",
         "bangpound/twitter-streaming-bundle": "dev-master",

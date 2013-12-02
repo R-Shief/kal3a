@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "06d603a05cec431b3bb6f1dc0f04b7db",
+    "hash": "581c24dea5fa5b23f4a05c3a45182fa1",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -3674,6 +3674,48 @@
             "time": "2013-10-30 08:20:53"
         },
         {
+            "name": "ushios/elasticsearch-bundle",
+            "version": "dev-develop",
+            "target-dir": "Ushios/Bundle/ElasticSearchBundle",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bangpound/elasticsearch-bundle-1.git",
+                "reference": "cd6027ec88b866cb59093dac715dfd0f4c386075"
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "~0.4",
+                "php": ">=5.3.2",
+                "symfony/monolog-bundle": "~2.3",
+                "symfony/symfony": "2.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Ushios\\Bundle\\ElasticSearchBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ushio Shugo",
+                    "email": "ushio.s@gmail.com"
+                }
+            ],
+            "description": "Symfony ElasticSearchBundle",
+            "homepage": "https://github.com/ushios/elasticsearch-bundle",
+            "keywords": [
+                "elasticsearch"
+            ],
+            "time": "2013-11-25 18:21:50"
+        },
+        {
             "name": "videlalvaro/php-amqplib",
             "version": "v2.0.2",
             "source": {
@@ -4391,6 +4433,7 @@
         "ddeboer/data-import": 20,
         "liip/monitor-bundle": 20,
         "bangpound/elasticsearch-bundle": 20,
+        "ushios/elasticsearch-bundle": 20,
         "bangpound/atom-data-bundle": 20,
         "fennb/phirehose": 20,
         "bangpound/twitter-streaming-bundle": 20,
