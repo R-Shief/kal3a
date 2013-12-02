@@ -327,12 +327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ddeboer/data-import.git",
-                "reference": "38e463da12333acdb7d59f72c93cd16878774a08"
+                "reference": "477c9d2fc6f51c142b0a8667a6e9a5d2e5305513"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/38e463da12333acdb7d59f72c93cd16878774a08",
-                "reference": "38e463da12333acdb7d59f72c93cd16878774a08",
+                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/477c9d2fc6f51c142b0a8667a6e9a5d2e5305513",
+                "reference": "477c9d2fc6f51c142b0a8667a6e9a5d2e5305513",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +386,7 @@
                 "export",
                 "import"
             ],
-            "time": "2013-10-11 09:09:18"
+            "time": "2013-12-02 11:23:55"
         },
         {
             "name": "ddeboer/data-import-bundle",
@@ -989,19 +989,20 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v0.4.2",
+            "version": "v0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elasticsearch/elasticsearch-php.git",
-                "reference": "9293ee7fd78dbc44c1003cd94dfa2e757e36e974"
+                "reference": "f8116d7dc79e6602714e0bcf5a97f1753ef6ca9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/9293ee7fd78dbc44c1003cd94dfa2e757e36e974",
-                "reference": "9293ee7fd78dbc44c1003cd94dfa2e757e36e974",
+                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/f8116d7dc79e6602714e0bcf5a97f1753ef6ca9f",
+                "reference": "f8116d7dc79e6602714e0bcf5a97f1753ef6ca9f",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
                 "guzzle/guzzle": "~3.7",
                 "monolog/monolog": "~1.5",
                 "php": ">=5.3.9",
@@ -1039,7 +1040,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2013-11-13 05:02:12"
+            "time": "2013-12-02 15:31:03"
         },
         {
             "name": "fennb/phirehose",
@@ -2553,12 +2554,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "dfb6195a5853b64c554253fddc256c65debac8ba"
+                "reference": "698d9757e6d1182c872308040f167ea5b65d48e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/dfb6195a5853b64c554253fddc256c65debac8ba",
-                "reference": "dfb6195a5853b64c554253fddc256c65debac8ba",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/698d9757e6d1182c872308040f167ea5b65d48e7",
+                "reference": "698d9757e6d1182c872308040f167ea5b65d48e7",
                 "shasum": ""
             },
             "require": {
@@ -2623,7 +2624,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-11-29 18:11:24"
+            "time": "2013-12-02 16:12:47"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3075,12 +3076,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "7eb1535d648a1d2be3c93a1578275e3066e6cff7"
+                "reference": "0a4480b284d3c2fe52a0cc40baad3d4de7f07d95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/7eb1535d648a1d2be3c93a1578275e3066e6cff7",
-                "reference": "7eb1535d648a1d2be3c93a1578275e3066e6cff7",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/0a4480b284d3c2fe52a0cc40baad3d4de7f07d95",
+                "reference": "0a4480b284d3c2fe52a0cc40baad3d4de7f07d95",
                 "shasum": ""
             },
             "require": {
@@ -3130,7 +3131,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2013-11-29 18:13:27"
+            "time": "2013-12-02 17:06:10"
         },
         {
             "name": "sputnik/pubsub-bundle",
