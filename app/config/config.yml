@@ -106,6 +106,7 @@ sonata_block:
         sonata.block.service.text:
         sonata.block.service.rss:
 
+        bangpound_castle_search.block.view:
         bangpound_castle_search.block.date_view:
         bangpound_castle_search.block.top_tag_view:
 

@@ -4,6 +4,7 @@ namespace Bangpound\Bundle\CastleSearchBundle\Block;
 use Doctrine\CouchDB\View\Query;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class DateViewBlockService
@@ -39,5 +40,19 @@ class DateViewBlockService extends ViewBlockService {
             }
         }
         return $results;
+    }
+
+    /**
+     * Define the default options for the block
+     *
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultSettings(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultSettings($resolver);
+        $resolver->replaceDefaults(array(
+            'date_format' => 'M-d-Y',
+            'date_key' => 0,
+        ));
     }
 }

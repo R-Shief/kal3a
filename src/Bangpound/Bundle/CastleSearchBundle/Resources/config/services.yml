@@ -1,8 +1,15 @@
 parameters:
+    bangpound_castle_search.block.view.class: Bangpound\Bundle\CastleSearchBundle\Block\ViewBlockService
     bangpound_castle_search.block.date_view.class: Bangpound\Bundle\CastleSearchBundle\Block\DateViewBlockService
     bangpound_castle_search.block.top_tag_view.class: Bangpound\Bundle\CastleSearchBundle\Block\TopTagBlockService
 
 services:
+    bangpound_castle_search.block.view:
+        class: %bangpound_castle_search.block.view.class%
+        arguments: [ 'bangpound_castle_search.block.view', @templating, @doctrine_couchdb.odm.default_document_manager ]
+        tags:
+            - { name: sonata.block }
+
     bangpound_castle_search.block.date_view:
         class: %bangpound_castle_search.block.date_view.class%
         arguments: [ 'bangpound_castle_search.block.date_view', @templating, @doctrine_couchdb.odm.default_document_manager ]

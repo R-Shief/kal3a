@@ -3,10 +3,10 @@
 {% block block %}
     <table class="table table-condensed">
     {% for grouping,values in results %}
-        {% for date,value in values %}
+        {% for key,value in values %}
             <tr>
                 <td>{{ grouping }}</td>
-                <td>{{ date }}</td>
+                <td>{{ key }}</td>
                 <td>{{ value }}</td>
             </tr>
         {% endfor %}

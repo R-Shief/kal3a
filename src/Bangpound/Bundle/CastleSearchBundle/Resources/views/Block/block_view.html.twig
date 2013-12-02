@@ -2,9 +2,9 @@
 
 {% block block %}
     <table class="table table-condensed">
-    {% for date,value in results %}
+    {% for key,value in results %}
         <tr>
-            <th>{{ date }}</th>
+            <th>{{ key }}</th>
             <td>{{ value }}</td>
         </tr>
     {% else %}

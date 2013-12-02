@@ -17,4 +17,10 @@ interface ViewBlockServiceInterface {
      * @return mixed
      */
     public function results(Query $query, BlockContextInterface $blockContext);
-} 
+
+    /**
+     * @param BlockContextInterface $blockContext
+     * @return \Doctrine\CouchDB\View\AbstractQuery|null
+     */
+    public function query(BlockContextInterface $blockContext);
+}

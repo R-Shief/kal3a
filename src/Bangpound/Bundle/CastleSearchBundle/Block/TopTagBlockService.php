@@ -48,64 +48,13 @@ class TopTagBlockService extends DateViewBlockService {
 
     /**
      * @param BlockContextInterface $blockContext
-     * @param Response              $response
-     *
-     * @return Response
+     * @return \Doctrine\CouchDB\View\AbstractQuery|null
      */
-    public function execute(BlockContextInterface $blockContext, Response $response = null)
+    public function query(BlockContextInterface $blockContext)
     {
-        // merge settings
         $settings = $blockContext->getSettings();
-
-        if ($settings['design_document'] && $settings['view'] && $settings['list']) {
-            $query = $this->manager->createNativeListQuery($settings['design_document'], $settings['view'], $settings['list']);
-
-            if ($settings['stale']) {
-                $query->setStale(true);
-            }
-
-            if ($settings['limit']) {
-                $query->setLimit($settings['limit']);
-            }
-
-            if ($settings['descending']) {
-                $query->setDescending(true);
-            }
-
-            if ($settings['reduce']) {
-                $query->setReduce(true);
-            }
-
-            if ($settings['key']) {
-                $query->setKey($settings['key']);
-            }
-
-            if ($settings['keys']) {
-                $query->setKeys($settings['keys']);
-            }
-
-            if ($settings['startkey']) {
-                $query->setStartKey($settings['startkey']);
-            }
-
-            if ($settings['endkey']) {
-                $query->setEndKey($settings['endkey']);
-            }
-
-            if ($settings['group']) {
-                $query->setGroup(true);
-                $query->setGroupLevel($settings['group_level']);
-            }
-
-            $results = $this->results($query, $blockContext);
-        }
-
-        return $this->renderResponse($blockContext->getTemplate(), array(
-            'query'     => $query,
-            'results'   => $results,
-            'block'     => $blockContext->getBlock(),
-            'settings'  => $settings
-        ), $response);
+        $query = $this->manager->createNativeListQuery($settings['design_document'], $settings['view'], $settings['list']);
+        return $query;
     }
 
     /**
@@ -154,23 +103,9 @@ class TopTagBlockService extends DateViewBlockService {
      */
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'design_document' => false,
-            'view' => false,
+        parent::setDefaultSettings($resolver);
+        $resolver->replaceDefaults(array(
             'list' => false,
-            'key' => false,
-            'keys' => false,
-            'startkey' => false,
-            'endkey' => false,
-            'limit' => null,
-            'descending' => false,
-            'reduce' => false,
-            'group' => false,
-            'group_level' => false,
-            'date_format' => 'M-d-Y',
-            'date_key' => 0,
-            'stale' => false,
-            'template' => 'BangpoundCastleSearchBundle:Block:block_view.html.twig',
         ));
     }
 

@@ -89,16 +89,13 @@
 
 {% block second_sidebar %}
     {{ sonata_block_render({
-        'type': 'bangpound_castle_search.block.date_view',
+        'type': 'bangpound_castle_search.block.view',
         'settings': {
             'design_document': 'stats',
             'view': 'collection',
             'reduce': true,
             'group': true,
-            'descending': true,
-            'group_level': 4,
-            'date_key': 1,
-            'template': 'BangpoundCastleSearchBundle:Block:block_view_grouping.html.twig'
+            'group_level': 1,
         }
     }) }}
     <h2>Today</h2>
