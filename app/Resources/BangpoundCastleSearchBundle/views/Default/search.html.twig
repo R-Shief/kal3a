@@ -1,0 +1,161 @@
+{% extends "@BangpoundCastleSearch/layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='cssrewrite'
+    "vendor/dangle/css/dangle.css"
+    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    {% javascripts
+    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+{% endblock %}
+
+{% form_theme form _self %}
+
+{% block submit_widget %}
+    {% spaceless %}
+        {% set type = type|default('submit') %}
+        {{ block('button_widget') }}
+    {% endspaceless %}
+{% endblock submit_widget %}
+
+{% block button_widget %}
+    {% spaceless %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain)|raw }}</button>
+    {% endspaceless %}
+{% endblock button_widget %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Castle</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        {{ form_start(form) }}
+            <div class="btn-group">
+                <a class="search-info btn btn-default" title="Search Help" data-toggle="modal" data-target="#search-help">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </div>
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_widget(form.queryTerm) }}
+            </div>
+            {{ form_widget(form.date) }}
+            {{ form_widget(form.search) }}
+        {{ form_end(form) }}
+    </div><!-- /.navbar-collapse -->
+    </nav>
+{% endblock %}
+
+{% block header %}
+    <h1 class="pagetitle">
+        Search R-Shief
+    </h1>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            {{ block('first_sidebar') }}
+        </div>
+        <div class="col-md-4">
+            {{ block('main') }}
+        </div>
+        <div class="col-md-4">
+            {{ block('second_sidebar') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+
+{% block first_sidebar %}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'daily',
+            'reduce': true,
+            'group': true,
+            'descending': true,
+            'group_level': 3
+        }
+    }) }}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.date_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'daily',
+            'reduce': true,
+            'group': true,
+            'descending': true,
+            'group_level': 4,
+            'date_format': 'M-d-Y H:i:s'
+        }
+    }) }}
+{% endblock %}
+
+{% block second_sidebar %}
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'collection',
+            'reduce': true,
+            'group': true,
+            'group_level': 1,
+        }
+    }) }}
+    <h2>Today</h2>
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.top_tag_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'top_tag',
+            'list': 'top',
+            'reduce': true,
+            'group': true,
+            'group_level': 4,
+            'startkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
+            'endkey': [ (date('+1 day') | date('Y')) + 0, (date('+1 day') | date('m')) + 0, (date('+1 day') | date('d')) + 0 ],
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
+        }
+    }) }}
+    <h2>Yesterday</h2>
+    {{ sonata_block_render({
+        'type': 'bangpound_castle_search.block.top_tag_view',
+        'settings': {
+            'design_document': 'stats',
+            'view': 'top_tag',
+            'list': 'top',
+            'reduce': true,
+            'group': true,
+            'group_level': 4,
+            'startkey': [ (date('-1 day') | date('Y')) + 0, (date('-1 day') | date('m')) + 0, (date('-1 day') | date('d')) + 0 ],
+            'endkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
+            'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
+        }
+    }) }}
+{% endblock %}
