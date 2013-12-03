@@ -168,3 +168,10 @@ bangpound_guzzle_proxy:
     endpoint:
         elasticsearch:
             host: http://localhost:9200
+
+ushios_elastic_search:
+    client:
+        default:
+            hosts: [ "localhost:9200" ]
+            log_path: "%kernel.logs_dir%/elasticsearch.log"
+            log_level: debug

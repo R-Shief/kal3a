@@ -35,7 +35,7 @@ class AppKernel extends Kernel
             new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
             new Rshief\MigrationBundle\RshiefMigrationBundle(),
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
-            new Bangpound\Bundle\ElasticsearchBundle\BangpoundElasticsearchBundle(),
+            new Ushios\Bundle\ElasticSearchBundle\UshiosElasticSearchBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
             new Bangpound\Bundle\PubsubBundle\BangpoundPubsubBundle(),
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
