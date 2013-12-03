@@ -28,7 +28,14 @@ class DefaultController extends Controller
                     'class' => 'form-control',
                 ),
             ))
-            ->add('date', 'date', array(
+            ->add('date_start', 'date', array(
+                'label' => 'From',
+                'attr' => array(
+                    'class' => 'form-group',
+                ),
+            ))
+            ->add('date_end', 'date', array(
+                'label' => 'To',
                 'attr' => array(
                     'class' => 'form-group',
                 ),
@@ -40,12 +47,14 @@ class DefaultController extends Controller
                 'label' => '<i class="glyphicon glyphicon-search"></i>',
             ));
 
-        foreach (array('year', 'month', 'day') as $key) {
-            $child = $formBuilder->get('date')->get($key);
-            $type = $child->getType()->getName();
-            $options = $child->getOptions();
-            $options['attr'] = array('class' => 'form-control', 'style' => 'width:auto');
-            $formBuilder->get('date')->add($key, $type, $options);
+        foreach (array('date_start', 'date_end') as $key1) {
+            foreach (array('year', 'month', 'day') as $key2) {
+                $child = $formBuilder->get($key1)->get($key2);
+                $type = $child->getType()->getName();
+                $options = $child->getOptions();
+                $options['attr'] = array('class' => 'form-control', 'style' => 'width:auto');
+                $formBuilder->get($key1)->add($key2, $type, $options);
+            }
         }
 
         $form = $formBuilder->getForm();
