@@ -41,7 +41,6 @@
         "ddeboer/data-import-bundle": "dev-master",
         "ddeboer/data-import": "dev-master",
         "liip/monitor-bundle": "dev-master",
-        "bangpound/elasticsearch-bundle": "dev-master",
         "ushios/elasticsearch-bundle": "dev-develop",
         "bangpound/atom-data-bundle": "dev-master",
         "fennb/phirehose": "dev-master",

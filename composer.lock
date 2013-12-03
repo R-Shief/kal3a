@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "581c24dea5fa5b23f4a05c3a45182fa1",
+    "hash": "4f4d352a846b1e40ab88ca259b2d7f36",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -76,43 +76,6 @@
             ],
             "description": "Castle application bundle",
             "time": "2013-11-30 09:53:08"
-        },
-        {
-            "name": "bangpound/elasticsearch-bundle",
-            "version": "dev-master",
-            "target-dir": "Bangpound/Bundle/ElasticsearchBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/elasticsearch-bundle.git",
-                "reference": "86e1c033f68419d50bdd174576ab754efe99ac63"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/elasticsearch-bundle/zipball/86e1c033f68419d50bdd174576ab754efe99ac63",
-                "reference": "86e1c033f68419d50bdd174576ab754efe99ac63",
-                "shasum": ""
-            },
-            "require": {
-                "elasticsearch/elasticsearch": "~0.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Bangpound\\Bundle\\ElasticsearchBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Symfony bundle for Elasticsearch PHP library",
-            "time": "2013-11-22 07:37:43"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -3681,7 +3644,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:bangpound/elasticsearch-bundle-1.git",
-                "reference": "cd6027ec88b866cb59093dac715dfd0f4c386075"
+                "reference": "d06d58e9ecc1be51892aa3ecbe899806801d99f0"
             },
             "require": {
                 "elasticsearch/elasticsearch": "~0.4",
@@ -3714,7 +3677,7 @@
             "keywords": [
                 "elasticsearch"
             ],
-            "time": "2013-11-25 18:21:50"
+            "time": "2013-12-03 08:57:51"
         },
         {
             "name": "videlalvaro/php-amqplib",
@@ -4433,7 +4396,6 @@
         "ddeboer/data-import-bundle": 20,
         "ddeboer/data-import": 20,
         "liip/monitor-bundle": 20,
-        "bangpound/elasticsearch-bundle": 20,
         "ushios/elasticsearch-bundle": 20,
         "bangpound/atom-data-bundle": 20,
         "fennb/phirehose": 20,
