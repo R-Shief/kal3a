@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "ef085177614a2faddb2724238b8b911620c80d30"
+                "reference": "9ff82fbd2061ffb6d786a546cfb480a84ea751ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/ef085177614a2faddb2724238b8b911620c80d30",
-                "reference": "ef085177614a2faddb2724238b8b911620c80d30",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/9ff82fbd2061ffb6d786a546cfb480a84ea751ef",
+                "reference": "9ff82fbd2061ffb6d786a546cfb480a84ea751ef",
                 "shasum": ""
             },
             "require": {
@@ -227,7 +227,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2013-11-26 00:52:45"
+            "time": "2013-12-04 16:50:41"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -1525,12 +1525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "692db4cf401a475c5a0cdcf80799080e046bf5e7"
+                "reference": "9cdfef0a473e166cad13170c8f35d67023ebd083"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/692db4cf401a475c5a0cdcf80799080e046bf5e7",
-                "reference": "692db4cf401a475c5a0cdcf80799080e046bf5e7",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/9cdfef0a473e166cad13170c8f35d67023ebd083",
+                "reference": "9cdfef0a473e166cad13170c8f35d67023ebd083",
                 "shasum": ""
             },
             "require": {
@@ -1586,7 +1586,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2013-11-25 17:04:21"
+            "time": "2013-12-04 16:42:31"
         },
         {
             "name": "knplabs/knp-menu",
@@ -2517,12 +2517,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "5b14167695779c22ee53e6129f736bc2dbf98162"
+                "reference": "939f83608361b42e69f2aa3b901a9e2068e00d38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/5b14167695779c22ee53e6129f736bc2dbf98162",
-                "reference": "5b14167695779c22ee53e6129f736bc2dbf98162",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/939f83608361b42e69f2aa3b901a9e2068e00d38",
+                "reference": "939f83608361b42e69f2aa3b901a9e2068e00d38",
                 "shasum": ""
             },
             "require": {
@@ -2587,7 +2587,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-12-03 09:38:16"
+            "time": "2013-12-04 14:52:45"
         },
         {
             "name": "sonata-project/block-bundle",
