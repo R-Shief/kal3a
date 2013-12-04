@@ -11,8 +11,8 @@ namespace Rshief\MigrationBundle\Reader;
 use Ddeboer\DataImport\Reader\DoctrineReader as BaseDoctrineReader;
 use Doctrine\ORM\Query;
 
-class DoctrineReader extends BaseDoctrineReader {
-
+class DoctrineReader extends BaseDoctrineReader
+{
     private $maxResults = 100;
     private $firstResult = 0;
 

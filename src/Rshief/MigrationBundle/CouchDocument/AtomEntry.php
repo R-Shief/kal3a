@@ -14,6 +14,6 @@ use Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry as BaseAtomEntry;
  * Class AtomEntry
  * @package Rshief\MigrationBundle\CouchDocument
  */
-class AtomEntry extends BaseAtomEntry {
-
-} 
+class AtomEntry extends BaseAtomEntry
+{
+}

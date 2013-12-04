@@ -7,13 +7,11 @@ use Bangpound\Atom\DataBundle\CouchDocument\ContentType;
 use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
-use Bangpound\Atom\DataBundle\Model\Enum\TextConstructType;
 use Ddeboer\DataImport\Filter\CallbackFilter;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
 use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Command\Command;
 use Ddeboer\DataImport\Workflow;
@@ -48,13 +46,12 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
     public function execute(InputInterface $input, OutputInterface $output)
     {
 //        xhprof_enable(XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);
-//        register_shutdown_function(function() {
+//        register_shutdown_function(function () {
 //            $xhprof_data = xhprof_disable();
 //            $xhprof_runs = new \XHProfRuns_Default('/tmp');
 //            $runId = $xhprof_runs->save_run($xhprof_data, "Symfony");
 //            var_dump($runId);
 //        });
-
 
         // @todo make $name into a command line argument..
         $name = 'vbulletinpost';
@@ -117,8 +114,10 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
                 $existing = $repository->findOneBy(['id' => $generateAtomId($data['postid'])]);
                 if ($existing) {
                     $dm->detach($existing);
+
                     return false;
                 }
+
                 return true;
             }))
             ->addValueConverter('dateline', $dateTimeConverter)
