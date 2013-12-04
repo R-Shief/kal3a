@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4f4d352a846b1e40ab88ca259b2d7f36",
+    "hash": "7b4e7772735a9654d589a6f30946f655",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -235,12 +235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/djlambert/doctrine2-spatial.git",
-                "reference": "2e3530f7578aca84f18b0138f64b0f535ebdc047"
+                "reference": "821ac37b6e65ed22f11d3c86f3489fce1ade90ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/djlambert/doctrine2-spatial/zipball/2e3530f7578aca84f18b0138f64b0f535ebdc047",
-                "reference": "2e3530f7578aca84f18b0138f64b0f535ebdc047",
+                "url": "https://api.github.com/repos/djlambert/doctrine2-spatial/zipball/821ac37b6e65ed22f11d3c86f3489fce1ade90ec",
+                "reference": "821ac37b6e65ed22f11d3c86f3489fce1ade90ec",
                 "shasum": ""
             },
             "require": {
@@ -282,7 +282,7 @@
                 "postgresql",
                 "spatial"
             ],
-            "time": "2013-11-06 22:50:50"
+            "time": "2013-12-03 17:06:51"
         },
         {
             "name": "ddeboer/data-import",
@@ -2517,12 +2517,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "698d9757e6d1182c872308040f167ea5b65d48e7"
+                "reference": "5b14167695779c22ee53e6129f736bc2dbf98162"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/698d9757e6d1182c872308040f167ea5b65d48e7",
-                "reference": "698d9757e6d1182c872308040f167ea5b65d48e7",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/5b14167695779c22ee53e6129f736bc2dbf98162",
+                "reference": "5b14167695779c22ee53e6129f736bc2dbf98162",
                 "shasum": ""
             },
             "require": {
@@ -2587,7 +2587,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-12-02 16:12:47"
+            "time": "2013-12-03 09:38:16"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3155,16 +3155,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379"
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/f3917ecef35a4e4d98b303eb9fee463bc983f379",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
                 "shasum": ""
             },
             "require": {
@@ -3200,7 +3200,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-08-30 12:35:21"
+            "time": "2013-12-03 13:33:24"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -3430,16 +3430,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.0-RC1",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "32ceb0b89c9ec028434f156cfcea9f9eb186f717"
+                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/32ceb0b89c9ec028434f156cfcea9f9eb186f717",
-                "reference": "32ceb0b89c9ec028434f156cfcea9f9eb186f717",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2e47d2edd45080c046bc32dd2ca5c64f31086366",
+                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366",
                 "shasum": ""
             },
             "require": {
@@ -3539,7 +3539,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-11-25 19:35:53"
+            "time": "2013-12-03 15:23:03"
         },
         {
             "name": "twig/extensions",
@@ -4381,7 +4381,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "RC",
+    "minimum-stability": "stable",
     "stability-flags": {
         "symfony/icu": 20,
         "jms/serializer-bundle": 20,
