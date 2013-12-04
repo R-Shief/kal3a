@@ -17,6 +17,16 @@
 
 {% form_theme form _self %}
 
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group">
+            {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
 {% block submit_widget %}
     {% spaceless %}
         {% set type = type|default('submit') %}
@@ -34,6 +44,7 @@
 {% endblock button_widget %}
 
 {% block navbar %}
+    {{ parent() }}
     <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -55,11 +66,9 @@
                 </a>
             </div>
             {{ form_errors(form) }}
-            <div class="form-group">
-                {{ form_widget(form.queryTerm) }}
-            </div>
-            {{ form_row(form.date_start) }}
-            {{ form_row(form.date_end) }}
+            {{ form_row(form.queryTerm) }}
+            {{ form_row(form.published_lower) }}
+            {{ form_row(form.published_upper) }}
             {{ form_widget(form.search) }}
         {{ form_end(form) }}
     </div><!-- /.navbar-collapse -->
@@ -70,9 +79,6 @@
     <h1 class="pagetitle">
         Search R-Shief
     </h1>
-{% endblock %}
-
-{% block footer %}
 {% endblock %}
 
 {% block content %}
@@ -98,24 +104,30 @@
     {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.date_view',
         'settings': {
+            'title': 'Daily',
+            'body': 'Count of items per day for last week.',
             'design_document': 'stats',
             'view': 'daily',
             'reduce': true,
             'group': true,
             'descending': true,
+            'limit': 7,
             'group_level': 3
         }
     }) }}
     {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.date_view',
         'settings': {
+            'title': 'Hourly',
+            'body': 'Count of items per hour for last 24 hours.',
             'design_document': 'stats',
             'view': 'daily',
             'reduce': true,
             'group': true,
             'descending': true,
+            'limit': 24,
             'group_level': 4,
-            'date_format': 'M-d-Y H:i:s'
+            'date_format': 'H:i'
         }
     }) }}
 {% endblock %}
@@ -124,6 +136,8 @@
     {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.view',
         'settings': {
+            'title': 'Collections',
+            'body': 'Count of items in each collection.',
             'design_document': 'stats',
             'view': 'collection',
             'reduce': true,
@@ -131,10 +145,11 @@
             'group_level': 1,
         }
     }) }}
-    <h2>Today</h2>
     {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
+            'title': 'Today',
+            'body': 'Top tags for today.',
             'design_document': 'stats',
             'view': 'top_tag',
             'list': 'top',
@@ -146,10 +161,11 @@
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
     }) }}
-    <h2>Yesterday</h2>
     {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
+            'title': 'Yesterday',
+            'body': 'Top tags for yesterday.',
             'design_document': 'stats',
             'view': 'top_tag',
             'list': 'top',

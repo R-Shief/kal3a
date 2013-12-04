@@ -5,8 +5,8 @@
     "vendor/bootstrap/dist/css/bootstrap.css"
     "vendor/bootstrap/dist/css/bootstrap-theme.css"
     "vendor/font-awesome/css/font-awesome.css"
-    "bundles/rshiefkal3a/css/style.css"
-    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+    "bundles/rshiefkal3a/css/style.css" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
@@ -15,19 +15,41 @@
     <script>
         var castle = {
             serverUrl: {{ (url('bangpound_guzzle_proxy_endpoint', { 'endpoint': 'elasticsearch', 'path': 'production' })) | json_encode | raw }},
-            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }}
+            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }},
         };
     </script>
     {% javascripts
     "vendor/jquery/jquery.js"
-    "vendor/bootstrap/dist/js/bootstrap.js"
-    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+    "vendor/bootstrap/dist/js/bootstrap.js" %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
 {% endblock %}
 
 {% block body %}
     <div ng-app="castleSearch">
         <div ng-controller="SearchCtrl" ng-cloak>
-            {% block navbar %}{% endblock %}
+            {% block navbar %}
+                <header class="rshief-header">
+                    <div class="main-nav navbar-fixed-top">
+
+                        <a class="navbar-brand" href="http://r-shief.org"><img src="bundles/rshiefkal3a/images/star.png"
+                                                                               alt="R-Shief"></a>
+
+                        <ul id="nav" class="nav navbar-nav">
+                            <li><a href="http://r-shief.org/about">About</a></li>
+                            <li><a href="http://r-shief.org/blog">Blog</a></li>
+                            <li><a href="http://r-shief.org/community">Community</a></li>
+                            <li><a href="http://r-shief.org/visualizers">Visualizers</a></li>
+                            <li><a href="http://r-shief.org/educational">Education</a></li>
+                            <li><a href="http://r-shief.org/api/arabic-entity-api/">API Sandbox</a></li>
+                            <li><a href="http://r-shief.org/index">Index</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav social-nav pull-right">
+                            <li class="divider-vertical"></li>
+                            <li><a href="http://r-shief.org/register">Register</a></li>
+                        </ul>
+                    </div>
+                </header>
+            {% endblock %}
             <section id="pagetop">
                 <div class="container">
                     <div class="row">
@@ -44,5 +66,31 @@
             </section>
         </div>
     </div>
-    {% block footer %}{% endblock %}
+    {% block footer %}
+        <footer class="global">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-12">
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <ul class="list-inline">
+                            <li><a href="https://twitter.com/rshief" target="_blank" title="R-Shief on Twitter">Twitter</a></li>
+                            <li><a href="https://www.facebook.com/RShief" target="_blank" title="R-Shief on Facebook">Facebook</a></li>
+                            <li><a href="http://github.com/rshief" target="_blank" title="R-Shief on Github">Github</a></li>
+                            <li><a data-toggle="modal" href="#contact-modal" title="Contact Us" target="_blank"><i class="glyphicon glyphicon-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+    <section class="copyright">
+        <div class="container">
+            <p>R-Shief, Inc © 2013</p>
+        </div>
+    </section>
 {% endblock %}

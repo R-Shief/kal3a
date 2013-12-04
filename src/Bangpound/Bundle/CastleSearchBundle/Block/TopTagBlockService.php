@@ -6,19 +6,16 @@ use Bangpound\Bundle\CastleSearchBundle\DocumentManager;
 use Doctrine\CouchDB\View\Query;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
-use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class TopTagBlockService
  * @package Bangpound\Bundle\CastleSearchBundle\Block
  */
-class TopTagBlockService extends DateViewBlockService {
-
+class TopTagBlockService extends DateViewBlockService
+{
     /**
      * @var DocumentManager
      */
@@ -47,13 +44,14 @@ class TopTagBlockService extends DateViewBlockService {
     }
 
     /**
-     * @param BlockContextInterface $blockContext
+     * @param  BlockContextInterface                     $blockContext
      * @return \Doctrine\CouchDB\View\AbstractQuery|null
      */
     public function query(BlockContextInterface $blockContext)
     {
         $settings = $blockContext->getSettings();
         $query = $this->manager->createNativeListQuery($settings['design_document'], $settings['view'], $settings['list']);
+
         return $query;
     }
 
@@ -106,31 +104,24 @@ class TopTagBlockService extends DateViewBlockService {
         parent::setDefaultSettings($resolver);
         $resolver->replaceDefaults(array(
             'list' => false,
+            'template' => 'BangpoundCastleSearchBundle:Block:block_view.html.twig',
         ));
     }
 
     /**
-     * @param Query $query
-     * @param BlockContextInterface $blockContext
+     * @param  Query                 $query
+     * @param  BlockContextInterface $blockContext
      * @return array
      */
-    public function results(Query $query, BlockContextInterface $blockContext) {
+    public function results(Query $query, BlockContextInterface $blockContext)
+    {
         $results = array();
         $settings = $blockContext->getSettings();
 
-        $date_key = $settings['date_key'];
-        $format = $settings['date_format'];
         foreach ($query->execute() as $result) {
-            $date = date($format, mktime(
-                0,
-                0,
-                0,
-                isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
-                isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
-                isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
-            ));
-            $results[$result['key'][3]][$date] = $result['value'];
+            $results[$result['key'][3]] = $result['value'];
         }
+
         return $results;
     }
 }

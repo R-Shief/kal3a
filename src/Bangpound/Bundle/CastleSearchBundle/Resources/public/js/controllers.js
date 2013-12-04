@@ -4,11 +4,21 @@ castleSearch
         var oQuery = ejs.QueryStringQuery();
         var search = $location.search();
 
-        $scope.queryTerm = search['form[queryTerm]'];
+        $scope.queryTerm = castle.query.queryTerm;
 
         $scope.query = ejs.Request();
 
         $scope.activeFilters = {};
+
+        if (castle.query.tag) {
+            $scope.activeFilters['Tags (# and meta):' + castle.query.tag] = ejs.TermFilter('categories.term', castle.query.tag);
+        }
+
+        if (castle.query.published_lower) {
+            $scope.activeFilters['Date posted:' + castle.query.published_lower] = ejs.NumericRangeFilter('published')
+                .from(parseInt(castle.query.published_lower, 10))
+                .to(parseInt(castle.query.published_upper, 10));
+        }
 
         $scope.ninjaFinder = promiseTracker('searching');
 
@@ -93,19 +103,31 @@ castleSearch
             $scope.search();
         };
 
-        $scope.sort = {
-            fieldName: 'published',
-            order: 'desc'
-        };
+        $scope.sort = '_score';
 
         $scope.toggleSort = function () {
-            $scope.sort.order = ($scope.sort.order === 'desc') ? 'asc' : 'desc';
+            if (this.sort === '_score') {
+                this.sort = 'desc';
+            }
+            else if (this.sort === 'desc') {
+                this.sort = 'asc';
+            }
+            else if (this.sort === 'asc') {
+                this.sort = '_score';
+            }
             this.search();
         };
 
         $scope.search = function() {
 
-            var sort = ejs.Sort(this.sort.fieldName).order(this.sort.order);
+            var sort = ejs.Sort();
+
+            if (this.sort === '_score') {
+                sort.field(this.sort);
+            }
+            else {
+                sort.field('published').order(this.sort);
+            }
 
             $scope.query.sort([sort]);
 
@@ -160,8 +182,7 @@ castleSearch
             this.activeFilters = {};
             this.query.from(0);
             this.query.size(25);
-            this.sort.fieldName = 'published';
-            this.sort.order = 'desc';
+            this.sort = '_score';
             this.queryTerm = '';
             this.search();
         };

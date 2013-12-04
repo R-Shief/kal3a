@@ -11,5 +11,5 @@ bangpound_castle_search_start:
 bangpound_castle_search_result:
     path:  /result
     defaults:
-        _controller: FrameworkBundle:Template:template
+        _controller: BangpoundCastleSearchBundle:Default:result
         template: 'BangpoundCastleSearchBundle:Default:result.html.twig'

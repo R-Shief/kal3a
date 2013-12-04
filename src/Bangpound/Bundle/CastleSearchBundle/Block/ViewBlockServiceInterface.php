@@ -9,17 +9,17 @@ use Sonata\BlockBundle\Block\BlockContextInterface;
  * Interface ViewBlockServiceInterface
  * @package Bangpound\Bundle\CastleSearchBundle\Block
  */
-interface ViewBlockServiceInterface {
-
+interface ViewBlockServiceInterface
+{
     /**
-     * @param Query $query
-     * @param BlockContextInterface $blockContext
+     * @param  Query                 $query
+     * @param  BlockContextInterface $blockContext
      * @return mixed
      */
     public function results(Query $query, BlockContextInterface $blockContext);
 
     /**
-     * @param BlockContextInterface $blockContext
+     * @param  BlockContextInterface                     $blockContext
      * @return \Doctrine\CouchDB\View\AbstractQuery|null
      */
     public function query(BlockContextInterface $blockContext);

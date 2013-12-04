@@ -1,17 +1,15 @@
-{% extends sonata_block.templates.block_base %}
+{% extends 'BangpoundCastleSearchBundle:Block:block_view.html.twig' %}
 
-{% block block %}
+{% block block_body %}
     <table class="table table-condensed">
     {% for grouping,values in results %}
         {% for key,value in values %}
             <tr>
-                <td>{{ grouping }}</td>
+                <th>{{ grouping }}</th>
                 <td>{{ key }}</td>
-                <td>{{ value }}</td>
+                <td class="text-right">{{ value|number_format }}</td>
             </tr>
         {% endfor %}
-    {% else %}
-            No feeds available.
     {% endfor %}
     </table>
 {% endblock %}

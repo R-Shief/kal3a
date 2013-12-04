@@ -110,18 +110,19 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
             'query'     => $query,
             'results'   => $results,
             'block'     => $blockContext->getBlock(),
-            'settings'  => $settings
+            'settings'  => $settings,
         ), $response);
     }
 
     /**
-     * @param BlockContextInterface $blockContext
+     * @param  BlockContextInterface                     $blockContext
      * @return \Doctrine\CouchDB\View\AbstractQuery|null
      */
     public function query(BlockContextInterface $blockContext)
     {
         $settings = $blockContext->getSettings();
         $query = $this->manager->createNativeQuery($settings['design_document'], $settings['view']);
+
         return $query;
     }
 
@@ -168,6 +169,8 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
+            'title' => null,
+            'body' => null,
             'design_document' => false,
             'view' => false,
             'key' => false,
@@ -185,8 +188,8 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
     }
 
     /**
-     * @param Query $query
-     * @param BlockContextInterface $blockContext
+     * @param  Query                 $query
+     * @param  BlockContextInterface $blockContext
      * @return mixed
      */
     public function results(Query $query, BlockContextInterface $blockContext)
@@ -195,6 +198,7 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
         foreach ($query->execute() as $result) {
             $results[$result['key'][0]] = $result['value'];
         }
+
         return $results;
     }
 }

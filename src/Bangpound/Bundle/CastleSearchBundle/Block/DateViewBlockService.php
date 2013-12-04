@@ -3,21 +3,21 @@
 namespace Bangpound\Bundle\CastleSearchBundle\Block;
 use Doctrine\CouchDB\View\Query;
 use Sonata\BlockBundle\Block\BlockContextInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class DateViewBlockService
  * @package Bangpound\Bundle\CastleSearchBundle\Block
  */
-class DateViewBlockService extends ViewBlockService {
-
+class DateViewBlockService extends ViewBlockService
+{
     /**
-     * @param Query $query
-     * @param BlockContextInterface $blockContext
+     * @param  Query                 $query
+     * @param  BlockContextInterface $blockContext
      * @return array
      */
-    public function results(Query $query, BlockContextInterface $blockContext) {
+    public function results(Query $query, BlockContextInterface $blockContext)
+    {
         $results = array();
         $settings = $blockContext->getSettings();
 
@@ -34,11 +34,11 @@ class DateViewBlockService extends ViewBlockService {
             ));
             if ($date_key > 0) {
                 $results[$result['key'][0]][$date] = $result['value'];
-            }
-            else {
+            } else {
                 $results[$date] = $result['value'];
             }
         }
+
         return $results;
     }
 

@@ -1,16 +1,12 @@
-{% extends sonata_block.templates.block_base %}
+{% extends 'BangpoundCastleSearchBundle:Block:block_view.html.twig' %}
 
-{% block block %}
+{% block block_body %}
     <table class="table table-condensed">
-    {% for grouping,values in results %}
-        {% for date,value in values %}
-            <tr>
-                <td>{{ grouping }}</td>
-                <td>{{ value }}</td>
-            </tr>
-        {% endfor %}
-    {% else %}
-            No feeds available.
+    {% for key,value in results | slice(0,50) %}
+        <tr>
+            <th><a href="{{ url('bangpound_castle_search_result', { 'tag': key }) }}">{{ key }}</a></th>
+            <td class="text-right">{{ value|number_format }}</td>
+        </tr>
     {% endfor %}
     </table>
 {% endblock %}

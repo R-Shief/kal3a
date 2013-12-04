@@ -10,16 +10,16 @@ use Doctrine\CouchDB\View\DesignDocument;
  * Class ListQuery
  * @package Bangpound\Bundle\CastleSearchBundle\View
  */
-class ListQuery extends Query {
-
+class ListQuery extends Query
+{
     private $listName;
 
     /**
-     * @param Client $client
-     * @param string $databaseName
-     * @param string $designDocName
-     * @param string $viewName
-     * @param string $listName
+     * @param Client         $client
+     * @param string         $databaseName
+     * @param string         $designDocName
+     * @param string         $viewName
+     * @param string         $listName
      * @param DesignDocument $doc
      * @internal param string $listName
      */
