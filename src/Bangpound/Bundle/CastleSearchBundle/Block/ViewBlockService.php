@@ -67,7 +67,7 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
         if ($query) {
 
             if ($settings['stale']) {
-                $query->setStale(true);
+                $query->setStale($settings['stale']);
             }
 
             if ($settings['limit']) {
