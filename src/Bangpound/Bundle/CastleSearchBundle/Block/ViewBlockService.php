@@ -182,7 +182,7 @@ class ViewBlockService extends BaseBlockService implements ViewBlockServiceInter
             'reduce' => false,
             'group' => false,
             'group_level' => false,
-            'stale' => false,
+            'stale' => 'update_after',
             'template' => 'BangpoundCastleSearchBundle:Block:block_view.html.twig',
         ));
     }
