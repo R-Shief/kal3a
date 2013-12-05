@@ -196,16 +196,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "301ff841e1118b92371a3f0a1dd7a90770bb5c7c"
+                "reference": "05b11a81a0648d8e8d5d79e3a9732b1ee0e80def"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/301ff841e1118b92371a3f0a1dd7a90770bb5c7c",
-                "reference": "301ff841e1118b92371a3f0a1dd7a90770bb5c7c",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/05b11a81a0648d8e8d5d79e3a9732b1ee0e80def",
+                "reference": "05b11a81a0648d8e8d5d79e3a9732b1ee0e80def",
                 "shasum": ""
             },
             "require": {
                 "bangpound/phirehose-bundle": "~1.0",
+                "ext-pcntl": "*",
                 "sonata-project/admin-bundle": "dev-master",
                 "sonata-project/notification-bundle": "dev-master",
                 "symfony/dependency-injection": "~2.3"
@@ -227,7 +228,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2013-12-04 17:43:30"
+            "time": "2013-12-05 00:11:03"
         },
         {
             "name": "creof/doctrine2-spatial",
