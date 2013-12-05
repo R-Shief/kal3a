@@ -23,11 +23,9 @@ class DefaultController extends Controller
         );
         $formBuilder = $this->createFormBuilder($data, array(
             'attr' => array(
-                'class' => 'navbar-form navbar-left form-inline',
+                'class' => 'form-inline facetview_search_options_container',
                 'role' => 'search',
         )))
-//            ->setAction($this->generateUrl('bangpound_castle_search_result'))
-//            ->setMethod('GET')
             ->add('queryTerm', 'search', array(
                 'constraints' => array(
                     new NotBlank(),
@@ -55,9 +53,6 @@ class DefaultController extends Controller
                 ),
             ))
             ->add('search', 'submit', array(
-                'attr' => array(
-                    'class' => 'btn btn-default',
-                ),
                 'label' => '<i class="glyphicon glyphicon-search"></i>',
             ));
 
