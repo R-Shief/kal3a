@@ -306,6 +306,26 @@ section#pagemain {
     color: #13abab;
 }
 
+.global-search .form-inline select {
+    border-radius: 0;
+    background: #e3e3eb;
+    font-size: 13px;
+    padding: 8px 15px;
+    color: #888;
+    border: none;
+    border-right: 2px solid #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+}
+
+.global-search .form-inline select:hover {
+    color: #13abab;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .global-search .search-info {
     padding: 12px 15px;
     color: #888;
