@@ -27,53 +27,42 @@
     {% endspaceless %}
 {% endblock form_row %}
 
-{% block submit_widget %}
+{%- block submit_widget -%}
     {% spaceless %}
         {% set type = type|default('submit') %}
         {{ block('button_widget') }}
     {% endspaceless %}
-{% endblock submit_widget %}
+{%- endblock submit_widget -%}
 
-{% block button_widget %}
+{%- block button_widget -%}
     {% spaceless %}
         {% if label is empty %}
             {% set label = name|humanize %}
         {% endif %}
         <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain)|raw }}</button>
     {% endspaceless %}
-{% endblock button_widget %}
+{%- endblock button_widget -%}
 
-{% block navbar %}
-    {{ parent() }}
-    <nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Castle</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        {{ form_start(form) }}
-            <div class="btn-group">
-                <a class="search-info btn btn-default" title="Search Help" data-toggle="modal" data-target="#search-help">
-                    <i class="glyphicon glyphicon-question-sign"></i>
-                </a>
-            </div>
-            {{ form_errors(form) }}
-            {{ form_row(form.queryTerm) }}
-            {{ form_row(form.published_lower) }}
-            {{ form_row(form.published_upper) }}
-            {{ form_widget(form.search) }}
-        {{ form_end(form) }}
-    </div><!-- /.navbar-collapse -->
-    </nav>
-{% endblock %}
+{%- block navbar -%}
+    {{- parent() -}}
+<div class="global-search active">
+    <div class="search-logo"><a href="/"><img src="bundles/rshiefkal3a/images/rshief-gray.png" alt="R-Shief"></a></div>
+    {{- form_start(form) -}}
+    {% spaceless %}
+        <div class="btn-group">
+            <a class="search-info" title="Search Help" data-toggle="modal" data-target="#search-help">
+                <i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+        </div>
+    {% endspaceless %}
+        {{- form_errors(form) -}}
+        {{- form_row(form.queryTerm) -}}
+        {{- form_row(form.published_lower) -}}
+        {{- form_row(form.published_upper) -}}
+        {{- form_widget(form.search) -}}
+    {{- form_end(form) -}}
+</div>
+{%- endblock -%}
 
 {% block header %}
     <h1 class="pagetitle">
