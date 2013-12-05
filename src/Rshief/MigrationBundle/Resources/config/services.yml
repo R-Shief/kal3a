@@ -1,9 +1,18 @@
 parameters:
     rshief_migration.vbulletinpost.writer.class: Rshief\MigrationBundle\Writer\DoctrineWriter
-    rshief_migration.process_workflow.command.class: Rshief\MigrationBundle\Command\ProcessWorkflowCommand
+
+    rshief_migration.vbulletin_process_workflow.command.class: Rshief\MigrationBundle\Command\VbulletinProcessWorkflowCommand
+
     rshief_migration.vbulletinpost.entity.class: Rshief\MigrationBundle\Entity\VBulletinPost
     rshief_migration.vbulletinpost.reader.class: Rshief\MigrationBundle\Reader\DoctrineReader
     rshief_migration.vbulletinpost.workflow.class: Ddeboer\DataImport\Workflow
+
+    rshief_migration.collector_process_workflow.command.class: Rshief\MigrationBundle\Command\CollectorProcessWorkflowCommand
+
+    rshief_migration.collector.reader.class: Ddeboer\DataImport\Reader\DbalReader
+    rshief_migration.collector.workflow.class: Ddeboer\DataImport\Workflow
+    rshief_migration.collector.writer.class: Rshief\MigrationBundle\Writer\DoctrineWriter
+
     rshief_migration.bbcode.converter.class: Decoda\Decoda
     rshief_migration.decoda.config:
         xhtmlOutput: true
@@ -17,8 +26,8 @@ services:
         tags:
             - { name: liip_monitor.check }
 
-    rshief_migration.process_workflow.command:
-        class: %rshief_migration.process_workflow.command.class%
+    rshief_migration.vbulletin_process_workflow.command:
+        class: %rshief_migration.vbulletin_process_workflow.command.class%
         tags:
             - { name: console.command }
 
@@ -35,6 +44,17 @@ services:
     rshief_migration.vbulletinpost.writer:
         class: %rshief_migration.vbulletinpost.writer.class%
         arguments: [ @doctrine_couchdb.odm.document_manager, 'Rshief\MigrationBundle\CouchDocument\AtomEntry', 'id' ]
+        calls:
+            - [ "disableTruncate", [] ]
+
+    rshief_migration.collector_process_workflow.command:
+        class: %rshief_migration.collector_process_workflow.command.class%
+        tags:
+            - { name: console.command }
+
+    rshief_migration.collector.writer:
+        class: %rshief_migration.collector.writer.class%
+        arguments: [ @doctrine_couchdb.odm.document_manager, 'Rshief\MigrationBundle\CouchDocument\CollectorAtomEntry', 'id' ]
         calls:
             - [ "disableTruncate", [] ]
 

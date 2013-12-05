@@ -22,10 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Rshief\MigrationBundle\Compiler\TemplateDecompiler;
 
 /**
- * Class ProcessWorkflowCommand
+ * Class VbulletinProcessWorkflowCommand
  * @package Rshief\MigrationBundle\Command
  */
-class ProcessWorkflowCommand extends ContainerAwareCommand
+class VbulletinProcessWorkflowCommand extends ContainerAwareCommand
 {
     /**
      * Configures the current command.
@@ -33,9 +33,10 @@ class ProcessWorkflowCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('migrate:workflow:process')
+            ->setName('migrate:vbulletin:process')
             ->addOption('max-results', null, InputOption::VALUE_REQUIRED)
-            ->addOption('first-result', null, InputOption::VALUE_REQUIRED);
+            ->addOption('first-result', null, InputOption::VALUE_REQUIRED)
+        ;
     }
 
     /**
