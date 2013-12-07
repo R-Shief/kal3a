@@ -9,6 +9,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb-odm.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:bangpound/elasticsearch-bundle-1.git"
         }
     ],
@@ -29,12 +33,13 @@
         "jms/serializer-bundle": "dev-master",
         "yohang/dependency-tools": "1.0.*",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
+        "sonata-project/core-bundle": "~2.2@dev",
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/notification-bundle": "dev-master",
         "doctrine/couchdb": "dev-master",
-        "doctrine/couchdb-odm": "dev-master",
+        "doctrine/couchdb-odm": "dev-develop",
         "doctrine/couchdb-odm-bundle": "dev-master",
         "robotsnowfall/enum": "dev-master",
         "mjohnson/decoda": "~6.2.3",
