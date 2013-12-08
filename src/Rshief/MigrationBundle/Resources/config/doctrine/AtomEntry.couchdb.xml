@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doctrine-mapping>
-    <document name="Rshief\MigrationBundle\CouchDocument\AtomEntry" repository-class="Bangpound\Bundle\CastleBundle\CouchDocument\DocumentRepository">
+    <document name="Rshief\MigrationBundle\CouchDocument\AtomEntry" repository-class="Bangpound\Bundle\CastleBundle\CouchDocument\DocumentRepository" indexed="true">
         <attachments field="attachments" />
     </document>
 </doctrine-mapping>
