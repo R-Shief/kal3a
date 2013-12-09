@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "3d46578a2c72733283cef0e5fee38ce1b6b8e5ac"
+                "reference": "fc1d72c0ddb8a76fbbe1368ee088f15df52f35bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/3d46578a2c72733283cef0e5fee38ce1b6b8e5ac",
-                "reference": "3d46578a2c72733283cef0e5fee38ce1b6b8e5ac",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/fc1d72c0ddb8a76fbbe1368ee088f15df52f35bc",
+                "reference": "fc1d72c0ddb8a76fbbe1368ee088f15df52f35bc",
                 "shasum": ""
             },
             "type": "library",
@@ -75,7 +75,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2013-12-09 16:59:49"
+            "time": "2013-12-09 20:17:34"
         },
         {
             "name": "bangpound/doctrine-couchdb-admin-bundle",
