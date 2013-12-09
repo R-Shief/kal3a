@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "284fc418ce2fecbf9540542ccd868dfb",
+    "hash": "53f10fa1187e7a12befe9c4956abb290",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "adbccf28f9b1c13b1086264ee70c40e8237d5e73"
+                "reference": "3d46578a2c72733283cef0e5fee38ce1b6b8e5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/adbccf28f9b1c13b1086264ee70c40e8237d5e73",
-                "reference": "adbccf28f9b1c13b1086264ee70c40e8237d5e73",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/3d46578a2c72733283cef0e5fee38ce1b6b8e5ac",
+                "reference": "3d46578a2c72733283cef0e5fee38ce1b6b8e5ac",
                 "shasum": ""
             },
             "type": "library",
@@ -75,7 +75,56 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2013-11-30 09:53:08"
+            "time": "2013-12-09 16:59:49"
+        },
+        {
+            "name": "bangpound/doctrine-couchdb-admin-bundle",
+            "version": "dev-master",
+            "target-dir": "Bangpound/Bundle/DoctrineCouchDBAdminBundle",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bangpound/BangpoundDoctrineCouchDBAdminBundle.git",
+                "reference": "850cf6e5f925a414e4e0610d8b2424c24c4b0d2d"
+            },
+            "require": {
+                "doctrine/couchdb-odm": "dev-master",
+                "doctrine/couchdb-odm-bundle": "dev-develop",
+                "sonata-project/admin-bundle": "2.2.*@dev",
+                "sonata-project/block-bundle": "2.2.*@dev",
+                "symfony/symfony": "~2.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Bangpound\\Bundle\\DoctrineCouchDBAdminBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                [
+
+                ],
+                [
+
+                ]
+            ],
+            "description": "Symfony Sonata / Integrate Doctrine CouchDB ODM into the SonataAdminBundle",
+            "keywords": [
+                "Admin Generator",
+                "CouchDB",
+                "admin",
+                "bootstrap",
+                "generator",
+                "sonata"
+            ],
+            "time": "2013-12-09 17:02:11"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -158,12 +207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/pubsub-bundle.git",
-                "reference": "e6aa0714b4521552f54594a07ceecb815285e3a2"
+                "reference": "c867b145a302ad8ce9f4b454974f404065918535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/e6aa0714b4521552f54594a07ceecb815285e3a2",
-                "reference": "e6aa0714b4521552f54594a07ceecb815285e3a2",
+                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/c867b145a302ad8ce9f4b454974f404065918535",
+                "reference": "c867b145a302ad8ce9f4b454974f404065918535",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +236,7 @@
                 }
             ],
             "description": "Pubsub bundle for Castle.",
-            "time": "2013-11-04 10:40:24"
+            "time": "2013-12-08 03:52:13"
         },
         {
             "name": "bangpound/twitter-streaming-bundle",
@@ -196,12 +245,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "05b11a81a0648d8e8d5d79e3a9732b1ee0e80def"
+                "reference": "8aef9e975a449a2ddbed8fe0e77745364aff3d62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/05b11a81a0648d8e8d5d79e3a9732b1ee0e80def",
-                "reference": "05b11a81a0648d8e8d5d79e3a9732b1ee0e80def",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/8aef9e975a449a2ddbed8fe0e77745364aff3d62",
+                "reference": "8aef9e975a449a2ddbed8fe0e77745364aff3d62",
                 "shasum": ""
             },
             "require": {
@@ -228,7 +277,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2013-12-05 00:11:03"
+            "time": "2013-12-08 05:28:19"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -540,17 +589,11 @@
         },
         {
             "name": "doctrine/couchdb",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/couchdb-client.git",
-                "reference": "484531a6459bae10305fe65247ce7981535a59e3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/couchdb-client/zipball/484531a6459bae10305fe65247ce7981535a59e3",
-                "reference": "484531a6459bae10305fe65247ce7981535a59e3",
-                "shasum": ""
+                "url": "git@github.com:bangpound/couchdb-client.git",
+                "reference": "672ae7a80627465efb5c72c8f69053eff148df57"
             },
             "require": {
                 "doctrine/common": "@stable",
@@ -567,7 +610,6 @@
                     "Doctrine\\CouchDB": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL"
             ],
@@ -587,15 +629,21 @@
                 "couchdb",
                 "persistence"
             ],
-            "time": "2013-10-29 10:52:31"
+            "time": "2013-12-09 16:52:31"
         },
         {
             "name": "doctrine/couchdb-odm",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bangpound/couchdb-odm.git",
+                "url": "https://github.com/doctrine/couchdb-odm.git",
                 "reference": "63501282a4480c46168336c320fcf5c040527fee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/couchdb-odm/zipball/63501282a4480c46168336c320fcf5c040527fee",
+                "reference": "63501282a4480c46168336c320fcf5c040527fee",
+                "shasum": ""
             },
             "require": {
                 "doctrine/common": ">=2.2.0,<2.4",
@@ -615,6 +663,7 @@
                     "Doctrine\\ODM\\CouchDB": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -638,18 +687,12 @@
         },
         {
             "name": "doctrine/couchdb-odm-bundle",
-            "version": "dev-master",
+            "version": "dev-develop",
             "target-dir": "Doctrine/Bundle/CouchDBBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/DoctrineCouchDBBundle.git",
-                "reference": "e0e41ae31a9a2a4df0753ee29a92a735ef0c89b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCouchDBBundle/zipball/e0e41ae31a9a2a4df0753ee29a92a735ef0c89b5",
-                "reference": "e0e41ae31a9a2a4df0753ee29a92a735ef0c89b5",
-                "shasum": ""
+                "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git",
+                "reference": "0e0e494c3d0e11de34e4a0efe49feda258357122"
             },
             "require": {
                 "doctrine/couchdb": "@dev",
@@ -664,7 +707,6 @@
                     "Doctrine\\Bundle\\CouchDBBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL"
             ],
@@ -685,7 +727,7 @@
                 "persistence",
                 "symfony"
             ],
-            "time": "2013-11-22 08:12:52"
+            "time": "2013-12-08 05:12:04"
         },
         {
             "name": "doctrine/dbal",
@@ -2513,12 +2555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "db85522c3c8aa3c6753d1ccf418e1e0dff0ea2d9"
+                "reference": "f709b77dbf5a3a06d4948927390e6f085e62938d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/db85522c3c8aa3c6753d1ccf418e1e0dff0ea2d9",
-                "reference": "db85522c3c8aa3c6753d1ccf418e1e0dff0ea2d9",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/f709b77dbf5a3a06d4948927390e6f085e62938d",
+                "reference": "f709b77dbf5a3a06d4948927390e6f085e62938d",
                 "shasum": ""
             },
             "require": {
@@ -2526,7 +2568,7 @@
                 "knplabs/knp-menu-bundle": "~1.1",
                 "sensio/generator-bundle": "~2.2",
                 "sonata-project/block-bundle": "~2.2,>=2.2.7",
-                "sonata-project/core-bundle": "~2.2",
+                "sonata-project/core-bundle": "~2.2@dev",
                 "sonata-project/exporter": "1.*",
                 "sonata-project/jquery-bundle": "1.8.*",
                 "symfony/class-loader": "~2.2",
@@ -2584,7 +2626,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-12-06 09:47:00"
+            "time": "2013-12-09 16:32:10"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2655,17 +2697,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "6e295672441fff555e448d138c23b0b33c6f8a16"
+                "reference": "4d198c39790076d50b5cfde30c67cfbf571ded6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/6e295672441fff555e448d138c23b0b33c6f8a16",
-                "reference": "6e295672441fff555e448d138c23b0b33c6f8a16",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/4d198c39790076d50b5cfde30c67cfbf571ded6d",
+                "reference": "4d198c39790076d50b5cfde30c67cfbf571ded6d",
                 "shasum": ""
             },
             "require": {
                 "symfony/form": "~2.2",
-                "symfony/translation": "~2.2"
+                "symfony/http-foundation": "~2.2",
+                "symfony/translation": "~2.2",
+                "symfony/twig-bridge": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2698,7 +2742,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2013-12-05 15:26:05"
+            "time": "2013-12-09 17:23:34"
         },
         {
             "name": "sonata-project/doctrine-extensions",
@@ -2755,17 +2799,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "1cceb246fc1878adc22587c7408c2ce39c565c99"
+                "reference": "2d7b9ff36aabf38e509295fa160baf2f947c8892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/1cceb246fc1878adc22587c7408c2ce39c565c99",
-                "reference": "1cceb246fc1878adc22587c7408c2ce39c565c99",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/2d7b9ff36aabf38e509295fa160baf2f947c8892",
+                "reference": "2d7b9ff36aabf38e509295fa160baf2f947c8892",
                 "shasum": ""
             },
             "require": {
                 "doctrine/orm": "~2.3",
-                "sonata-project/admin-bundle": ">=2.2.2",
+                "sonata-project/admin-bundle": "~2.2,>=2.2.2",
+                "sonata-project/core-bundle": "~2.2@dev",
                 "symfony/symfony": "~2.2"
             },
             "type": "symfony-bundle",
@@ -2803,7 +2848,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2013-12-05 22:36:20"
+            "time": "2013-12-09 16:55:15"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -3088,12 +3133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "983c080ca990f4342a9628644f5090db99f591c8"
+                "reference": "82fbd5f7dd29e1b9792fd2e37f4417763c6463e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/983c080ca990f4342a9628644f5090db99f591c8",
-                "reference": "983c080ca990f4342a9628644f5090db99f591c8",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/82fbd5f7dd29e1b9792fd2e37f4417763c6463e5",
+                "reference": "82fbd5f7dd29e1b9792fd2e37f4417763c6463e5",
                 "shasum": ""
             },
             "require": {
@@ -3143,7 +3188,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2013-12-05 13:54:45"
+            "time": "2013-12-09 11:07:34"
         },
         {
             "name": "sputnik/pubsub-bundle",
@@ -3693,7 +3738,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:bangpound/elasticsearch-bundle-1.git",
-                "reference": "d06d58e9ecc1be51892aa3ecbe899806801d99f0"
+                "reference": "83cbb967fdd81c0b254a22e2feaa6a698565ea34"
             },
             "require": {
                 "elasticsearch/elasticsearch": "~0.4",
@@ -3726,7 +3771,7 @@
             "keywords": [
                 "elasticsearch"
             ],
-            "time": "2013-12-03 08:57:51"
+            "time": "2013-12-08 05:49:08"
         },
         {
             "name": "videlalvaro/php-amqplib",
@@ -3863,12 +3908,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CoreSphere/ConsoleBundle.git",
-                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8"
+                "reference": "8666165bc5fe72b65805b878b2c781a05a34a963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/6b602c985c0b9b779b64441dcb93647763f13eb8",
-                "reference": "6b602c985c0b9b779b64441dcb93647763f13eb8",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/8666165bc5fe72b65805b878b2c781a05a34a963",
+                "reference": "8666165bc5fe72b65805b878b2c781a05a34a963",
                 "shasum": ""
             },
             "require": {
@@ -3904,7 +3949,7 @@
                 "javascript",
                 "symfony"
             ],
-            "time": "2013-07-07 15:09:57"
+            "time": "2013-12-08 06:44:22"
         },
         {
             "name": "elao/web-profiler-extra-bundle",
@@ -4442,6 +4487,7 @@
         "doctrine/couchdb": 20,
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,
+        "bangpound/doctrine-couchdb-admin-bundle": 20,
         "robotsnowfall/enum": 20,
         "ddeboer/data-import-bundle": 20,
         "ddeboer/data-import": 20,
