@@ -45,3 +45,15 @@ parameters:
     doctrine_couch_db.default.password: guest
 
     doctrine_couchdb.odm.document_manager.class: Bangpound\Bundle\CastleSearchBundle\DocumentManager
+    bangpound_castle.types:
+        Bangpound.Bundle.TwitterStreamingBundle.CouchDocument.AtomEntry: "kal3a: Twitter"
+        Rshief.MigrationBundle.CouchDocument.CollectorAtomEntry: Twitterminer
+        Rshief.MigrationBundle.CouchDocument.AtomEntry: VBulletin
+        Bangpound.Bundle.CastleBundle.CouchDocument.AtomEntry: Castle
+        Bangpound.Bundle.PubsubBundle.CouchDocument.AtomEntry: "kal3a: RSS / Atom"
+    bangpound_castle.types.lower:
+        bangpound.bundle.twitterstreamingbundle.couchdocument.atomentry: "kal3a: Twitter"
+        rshief.migrationbundle.couchdocument.collectoratomentry: Twitterminer
+        rshief.migrationbundle.couchdocument.atomentry: VBulletin
+        bangpound.bundle.castlebundle.couchdocument.atomentry: Castle
+        bangpound.bundle.pubsubbundle.couchdocument.atomentry: "kal3a: RSS / Atom"

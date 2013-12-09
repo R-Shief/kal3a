@@ -74,8 +74,11 @@
             <h3 class="panel-title">{% verbatim %}{{ key }}{% endverbatim %}</h3>
         </div>
         <ul id="facet-{% verbatim %}{{$index}}{% endverbatim %}" class="list-group list-unstyled facets collapse in" ng-switch-when="terms" ng-controller="TermFacet" ng-init="init(key, query)">
-            <li class="list-group-item" ng-repeat="entry in value.terms" dir="{% verbatim %}{{ entry.term | directionality }}{% endverbatim %}">
-                <a ng-click="filter(key, entry.term)">
+            <li class="list-group-item" ng-repeat="entry in value.terms" dir="{% verbatim %}{{ entry.term | directionality }}{% endverbatim %}" ng-switch on="key">
+                <a ng-click="filter(key, entry.term)" ng-switch-when="Collection">
+                    <i class="glyphicon glyphicon-remove-sign" ng-show="isActive(key, entry.term)"></i> {% verbatim %}{{ typeNames[entry.term] }}{% endverbatim %}
+                </a>
+                <a ng-click="filter(key, entry.term)" ng-switch-default>
                     <i class="glyphicon glyphicon-remove-sign" ng-show="isActive(key, entry.term)"></i> {% verbatim %}{{ entry.term }}{% endverbatim %}
                 </a> <span class="badge">{% verbatim %}{{ entry.count | number }}{% endverbatim %}</span>
             </li>

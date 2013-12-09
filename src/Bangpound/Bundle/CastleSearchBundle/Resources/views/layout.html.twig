@@ -14,7 +14,8 @@
     <script>
         var castle = {
             serverUrl: {{ (url('bangpound_guzzle_proxy_endpoint', { 'endpoint': 'elasticsearch', 'path': 'production' })) | json_encode | raw }},
-            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }}
+            basepath: {{ 'bundles/bangpoundcastlesearch' | json_encode | raw }},
+            typeNames: {{ castle_type_names_lower | json_encode | raw }}
         };
     </script>
     {% javascripts

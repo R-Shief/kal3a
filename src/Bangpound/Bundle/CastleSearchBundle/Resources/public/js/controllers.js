@@ -20,6 +20,10 @@ castleSearch
                 .to(parseInt(castle.query.published_upper, 10));
         }
 
+        if (castle.query.collection) {
+            $scope.activeFilters['Collection:' + castle.query.collection] = ejs.TermFilter('type', castle.query.collection);
+        }
+
         $scope.ninjaFinder = promiseTracker('searching');
 
         $scope.query.from(0);
@@ -41,7 +45,7 @@ castleSearch
              .field('categories.term')
              .size(10));
 
-        $scope.query.facet(ejs.TermsFacet('Type')
+        $scope.query.facet(ejs.TermsFacet('Collection')
             .field('type')
             .size(10));
 
@@ -187,7 +191,9 @@ castleSearch
             this.search();
         };
     })
-    .controller('TermFacet', function ($scope) {
+    .controller('TermFacet', function ($scope, $window) {
+        $scope.typeNames = $window.castle.typeNames;
+
         $scope.init = function (key, query) {
             $scope.key = key;
             $scope.query = query;
