@@ -133,12 +133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/guzzle-proxy-bundle.git",
-                "reference": "98fed8aeb28d9e03a42a974ef475f1348af3fb91"
+                "reference": "829065a7819ac13ac97bf9d44cb236042f9ead13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/98fed8aeb28d9e03a42a974ef475f1348af3fb91",
-                "reference": "98fed8aeb28d9e03a42a974ef475f1348af3fb91",
+                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/829065a7819ac13ac97bf9d44cb236042f9ead13",
+                "reference": "829065a7819ac13ac97bf9d44cb236042f9ead13",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 }
             ],
             "description": "Proxy requests through Symfony application",
-            "time": "2013-11-27 11:48:24"
+            "time": "2013-12-10 09:50:12"
         },
         {
             "name": "bangpound/phirehose-bundle",

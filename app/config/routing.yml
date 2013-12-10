@@ -2,19 +2,30 @@ rshief_kal3a:
     resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
     prefix:   /
 
-bangpound_guzzle_proxy:
-    resource: "@BangpoundGuzzleProxyBundle/Resources/config/routing.yml"
-    prefix:   /
-
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
     prefix:   /
 
-site_home:
-    path: /
+bangpound_elasticsearch_proxy:
+    path: /elasticsearch/production
+
+bangpound_elasticsearch_proxy_search:
+    path: /elasticsearch/{path}
+    requirements:
+        path: 'production/_search'
     defaults:
-        _controller: FrameworkBundle:Template:template
-        template: 'site_home.html.twig'
+        _controller: BangpoundGuzzleProxyBundle:Default:index
+        endpoint: http://localhost:9200
+        path: 'production/_search'
+        _format: json
+    methods: [GET,POST]
+
+root:
+    path:     /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /search
+        permanent: true
 
 _monitor:
     resource: "@LiipMonitorBundle/Resources/config/routing.yml"

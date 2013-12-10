@@ -175,9 +175,6 @@ liip_monitor:
             lock_file:            %kernel.root_dir%/../composer.lock
 
 bangpound_guzzle_proxy:
-    endpoint:
-        elasticsearch:
-            host: http://localhost:9200
 
 ushios_elastic_search:
     client:
