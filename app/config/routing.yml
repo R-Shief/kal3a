@@ -1,10 +1,8 @@
 rshief_kal3a:
     resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
-    prefix:   /
 
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
-    prefix:   /
 
 bangpound_elasticsearch_proxy:
     path: /elasticsearch/production
