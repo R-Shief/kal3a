@@ -155,9 +155,15 @@ sensio_framework_extra:
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
-        dbname: %doctrine_couch_db.default.dbname%
-        user: %doctrine_couch_db.default.user%
-        password: %doctrine_couch_db.default.password%
+        connections:
+            default:
+                dbname: %doctrine_couch_db.default.dbname%
+                user: %doctrine_couch_db.default.user%
+                password: %doctrine_couch_db.default.password%
+            stats:
+                dbname: %doctrine_couch_db.default.dbname%_stats
+                user: %doctrine_couch_db.default.user%
+                password: %doctrine_couch_db.default.password%
     odm:
         auto_mapping: true
 
