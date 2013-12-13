@@ -1,7 +1,8 @@
 parameters:
-#    rshief_kal3a.example.class: Rshief\Bundle\Kal3aBundle\Example
+    rshief_kal3a.command.populate_stats: Rshief\Bundle\Kal3aBundle\Command\PopulateStatsCommand
 
 services:
-#    rshief_kal3a.example:
-#        class: %rshief_kal3a.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    rshief_kal3a.command.populate_stats:
+        class: %rshief_kal3a.command.populate_stats%
+        tags:
+            -  { name: console.command }
