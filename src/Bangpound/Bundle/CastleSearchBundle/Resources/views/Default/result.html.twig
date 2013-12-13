@@ -149,11 +149,11 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-12 col-lg-12">
-            <fs-date-histo bind="results.facets['Date posted']" on-click="filterByDate" />
-        </div>
-    </div>
+    {#<div class="row">#}
+        {#<div class="col-12 col-lg-12">#}
+            {#<fs-date-histo bind="results.facets['Date posted']" on-click="filterByDate" height="250" width="1140"/>#}
+        {#</div>#}
+    {#</div>#}
     <div class="row">
         <div class="col-12 col-lg-4">
             {{ block('sidebar') }}
