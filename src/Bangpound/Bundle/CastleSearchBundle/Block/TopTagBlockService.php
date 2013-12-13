@@ -3,6 +3,7 @@
 namespace Bangpound\Bundle\CastleSearchBundle\Block;
 
 use Bangpound\Bundle\CastleSearchBundle\DocumentManager;
+use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\View\Query;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
@@ -20,6 +21,11 @@ class TopTagBlockService extends DateViewBlockService
      * @var DocumentManager
      */
     protected $manager;
+
+    /**
+     * @var CouchDBClient
+     */
+    protected $client;
 
     /**
      * @param FormMapper     $form
@@ -50,7 +56,7 @@ class TopTagBlockService extends DateViewBlockService
     public function query(BlockContextInterface $blockContext)
     {
         $settings = $blockContext->getSettings();
-        $query = $this->manager->createNativeListQuery($settings['design_document'], $settings['view'], $settings['list']);
+        $query = $this->client->createViewQuery($settings['design_document'], $settings['view']);
 
         return $query;
     }
@@ -119,9 +125,13 @@ class TopTagBlockService extends DateViewBlockService
         $settings = $blockContext->getSettings();
 
         foreach ($query->execute() as $result) {
-            $results[$result['key'][3]] = $result['value'];
+            $results[$result['value']] = $result['key'][3];
         }
 
         return $results;
+    }
+
+    public function setClient(CouchDBClient $client) {
+        $this->client = $client;
     }
 }
