@@ -15,7 +15,7 @@ class PopulateStatsCommand extends ContainerAwareCommand {
 
     protected function configure()
     {
-        $date = new \DateTime();
+        $date = new \DateTime('now', new \DateTimeZone('UTC'));
         $date->modify('-1 hour');
 
         $this->setName('rshief:populate:stats')
@@ -54,53 +54,56 @@ class PopulateStatsCommand extends ContainerAwareCommand {
 
         do {
             $result = $query->execute();
-            $output->writeln(sprintf('From %s to %s', $result[0]['key'][3], $result[$limit - 1]['key'][3]));
-
             $next_start_key = null;
-            if (count($result) == $limit + 1) {
-                $next_start_key = $result[$limit]['key'];
-            }
+            if (count($result) > 0) {
+                $max = count($result) > $limit ? $limit : count($result);
+                $max_key = count($result) > $limit ? $limit - 1 : count($result) - 1;
+                $output->writeln(sprintf('%s -> %s', $result[0]['key'][3], $result[$max_key]['key'][3]));
 
-            $ids = array();
-            foreach ($result as $row) {
-                $ids[] = $this->generateId($design_document, $view_name, $row['key']);
-            }
-
-            $results = $stats_client->getHttpClient()->request('POST', '/' . $stats_client->getDatabase() . '/_all_docs',
-                json_encode(
-                    array('keys' => array_values($ids))
-                )
-            );
-
-            $rev_map = array();
-            foreach ($results->body['rows'] as $row) {
-                if (!isset($row['error'])) {
-                    $rev_map[$row['id']] = $row['value']['rev'];
-                }
-            }
-
-            $bulk = $stats_client->createBulkUpdater();
-
-            foreach ($result as $row) {
-                $document = array();
-                $document['_id'] = $id = $this->generateId($design_document, $view_name, $row['key']);
-
-                if (isset($rev_map[$id])) {
-                    $document['_rev'] = $rev_map[$id];
+                if (count($result) == $limit + 1) {
+                    $next_start_key = $result[$limit]['key'];
                 }
 
-                $document['tag'] = array_pop($row['key']);
+                $ids = array();
+                foreach ($result as $row) {
+                    $ids[] = $this->generateId($design_document, $view_name, $row['key']);
+                }
 
-                $date = \DateTime::createFromFormat('Y-n-j|', implode('-', $row['key']));
-                $document['date'] = $date->format('Y-m-d H:i:s.u');
+                $results = $stats_client->getHttpClient()->request('POST', '/' . $stats_client->getDatabase() . '/_all_docs',
+                    json_encode(
+                        array('keys' => array_values($ids))
+                    )
+                );
 
-                $document['value'] = $row['value'];
-                $bulk->updateDocument($document);
+                $rev_map = array();
+                foreach ($results->body['rows'] as $row) {
+                    if (!isset($row['error'])) {
+                        $rev_map[$row['id']] = $row['value']['rev'];
+                    }
+                }
+
+                $bulk = $stats_client->createBulkUpdater();
+
+                foreach ($result as $row) {
+                    $document = array();
+                    $document['_id'] = $id = $this->generateId($design_document, $view_name, $row['key']);
+
+                    if (isset($rev_map[$id])) {
+                        $document['_rev'] = $rev_map[$id];
+                    }
+
+                    $document['tag'] = array_pop($row['key']);
+
+                    $date = \DateTime::createFromFormat('Y-n-j|', implode('-', $row['key']));
+                    $document['date'] = $date->format('Y-m-d H:i:s.u');
+
+                    $document['value'] = $row['value'];
+                    $bulk->updateDocument($document);
+                }
+                $result = $bulk->execute();
+
+                $query->setStartKey($next_start_key);
             }
-            $result = $bulk->execute();
-
-            $query->setStartKey($next_start_key);
-
         } while ($next_start_key);
     }
 
