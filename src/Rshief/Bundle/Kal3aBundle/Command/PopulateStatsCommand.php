@@ -15,10 +15,13 @@ class PopulateStatsCommand extends ContainerAwareCommand {
 
     protected function configure()
     {
+        $date = new \DateTime();
+        $date->modify('-1 hour');
+
         $this->setName('rshief:populate:stats')
             ->addArgument('design_document', InputArgument::REQUIRED, 'Design document')
             ->addArgument('view_name', InputArgument::REQUIRED, 'View name')
-            ->addArgument('date', InputArgument::OPTIONAL, 'Date', new \DateTime())
+            ->addArgument('date', InputArgument::OPTIONAL, 'Date', $date)
         ;
     }
 
@@ -31,9 +34,14 @@ class PopulateStatsCommand extends ContainerAwareCommand {
         $view_name = $input->getArgument('view_name');
         $date = $input->getArgument('date');
 
-        $query = $default_client->createViewQuery($design_document, $view_name);
-//        $query->execute();
+        $limit = 1000;
 
+        // Executing the query without grouping allows the view to be refreshed.
+        $query = $default_client->createViewQuery($design_document, $view_name);
+        $output->writeln('Updating view.');
+        $query->execute();
+
+        // All other executions will allow stale results.
         $query->setGroup(true);
         $query->setStale('ok');
 
@@ -42,46 +50,58 @@ class PopulateStatsCommand extends ContainerAwareCommand {
 
         $query->setStartKey([(int) $date->format('Y'), (int) $date->format('m'), (int) $date->format('d')]);
         $query->setEndKey([(int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d')]);
+        $query->setLimit($limit + 1);
 
-//        $query->setLimit($limit);
+        do {
+            $result = $query->execute();
+            $output->writeln(sprintf('From %s to %s', $result[0]['key'][3], $result[$limit - 1]['key'][3]));
 
-        $bulk = $stats_client->createBulkUpdater();
-        $result = $query->execute();
-        $ids = array();
-        foreach ($result as $row) {
-            $ids[] = $this->generateId($design_document, $view_name, $row['key']);
-        }
-
-        $results = $stats_client->getHttpClient()->request('POST', '/' . $stats_client->getDatabase() . '/_all_docs', json_encode(
-                array('keys' => array_values($ids)))
-        );
-
-        $rev_map = array();
-        foreach ($results->body['rows'] as $row) {
-            if (!isset($row['error'])) {
-                $rev_map[$row['id']] = $row['value']['rev'];
-            }
-        }
-
-        foreach ($result as $row) {
-            $document = array();
-            $document['_id'] = $id = $this->generateId($design_document, $view_name, $row['key']);
-
-            if (isset($rev_map[$id])) {
-                $document['_rev'] = $rev_map[$id];
+            $next_start_key = null;
+            if (count($result) == $limit + 1) {
+                $next_start_key = $result[$limit]['key'];
             }
 
-            $document['tag'] = array_pop($row['key']);
+            $ids = array();
+            foreach ($result as $row) {
+                $ids[] = $this->generateId($design_document, $view_name, $row['key']);
+            }
 
-            $date = \DateTime::createFromFormat('Y-n-j|', implode('-', $row['key']));
-            $document['date'] = $date->format('Y-m-d H:i:s.u');
+            $results = $stats_client->getHttpClient()->request('POST', '/' . $stats_client->getDatabase() . '/_all_docs',
+                json_encode(
+                    array('keys' => array_values($ids))
+                )
+            );
 
-            $document['value'] = $row['value'];
-            $bulk->updateDocument($document);
-        }
+            $rev_map = array();
+            foreach ($results->body['rows'] as $row) {
+                if (!isset($row['error'])) {
+                    $rev_map[$row['id']] = $row['value']['rev'];
+                }
+            }
 
-        $result = $bulk->execute();
-//            $query->setSkip($count);
+            $bulk = $stats_client->createBulkUpdater();
+
+            foreach ($result as $row) {
+                $document = array();
+                $document['_id'] = $id = $this->generateId($design_document, $view_name, $row['key']);
+
+                if (isset($rev_map[$id])) {
+                    $document['_rev'] = $rev_map[$id];
+                }
+
+                $document['tag'] = array_pop($row['key']);
+
+                $date = \DateTime::createFromFormat('Y-n-j|', implode('-', $row['key']));
+                $document['date'] = $date->format('Y-m-d H:i:s.u');
+
+                $document['value'] = $row['value'];
+                $bulk->updateDocument($document);
+            }
+            $result = $bulk->execute();
+
+            $query->setStartKey($next_start_key);
+
+        } while ($next_start_key);
     }
 
     private function generateId($design_document, $view_name, $key) {
