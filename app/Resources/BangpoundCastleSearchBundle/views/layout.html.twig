@@ -30,23 +30,70 @@
         <div ng-controller="SearchCtrl" ng-cloak>
             {% block navbar %}
                 <header class="rshief-header">
-                    <div class="main-nav navbar-fixed-top">
+                    <div class="main-nav">
+                        <button type="button" class="navbar-toggle" id="showLeftPush">
+                            <i class="icon-reorder"></i>
+                        </button>
 
                         <a class="navbar-brand" href="http://r-shief.org"><img src="bundles/rshiefkal3a/images/star.png"
                                                                                alt="R-Shief"></a>
 
-                        <ul id="nav" class="nav navbar-nav">
-                            <li><a href="http://r-shief.org/about">About</a></li>
-                            <li><a href="http://r-shief.org/blog">Blog</a></li>
-                            <li><a href="http://r-shief.org/community">Community</a></li>
-                            <li><a href="http://r-shief.org/visualizers">Visualizers</a></li>
-                            <li><a href="http://r-shief.org/educational">Education</a></li>
-                            <li><a href="http://r-shief.org/api/arabic-entity-api/">API Sandbox</a></li>
-                            <li><a href="http://r-shief.org/index">Index</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav social-nav pull-right">
+                        <div class="nav-collapse collapse in navbar-responsive-collapse">
+                            <nav id="nav" class="menu-global-container">
+                                <ul id="menu-global" class="nav navbar-nav">
+                                    <li id="menu-item-1192"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1192">
+                                        <a title="Search" href="http://kal3a.r-shief.org/search">Search</a></li>
+                                    <li id="menu-item-13"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a
+                                                title="About" href="http://r-shief.org/about/">About</a></li>
+                                    <li id="menu-item-11"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11"><a
+                                                title="Blog" href="http://r-shief.org/blog/">Blog</a></li>
+                                    <li id="menu-item-164"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164">
+                                        <a title="Visualizers" href="http://r-shief.org/visualizers/">Visualizers</a>
+                                    </li>
+                                    <li id="menu-item-1181"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1181 dropdown">
+                                        <a title="Text Analysis" href="#" data-toggle="dropdown"
+                                           class="dropdown-toggle">Text Analysis <span class="caret"></span></a>
+                                        <ul role="menu" class=" dropdown-menu">
+                                            <li id="menu-item-1191"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1191">
+                                                <a title="Arabic Entity Extraction Engine Demo"
+                                                   href="http://r-shief.org/text-analysis/entity-extraction-demo/">Arabic
+                                                    Entity Extraction Engine Demo</a></li>
+                                            <li id="menu-item-1203"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1203">
+                                                <a title="Arabic Entity Extraction API Documentation"
+                                                   href="http://r-shief.org/text-analysis/arabic-entity-extraction-api-documentation/">Arabic
+                                                    Entity Extraction API Documentation</a></li>
+                                            <li id="menu-item-1199"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1199">
+                                                <a title="Arabic Sentiment"
+                                                   href="http://r-shief.org/text-analysis/arabic-sentiment-api/">Arabic
+                                                    Sentiment</a></li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-185"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185">
+                                        <a title="Index" href="http://r-shief.org/index/">Index</a></li>
+                                    <li id="menu-item-1180"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1180">
+                                        <a title="Under Development" href="http://r-shief.org/under-development/">Under
+                                            Development</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /.nav-collapse -->
+
+                        <ul class="nav navbar-nav social-nav visible-lg pull-right">
+
                             <li class="divider-vertical"></li>
-                            <li><a href="http://r-shief.org/register">Register</a></li>
+                            <li><a href="http://sandbox.r-shief.org/register">Register</a></li>
+                            <li class="divider-vertical"></li>
+                            <li><a href="#login-modal" data-toggle="modal">Login</a></li>
                         </ul>
                     </div>
                 </header>
