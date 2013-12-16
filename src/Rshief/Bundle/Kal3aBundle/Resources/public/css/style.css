@@ -1,5 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500);
 
+[dir=rtl] {
+    text-align: right;
+}
+
+[dir=rtl] .badge {
+    float: left;
+}
+
 body {
     background: #e3e3eb;
     width: 100%;
