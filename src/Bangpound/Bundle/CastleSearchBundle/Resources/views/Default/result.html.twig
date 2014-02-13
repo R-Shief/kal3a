@@ -12,8 +12,6 @@
     <script>
         castle.query = {{ query | json_encode | raw }};
     </script>
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     {% javascripts
     "vendor/underscore/underscore.js"
     "vendor/underscore.string/dist/underscore.string.min.js"

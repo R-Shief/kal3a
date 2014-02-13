@@ -40,7 +40,6 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "dev-master",
         "yohang/dependency-tools": "1.0.*",
-        "friendsofsymfony/jsrouting-bundle": "~1.1",
         "sonata-project/core-bundle": "~2.2@dev",
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
