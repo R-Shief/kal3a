@@ -9,15 +9,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/couchdb-client.git"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:bangpound/BangpoundDoctrineCouchDBAdminBundle.git"
         },
         {
             "type": "vcs",
@@ -45,15 +37,14 @@
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/notification-bundle": "dev-master",
-        "doctrine/couchdb": "dev-develop",
+        "doctrine/couchdb": "dev-master",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-develop",
-        "bangpound/doctrine-couchdb-admin-bundle": "dev-master",
         "robotsnowfall/enum": "dev-master",
         "mjohnson/decoda": "~6.2.3",
         "ddeboer/data-import-bundle": "dev-master",
         "ddeboer/data-import": "dev-master",
-        "liip/monitor-bundle": "dev-master",
+        "liip/monitor-bundle": "~1.0.1",
         "ushios/elasticsearch-bundle": "dev-develop",
         "bangpound/atom-data-bundle": "dev-master",
         "fennb/phirehose": "dev-master",
