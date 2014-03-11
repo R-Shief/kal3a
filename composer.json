@@ -53,7 +53,8 @@
         "videlalvaro/php-amqplib": "2.0.*",
         "sensiolabs/security-checker": "~1.2",
         "nojimage/twitter-text-php": "dev-master",
-        "bangpound/guzzle-proxy-bundle": "dev-master"
+        "bangpound/guzzle-proxy-bundle": "dev-master",
+        "dr-que/polynomial-regression": "dev-master"
     },
     "require-dev": {
         "raulfraile/ladybug-bundle": "~1.0.2",

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e884de0e4deccc9e7a25f70f9fde8379",
+    "hash": "5caf340ec5ff0789c03e5b4c70cfc6e3",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -1078,6 +1078,49 @@
                 "orm"
             ],
             "time": "2014-02-08 16:28:24"
+        },
+        {
+            "name": "dr-que/polynomial-regression",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jbboehr/PolynomialRegression.php.git",
+                "reference": "fcc91f1958b46adb29e2686af599d5e2e814faca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jbboehr/PolynomialRegression.php/zipball/fcc91f1958b46adb29e2686af599d5e2e814faca",
+                "reference": "fcc91f1958b46adb29e2686af599d5e2e814faca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DrQue": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Que",
+                    "homepage": "http://www.DrQue.net/"
+                }
+            ],
+            "description": "Calculates and returns coefficients for polynomial regression.",
+            "homepage": "http://www.drque.net/Projects/PolynomialRegression/",
+            "keywords": [
+                "math",
+                "polynomial",
+                "polynomial regression",
+                "regression"
+            ],
+            "time": "2014-02-12 00:38:04"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -4857,6 +4900,7 @@
         "phayes/geophp": 20,
         "nojimage/twitter-text-php": 20,
         "bangpound/guzzle-proxy-bundle": 20,
+        "dr-que/polynomial-regression": 20,
         "elao/web-profiler-extra-bundle": 20,
         "coresphere/console-bundle": 20,
         "jns/xhprof-bundle": 20,
