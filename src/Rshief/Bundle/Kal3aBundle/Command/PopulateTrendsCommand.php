@@ -13,6 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class PopulateTrendsCommand extends ContainerAwareCommand
 {
+    /**
+     * {@inheritDoc}
+     */
     protected function configure()
     {
         $date = new \DateTime('now', new \DateTimeZone('UTC'));
@@ -25,6 +28,9 @@ class PopulateTrendsCommand extends ContainerAwareCommand
         ;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $default_client = $this->getContainer()->get('doctrine_couchdb.client.default_connection');
@@ -32,6 +38,7 @@ class PopulateTrendsCommand extends ContainerAwareCommand
 
         $design_document = $input->getArgument('design_document');
         $view_name = $input->getArgument('view_name');
+        /** @var \DateTime $date */
         $date = $input->getArgument('date');
 
         $limit = 1000;
@@ -109,7 +116,8 @@ class PopulateTrendsCommand extends ContainerAwareCommand
         } while ($next_start_key);
     }
 
-    private function generateId($design_document, $view_name, $key) {
+    private function generateId($design_document, $view_name, $key)
+    {
         return $design_document .' '. $view_name .' '. implode(' ', $key);
     }
 }

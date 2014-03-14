@@ -11,8 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class PopulateStatsCommand
  * @package Rshief\Bundle\Kal3aBundle\Command
  */
-class PopulateStatsCommand extends ContainerAwareCommand {
-
+class PopulateStatsCommand extends ContainerAwareCommand
+{
     protected function configure()
     {
         $date = new \DateTime('now', new \DateTimeZone('UTC'));
@@ -107,7 +107,8 @@ class PopulateStatsCommand extends ContainerAwareCommand {
         } while ($next_start_key);
     }
 
-    private function generateId($design_document, $view_name, $key) {
+    private function generateId($design_document, $view_name, $key)
+    {
         return $design_document .' '. $view_name .' '. implode(' ', $key);
     }
 }

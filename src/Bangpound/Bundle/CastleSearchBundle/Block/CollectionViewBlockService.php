@@ -8,16 +8,16 @@
 
 namespace Bangpound\Bundle\CastleSearchBundle\Block;
 
-
 use Doctrine\CouchDB\View\Query;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CollectionViewBlockService extends ViewBlockService {
-
+class CollectionViewBlockService extends ViewBlockService
+{
     private $map;
 
-    public function setMap($map) {
+    public function setMap($map)
+    {
         $this->map = $map;
     }
 
@@ -33,7 +33,6 @@ class CollectionViewBlockService extends ViewBlockService {
             'template' => 'BangpoundCastleSearchBundle:Block:block_view_collection.html.twig',
         ));
     }
-
 
     public function results(Query $query, BlockContextInterface $blockContext)
     {

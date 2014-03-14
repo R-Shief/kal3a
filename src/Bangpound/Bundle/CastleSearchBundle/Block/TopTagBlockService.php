@@ -131,7 +131,8 @@ class TopTagBlockService extends DateViewBlockService
         return $results;
     }
 
-    public function setClient(CouchDBClient $client) {
+    public function setClient(CouchDBClient $client)
+    {
         $this->client = $client;
     }
 }
