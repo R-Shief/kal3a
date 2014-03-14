@@ -73,6 +73,7 @@ doctrine:
             Point:      CrEOF\Spatial\DBAL\Types\Geometry\PointType
             Polygon:    CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
             LineString: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
+            bangpound_datetime:   Bangpound\Doctrine\DBAL\Types\DateTimeType
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
