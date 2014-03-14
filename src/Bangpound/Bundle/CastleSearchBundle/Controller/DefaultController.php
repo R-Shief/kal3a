@@ -31,7 +31,7 @@ class DefaultController extends Controller
                     new NotBlank(),
                 ),
                 'attr' => array(
-                    'placeholder' => 'Search',
+                    'placeholder' => 'Search our Archive | إبحث أرشيف',
                     'class' => 'form-control',
                 ),
                 'label_attr' => array(
