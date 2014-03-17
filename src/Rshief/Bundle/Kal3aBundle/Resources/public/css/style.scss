@@ -1,3 +1,6 @@
+@import "bootstrap-theme";
+@import "bootstrap";
+@import "compass";
 @import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500);
 
 [dir=rtl] {
@@ -9,10 +12,8 @@
 }
 
 body {
-    background: #e3e3eb;
     width: 100%;
     margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
     overflow-x: hidden;
     font-weight: 300;
     padding: 124px 0 0;
@@ -162,7 +163,7 @@ header.rshief-header .main-nav .navbar-nav .dropdown-menu li a {
     background: #fff;
 }
 header.rshief-header .main-nav .navbar-nav .dropdown-menu li a:hover {
-    background: #e3e3eb;
+    background: $body-bg;
 }
 header.rshief-header .main-nav .navbar-nav.social-nav {
     border-left: 0;
@@ -189,7 +190,7 @@ header.rshief-header .main-nav .navbar-nav.social-nav li.account:hover {
 }
 header.rshief-header .main-nav .navbar-nav.social-nav li.account a {
     display: inline;
-    color: #e3e3eb;
+    color: $body-bg;
     padding-left: 0;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -274,7 +275,7 @@ header.rshief-header.rshief-header-shrink .main-nav .navbar-nav.social-nav li.di
 
 .navbar-nav.social-nav li.account a {
     display: inline;
-    color: #e3e3eb;
+    color: $body-bg;
     padding-left: 0;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -336,7 +337,7 @@ header.rshief-header.rshief-header-shrink .main-nav .navbar-nav.social-nav li.di
 }
 
 section#pagetop {
-    background: #e3e3eb;
+    background: $body-bg;
 }
 
 section#pagetop h1 {
@@ -362,7 +363,7 @@ section#pagemain {
     background-color: none;
     background-image: none;
     background: #f4f4f8;
-    border: 1px solid #e3e3eb;
+    border: 1px solid $body-bg;
 }
 
 .global-search {
@@ -375,7 +376,7 @@ section#pagemain {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border-bottom: 3px solid #e3e3eb;
+    border-bottom: 3px solid $body-bg;
 }
 
 .global-search .search-logo {
@@ -400,7 +401,7 @@ section#pagemain {
     border-radius: 0;
     box-shadow: none;
     outline: none;
-    border: 1px solid #e3e3eb;
+    border: 1px solid $body-bg;
     background: #f4f4f8;
     height: 40px;
     font-size: 13px;
@@ -415,7 +416,7 @@ section#pagemain {
 
 .global-search .form-inline button[type="submit"] {
     vertical-align: bottom;
-    background: #e3e3eb;
+    background: $body-bg;
     color: #888;
     border: none;
     height: 40px;
@@ -429,7 +430,7 @@ section#pagemain {
 
 .global-search .form-inline select {
     border-radius: 0;
-    background: #e3e3eb;
+    background: $body-bg;
     font-size: 13px;
     padding: 8px 15px;
     color: #888;
@@ -464,7 +465,7 @@ section#pagemain {
 }
 
 .global-search .search-variables a {
-    background: #e3e3eb;
+    background: $body-bg;
     font-size: 13px;
     padding: 12px 15px;
     color: #888;
@@ -483,7 +484,7 @@ section#pagemain {
 }
 
 footer.global {
-    background: #e3e3eb;
+    background: $body-bg;
     padding: 25px 0;
 }
 
@@ -580,7 +581,7 @@ section.copyright p {
 
 .mc-field-group button.btn-default {
     border-radius: 0;
-    color: #e3e3eb;
+    color: $body-bg;
     background: #474949;
     border-color: #474949;
     font-size: 12px;

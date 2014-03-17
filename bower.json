@@ -1,23 +1,26 @@
 {
-  "name": "search",
-  "version": "0.0.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "underscore": null,
-    "underscore.string": null,
-    "bootstrap": null,
-    "font-awesome": null,
-    "elastic.js": "master",
-    "angular": null,
-    "angular-promise-tracker": "master",
-    "dangle": "git://github.com/fullscale/dangle.git",
-    "d3": null,
-    "angular-sanitize": "~1.2.1"
-  }
+    "name": "search",
+    "version": "0.0.0",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular-promise-tracker": "master",
+        "angular-sanitize": "~1.2.1",
+        "angular": null,
+        "bootstrap-sass": null,
+        "d3": null,
+        "dangle": "git://github.com/fullscale/dangle.git",
+        "elastic.js": "master",
+        "font-awesome": null,
+        "html5shiv": null,
+        "jquery": ">= 1.9.0",
+        "respond": null,
+        "underscore.string": null,
+        "underscore": null
+    }
 }
