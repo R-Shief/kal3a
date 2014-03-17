@@ -272,12 +272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/djlambert/doctrine2-spatial.git",
-                "reference": "26d624befc2bda6bfc2eb390b9fbc604f77489e1"
+                "reference": "be4ee9aeadb7c886caab2c07ab5b1f13c8b9999e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/djlambert/doctrine2-spatial/zipball/26d624befc2bda6bfc2eb390b9fbc604f77489e1",
-                "reference": "26d624befc2bda6bfc2eb390b9fbc604f77489e1",
+                "url": "https://api.github.com/repos/djlambert/doctrine2-spatial/zipball/be4ee9aeadb7c886caab2c07ab5b1f13c8b9999e",
+                "reference": "be4ee9aeadb7c886caab2c07ab5b1f13c8b9999e",
                 "shasum": ""
             },
             "require": {
@@ -319,7 +319,7 @@
                 "postgresql",
                 "spatial"
             ],
-            "time": "2014-03-13 10:44:28"
+            "time": "2014-03-17 13:45:28"
         },
         {
             "name": "ddeboer/data-import",
