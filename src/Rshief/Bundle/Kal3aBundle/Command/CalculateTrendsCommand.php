@@ -47,8 +47,8 @@ class CalculateTrendsCommand extends ContainerAwareCommand
             $stmt->bindValue(1, $tag);
             $stmt->execute();
             $results = $stmt->fetchAll();
-            if (count($results) > 3) {
-                $regression = new PolynomialRegression(4);
+            if (count($results) > 2) {
+                $regression = new PolynomialRegression(2);
                 foreach ($results as $result) {
                     $regression->addData(Carbon::createFromFormat('Y-m-d H:i:s', $result['timestamp'])->timestamp, $result['sum']);
                 }
