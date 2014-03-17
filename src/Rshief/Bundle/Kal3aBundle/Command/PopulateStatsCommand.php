@@ -13,18 +13,24 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class PopulateStatsCommand extends ContainerAwareCommand
 {
+    /**
+     * {@inheritDoc}
+     */
     protected function configure()
     {
         $date = new \DateTime('now', new \DateTimeZone('UTC'));
         $date->modify('-1 hour');
 
-        $this->setName('rshief:populate:stats')
+        $this->setName('rshief:stats:populate')
             ->addArgument('design_document', InputArgument::REQUIRED, 'Design document')
             ->addArgument('view_name', InputArgument::REQUIRED, 'View name')
             ->addArgument('date', InputArgument::OPTIONAL, 'Date', $date)
         ;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $default_client = $this->getContainer()->get('doctrine_couchdb.client.default_connection');
