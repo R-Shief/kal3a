@@ -43,18 +43,26 @@ class CalculateTrendsCommand extends ContainerAwareCommand
 
         $sql = "SELECT * FROM tag_statistics WHERE tag = ? ORDER BY timestamp";
         $stmt = $conn->prepare($sql);
+
         foreach ($tags as $tag) {
             $stmt->bindValue(1, $tag);
             $stmt->execute();
             $results = $stmt->fetchAll();
+            $count = 0;
             if (count($results) > 2) {
                 $regression = new PolynomialRegression(2);
                 foreach ($results as $result) {
+                    $count += $result['sum'];
                     $regression->addData(Carbon::createFromFormat('Y-m-d H:i:s', $result['timestamp'])->timestamp, $result['sum']);
                 }
                 $coefficients = $regression->getCoefficients();
                 $slope = round( $coefficients[ 1 ], 2 );
                 $y_int = round( $coefficients[ 0 ], 2 );
+                $conn->insert('tag_trend', array(
+                    'tag' => $tag,
+                    'slope' => $slope,
+                    'count' => $count,
+                ));
                 $output->writeln(sprintf('%s: %s %s', $tag, $slope, $y_int));
             }
         }

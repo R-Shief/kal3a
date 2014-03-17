@@ -150,7 +150,7 @@ sonata_user:
 sensio_framework_extra:
     router:  { annotations: true }
     request: { converters: true }
-    view:    { annotations: false }
+    view:    { annotations: true }
     cache:   { annotations: true }
 
 # Doctrine CouchDB Configuration
