@@ -1,0 +1,18 @@
+@import "bootstrap-theme";
+@import "bootstrap";
+@import "compass";
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500);
+
+.trend-up {
+  color: cadetblue;
+}
+.trend-down {
+  color: gray;
+}
+
+.panel-default {
+  .panel-heading {
+    background-color: $gray-darker;
+    color: $body-bg;
+  }
+}
