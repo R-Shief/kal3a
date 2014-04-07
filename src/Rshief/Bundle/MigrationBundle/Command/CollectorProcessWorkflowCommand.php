@@ -10,6 +10,7 @@ use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
 use Ddeboer\DataImport\Filter\CallbackFilter;
 use Ddeboer\DataImport\ItemConverter\CallbackItemConverter;
+use Ddeboer\DataImport\ItemConverter\MappingItemConverter;
 use Ddeboer\DataImport\ValueConverter\CallbackValueConverter;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\ConsoleProgressWriter;
@@ -96,7 +97,7 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
         });
 
         $generateAtomId = function ($data) {
-            $created_at = \DateTime::createFromFormat('Y-m-d H:i:s', $data['created_at'], new \DateTimeZone('UTC'));
+            $created_at = \DateTime::createFromFormat('Y-m-d H:i:s', isset($data['created_at']) ? $data['created_at'] : $data['published'], new \DateTimeZone('UTC'));
             $tweet_path = $data['from_user'].'/status/'. $data['twitter_id'];
             $id = 'tag:twitter.com,'. $created_at->format('Y-m-d') .':/'. $tweet_path;
 
@@ -116,22 +117,18 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
 
                 return true;
             }))
-            ->addValueConverter('created_at', $dateTimeConverter)
-            ->addMapping('created_at', 'published')
-
-            ->addMapping('text', 'title')
-
-            ->addMapping('language', 'lang')
-
-            ->addValueConverter('text', $textConstructConverter)
+            ->addItemConverter(new MappingItemConverter(array(
+                'created_at' => 'published',
+                'text' => 'title',
+                'language' => 'lang',
+            )))
 
             // This converter adds an atom ID.
             ->addItemConverter(new CallbackItemConverter(function ($array) use ($generateAtomId, $contentConstructConverter) {
-                $array['originalData'] = $array;
                 $array['id'] = $generateAtomId($array);
 
                 $content = new ContentType();
-                $content->setContent($array['text']);
+                $content->setContent($array['title']);
                 $array['content'] = $content;
 
                 $array['links'] = array();
@@ -178,7 +175,7 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
 
             // This extracts hashtags and URLs where possible.
             ->addItemConverter(new CallbackItemConverter(function ($array) {
-                $extractor = new \Twitter_Extractor($array['text']);
+                $extractor = new \Twitter_Extractor($array['title']);
                 $values = $extractor->extract();
 
                 foreach ($values['hashtags'] as $hashtag) {
@@ -203,6 +200,10 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
 
                 return $array;
             }))
+
+            ->addValueConverter('published', $dateTimeConverter)
+
+            ->addValueConverter('title', $textConstructConverter)
 
             // Use one of the writers supplied with this bundle, implement your own, or use
             // a closure:
