@@ -207,7 +207,7 @@ class DoctrineWriter extends AbstractWriter
         }
 
         $fieldNames = array_merge($this->classMetadata->getFieldNames(), $this->classMetadata->getAssociationNames());
-        foreach ($this->classMetadata->getFieldNames() as $fieldName) {
+        foreach ($fieldNames as $fieldName) {
 
             $value = null;
             if (isset($item[$fieldName])) {

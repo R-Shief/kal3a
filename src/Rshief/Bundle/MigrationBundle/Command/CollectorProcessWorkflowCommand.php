@@ -81,8 +81,6 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
         // This is too presumptious. @todo
         $client = $this->getContainer()->get('doctrine_couchdb.client.default_connection');
 
-        $dm = $this->getContainer()->get('doctrine_couchdb.odm.document_manager');
-
         $contentConstructConverter = new CallbackValueConverter(function ($input) {
             $construct = new ContentType();
             $construct->setContent($input);

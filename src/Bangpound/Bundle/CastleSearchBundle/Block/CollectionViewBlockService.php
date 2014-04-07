@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 12/9/13
- * Time: 1:45 AM
- */
 
 namespace Bangpound\Bundle\CastleSearchBundle\Block;
 
@@ -12,10 +6,17 @@ use Doctrine\CouchDB\View\Query;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+/**
+ * Class CollectionViewBlockService
+ * @package Bangpound\Bundle\CastleSearchBundle\Block
+ */
 class CollectionViewBlockService extends ViewBlockService
 {
     private $map;
 
+    /**
+     * @param $map
+     */
     public function setMap($map)
     {
         $this->map = $map;
@@ -34,11 +35,15 @@ class CollectionViewBlockService extends ViewBlockService
         ));
     }
 
+    /**
+     * @param  Query                 $query
+     * @param  BlockContextInterface $blockContext
+     * @return mixed
+     */
     public function results(Query $query, BlockContextInterface $blockContext)
     {
         $results = array();
         foreach ($query->execute() as $result) {
-            $name = $this->map[$result['key'][0]];
             $results[] = [
                 'key' => $result['key'][0],
                 'label' => isset($this->map[$result['key'][0]]) ? $this->map[$result['key'][0]] : $result['key'][0],

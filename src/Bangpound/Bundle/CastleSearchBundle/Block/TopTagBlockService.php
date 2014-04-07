@@ -35,7 +35,7 @@ class TopTagBlockService extends DateViewBlockService
      */
     public function buildEditForm(FormMapper $form, BlockInterface $block)
     {
-        $formMapper->add('settings', 'sonata_type_immutable_array', array(
+        $form->add('settings', 'sonata_type_immutable_array', array(
             'keys' => array(
                 array('design_document', 'text', array('required' => true)),
                 array('view', 'text', array('required' => false)),
@@ -122,7 +122,6 @@ class TopTagBlockService extends DateViewBlockService
     public function results(Query $query, BlockContextInterface $blockContext)
     {
         $results = array();
-        $settings = $blockContext->getSettings();
 
         foreach ($query->execute() as $result) {
             $results[$result['value']] = $result['key'][3];
@@ -131,6 +130,9 @@ class TopTagBlockService extends DateViewBlockService
         return $results;
     }
 
+    /**
+     * @param CouchDBClient $client
+     */
     public function setClient(CouchDBClient $client)
     {
         $this->client = $client;
