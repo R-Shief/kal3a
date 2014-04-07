@@ -26,6 +26,7 @@ class EmbedController extends Controller
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $trends = $stmt->fetchAll();
+
         return array(
             'trends' => $trends,
         );
