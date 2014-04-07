@@ -57,6 +57,7 @@ services:
         arguments: [ @doctrine_couchdb.odm.document_manager, 'Rshief\Bundle\MigrationBundle\CouchDocument\CollectorAtomEntry', 'id' ]
         calls:
             - [ "disableTruncate", [] ]
+            - [ setBatchSize, [ 1000 ]]
 
     rshief_migration.bbcode.converter:
         class: %rshief_migration.bbcode.converter.class%

@@ -55,6 +55,7 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
         /** @var \Doctrine\DBAL\Connection $conn */
         $conn = $this->getContainer()->get(sprintf('doctrine.dbal.%s_connection', $name));
 
+        /** @var \Rshief\Bundle\MigrationBundle\Writer\DoctrineWriter $writer */
         $writer = $this->getContainer()->get(sprintf('rshief_migration.%s.writer', $name));
 
         /** @var \Ddeboer\DataImport\Reader\ReaderInterface $reader */
@@ -106,100 +107,92 @@ class CollectorProcessWorkflowCommand extends ContainerAwareCommand
 
         // Add converters to the workflow
         $workflow
-            ->addFilter(new CallbackFilter(function ($data) use ($generateAtomId, $dm) {
-                $repository = $dm->getRepository('Rshief\Bundle\MigrationBundle\CouchDocument\CollectorAtomEntry');
-                $existing = $repository->findOneBy(['id' => $generateAtomId($data)]);
-                if ($existing) {
-                    $dm->detach($existing);
-
-                    return false;
-                }
-
-                return true;
-            }))
             ->addItemConverter(new MappingItemConverter(array(
-                'created_at' => 'published',
-                'text' => 'title',
-                'language' => 'lang',
-            )))
+                    'created_at' => 'published',
+                    'text' => 'title',
+                    'language' => 'lang',
+                )))
 
             // This converter adds an atom ID.
-            ->addItemConverter(new CallbackItemConverter(function ($array) use ($generateAtomId, $contentConstructConverter) {
-                $array['id'] = $generateAtomId($array);
+            ->addItemConverter(new CallbackItemConverter(
+                    function ($array) use ($generateAtomId, $contentConstructConverter) {
+                        $array['id'] = $generateAtomId($array);
 
-                $content = new ContentType();
-                $content->setContent($array['title']);
-                $array['content'] = $content;
+                        $content = new ContentType();
+                        $content->setContent($array['title']);
+                        $array['content'] = $content;
 
-                $array['links'] = array();
-                $array['categories'] = array();
-                $array['authors'] = array();
+                        $array['links'] = array();
+                        $array['categories'] = array();
+                        $array['authors'] = array();
 
-                return $array;
-            }))
+                        return $array;
+                    }
+                )
+            )
 
             // This converter fills in Twittery details.
             ->addItemConverter(new CallbackItemConverter(function ($array) {
-                $author = new PersonType();
-                $author->setName($array['from_user']);
-                $array['authors'][] = $author;
+                    $author = new PersonType();
+                    $author->setName($array['from_user']);
+                    $array['authors'][] = $author;
 
-                $link = new LinkType();
-                $link->setHref('https://twitter.com/intent/user?user_id='. $array['from_user_id']);
-                $link->setRel('author');
-                $array['links'][] = $link;
+                    $link = new LinkType();
+                    $link->setHref('https://twitter.com/intent/user?user_id='. $array['from_user_id']);
+                    $link->setRel('author');
+                    $array['links'][] = $link;
 
-                $link = new LinkType();
-                $link->setHref(strtr($array['profile_image_url'], ['_normal' => '']));
-                $link->setRel('author thumbnail');
-                $array['links'][] = $link;
+                    $link = new LinkType();
+                    $link->setHref(strtr($array['profile_image_url'], ['_normal' => '']));
+                    $link->setRel('author thumbnail');
+                    $array['links'][] = $link;
 
-                $link = new LinkType();
-                $link->setHref('http://twitter.com/'.$array['from_user'].'/status/'. $array['twitter_id']);
-                $link->setRel('canonical');
-                $array['links'][] = $link;
+                    $link = new LinkType();
+                    $link->setHref('http://twitter.com/'.$array['from_user'].'/status/'. $array['twitter_id']);
+                    $link->setRel('canonical');
+                    $array['links'][] = $link;
 
-                return $array;
-            }))
+                    return $array;
+                }))
 
             // This converter sets the source on the atom entity.
             ->addItemConverter(new CallbackItemConverter(function ($array) {
-                $source = new SourceType();
-                $title = new TextType();
-                $title->setText('Twitter');
-                $source->setTitle($title);
-                $array['source'] = $source;
+                    $source = new SourceType();
+                    $title = new TextType();
+                    $title->setText('Twitter');
+                    $source->setTitle($title);
+                    $array['source'] = $source;
 
-                return $array;
-            }))
+                    return $array;
+                }))
 
             // This extracts hashtags and URLs where possible.
             ->addItemConverter(new CallbackItemConverter(function ($array) {
-                $extractor = new \Twitter_Extractor($array['title']);
-                $values = $extractor->extract();
+                    $extractor = new \Twitter_Extractor($array['title']);
+                    $values = $extractor->extract();
 
-                foreach ($values['hashtags'] as $hashtag) {
-                    $category = new CategoryType();
-                    $category->setTerm($hashtag);
-                    $array['categories'][] = $category;
-                }
-
-                foreach ($values['urls'] as $url) {
-                    $href = html_entity_decode($url);
-                    foreach ($array['links'] as $link) {
-                        // This prevents duplicate links.
-                        if ($href == $link->getHref()) {
-                            continue 2;
-                        }
+                    foreach ($values['hashtags'] as $hashtag) {
+                        $category = new CategoryType();
+                        $category->setTerm($hashtag);
+                        $array['categories'][] = $category;
                     }
-                    $link = new LinkType();
-                    $link->setHref($href);
-                    $link->setRel('shortlink');
-                    $array['links'][] = $link;
-                }
 
-                return $array;
-            }))
+                    foreach ($values['urls'] as $url) {
+                        $href = html_entity_decode($url);
+                        foreach ($array['links'] as $link) {
+                            // This prevents duplicate links.
+                            if ($href == $link->getHref()) {
+                                continue 2;
+                            }
+                        }
+                        $link = new LinkType();
+                        $link->setHref($href);
+                        $link->setRel('shortlink');
+                        $array['links'][] = $link;
+                    }
+
+                    return $array;
+                }))
 
             ->addValueConverter('published', $dateTimeConverter)
 

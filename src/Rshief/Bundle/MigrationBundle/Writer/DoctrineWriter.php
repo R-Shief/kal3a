@@ -206,6 +206,7 @@ class DoctrineWriter extends AbstractWriter
             $entity = $this->getNewInstance($className, $item);
         }
 
+        $fieldNames = array_merge($this->classMetadata->getFieldNames(), $this->classMetadata->getAssociationNames());
         foreach ($this->classMetadata->getFieldNames() as $fieldName) {
 
             $value = null;
@@ -220,10 +221,8 @@ class DoctrineWriter extends AbstractWriter
             }
 
             if (!($value instanceof \DateTime)
-                || $value != $this->classMetadata->getFieldValue(
-                    $entity, $fieldName
-                ))
-            {
+                || $value != $this->classMetadata->getFieldValue($entity, $fieldName)
+            ) {
                 $setter = 'set' . ucfirst($fieldName);
                 $this->setValue($entity, $value, $setter);
             }
