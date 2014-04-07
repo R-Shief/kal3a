@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rshief\Bundle\MigrationBundle\Entity\VBulletinRssFeed" table="vb3_rssfeed">
+        <id name="rssfeedid" type="integer" column="rssfeedid">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <indexes>
+            <index columns="lastrun" name="lastrun"/>
+        </indexes>
+        <field name="title" type="string" column="title" length="250" nullable="false"/>
+        <field name="url" type="text" column="url" nullable="true"/>
+        <field name="port" type="smallint" column="port" nullable="false"/>
+        <field name="ttl" type="smallint" column="ttl" nullable="false"/>
+        <field name="maxresults" type="smallint" column="maxresults" nullable="false"/>
+        <field name="userid" type="integer" column="userid" nullable="false"/>
+        <field name="forumid" type="smallint" column="forumid" nullable="false"/>
+        <field name="prefixid" type="string" column="prefixid" length="25" nullable="false"/>
+        <field name="iconid" type="smallint" column="iconid" nullable="false"/>
+        <field name="titletemplate" type="text" column="titletemplate" nullable="true"/>
+        <field name="bodytemplate" type="text" column="bodytemplate" nullable="true"/>
+        <field name="searchwords" type="text" column="searchwords" nullable="true"/>
+        <field name="itemtype" type="string" column="itemtype" nullable="false"/>
+        <field name="threadactiondelay" type="smallint" column="threadactiondelay" nullable="false"/>
+        <field name="endannouncement" type="integer" column="endannouncement" nullable="false"/>
+        <field name="options" type="integer" column="options" nullable="false"/>
+        <field name="lastrun" type="integer" column="lastrun" nullable="false"/>
+        <field name="threadid" type="integer" column="threadid" nullable="false"/>
+        <field name="tuMaxtime" type="integer" column="tu_maxtime" nullable="false"/>
+        <field name="tuReason" type="text" column="tu_reason" nullable="false"/>
+        <field name="tuHs" type="text" column="tu_hs" nullable="false"/>
+        <field name="tuHe" type="text" column="tu_he" nullable="false"/>
+        <field name="sntaXP" type="integer" column="snta_x_p" nullable="false"/>
+    </entity>
+</doctrine-mapping>

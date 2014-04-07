@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rshief\Bundle\MigrationBundle\Entity\VBulletinPost" table="vb3_post">
+        <id name="postid" type="integer" column="postid" length="10">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <indexes>
+            <index columns="userid" name="userid"/>
+            <index columns="threadid,userid" name="threadid"/>
+        </indexes>
+        <field name="threadid" type="integer" column="threadid" nullable="true" length="10"/>
+        <field name="parentid" type="integer" column="parentid" nullable="true" length="10"/>
+        <field name="username" type="string" column="username" length="100" nullable="false"/>
+        <field name="userid" type="integer" column="userid" nullable="true"/>
+        <field name="title" type="string" column="title" length="250" nullable="false"/>
+        <field name="dateline" type="integer" column="dateline" nullable="false"/>
+        <field name="pagetext" type="text" column="pagetext" nullable="true"/>
+        <field name="allowsmilie" type="smallint" column="allowsmilie" nullable="false"/>
+        <field name="showsignature" type="smallint" column="showsignature" nullable="false"/>
+        <field name="ipaddress" type="string" column="ipaddress" length="15" nullable="false"/>
+        <field name="iconid" type="smallint" column="iconid" nullable="false"/>
+        <field name="visible" type="smallint" column="visible" nullable="true"/>
+        <field name="attach" type="smallint" column="attach" nullable="false"/>
+        <field name="infraction" type="smallint" column="infraction" nullable="false"/>
+        <field name="reportthreadid" type="integer" column="reportthreadid" nullable="false"/>
+        <field name="ameFlag" type="boolean" column="ame_flag" nullable="false"/>
+        <many-to-one field="thread" target-entity="Rshief\Bundle\MigrationBundle\Entity\VBulletinThread" inversed-by="posts">
+            <join-column name="threadid" referenced-column-name="threadid" />
+        </many-to-one>
+        <many-to-one field="user" target-entity="Rshief\Bundle\MigrationBundle\Entity\VBulletinUser" inversed-by="thePosts">
+            <join-column name="userid" referenced-column-name="userid" />
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

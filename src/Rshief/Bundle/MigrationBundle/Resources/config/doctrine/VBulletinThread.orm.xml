@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="Rshief\Bundle\MigrationBundle\Entity\VBulletinThread" table="vb3_thread">
+        <id name="threadid" type="integer" column="threadid">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <indexes>
+            <index columns="postuserid" name="postuserid"/>
+            <index columns="pollid" name="pollid"/>
+            <index columns="forumid,visible,sticky,lastpost" name="forumid"/>
+            <index columns="lastpost,forumid" name="lastpost"/>
+            <index columns="dateline" name="dateline"/>
+            <index columns="prefixid,forumid" name="prefixid"/>
+            <index columns="tweeted" name="tweeted"/>
+        </indexes>
+        <field name="title" type="string" column="title" length="250" nullable="false"/>
+        <field name="prefixid" type="string" column="prefixid" length="25" nullable="false"/>
+        <field name="firstpostid" type="integer" column="firstpostid" nullable="false"/>
+        <field name="lastpostid" type="integer" column="lastpostid" nullable="false"/>
+        <field name="lastpost" type="integer" column="lastpost" nullable="false"/>
+        <field name="forumid" type="smallint" column="forumid" nullable="false"/>
+        <field name="pollid" type="integer" column="pollid" nullable="false"/>
+        <field name="open" type="smallint" column="open" nullable="false"/>
+        <field name="replycount" type="integer" column="replycount" nullable="false"/>
+        <field name="hiddencount" type="integer" column="hiddencount" nullable="false"/>
+        <field name="deletedcount" type="integer" column="deletedcount" nullable="false"/>
+        <field name="postusername" type="string" column="postusername" length="100" nullable="false"/>
+        <field name="postuserid" type="integer" column="postuserid" nullable="false"/>
+        <field name="lastposter" type="string" column="lastposter" length="100" nullable="false"/>
+        <field name="dateline" type="integer" column="dateline" nullable="false"/>
+        <field name="views" type="integer" column="views" nullable="false"/>
+        <field name="iconid" type="smallint" column="iconid" nullable="false"/>
+        <field name="notes" type="string" column="notes" length="250" nullable="false"/>
+        <field name="visible" type="smallint" column="visible" nullable="false"/>
+        <field name="sticky" type="smallint" column="sticky" nullable="false"/>
+        <field name="votenum" type="smallint" column="votenum" nullable="false"/>
+        <field name="votetotal" type="smallint" column="votetotal" nullable="false"/>
+        <field name="attach" type="smallint" column="attach" nullable="false"/>
+        <field name="similar" type="string" column="similar" length="55" nullable="false"/>
+        <field name="taglist" type="text" column="taglist" nullable="true"/>
+        <field name="vbseoLinkbacksNo" type="integer" column="vbseo_linkbacks_no" nullable="false"/>
+        <field name="vbseoLikes" type="integer" column="vbseo_likes" nullable="false"/>
+        <field name="threadidx" type="integer" column="threadidx" nullable="true"/>
+        <field name="cmsAuthor" type="string" column="cms_author" length="255" nullable="true"/>
+        <field name="cmsContact" type="text" column="cms_contact" nullable="true"/>
+        <field name="cmsDate" type="string" column="cms_date" length="20" nullable="true"/>
+        <field name="cmsDescription" type="text" column="cms_description" nullable="true"/>
+        <field name="cmsEditor" type="text" column="cms_editor" nullable="true"/>
+        <field name="cmsEmbedImage" type="text" column="cms_embed_image" nullable="true"/>
+        <field name="cmsFile" type="string" column="cms_file" length="255" nullable="true"/>
+        <field name="cmsHost" type="text" column="cms_host" nullable="true"/>
+        <field name="cmsName" type="text" column="cms_name" nullable="true"/>
+        <field name="cmsOrganization" type="text" column="cms_organization" nullable="true"/>
+        <field name="cmsProducedBy" type="text" column="cms_produced_by" nullable="true"/>
+        <field name="cmsPublisher" type="text" column="cms_publisher" nullable="true"/>
+        <field name="cmsRelatedLinks" type="text" column="cms_related_links" nullable="true"/>
+        <field name="cmsType" type="string" column="cms_type" length="32" nullable="true"/>
+        <field name="cmsUrl" type="text" column="cms_url" nullable="true"/>
+        <field name="field1" type="text" column="field1" nullable="false"/>
+        <field name="field2" type="text" column="field2" nullable="false"/>
+        <field name="field3" type="string" column="field3" length="64" nullable="false"/>
+        <field name="field4" type="string" column="field4" length="64" nullable="false"/>
+        <field name="field5" type="string" column="field5" length="128" nullable="false"/>
+        <field name="field6" type="text" column="field6" nullable="false"/>
+        <field name="field7" type="string" column="field7" length="128" nullable="false"/>
+        <field name="field10" type="string" column="field10" length="128" nullable="false"/>
+        <field name="field11" type="string" column="field11" length="64" nullable="false"/>
+        <field name="field12" type="text" column="field12" nullable="false"/>
+        <field name="field13" type="text" column="field13" nullable="false"/>
+        <field name="field14" type="string" column="field14" length="32" nullable="false"/>
+        <field name="field15" type="string" column="field15" length="64" nullable="false"/>
+        <field name="field16" type="string" column="field16" length="64" nullable="false"/>
+        <field name="field17" type="string" column="field17" length="4" nullable="false"/>
+        <field name="field18" type="text" column="field18" nullable="false"/>
+        <field name="field19" type="text" column="field19" nullable="false"/>
+        <field name="field20" type="text" column="field20" nullable="false"/>
+        <field name="field21" type="text" column="field21" nullable="false"/>
+        <field name="field22" type="text" column="field22" nullable="false"/>
+        <field name="field23" type="text" column="field23" nullable="false"/>
+        <field name="field24" type="text" column="field24" nullable="false"/>
+        <field name="field25" type="string" column="field25" length="128" nullable="false"/>
+        <field name="field26" type="text" column="field26" nullable="false"/>
+        <field name="field27" type="text" column="field27" nullable="false"/>
+        <field name="field28" type="text" column="field28" nullable="false"/>
+        <field name="field29" type="text" column="field29" nullable="false"/>
+        <field name="field30" type="text" column="field30" nullable="false"/>
+        <field name="field31" type="text" column="field31" nullable="false"/>
+        <field name="field32" type="string" column="field32" length="64" nullable="false"/>
+        <field name="field33" type="text" column="field33" nullable="false"/>
+        <field name="field34" type="text" column="field34" nullable="false"/>
+        <field name="field35" type="string" column="field35" length="128" nullable="false"/>
+        <field name="field36" type="string" column="field36" length="128" nullable="false"/>
+        <field name="field37" type="string" column="field37" length="128" nullable="false"/>
+        <field name="tweeted" type="integer" column="tweeted" nullable="false"/>
+        <field name="tweetScreenName" type="string" column="tweet_screen_name" length="250" nullable="false"/>
+        <one-to-many field="posts" mapped-by="thread" target-entity="Rshief\Bundle\MigrationBundle\Entity\VBulletinPost"/>
+        <many-to-one target-entity="Rshief\Bundle\MigrationBundle\Entity\VBulletinForum" field="forum" inversed-by="threads">
+            <join-column name="forumid" referenced-column-name="forumid"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

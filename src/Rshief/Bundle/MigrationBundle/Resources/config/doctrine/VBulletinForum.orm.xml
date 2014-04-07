@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Rshief\Bundle\MigrationBundle\Entity\VBulletinForum" table="vb3_forum">
+    <id name="forumid" type="smallint" column="forumid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="styleid" type="smallint" column="styleid" nullable="false"/>
+    <field name="title" type="string" column="title" length="100" nullable="false"/>
+    <field name="titleClean" type="string" column="title_clean" length="100" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+    <field name="descriptionClean" type="text" column="description_clean" nullable="true"/>
+    <field name="options" type="integer" column="options" nullable="false"/>
+    <field name="showprivate" type="boolean" column="showprivate" nullable="false"/>
+    <field name="displayorder" type="smallint" column="displayorder" nullable="false"/>
+    <field name="replycount" type="integer" column="replycount" nullable="false"/>
+    <field name="lastpost" type="integer" column="lastpost" nullable="false"/>
+    <field name="lastposter" type="string" column="lastposter" length="100" nullable="false"/>
+    <field name="lastpostid" type="integer" column="lastpostid" nullable="false"/>
+    <field name="lastthread" type="string" column="lastthread" length="250" nullable="false"/>
+    <field name="lastthreadid" type="integer" column="lastthreadid" nullable="false"/>
+    <field name="lasticonid" type="smallint" column="lasticonid" nullable="false"/>
+    <field name="lastprefixid" type="string" column="lastprefixid" length="25" nullable="false"/>
+    <field name="threadcount" type="integer" column="threadcount" nullable="false"/>
+    <field name="daysprune" type="smallint" column="daysprune" nullable="false"/>
+    <field name="newpostemail" type="text" column="newpostemail" nullable="true"/>
+    <field name="newthreademail" type="text" column="newthreademail" nullable="true"/>
+    <field name="parentid" type="smallint" column="parentid" nullable="false"/>
+    <field name="parentlist" type="string" column="parentlist" length="250" nullable="false"/>
+    <field name="password" type="string" column="password" length="50" nullable="false"/>
+    <field name="link" type="string" column="link" length="200" nullable="false"/>
+    <field name="childlist" type="text" column="childlist" nullable="true"/>
+    <field name="defaultsortfield" type="string" column="defaultsortfield" length="50" nullable="false"/>
+    <field name="defaultsortorder" type="string" column="defaultsortorder" nullable="false"/>
+    <field name="imageprefix" type="string" column="imageprefix" length="100" nullable="false"/>
+    <field name="vbseoModeratepingbacks" type="integer" column="vbseo_moderatepingbacks" nullable="false"/>
+    <field name="vbseoModeratetrackbacks" type="integer" column="vbseo_moderatetrackbacks" nullable="false"/>
+    <field name="vbseoModeraterefbacks" type="integer" column="vbseo_moderaterefbacks" nullable="false"/>
+    <field name="vbseoEnableLikes" type="integer" column="vbseo_enable_likes" nullable="false"/>
+    <field name="twitterenabled" type="boolean" column="twitterenabled" nullable="false"/>
+      <one-to-many mapped-by="forum" target-entity="VBulletinThread" field="threads" />
+  </entity>
+</doctrine-mapping>

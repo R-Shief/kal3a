@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Rshief\Bundle\MigrationBundle\Entity\VBulletinUser" table="vb3_user">
+      <indexes>
+          <index columns="usergroupid" name="usergroupid"/>
+          <index columns="username" name="username"/>
+          <index columns="birthday,showbirthday" name="birthday"/>
+            <index columns="birthday_search" name="birthday_search"/>
+            <index columns="referrerid" name="referrerid"/>
+      </indexes>
+    <id name="userid" type="integer" column="userid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="usergroupid" type="smallint" column="usergroupid" nullable="false"/>
+    <field name="membergroupids" type="string" column="membergroupids" length="250" nullable="false"/>
+    <field name="displaygroupid" type="smallint" column="displaygroupid" nullable="false"/>
+    <field name="username" type="string" column="username" length="100" nullable="false"/>
+    <field name="password" type="string" column="password" length="32" nullable="false"/>
+    <field name="passworddate" type="date" column="passworddate" nullable="false"/>
+    <field name="email" type="string" column="email" length="100" nullable="false"/>
+    <field name="styleid" type="smallint" column="styleid" nullable="false"/>
+    <field name="parentemail" type="string" column="parentemail" length="50" nullable="false"/>
+    <field name="homepage" type="string" column="homepage" length="100" nullable="false"/>
+    <field name="icq" type="string" column="icq" length="20" nullable="false"/>
+    <field name="aim" type="string" column="aim" length="20" nullable="false"/>
+    <field name="yahoo" type="string" column="yahoo" length="32" nullable="false"/>
+    <field name="msn" type="string" column="msn" length="100" nullable="false"/>
+    <field name="skype" type="string" column="skype" length="32" nullable="false"/>
+    <field name="showvbcode" type="smallint" column="showvbcode" nullable="false"/>
+    <field name="showbirthday" type="smallint" column="showbirthday" nullable="false"/>
+    <field name="usertitle" type="string" column="usertitle" length="250" nullable="false"/>
+    <field name="customtitle" type="smallint" column="customtitle" nullable="false"/>
+    <field name="joindate" type="integer" column="joindate" nullable="false"/>
+    <field name="daysprune" type="smallint" column="daysprune" nullable="false"/>
+    <field name="lastvisit" type="integer" column="lastvisit" nullable="false"/>
+    <field name="lastactivity" type="integer" column="lastactivity" nullable="false"/>
+    <field name="lastpost" type="integer" column="lastpost" nullable="false"/>
+    <field name="lastpostid" type="integer" column="lastpostid" nullable="false"/>
+    <field name="posts" type="integer" column="posts" nullable="false"/>
+    <field name="reputation" type="integer" column="reputation" nullable="false"/>
+    <field name="reputationlevelid" type="integer" column="reputationlevelid" nullable="false"/>
+    <field name="timezoneoffset" type="string" column="timezoneoffset" length="4" nullable="false"/>
+    <field name="pmpopup" type="smallint" column="pmpopup" nullable="false"/>
+    <field name="avatarid" type="smallint" column="avatarid" nullable="false"/>
+    <field name="avatarrevision" type="integer" column="avatarrevision" nullable="false"/>
+    <field name="profilepicrevision" type="integer" column="profilepicrevision" nullable="false"/>
+    <field name="sigpicrevision" type="integer" column="sigpicrevision" nullable="false"/>
+    <field name="options" type="integer" column="options" nullable="false"/>
+    <field name="akvbghsfsOptionsfield" type="integer" column="akvbghsfs_optionsfield" nullable="false"/>
+    <field name="birthday" type="string" column="birthday" length="10" nullable="false"/>
+    <field name="birthdaySearch" type="date" column="birthday_search" nullable="false"/>
+    <field name="maxposts" type="smallint" column="maxposts" nullable="false"/>
+    <field name="startofweek" type="smallint" column="startofweek" nullable="false"/>
+    <field name="ipaddress" type="string" column="ipaddress" length="15" nullable="false"/>
+    <field name="referrerid" type="integer" column="referrerid" nullable="false"/>
+    <field name="languageid" type="smallint" column="languageid" nullable="false"/>
+    <field name="emailstamp" type="integer" column="emailstamp" nullable="false"/>
+    <field name="threadedmode" type="smallint" column="threadedmode" nullable="false"/>
+    <field name="autosubscribe" type="smallint" column="autosubscribe" nullable="false"/>
+    <field name="pmtotal" type="smallint" column="pmtotal" nullable="false"/>
+    <field name="pmunread" type="smallint" column="pmunread" nullable="false"/>
+    <field name="salt" type="string" column="salt" length="30" nullable="false"/>
+    <field name="ipoints" type="integer" column="ipoints" nullable="false"/>
+    <field name="infractions" type="integer" column="infractions" nullable="false"/>
+    <field name="warnings" type="integer" column="warnings" nullable="false"/>
+    <field name="infractiongroupids" type="string" column="infractiongroupids" length="255" nullable="false"/>
+    <field name="infractiongroupid" type="smallint" column="infractiongroupid" nullable="false"/>
+    <field name="adminoptions" type="integer" column="adminoptions" nullable="false"/>
+    <field name="profilevisits" type="integer" column="profilevisits" nullable="false"/>
+    <field name="friendcount" type="integer" column="friendcount" nullable="false"/>
+    <field name="friendreqcount" type="integer" column="friendreqcount" nullable="false"/>
+    <field name="vmunreadcount" type="integer" column="vmunreadcount" nullable="false"/>
+    <field name="vmmoderatedcount" type="integer" column="vmmoderatedcount" nullable="false"/>
+    <field name="socgroupinvitecount" type="integer" column="socgroupinvitecount" nullable="false"/>
+    <field name="socgroupreqcount" type="integer" column="socgroupreqcount" nullable="false"/>
+    <field name="pcunreadcount" type="integer" column="pcunreadcount" nullable="false"/>
+    <field name="pcmoderatedcount" type="integer" column="pcmoderatedcount" nullable="false"/>
+    <field name="gmmoderatedcount" type="integer" column="gmmoderatedcount" nullable="false"/>
+    <field name="vbseoLikesIn" type="integer" column="vbseo_likes_in" nullable="false"/>
+    <field name="vbseoLikesOut" type="integer" column="vbseo_likes_out" nullable="false"/>
+    <field name="vbseoLikesUnread" type="integer" column="vbseo_likes_unread" nullable="false"/>
+    <field name="ncodeImageresizerMode" type="string" column="ncode_imageresizer_mode" nullable="true"/>
+    <field name="ncodeImageresizerMaxwidth" type="smallint" column="ncode_imageresizer_maxwidth" nullable="true"/>
+    <field name="ncodeImageresizerMaxheight" type="smallint" column="ncode_imageresizer_maxheight" nullable="true"/>
+      <one-to-many field="thePosts" target-entity="VBulletinPost" mapped-by="user" />
+  </entity>
+</doctrine-mapping>

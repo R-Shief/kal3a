@@ -33,7 +33,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
             new Liip\MonitorBundle\LiipMonitorBundle(),
             new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
-            new Rshief\MigrationBundle\RshiefMigrationBundle(),
+            new Rshief\Bundle\MigrationBundle\RshiefMigrationBundle(),
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
             new Ushios\Bundle\ElasticSearchBundle\UshiosElasticSearchBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
