@@ -119,6 +119,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
                 $query->setStartKey($next_start_key);
             }
             $em->flush();
+            $em->clear();
         } while ($next_start_key);
     }
 }
