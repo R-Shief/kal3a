@@ -1,7 +1,6 @@
 castleSearch
     .controller('SearchCtrl', function($location, $scope, es) {
         var oQuery = ejs.QueryStringQuery();
-        var search = $location.search();
 
         $scope.queryTerm = castle.query.queryTerm;
 
@@ -31,24 +30,24 @@ castleSearch
             .size(10));
 
         $scope.query.facet(ejs.TermsFacet('Source')
-             .field('source.title.text')
-             .size(10));
+            .field('source.title.text')
+            .size(10));
 
         $scope.query.facet(ejs.TermsFacet('Author')
-             .field('authors.name')
-             .size(10));
+            .field('authors.name')
+            .size(10));
 
         $scope.query.facet(ejs.TermsFacet('Tags (# and meta)')
-             .field('categories.term')
-             .size(10));
+            .field('categories.term')
+            .size(10));
 
         $scope.query.facet(ejs.TermsFacet('Collection')
             .field('type')
             .size(10));
 
         $scope.query.facet(ejs.DateHistogramFacet('Date posted')
-             .field('published')
-             .interval('day'));
+            .field('published')
+            .interval('day'));
 
         $scope.pager = {
             next: function() {
@@ -138,8 +137,8 @@ castleSearch
                 .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')));
 
             es.search({
-                body: $scope.query
-            }, function (error, results) {
+                    body: $scope.query
+                }, function (error, results) {
                     $scope.results = results;
                     angular.forEach(results.hits.hits, function (value, key) {
 
