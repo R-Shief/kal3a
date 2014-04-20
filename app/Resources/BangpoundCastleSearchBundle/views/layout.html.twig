@@ -31,8 +31,11 @@
                             <i class="icon-reorder"></i>
                         </button>
 
-                        <a class="navbar-brand" href="http://r-shief.org"><img src="bundles/rshiefkal3a/images/star.png"
-                                                                               alt="R-Shief"></a>
+                        <a class="navbar-brand" href="http://r-shief.org">
+                            {% image '@RshiefKal3aBundle/Resources/public/images/star.png' %}
+                            <img src="{{ asset_url }}" alt="R-Shief">
+                            {% endimage %}
+                        </a>
 
                         <div class="nav-collapse collapse in navbar-responsive-collapse">
                             <nav id="nav" class="menu-global-container">
