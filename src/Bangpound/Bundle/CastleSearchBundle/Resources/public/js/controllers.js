@@ -1,4 +1,4 @@
-/*global castleSearch, ejs, castle, _, angular */
+/*global castleSearch, ejs, castle, _, angular, Routing, NgRouting */
 castleSearch
     .controller('SearchCtrl', function ($scope, es, $location) {
         "use strict";
@@ -142,7 +142,7 @@ castleSearch
                         _.findWhere(value._source.links, { rel: 'image' }) ||
                         _.findWhere(value._source.links, { type: 'image' }) ||
                         _.findWhere(value._source.links, { rel: 'author thumbnail' }) ||
-                        { href: 'http://placehold.it/96x96' };
+                    { href: 'http://placehold.it/96x96' };
 
                     authorLink = _.findWhere(value._source.links, { rel: 'author' });
 
@@ -273,4 +273,40 @@ castleSearch
             });
         };
     })
+    .controller('TagsTypeahead', ['$scope', '$location', '$http', 'Tag', function ($scope, $location, $http, Tag) {
+        "use strict";
+
+        $scope.data = {};
+        $scope.tag = $location.hash();
+
+        $scope.$watch('tag', function (value) {
+            $location.hash(value);
+        });
+        $scope.$watch(function () {
+            return $location.hash();
+        }, function (value) {
+            $scope.tag = value;
+        });
+
+        $scope.getTags = function (val) {
+            var url = Routing.generate('get_tagstatistics', {'_format': 'json'});
+            return $http.get(url, {
+                params: {
+                    'q': val
+                }
+            })
+                .then(function (res) {
+                    return res.data;
+                }
+            );
+        };
+
+        $scope.getData = function () {
+            $scope.data = Tag.get({'tag': $scope.tag});
+        };
+
+        if ($scope.tag) {
+            $scope.getData();
+        }
+    }])
 ;

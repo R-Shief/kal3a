@@ -9,3 +9,9 @@ bangpound_castle_search_result:
     defaults:
         _controller: BangpoundCastleSearchBundle:Default:result
         template: 'BangpoundCastleSearchBundle:Default:result.html.twig'
+
+bangpound_tag_search:
+    path: /tag/search
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    'BangpoundCastleSearchBundle:Static:search.html.twig'

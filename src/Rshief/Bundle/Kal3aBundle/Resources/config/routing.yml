@@ -3,5 +3,7 @@ rshief_kal3a_embed:
     type:     annotation
 
 rshief_kal3a_stats:
-    resource: Rshief\Bundle\Kal3aBundle\Controller\StatisticsController
+    resource: Rshief\Bundle\Kal3aBundle\Controller\StatisticController
     type:     rest
+    options:
+        expose: true

@@ -2,38 +2,38 @@
 
 namespace Rshief\Bundle\Kal3aBundle\Controller;
 
-use Doctrine\Common\Persistence\ObjectManagerAware;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Routing\ClassResourceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class StatisticsController
  * @package Rshief\Bundle\Kal3aBundle\Controller
- * @RouteResource("TagStatistics")
+ * @RouteResource("TagStatistic")
  */
-class StatisticsController extends FOSRestController
+class StatisticController extends FOSRestController
 {
     /**
+     * @param  \Symfony\Component\HttpFoundation\Request $request
      * @return mixed
      */
-    public function cgetAction()
+    public function cgetAction(Request $request)
     {
+        $q = $request->get('q');
+
         /** @var Connection $conn */
         $conn = $this->get('database_connection');
-        $queryBuilder = $conn->createQueryBuilder();
 
-        /** @var \Doctrine\DBAL\Statement $query */
-        $query = $queryBuilder->select('DISTINCT t.tag')
-            ->from('tag_statistics', 't')
-            ->execute();
+        if ($q) {
+            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics WHERE tag LIKE ?', array($q .'%'))->fetchAll(Query::HYDRATE_SCALAR);
+        } else {
+            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics')->fetchAll(Query::HYDRATE_SCALAR);
+        }
+        $result = array_map(function ($value) { return $value[0]; }, $result);
 
-        $result = $query->fetchAll();
         return $result;
     }
 
@@ -51,6 +51,7 @@ class StatisticsController extends FOSRestController
             ->execute();
 
         $result = $query->fetchAll();
+
         return $result;
     }
 }

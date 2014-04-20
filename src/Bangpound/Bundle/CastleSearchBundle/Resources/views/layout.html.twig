@@ -4,6 +4,11 @@
     {% stylesheets filter='cssrewrite' "vendor/font-awesome/css/font-awesome.css" "bundles/bangpoundcastlesearch/css/style.scss" %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}
@@ -21,18 +26,12 @@
 
 {% block body %}
     <div ng-app="castleSearch">
-        <div ng-controller="SearchCtrl" ng-cloak>
+        <div{{ block('body_controller') }}>
             {% block navbar %}{% endblock %}
-            <section id="pagetop">
-                <div class="container">
-                    {% block header %}{% endblock %}
-                </div>
-            </section>
-            <section id="pagemain">
-                <div class="container">
-                    {% block content %}{% endblock %}
-                </div>
-            </section>
+            <div class="container">
+                {% block header %}{% endblock %}
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </div>
     {% block footer %}{% endblock %}

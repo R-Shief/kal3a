@@ -5,12 +5,12 @@ namespace Rshief\Bundle\Kal3aBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TagStatistics
+ * TagStatistic
  *
  * @ORM\Table(name="tag_statistics", uniqueConstraints={@ORM\UniqueConstraint(columns={"tag", "timestamp", "period"})})
  * @ORM\Entity
  */
-class TagStatistics
+class TagStatistic
 {
     /**
      * @var integer
@@ -90,8 +90,8 @@ class TagStatistics
     /**
      * Set tag
      *
-     * @param  string        $tag
-     * @return TagStatistics
+     * @param  string       $tag
+     * @return TagStatistic
      */
     public function setTag($tag)
     {
@@ -113,8 +113,8 @@ class TagStatistics
     /**
      * Set timestamp
      *
-     * @param  \DateTime     $timestamp
-     * @return TagStatistics
+     * @param  \DateTime    $timestamp
+     * @return TagStatistic
      */
     public function setTimestamp(\DateTime $timestamp)
     {
@@ -126,8 +126,8 @@ class TagStatistics
     /**
      * Set period
      *
-     * @param  string        $period
-     * @return TagStatistics
+     * @param  string       $period
+     * @return TagStatistic
      */
     public function setPeriod($period)
     {
@@ -159,8 +159,8 @@ class TagStatistics
     /**
      * Set sum
      *
-     * @param  integer       $sum
-     * @return TagStatistics
+     * @param  integer      $sum
+     * @return TagStatistic
      */
     public function setSum($sum)
     {
@@ -182,8 +182,8 @@ class TagStatistics
     /**
      * Set count
      *
-     * @param  integer       $count
-     * @return TagStatistics
+     * @param  integer      $count
+     * @return TagStatistic
      */
     public function setCount($count)
     {
@@ -205,8 +205,8 @@ class TagStatistics
     /**
      * Set min
      *
-     * @param  integer       $min
-     * @return TagStatistics
+     * @param  integer      $min
+     * @return TagStatistic
      */
     public function setMin($min)
     {
@@ -228,8 +228,8 @@ class TagStatistics
     /**
      * Set max
      *
-     * @param  integer       $max
-     * @return TagStatistics
+     * @param  integer      $max
+     * @return TagStatistic
      */
     public function setMax($max)
     {
@@ -251,8 +251,8 @@ class TagStatistics
     /**
      * Set sumsqr
      *
-     * @param  integer       $sumsqr
-     * @return TagStatistics
+     * @param  integer      $sumsqr
+     * @return TagStatistic
      */
     public function setSumsqr($sumsqr)
     {
