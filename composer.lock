@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c00b879eb6e1c80a29e5c6650f207c8a",
+    "hash": "a1b8ad144656868718613310d08624d3",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -74,42 +74,6 @@
             ],
             "description": "Castle application bundle",
             "time": "2014-04-20 06:31:14"
-        },
-        {
-            "name": "bangpound/doctrine-datetime",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/doctrine-datetime.git",
-                "reference": "553808da0daf608026556cdf279b930ce4278e1c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/doctrine-datetime/zipball/553808da0daf608026556cdf279b930ce4278e1c",
-                "reference": "553808da0daf608026556cdf279b930ce4278e1c",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "~2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Bangpound\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "DateTime type that can be used in an entity ID",
-            "time": "2014-03-12 18:04:35"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -315,6 +279,57 @@
                 "spatial"
             ],
             "time": "2014-03-17 13:45:28"
+        },
+        {
+            "name": "cypresslab/angular-ng-routing-bundle",
+            "version": "dev-master",
+            "target-dir": "Cypress/AngularNgRoutingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matteosister/CypressAngularNgRoutingBundle.git",
+                "reference": "e66c490fa5ce064df75e8d35c888d40bb299e3d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matteosister/CypressAngularNgRoutingBundle/zipball/e66c490fa5ce064df75e8d35c888d40bb299e3d2",
+                "reference": "e66c490fa5ce064df75e8d35c888d40bb299e3d2",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/jsrouting-bundle": "~1.5",
+                "php": ">=5.3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Cypress\\AngularNgRoutingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Matteo Giachino",
+                    "email": "matteog@gmail.com",
+                    "homepage": "https://github.com/matteosister/CypressTreeBundle/tree/develop",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A way to expose your Symfony2 routing to Angular $resource service.",
+            "keywords": [
+                "Js Routing",
+                "angular.js",
+                "javascript",
+                "routing"
+            ],
+            "time": "2014-03-06 09:42:42"
         },
         {
             "name": "ddeboer/data-import",
@@ -1348,6 +1363,63 @@
                 "twitter"
             ],
             "time": "2014-03-06 02:09:18"
+        },
+        {
+            "name": "friendsofsymfony/jsrouting-bundle",
+            "version": "1.5.3",
+            "target-dir": "FOS/JsRoutingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
+                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/dade3bb0b21007e5c0fb40f203ed197841eb913c",
+                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/console": "~2.0",
+                "symfony/framework-bundle": "~2.0",
+                "symfony/serializer": "~2.0",
+                "willdurand/jsonp-callback-validator": "~1.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "FOS\\JsRoutingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
+                }
+            ],
+            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "Js Routing",
+                "javascript",
+                "routing"
+            ],
+            "time": "2014-01-23 21:25:39"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -4847,7 +4919,7 @@
         "nojimage/twitter-text-php": 20,
         "bangpound/guzzle-proxy-bundle": 20,
         "dr-que/polynomial-regression": 20,
-        "bangpound/doctrine-datetime": 20
+        "cypresslab/angular-ng-routing-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

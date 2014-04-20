@@ -41,6 +41,8 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Cypress\AngularNgRoutingBundle\CypressAngularNgRoutingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

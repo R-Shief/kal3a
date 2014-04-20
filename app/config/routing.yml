@@ -6,6 +6,8 @@ bangpound_castle_search:
 
 bangpound_elasticsearch_proxy:
     path: /elasticsearch/production
+    options:
+        expose: true
 
 bangpound_elasticsearch_proxy_search:
     path: /elasticsearch/{path}
@@ -72,3 +74,6 @@ sputnik_pubsub_hub:
 sputnik_pubsub_callback:
     resource: "@SputnikPubsubBundle/Resources/config/routing/callback.xml"
     prefix:   /push
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

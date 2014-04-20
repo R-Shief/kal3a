@@ -56,6 +56,7 @@
         "nojimage/twitter-text-php": "dev-master",
         "bangpound/guzzle-proxy-bundle": "dev-master",
         "dr-que/polynomial-regression": "dev-master",
+        "cypresslab/angular-ng-routing-bundle": "~1.0@dev",
         "nesbot/Carbon": "~1.8"
     },
     "require-dev": {
