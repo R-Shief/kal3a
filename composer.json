@@ -60,12 +60,7 @@
         "nesbot/Carbon": "~1.8"
     },
     "require-dev": {
-        "raulfraile/ladybug-bundle": "~1.0.2",
-        "elao/web-profiler-extra-bundle" : "dev-master",
-        "coresphere/console-bundle": "dev-master",
-        "jns/xhprof-bundle": "dev-master",
-        "facebook/xhprof": "dev-master",
-        "jms/debugging-bundle": "dev-master"
+        "raulfraile/ladybug-bundle": "~1.0.2"
     },
     "scripts": {
         "post-install-cmd": [

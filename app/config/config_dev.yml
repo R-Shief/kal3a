@@ -39,26 +39,8 @@ assetic:
 #swiftmailer:
 #    delivery_address: me@example.com
 
-web_profiler_extra:
-    routing:
-        enabled:        false
-        display_in_wdt: false
-    container:
-        enabled:        true
-        display_in_wdt: false
-    assetic:
-        enabled:        false
-        display_in_wdt: false
-    twig:
-        enabled:        false
-        display_in_wdt: false
-
 sputnik_pubsub:
     live_hub: false
 
 raul_fraile_ladybug:
     object_max_nesting_level: 5
-
-jns_xhprof:
-    location_web:    http://xhprof.localhost
-    enabled:         true
