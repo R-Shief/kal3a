@@ -150,7 +150,7 @@ sonata_user:
 sensio_framework_extra:
     router:  { annotations: true }
     request: { converters: true }
-    view:    { annotations: true }
+    view:    { annotations: false }
     cache:   { annotations: true }
 
 # Doctrine CouchDB Configuration
@@ -191,3 +191,10 @@ ushios_elastic_search:
     client:
         default:
             hosts: [ "localhost:9200" ]
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force'

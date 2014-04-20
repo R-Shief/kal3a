@@ -1,3 +1,7 @@
 rshief_kal3a_embed:
     resource: "@RshiefKal3aBundle/Controller/EmbedController.php"
     type:     annotation
+
+rshief_kal3a_stats:
+    resource: Rshief\Bundle\Kal3aBundle\Controller\StatisticsController
+    type:     rest

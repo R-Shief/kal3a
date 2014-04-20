@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Cypress\AngularNgRoutingBundle\CypressAngularNgRoutingBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

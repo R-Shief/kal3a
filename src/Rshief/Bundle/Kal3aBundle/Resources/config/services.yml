@@ -3,6 +3,7 @@ parameters:
     rshief_kal3a.command.populate_trends.class: Rshief\Bundle\Kal3aBundle\Command\PopulateTrendsCommand
     rshief_kal3a.command.copy_trends.class: Rshief\Bundle\Kal3aBundle\Command\CopyTrendsCommand
     rshief_kal3a.command.calculate_trends.class: Rshief\Bundle\Kal3aBundle\Command\CalculateTrendsCommand
+    rshief_kal3a.controller.tag_statistics.class: Rshief\Bundle\Kal3aBundle\Controller\StatisticsController
 
 services:
     rshief_kal3a.command.populate_stats:
@@ -24,3 +25,6 @@ services:
         class: %rshief_kal3a.command.calculate_trends.class%
         tags:
             -  { name: console.command }
+
+    rshief_kal3a.controller.tag_statistics:
+        class: %rshief_kal3a.controller.tag_statistics.class%
