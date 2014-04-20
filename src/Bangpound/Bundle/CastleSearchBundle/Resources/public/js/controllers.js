@@ -1,6 +1,5 @@
 castleSearch
-    .controller('SearchCtrl', function($location, $scope, ejsResource, ejsConfig, promiseTracker) {
-        var ejs = ejsResource(ejsConfig);
+    .controller('SearchCtrl', function($location, $scope, es, promiseTracker) {
         var oQuery = ejs.QueryStringQuery();
         var search = $location.search();
 
@@ -136,9 +135,11 @@ castleSearch
             $scope.query.sort([sort]);
 
             $scope.query
-                .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')))
-                .doSearch()
-                .then(function (results) {
+                .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')));
+
+            es.search({
+                body: $scope.query
+            }, function (error, results) {
                     $scope.results = results;
                     angular.forEach(results.hits.hits, function (value, key) {
 
@@ -173,7 +174,8 @@ castleSearch
                             displayLinks: displayLinks
                         };
                     });
-                });
+                }
+            );
         };
 
         $scope.search();

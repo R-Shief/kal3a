@@ -1,11 +1,15 @@
 castleSearch = angular.module('castleSearch', [
         'ngSanitize',
         'ajoslin.promise-tracker',
-        'elasticjs.service',
+        'elasticsearch',
         'dangle'
     ])
+    .service('es', function (esFactory) {
+        return esFactory({
+            host: castle.serverUrl
+        });
+    })
     .config(function($locationProvider) {
         $locationProvider.html5Mode(true);
     })
-    .constant('ejsConfig', {server: castle.serverUrl, tracker: 'searching'})
 ;
