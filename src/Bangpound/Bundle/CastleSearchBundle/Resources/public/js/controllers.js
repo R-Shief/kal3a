@@ -182,13 +182,10 @@ castleSearch
 
         $scope.reset = function () {
             this.activeFilters = {};
-            this.pager = {
-                page: 1,
-                limit: 25
-            };
+            this.pager.page = 1;
+            this.pager.limit = 25;
             this.sort = '_score';
             this.queryTerm = '';
-            this.search();
         };
 
         $scope.setPage = function (value) {
@@ -236,20 +233,18 @@ castleSearch
 
             var modalInstance = $modal.open({
                 templateUrl: 'modal_help.html',
-                controller: 'HelpModalInstanceCtrl'
+                controller: function ($scope, $modalInstance) {
+                    $scope.ok = function () {
+                        $modalInstance.dismiss('ok');
+                    }
+                }
             });
             modalInstance.result();
         };
     })
-    .controller('HelpModalInstanceCtrl', function ($scope, $modalInstance) {
-        $scope.ok = function () {
-            $modalInstance.dismiss('ok');
-        };
-    })
-
     .controller('LimitModal', function ($scope, $modal) {
+        var original_limit = $scope.pager.limit;
         $scope.open = function () {
-
             var modalInstance = $modal.open({
                 templateUrl: 'modal_results.html',
                 controller: function ($scope, $modalInstance, pager) {
@@ -269,10 +264,12 @@ castleSearch
                     }
                 }
             });
+
             modalInstance.result.then(function (pager) {
                 $scope.pager = pager;
                 $scope.search();
             }, function () {
+                $scope.pager.limit = original_limit;
             });
         };
     })

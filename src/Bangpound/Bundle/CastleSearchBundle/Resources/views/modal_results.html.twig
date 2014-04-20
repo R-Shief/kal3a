@@ -4,7 +4,7 @@
             <h4 id="modal-results-header">Number of results per page</h4>
         </div>
         <div class="modal-body">
-            <input ng-model="pager.limit" type="number">
+            <input ng-model="pager.limit" type="number" min="1">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
