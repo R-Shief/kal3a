@@ -39,9 +39,10 @@ castleSearch
             $scope.activeFilters['Collection:' + $scope.collection] = ejs.TermFilter('type', $scope.collection);
         }
 
-        $scope.query.from(0);
-        $scope.query.size(25);
-        $scope.page = 1;
+        $scope.pager = {
+            page: 1,
+            limit: 25
+        };
 
         $scope.query.facet(ejs.TermsFacet('Language')
             .field('lang')
@@ -124,7 +125,8 @@ castleSearch
 
             $scope.query.sort([sort]);
 
-            $scope.query.from(($scope.page - 1) * $scope.query.size());
+            $scope.query.from(($scope.pager.page - 1) * $scope.pager.limit);
+            $scope.query.size($scope.pager.limit);
 
             $scope.query
                 .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')));
@@ -180,15 +182,17 @@ castleSearch
 
         $scope.reset = function () {
             this.activeFilters = {};
-            this.query.from(0);
-            this.query.size(25);
+            this.pager = {
+                page: 1,
+                limit: 25
+            };
             this.sort = '_score';
             this.queryTerm = '';
             this.search();
         };
 
         $scope.setPage = function (value) {
-            this.page = value;
+            this.pager.page = value;
             this.search();
         };
     })
@@ -226,5 +230,50 @@ castleSearch
             }
             this.search();
         };
-    }
-);
+    })
+    .controller('HelpModal', function ($scope, $modal) {
+        $scope.open = function () {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'modal_help.html',
+                controller: 'HelpModalInstanceCtrl'
+            });
+            modalInstance.result();
+        };
+    })
+    .controller('HelpModalInstanceCtrl', function ($scope, $modalInstance) {
+        $scope.ok = function () {
+            $modalInstance.dismiss('ok');
+        };
+    })
+
+    .controller('LimitModal', function ($scope, $modal) {
+        $scope.open = function () {
+
+            var modalInstance = $modal.open({
+                templateUrl: 'modal_results.html',
+                controller: function ($scope, $modalInstance, pager) {
+                    $scope.pager = pager;
+
+                    $scope.ok = function () {
+                        $modalInstance.close($scope.pager);
+                    };
+
+                    $scope.cancel = function () {
+                        $modalInstance.dismiss('cancel');
+                    };
+                },
+                resolve: {
+                    pager: function () {
+                        return $scope.pager;
+                    }
+                }
+            });
+            modalInstance.result.then(function (pager) {
+                $scope.pager = pager;
+                $scope.search();
+            }, function () {
+            });
+        };
+    })
+;

@@ -43,18 +43,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form ng-submit="search()" class="navbar-form navbar-left" role="search">
-                <div class="btn-group">
-                    <a class="search-info btn btn-default" title="Search Help" data-toggle="modal" data-target="#search-help">
-                        <i class="glyphicon glyphicon-question-sign"></i>
-                    </a>
-                </div>
+                {% include 'BangpoundCastleSearchBundle::modal_help.html.twig' %}
                 <div class="form-group">
                     <input class="form-control" ng-model="queryTerm" type="search" placeholder="Search" />
                 </div>
                 <div class="btn-group search-variables">
-                    <a title="change result set size" class="btn btn-default" data-toggle="modal" data-target="#modal-results">
-                        {% verbatim %}{{ query.size() }}{% endverbatim %}
-                    </a>
+                    {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
                     <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'asc'"><i class="glyphicon glyphicon-sort-by-attributes-alt fa-flip-vertical"></i></button>
                     <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'desc'"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button>
                     <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'_score'"><i class="glyphicon glyphicon-sort-by-order-alt"></i></button>
@@ -69,11 +63,6 @@
     <h1 class="pagetitle">
         <span class="notify_loading" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results
     </h1>
-{% endblock %}
-
-{% block footer %}
-    {% include '@BangpoundCastleSearch/modal_help.html.twig' %}
-    {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -99,7 +88,7 @@
         <li ng-repeat="doc in results.hits.hits" class="media row">
             <div class="pull-left col-sm-2 col-md-2">
                 <span class="thumbnail">
-                    <img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
+                    {#<img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />#}
                 </span>
             </div>
             <div class="media-body">
@@ -131,7 +120,7 @@
             </div>
         </li>
     </ul>
-    <pagination items-per-page="query.size()" total-items="results.hits.total" page="page" max-size="10" on-select-page="setPage(page)"></pagination>
+    <pagination items-per-page="pager.limit" boundary-links="true" rotate="false" total-items="results.hits.total" page="page" max-size="10" on-select-page="setPage(page)"></pagination>
 {% endblock %}
 
 {% block content %}
