@@ -56,7 +56,6 @@
         "nojimage/twitter-text-php": "dev-master",
         "bangpound/guzzle-proxy-bundle": "dev-master",
         "dr-que/polynomial-regression": "dev-master",
-        "bangpound/doctrine-datetime": "dev-master",
         "nesbot/Carbon": "~1.8"
     },
     "require-dev": {
