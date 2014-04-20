@@ -1,27 +1,38 @@
 /*global castleSearch, ejs, castle, _, angular */
 castleSearch
-    .controller('SearchCtrl', function ($scope, es) {
+    .controller('SearchCtrl', function ($scope, es, $location) {
         "use strict";
         var oQuery = ejs.QueryStringQuery();
 
-        $scope.queryTerm = castle.query.queryTerm;
+        angular.forEach(['queryTerm', 'tag', 'collection', 'published_upper', 'published_lower'], function (key) {
+            $scope[key] = $location.search()[key];
+            $scope.$watch(key, function (value) {
+                $location.search(key, value);
+            });
+            $scope.$watch(function () {
+                return $location.search()[key];
+            }, function (value) {
+                $scope[key] = value;
+            });
+        });
+
 
         $scope.query = ejs.Request();
 
         $scope.activeFilters = {};
 
-        if (castle.query.tag) {
-            $scope.activeFilters['Tags (# and meta):' + castle.query.tag] = ejs.TermFilter('categories.term', castle.query.tag);
+        if ($scope.tag) {
+            $scope.activeFilters['Tags (# and meta):' + $scope.tag] = ejs.TermFilter('categories.term', $scope.tag);
         }
 
-        if (castle.query.published_lower) {
-            $scope.activeFilters['Date posted:' + castle.query.published_lower] = ejs.NumericRangeFilter('published')
-                .from(parseInt(castle.query.published_lower, 10))
-                .to(parseInt(castle.query.published_upper, 10));
+        if ($scope.published_lower) {
+            $scope.activeFilters['Date posted:' + $scope.published_lower] = ejs.NumericRangeFilter('published')
+                .from(parseInt($scope.published_lower, 10))
+                .to(parseInt($scope.published_upper, 10));
         }
 
-        if (castle.query.collection) {
-            $scope.activeFilters['Collection:' + castle.query.collection] = ejs.TermFilter('type', castle.query.collection);
+        if ($scope.collection) {
+            $scope.activeFilters['Collection:' + $scope.collection] = ejs.TermFilter('type', $scope.collection);
         }
 
         $scope.query.from(0);
