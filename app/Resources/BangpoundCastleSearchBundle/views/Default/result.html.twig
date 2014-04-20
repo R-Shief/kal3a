@@ -2,9 +2,9 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='cssrewrite'
-    "vendor/dangle/css/dangle.css"
-    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+    {% stylesheets filter='cssrewrite' %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
@@ -17,11 +17,9 @@
     "vendor/underscore.string/dist/underscore.string.min.js"
     "vendor/angular/angular.js"
     "vendor/angular-sanitize/angular-sanitize.js"
-    "vendor/angular-promise-tracker/promise-tracker.js"
     "vendor/elasticsearch/elasticsearch.angular.js"
     "vendor/elastic.js/dist/elastic.js"
     "vendor/d3/d3.js"
-    "vendor/dangle/dist/dangle.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/components.js"

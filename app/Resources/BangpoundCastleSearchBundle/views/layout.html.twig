@@ -1,9 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    {% stylesheets filter='cssrewrite'
-    "vendor/font-awesome/css/font-awesome.css"
-    "bundles/rshiefkal3a/css/style.scss" %}
+    {% stylesheets filter='cssrewrite' "vendor/font-awesome/css/font-awesome.css" "bundles/rshiefkal3a/css/style.scss" %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
 {% endblock %}
 
@@ -15,10 +13,9 @@
             typeNames: {{ castle_type_names | json_encode | raw }}
         };
     </script>
-    {% javascripts
-    "vendor/jquery/dist/jquery.js"
-    "vendor/bootstrap-sass/dist/js/bootstrap.js" %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts "vendor/jquery/dist/jquery.js" "vendor/bootstrap-sass/dist/js/bootstrap.js" %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 
 {% block body %}

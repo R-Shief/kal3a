@@ -1,5 +1,7 @@
+/*global castleSearch, ejs, castle, _, angular */
 castleSearch
-    .controller('SearchCtrl', function($location, $scope, es) {
+    .controller('SearchCtrl', function ($scope, es) {
+        "use strict";
         var oQuery = ejs.QueryStringQuery();
 
         $scope.queryTerm = castle.query.queryTerm;
@@ -50,25 +52,29 @@ castleSearch
             .interval('day'));
 
         $scope.pager = {
-            next: function() {
+            next: function () {
                 if ($scope.query.from() + $scope.query.size() < $scope.results.hits.total) {
                     $scope.query.from($scope.query.from() + $scope.query.size());
                     $scope.search();
                 }
             },
 
-            prev: function() {
+            prev: function () {
                 if ($scope.query.from() - $scope.query.size() >= 0) {
                     $scope.query.from($scope.query.from() - $scope.query.size());
                     $scope.search();
                 }
             }
-        }
+        };
 
-        $scope.applyFilters = function(query) {
+        $scope.applyFilters = function (query) {
 
-            var filter = null;
-            var filters = Object.keys($scope.activeFilters).map(function(k) { return $scope.activeFilters[k]; });
+            var filters, filter;
+
+            filter = null;
+            filters = Object.keys($scope.activeFilters).map(function (k) {
+                return $scope.activeFilters[k];
+            });
 
             if (filters.length > 1) {
                 filter = ejs.AndFilter(filters);
@@ -80,12 +86,13 @@ castleSearch
         };
 
         $scope.filterByDate = function (key, term) {
+            var facets, filters, filter;
             key = 'Date posted';
             if ($scope.isActive(key, term)) {
                 delete $scope.activeFilters[key + ':' + term];
             } else {
-                var filters = [];
-                var facets = $scope.query.facet()[key];
+                filters = [];
+                facets = $scope.query.facet()[key];
                 angular.forEach(facets, function (facet, type) {
                     var fields = facet.hasOwnProperty('fields') ? facet.fields : [ facet.field ];
                     angular.forEach(fields, function (value) {
@@ -108,17 +115,15 @@ castleSearch
         $scope.toggleSort = function () {
             if (this.sort === '_score') {
                 this.sort = 'desc';
-            }
-            else if (this.sort === 'desc') {
+            } else if (this.sort === 'desc') {
                 this.sort = 'asc';
-            }
-            else if (this.sort === 'asc') {
+            } else if (this.sort === 'asc') {
                 this.sort = '_score';
             }
             this.search();
         };
 
-        $scope.search = function() {
+        $scope.search = function () {
 
             $scope.loading = true;
 
@@ -126,8 +131,7 @@ castleSearch
 
             if (this.sort === '_score') {
                 sort.field(this.sort);
-            }
-            else {
+            } else {
                 sort.field('published').order(this.sort);
             }
 
@@ -137,45 +141,45 @@ castleSearch
                 .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')));
 
             es.search({
-                    body: $scope.query
-                }, function (error, results) {
-                    $scope.results = results;
-                    angular.forEach(results.hits.hits, function (value, key) {
+                body: $scope.query
+            }).then(function (results) {
+                $scope.results = results;
+                angular.forEach(results.hits.hits, function (value, key) {
 
-                        var thumbnailLink = _.findWhere(value._source.links, { rel: 'thumbnail' })
-                            || _.findWhere(value._source.links, { rel: 'image' })
-                            || _.findWhere(value._source.links, { type: 'image' })
-                            || _.findWhere(value._source.links, { rel: 'author thumbnail' })
-                            || { href: 'http://placehold.it/96x96' };
+                    var thumbnailLink, authorLink, canonicalLink, alternateLink, displayLinks;
+                    thumbnailLink = _.findWhere(value._source.links, { rel: 'thumbnail' }) ||
+                        _.findWhere(value._source.links, { rel: 'image' }) ||
+                        _.findWhere(value._source.links, { type: 'image' }) ||
+                        _.findWhere(value._source.links, { rel: 'author thumbnail' }) ||
+                        { href: 'http://placehold.it/96x96' };
 
-                        var authorLink = _.findWhere(value._source.links, { rel: 'author' });
+                    authorLink = _.findWhere(value._source.links, { rel: 'author' });
 
-                        var canonicalLink = _.findWhere(value._source.links, { rel: 'canonical' });
+                    canonicalLink = _.findWhere(value._source.links, { rel: 'canonical' });
 
-                        var alternateLink = _.findWhere(value._source.links, { rel: 'alternate' }) || _.findWhere(value._source.links, { rel: '' });
+                    alternateLink = _.findWhere(value._source.links, { rel: 'alternate' }) || _.findWhere(value._source.links, { rel: '' });
 
-                        var displayLinks = _.without(value._source.links, thumbnailLink, authorLink, canonicalLink, alternateLink);
+                    displayLinks = _.without(value._source.links, thumbnailLink, authorLink, canonicalLink, alternateLink);
 
-                        angular.forEach(displayLinks, function (link) {
-                            if (!link.hasOwnProperty('title')) {
-                                link.title = link.href
-                            }
-                            if (link.hasOwnProperty('rel') && link.rel === 'canonical') {
-                                link.title = link.rel;
-                            }
-                        });
-
-                        $scope.results.hits.hits[key].castleView = {
-                            thumbnailLink: thumbnailLink,
-                            authorLink: authorLink,
-                            canonicalLink: canonicalLink,
-                            alternateLink: alternateLink,
-                            displayLinks: displayLinks
-                        };
+                    angular.forEach(displayLinks, function (link) {
+                        if (!link.hasOwnProperty('title')) {
+                            link.title = link.href;
+                        }
+                        if (link.hasOwnProperty('rel') && link.rel === 'canonical') {
+                            link.title = link.rel;
+                        }
                     });
-                    $scope.loading = false;
-                }
-            );
+
+                    $scope.results.hits.hits[key].castleView = {
+                        thumbnailLink: thumbnailLink,
+                        authorLink: authorLink,
+                        canonicalLink: canonicalLink,
+                        alternateLink: alternateLink,
+                        displayLinks: displayLinks
+                    };
+                });
+                $scope.loading = false;
+            });
         };
 
         $scope.search();
@@ -194,21 +198,25 @@ castleSearch
         };
     })
     .controller('TermFacet', function ($scope, $window) {
+        "use strict";
+
         $scope.typeNames = $window.castle.typeNames;
 
         $scope.init = function (key, query) {
             $scope.key = key;
             $scope.query = query;
-        }
+        };
 
         $scope.filter = function (key, term) {
+            var facets, filters, filter;
             if ($scope.isActive(key, term)) {
                 delete $scope.activeFilters[key + ':' + term];
             } else {
-                var filters = [];
-                var facets = $scope.query.facet()[key];
+                filters = [];
+                facets = $scope.query.facet()[key];
                 angular.forEach(facets, function (facet, type) {
-                    var fields = facet.hasOwnProperty('fields') ? facet.fields : [ facet.field ];
+                    var fields;
+                    fields = facet.hasOwnProperty('fields') ? facet.fields : [ facet.field ];
                     angular.forEach(fields, function (value) {
                         filters.push(ejs.TermFilter(value, term));
                     });
@@ -223,4 +231,5 @@ castleSearch
             }
             this.search();
         };
-    });
+    }
+);
