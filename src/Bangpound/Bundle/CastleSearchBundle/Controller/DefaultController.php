@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class DefaultController extends Controller
 {
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function searchAction(Request $request)
