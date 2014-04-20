@@ -17,7 +17,6 @@
     "vendor/underscore.string/dist/underscore.string.min.js"
     "vendor/angular/angular.js"
     "vendor/angular-sanitize/angular-sanitize.js"
-    "vendor/angular-promise-tracker/promise-tracker.js"
     "vendor/elasticsearch/elasticsearch.angular.js"
     "vendor/elastic.js/dist/elastic.js"
     "vendor/d3/d3.js"
@@ -69,7 +68,7 @@
 
 {% block header %}
     <h1 class="pagetitle">
-        <span class="notify_loading" ng-show="ninjaFinder.active()"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results
+        <span class="notify_loading" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results
     </h1>
 {% endblock %}
 

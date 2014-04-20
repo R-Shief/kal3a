@@ -1,5 +1,5 @@
 castleSearch
-    .controller('SearchCtrl', function($location, $scope, es, promiseTracker) {
+    .controller('SearchCtrl', function($location, $scope, es) {
         var oQuery = ejs.QueryStringQuery();
         var search = $location.search();
 
@@ -22,8 +22,6 @@ castleSearch
         if (castle.query.collection) {
             $scope.activeFilters['Collection:' + castle.query.collection] = ejs.TermFilter('type', castle.query.collection);
         }
-
-        $scope.ninjaFinder = promiseTracker('searching');
 
         $scope.query.from(0);
         $scope.query.size(25);
@@ -123,6 +121,8 @@ castleSearch
 
         $scope.search = function() {
 
+            $scope.loading = true;
+
             var sort = ejs.Sort();
 
             if (this.sort === '_score') {
@@ -174,6 +174,7 @@ castleSearch
                             displayLinks: displayLinks
                         };
                     });
+                    $scope.loading = false;
                 }
             );
         };

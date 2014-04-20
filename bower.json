@@ -9,7 +9,6 @@
         "tests"
     ],
     "dependencies": {
-        "angular-promise-tracker": "master",
         "angular-sanitize": "~1.2.1",
         "angular": null,
         "bootstrap-sass": null,
