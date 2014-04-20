@@ -239,7 +239,7 @@ castleSearch
                     }
                 }
             });
-            modalInstance.result();
+            modalInstance.result.then();
         };
     })
     .controller('LimitModal', function ($scope, $modal) {
