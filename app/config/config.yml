@@ -135,9 +135,6 @@ sonata_admin:
         blocks:
             # display a dashboard block
             - { position: left, type: sonata.admin.block.admin_list }
-#            - { position: right, type: sonata.admin_doctrine_orm.block.audit }
-            - { position: center, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> You can customize this dashboard by editing the sonata_admin.yml file. The current dashboard presents the recent items from the NewsBundle and a timeline with the latest action"} }
-            - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> You can customize this dashboard by editing the sonata_admin.yml file. The current dashboard presents the recent items from the NewsBundle and a timeline with the latest action"} }
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
