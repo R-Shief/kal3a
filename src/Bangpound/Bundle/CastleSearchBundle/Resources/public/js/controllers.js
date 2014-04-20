@@ -4,7 +4,7 @@ castleSearch
         "use strict";
         var oQuery = ejs.QueryStringQuery();
 
-        angular.forEach(['queryTerm', 'tag', 'collection', 'published_upper', 'published_lower'], function (key) {
+        angular.forEach(['sort', 'queryTerm', 'tag', 'collection', 'published_upper', 'published_lower'], function (key) {
             $scope[key] = $location.search()[key];
             $scope.$watch(key, function (value) {
                 $location.search(key, value);
@@ -16,6 +16,10 @@ castleSearch
             });
         });
 
+        $scope.sort = '_score';
+        $scope.$watch('sort', function (value) {
+            $scope.search();
+        });
 
         $scope.query = ejs.Request();
 
@@ -37,6 +41,7 @@ castleSearch
 
         $scope.query.from(0);
         $scope.query.size(25);
+        $scope.page = 1;
 
         $scope.query.facet(ejs.TermsFacet('Language')
             .field('lang')
@@ -61,22 +66,6 @@ castleSearch
         $scope.query.facet(ejs.DateHistogramFacet('Date posted')
             .field('published')
             .interval('day'));
-
-        $scope.pager = {
-            next: function () {
-                if ($scope.query.from() + $scope.query.size() < $scope.results.hits.total) {
-                    $scope.query.from($scope.query.from() + $scope.query.size());
-                    $scope.search();
-                }
-            },
-
-            prev: function () {
-                if ($scope.query.from() - $scope.query.size() >= 0) {
-                    $scope.query.from($scope.query.from() - $scope.query.size());
-                    $scope.search();
-                }
-            }
-        };
 
         $scope.applyFilters = function (query) {
 
@@ -121,19 +110,6 @@ castleSearch
             $scope.search();
         };
 
-        $scope.sort = '_score';
-
-        $scope.toggleSort = function () {
-            if (this.sort === '_score') {
-                this.sort = 'desc';
-            } else if (this.sort === 'desc') {
-                this.sort = 'asc';
-            } else if (this.sort === 'asc') {
-                this.sort = '_score';
-            }
-            this.search();
-        };
-
         $scope.search = function () {
 
             $scope.loading = true;
@@ -147,6 +123,8 @@ castleSearch
             }
 
             $scope.query.sort([sort]);
+
+            $scope.query.from(($scope.page - 1) * $scope.query.size());
 
             $scope.query
                 .query($scope.applyFilters(oQuery.query($scope.queryTerm || '*')));
@@ -188,6 +166,7 @@ castleSearch
                         alternateLink: alternateLink,
                         displayLinks: displayLinks
                     };
+
                 });
                 $scope.loading = false;
             });
@@ -205,6 +184,11 @@ castleSearch
             this.query.size(25);
             this.sort = '_score';
             this.queryTerm = '';
+            this.search();
+        };
+
+        $scope.setPage = function (value) {
+            this.page = value;
             this.search();
         };
     })

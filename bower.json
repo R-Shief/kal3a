@@ -11,6 +11,7 @@
     "dependencies": {
         "angular-sanitize": "~1.2.1",
         "angular": "~1.2.16",
+        "angular-bootstrap": "master",
         "bootstrap-sass": null,
         "d3": null,
         "elasticsearch": "~2.1.3",

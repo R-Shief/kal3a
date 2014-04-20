@@ -5,13 +5,13 @@ castleSearch
         };
     })
 
-    .filter('unsafe', function($sce) {
+    .filter('unsafe', function ($sce) {
         return function(val) {
             return $sce.trustAsHtml(val);
         };
     })
 
-    .filter('badDate', function($filter) {
+    .filter('badDate', function ($filter) {
         return function (input) {
 
             function _isInteger(val) {
