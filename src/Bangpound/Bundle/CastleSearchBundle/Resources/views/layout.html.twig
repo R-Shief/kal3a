@@ -1,11 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    {% stylesheets filter='cssrewrite'
-    "vendor/bootstrap-sass/dist/css/bootstrap.css"
-    "vendor/bootstrap-sass/dist/css/bootstrap-theme.css"
-    "vendor/font-awesome/css/font-awesome.css"
-    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+    {% stylesheets filter='cssrewrite' "vendor/bootstrap-sass/dist/css/bootstrap.css" "vendor/bootstrap-sass/dist/css/bootstrap-theme.css" "vendor/font-awesome/css/font-awesome.css" %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
