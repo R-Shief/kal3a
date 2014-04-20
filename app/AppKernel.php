@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new Bangpound\PhirehoseBundle\BangpoundPhirehoseBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
