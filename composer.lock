@@ -8,25 +8,24 @@
         {
             "name": "bangpound/atom-data-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Atom/DataBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-data-bundle.git",
-                "reference": "47fd06dbee2a59261a1f261c253d737c862a1fe3"
+                "reference": "7641f02671af1fdcda6c35e424f19c5295539410"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-data-bundle/zipball/47fd06dbee2a59261a1f261c253d737c862a1fe3",
-                "reference": "47fd06dbee2a59261a1f261c253d737c862a1fe3",
+                "url": "https://api.github.com/repos/bangpound/atom-data-bundle/zipball/7641f02671af1fdcda6c35e424f19c5295539410",
+                "reference": "7641f02671af1fdcda6c35e424f19c5295539410",
                 "shasum": ""
             },
             "require": {
-                "jms/serializer-bundle": "dev-master",
+                "jms/serializer-bundle": "0.13.*@dev",
                 "sonata-project/admin-bundle": "~2.2"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Bangpound\\Atom\\DataBundle\\": ""
                 }
             },
@@ -41,26 +40,25 @@
                 }
             ],
             "description": "Atom entities and admin controllers",
-            "time": "2014-03-10 18:45:13"
+            "time": "2014-04-20 06:30:38"
         },
         {
             "name": "bangpound/castle-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Bundle/CastleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "a6125eb5f6cf3bb4f99a5652bd6686ce566ff85e"
+                "reference": "575320409c33b3a3952d29e0ab58bd4c2d28f231"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/a6125eb5f6cf3bb4f99a5652bd6686ce566ff85e",
-                "reference": "a6125eb5f6cf3bb4f99a5652bd6686ce566ff85e",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/575320409c33b3a3952d29e0ab58bd4c2d28f231",
+                "reference": "575320409c33b3a3952d29e0ab58bd4c2d28f231",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Bangpound\\Bundle\\CastleBundle\\": ""
                 }
             },
@@ -75,7 +73,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-04-07 06:04:37"
+            "time": "2014-04-20 06:31:14"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -116,16 +114,15 @@
         {
             "name": "bangpound/guzzle-proxy-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Bundle/GuzzleProxyBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/guzzle-proxy-bundle.git",
-                "reference": "829065a7819ac13ac97bf9d44cb236042f9ead13"
+                "reference": "efa6d8972e0bff770e70fe733c5d5957206d4326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/829065a7819ac13ac97bf9d44cb236042f9ead13",
-                "reference": "829065a7819ac13ac97bf9d44cb236042f9ead13",
+                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/efa6d8972e0bff770e70fe733c5d5957206d4326",
+                "reference": "efa6d8972e0bff770e70fe733c5d5957206d4326",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +130,7 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Bangpound\\Bundle\\GuzzleProxyBundle\\": ""
                 }
             },
@@ -148,7 +145,7 @@
                 }
             ],
             "description": "Proxy requests through Symfony application",
-            "time": "2013-12-10 09:50:12"
+            "time": "2014-04-20 06:32:09"
         },
         {
             "name": "bangpound/phirehose-bundle",
@@ -190,16 +187,15 @@
         {
             "name": "bangpound/pubsub-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Bundle/PubsubBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/pubsub-bundle.git",
-                "reference": "9ecd2afb199dd1619823b585f9774db4db9b0ba8"
+                "reference": "082fc05de2e72d9827e0e986e1eec28649a3dea8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/9ecd2afb199dd1619823b585f9774db4db9b0ba8",
-                "reference": "9ecd2afb199dd1619823b585f9774db4db9b0ba8",
+                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/082fc05de2e72d9827e0e986e1eec28649a3dea8",
+                "reference": "082fc05de2e72d9827e0e986e1eec28649a3dea8",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +204,7 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Bangpound\\Bundle\\PubsubBundle\\": ""
                 }
             },
@@ -223,21 +219,20 @@
                 }
             ],
             "description": "Pubsub bundle for Castle.",
-            "time": "2014-03-10 18:46:00"
+            "time": "2014-04-20 06:34:12"
         },
         {
             "name": "bangpound/twitter-streaming-bundle",
             "version": "dev-master",
-            "target-dir": "Bangpound/Bundle/TwitterStreamingBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "1d40c0c65c5ffdd87e3c7ce103b310657af0ebde"
+                "reference": "461c0119612b2f8a51a89b40b6c78c7132de77b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/1d40c0c65c5ffdd87e3c7ce103b310657af0ebde",
-                "reference": "1d40c0c65c5ffdd87e3c7ce103b310657af0ebde",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/461c0119612b2f8a51a89b40b6c78c7132de77b5",
+                "reference": "461c0119612b2f8a51a89b40b6c78c7132de77b5",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +244,7 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Bangpound\\Bundle\\TwitterStreamingBundle\\": ""
                 }
             },
@@ -264,7 +259,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2014-03-10 21:17:55"
+            "time": "2014-04-20 06:28:39"
         },
         {
             "name": "creof/doctrine2-spatial",
