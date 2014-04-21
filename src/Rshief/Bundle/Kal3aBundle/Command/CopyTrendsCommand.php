@@ -2,7 +2,7 @@
 
 namespace Rshief\Bundle\Kal3aBundle\Command;
 
-use Rshief\Bundle\Kal3aBundle\Entity\TagStatistics;
+use Rshief\Bundle\Kal3aBundle\Entity\TagStatistic;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -43,7 +43,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
 
         // MySQL db entity
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $repository = $em->getRepository('Rshief\Bundle\Kal3aBundle\Entity\TagStatistics');
+        $repository = $em->getRepository('Rshief\Bundle\Kal3aBundle\Entity\TagStatistic');
 
         /** @var \DateTime $date */
         $date = $input->getArgument('date');
@@ -100,7 +100,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
                     }
 
                     if ($new) {
-                        $stats = new TagStatistics();
+                        $stats = new TagStatistic();
                     }
                     $stats->setCount($row['value']['count'])
                         ->setMax($row['value']['max'])
