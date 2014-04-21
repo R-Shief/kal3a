@@ -2,15 +2,16 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='cssrewrite'
-    "vendor/dangle/css/dangle.css"
-    %}<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />{% endstylesheets %}
+    {% stylesheets filter='cssrewrite' %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+    {% javascripts %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 
 {% form_theme form _self %}

@@ -9,23 +9,28 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script>
-        castle.query = {{ query | json_encode | raw }};
-    </script>
     {% javascripts
-    "vendor/underscore/underscore.js"
-    "vendor/underscore.string/dist/underscore.string.min.js"
-    "vendor/angular/angular.js"
-    "vendor/angular-sanitize/angular-sanitize.js"
-    "vendor/elasticsearch/elasticsearch.angular.js"
-    "vendor/elastic.js/dist/elastic.js"
-    "vendor/d3/d3.js"
-    "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
-    "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
-    "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
-    "@BangpoundCastleSearchBundle/Resources/public/js/filters.js"
-    %}<script type="text/javascript" src="{{ asset_url }}"></script>{% endjavascripts %}
+        "vendor/underscore/underscore.js"
+        "vendor/underscore.string/dist/underscore.string.min.js"
+        "vendor/angular/angular.js"
+        "vendor/angular-sanitize/angular-sanitize.js"
+        "vendor/angular-resource/angular-resource.js"
+        "vendor/angular-bootstrap/ui-bootstrap-tpls.js"
+        "vendor/elasticsearch/elasticsearch.angular.js"
+        "vendor/elastic.js/dist/elastic.js"
+        "vendor/d3/d3.js"
+        "vendor/n3-charts.line-chart/dist/line-chart.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
+        "@BangpoundCastleSearchBundle/Resources/public/js/filters.js"
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 {% endblock %}
+
+{% block body_controller %} ng-controller="SearchCtrl" ng-cloak{% endblock %}
 
 {% block navbar %}
     {{ parent() }}
@@ -41,12 +46,16 @@
             <input class="form-control" ng-model="queryTerm" placeholder="Search our Archive | &#1573;&#1576;&#1581;&#1579; &#1571;&#1585;&#1588;&#1610;&#1601;"type="search" />
         </div>
         <div class="search-variables">
+            {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
             <a title="change result set size" data-toggle="modal" data-target="#modal-results">
                 {% verbatim %}{{ query.size() }}{% endverbatim %}
             </a>
-            <a ng-click="toggleSort()">
-                <i ng-class="{'_score': 'glyphicon-sort-by-attributes-alt', 'asc': 'glyphicon-sort-by-order', 'desc': 'glyphicon-sort-by-order-alt'}[sort]" class="glyphicon"></i>
+            <a class="btn btn-default" ng-click="toggleSort()">
+                <i ng-class="{'asc': 'glyphicon-sort-by-attributes glyphicon-flip-vertical', 'desc': 'glyphicon-sort-by-attributes-alt'}[sort.order]" class="glyphicon"></i>
             </a>
+            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'asc'"><i class="glyphicon glyphicon-sort-by-attributes-alt fa-flip-vertical"></i></button>
+            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'desc'"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button>
+            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'_score'"><i class="glyphicon glyphicon-sort-by-order-alt"></i></button>
         </div>
         <button ng-click="search()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
     </form>
@@ -57,11 +66,6 @@
     <h1 class="pagetitle">
         <span class="notify_loading" ng-show="loading"><i class="fa fa-spinner fa-spin"></i> Updating</span> Results
     </h1>
-{% endblock %}
-
-{% block footer %}
-    {% include '@BangpoundCastleSearch/modal_help.html.twig' %}
-    {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
 {% endblock %}
 
 {% block sidebar %}
@@ -119,17 +123,7 @@
             </div>
         </li>
     </ul>
-    <ul class="pagination">
-        <li class="prev" ng-class="{disabled: (query.from() - query.size()) < 0}">
-            <a ng-click="pager.prev()">&laquo; Prev</a>
-        </li>
-        <li>
-            <span>{% verbatim %}{{ query.from() + 1 | number }}{% endverbatim %} &ndash; {% verbatim %}{{ query.from() + query.size() | number }}{% endverbatim %} of {% verbatim %}{{ results.hits.total | number }}{% endverbatim %}</span>
-        </li>
-        <li class="next" ng-class="{disabled: (query.from() + query.size()) > results.hits.total}">
-            <a ng-click="pager.next()">Next &raquo;</a>
-        </li>
-    </ul>
+    <pagination items-per-page="pager.limit" boundary-links="true" rotate="false" total-items="results.hits.total" page="page" max-size="10" on-select-page="setPage(page)"></pagination>
 {% endblock %}
 
 {% block content %}

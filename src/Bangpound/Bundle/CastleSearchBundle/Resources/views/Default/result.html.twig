@@ -14,10 +14,12 @@
         "vendor/underscore.string/dist/underscore.string.min.js"
         "vendor/angular/angular.js"
         "vendor/angular-sanitize/angular-sanitize.js"
+        "vendor/angular-resource/angular-resource.js"
         "vendor/angular-bootstrap/ui-bootstrap-tpls.js"
         "vendor/elasticsearch/elasticsearch.angular.js"
         "vendor/elastic.js/dist/elastic.js"
         "vendor/d3/d3.js"
+        "vendor/n3-charts.line-chart/dist/line-chart.js"
         "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
         "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
         "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
@@ -25,6 +27,7 @@
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 {% endblock %}
 
 {% block body_controller %} ng-controller="SearchCtrl" ng-cloak{% endblock %}
@@ -90,7 +93,7 @@
         <li ng-repeat="doc in results.hits.hits" class="media row">
             <div class="pull-left col-sm-2 col-md-2">
                 <span class="thumbnail">
-                    {#<img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />#}
+                    <img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
                 </span>
             </div>
             <div class="media-body">
