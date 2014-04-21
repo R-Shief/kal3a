@@ -273,11 +273,27 @@ castleSearch
             });
         };
     })
-    .controller('TagsTypeahead', ['$scope', '$location', '$http', 'Tag', function ($scope, $location, $http, Tag) {
+    .controller('TagsTypeahead', ['$scope', '$location', '$http', function ($scope, $location, $http) {
         "use strict";
 
-        $scope.data = {};
+        $scope.data = [];
         $scope.tag = $location.hash();
+
+
+        $scope.options = {
+            axes: {
+                x: { type: "date" },
+                y: { type: "linear" }
+            },
+            series: [
+                {
+                    y: "value",
+                    label: $scope.tag
+                }
+            ],
+            lineMode: "bundle"
+        };
+
 
         $scope.$watch('tag', function (value) {
             $location.hash(value);
@@ -302,11 +318,30 @@ castleSearch
         };
 
         $scope.getData = function () {
-            $scope.data = Tag.get({'tag': $scope.tag});
+            if ($scope.tag) {
+                var url = Routing.generate('get_tagstatistic', {
+                    '_format': 'json',
+                    'tag': $scope.tag
+                });
+                $http.get(url)
+                    .then(function (res) {
+                        var data = _.map(res.data, function (value) {
+                            var utc = value.timestamp.split(/\D/);
+                            utc[1] = utc[1] - 1;
+                            return {
+                                x: new Date(Date.UTC.apply(null, utc)),
+                                value: parseInt(value.sum, 10)
+                            };
+                        });
+                        $scope.data = data;
+                    }
+                );
+            }
         };
 
         if ($scope.tag) {
             $scope.getData();
+            $scope.options.series[0].label = $scope.tag;
         }
     }])
 ;

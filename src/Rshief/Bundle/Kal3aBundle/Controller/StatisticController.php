@@ -44,7 +44,7 @@ class StatisticController extends FOSRestController
         $queryBuilder = $conn->createQueryBuilder();
 
         /** @var \Doctrine\DBAL\Statement $query */
-        $query = $queryBuilder->select('t.timestamp', 't.count')
+        $query = $queryBuilder->select('t.timestamp', 't.sum')
             ->from('tag_statistics', 't')
             ->where('t.tag = ?')
             ->setParameter(0, $tag)

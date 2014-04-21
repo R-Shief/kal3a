@@ -12,6 +12,8 @@
     {% javascripts
     "vendor/underscore/underscore.js"
     "vendor/underscore.string/dist/underscore.string.min.js"
+    "vendor/moment/moment.js"
+    "vendor/regression-js/src/regression.js"
     "vendor/angular/angular.js"
     "vendor/angular-sanitize/angular-sanitize.js"
     "vendor/angular-resource/angular-resource.js"
@@ -19,6 +21,7 @@
     "vendor/elasticsearch/elasticsearch.angular.js"
     "vendor/elastic.js/dist/elastic.js"
     "vendor/d3/d3.js"
+    "vendor/n3-charts.line-chart/dist/line-chart.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
     "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
@@ -32,10 +35,12 @@
 
 {% block header %}
     <h1 class="page-header">Enter a hashtag</h1>
-    <input type="text" ng-model="tag" typeahead-on-select="getData()" typeahead-min-length="4" typeahead-wait-ms="100" typeahead-editable="false" placeholder="Enter a hashtag" typeahead="address for address in getTags($viewValue) | filter:$viewValue" class="form-control input-lg">
+    <input type="text" ng-model="tag" typeahead-on-select="getData()" typeahead-min-length="3" typeahead-wait-ms="100" typeahead-editable="false" placeholder="Enter a hashtag" typeahead="address for address in getTags($viewValue) | filter:$viewValue" class="form-control input-lg">
     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 {% endblock %}
 
 {% block content %}
-    {% verbatim %}{{ data }}{% endverbatim %}
+    <div class="clearfix">
+        <linechart data="data" options="options" mode=""></linechart>
+    </div>
 {% endblock %}
