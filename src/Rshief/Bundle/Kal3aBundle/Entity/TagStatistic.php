@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TagStatistic
  *
- * @ORM\Table(name="tag_statistics", uniqueConstraints={@ORM\UniqueConstraint(columns={"tag", "timestamp", "period"})})
+ * @ORM\Table(name="tag_statistics", uniqueConstraints={@ORM\UniqueConstraint(columns={"tag", "timestamp", "period"})}, options={"collate"="utf8_bin"})
  * @ORM\Entity
  */
 class TagStatistic
@@ -24,7 +24,7 @@ class TagStatistic
     /**
      * @var string
      *
-     * @ORM\Column(name="tag", type="string", length=140)
+     * @ORM\Column(name="tag", type="string", length=139)
      */
     private $tag;
 

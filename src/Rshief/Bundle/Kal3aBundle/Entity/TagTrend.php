@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TagTrend
  *
- * @ORM\Table(name="tag_trend")
+ * @ORM\Table(name="tag_trend", options={"collate"="utf8_bin"})
  * @ORM\Entity
  */
 class TagTrend
@@ -15,7 +15,7 @@ class TagTrend
     /**
      * @var string
      *
-     * @ORM\Column(name="tag", type="string", length=139, nullable=true)
+     * @ORM\Column(name="tag", type="string", length=139)
      */
     private $tag;
 
@@ -29,7 +29,7 @@ class TagTrend
     /**
      * @var integer
      *
-     * @ORM\Column(name="count", type="integer", nullable=true)
+     * @ORM\Column(name="count", type="integer")
      */
     private $count;
 
