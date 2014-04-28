@@ -20,6 +20,16 @@ bangpound_elasticsearch_proxy_search:
         _format: json
     methods: [GET,POST]
 
+bangpound_couchdb_proxy:
+    path: /couchdb/{path}
+    requirements:
+        path: '.+'
+    defaults:
+        _controller: BangpoundGuzzleProxyBundle:Default:index
+        endpoint: http://localhost:5984
+        _format: json
+    methods: [GET]
+
 root:
     path:     /
     defaults:

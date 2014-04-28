@@ -273,12 +273,14 @@ castleSearch
             });
         };
     })
-    .controller('TagsTypeahead', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+    .controller('TagsTypeahead', ['$scope', '$location', 'cornercouch', function ($scope, $location, cornercouch) {
         "use strict";
 
         $scope.data = [];
         $scope.tag = $location.hash();
 
+        $scope.server = cornercouch("/couchdb", "GET");
+        $scope.db = $scope.server.getDB('symfony');
 
         $scope.options = {
             axes: {
@@ -305,35 +307,28 @@ castleSearch
         });
 
         $scope.getTags = function (val) {
-            var url = Routing.generate('get_tagstatistics', {'_format': 'json'});
-            return $http.get(url, {
-                params: {
-                    'q': val
-                }
-            })
+            var endkey = val.substr(0, val.length - 1) + String.fromCharCode(val.charCodeAt(val.length - 1) + 1);
+            return $scope.db
+                .query('stats', 'tag', { group: true, group_level: 1, startkey: [val], endkey: [endkey, {}] })
                 .then(function (res) {
-                    return res.data;
-                }
-            );
+                    return _.map(res.data.rows, function (row) {
+                        return row.key[0];
+                    });
+                });
         };
 
         $scope.getData = function () {
             if ($scope.tag) {
-                var url = Routing.generate('get_tagstatistic', {
-                    '_format': 'json',
-                    'tag': $scope.tag
-                });
-                $http.get(url)
+                $scope.db
+                    .query('stats', 'tag', {group: true, group_level: 5, startkey: [$scope.tag], endkey: [$scope.tag, {}]})
                     .then(function (res) {
-                        var data = _.map(res.data, function (value) {
-                            var utc = value.timestamp.split(/\D/);
-                            utc[1] = utc[1] - 1;
+                        $scope.data = _.map(res.data.rows, function (row) {
+                            var utc = row.key.splice(1);
                             return {
                                 x: new Date(Date.UTC.apply(null, utc)),
-                                value: parseInt(value.sum, 10)
+                                value: parseInt(row.value.sum, 10)
                             };
                         });
-                        $scope.data = data;
                     }
                 );
             }

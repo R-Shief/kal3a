@@ -1,6 +1,6 @@
 /*global castle, angular */
 var castleSearch;
-castleSearch = angular.module('castleSearch', ['ngSanitize', 'ngResource', 'n3-charts.linechart', 'elasticsearch', 'ui.bootstrap'])
+castleSearch = angular.module('castleSearch', ['ngSanitize', 'ngResource', 'n3-charts.linechart', 'elasticsearch', 'CornerCouch', 'ui.bootstrap'])
     .service('es', function (esFactory) {
         "use strict";
 
