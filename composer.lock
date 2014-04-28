@@ -48,12 +48,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "575320409c33b3a3952d29e0ab58bd4c2d28f231"
+                "reference": "db7b409158d12428e0fae88dae77afd374af64fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/575320409c33b3a3952d29e0ab58bd4c2d28f231",
-                "reference": "575320409c33b3a3952d29e0ab58bd4c2d28f231",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/db7b409158d12428e0fae88dae77afd374af64fe",
+                "reference": "db7b409158d12428e0fae88dae77afd374af64fe",
                 "shasum": ""
             },
             "type": "library",
@@ -73,7 +73,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-04-20 06:31:14"
+            "time": "2014-04-28 03:39:43"
         },
         {
             "name": "bangpound/doctrine-datetime",
