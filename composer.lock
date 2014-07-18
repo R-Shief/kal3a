@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3aec0c3f7f3cc2acdd4d6b0e584b865e",
+    "hash": "e03549207a819a457312ce53ca20c0f3",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -2217,96 +2217,39 @@
             "time": "2013-07-19 00:03:27"
         },
         {
-            "name": "liip/monitor",
-            "version": "1.0.2",
-            "target-dir": "Liip/Monitor",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/liip/LiipMonitor.git",
-                "reference": "c3298f3b4b70f81ebc3e10c1db55b2eeb712065a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipMonitor/zipball/c3298f3b4b70f81ebc3e10c1db55b2eeb712065a",
-                "reference": "c3298f3b4b70f81ebc3e10c1db55b2eeb712065a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "sensiolabs/security-checker": "dev-master"
-            },
-            "suggest": {
-                "predis/predis": "Required for Redis Checker",
-                "sensiolabs/security-checker": "Required for Security Advisory Checker",
-                "videlalvaro/php-amqplib": "Required for RabbitMQ Checker"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Liip\\Monitor": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Liip AG",
-                    "homepage": "http://www.liip.ch/"
-                },
-                {
-                    "name": "Alvaro Videla",
-                    "email": "alvaro.videla@liip.ch"
-                },
-                {
-                    "name": "PHP Community",
-                    "homepage": "https://github.com/liip/LiipMonitor/contributors"
-                }
-            ],
-            "description": "Liip Monitor library",
-            "keywords": [
-                "check",
-                "health",
-                "monitor",
-                "monitoring"
-            ],
-            "time": "2014-02-05 21:53:43"
-        },
-        {
             "name": "liip/monitor-bundle",
-            "version": "1.0.1",
+            "version": "2.0.2",
             "target-dir": "Liip/MonitorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipMonitorBundle.git",
-                "reference": "c69a14c0d6f2d7dee5f0e290a9ac8bf875a37866"
+                "reference": "a166250ce69cdfbcd4087966094c50fb59ed1994"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/c69a14c0d6f2d7dee5f0e290a9ac8bf875a37866",
-                "reference": "c69a14c0d6f2d7dee5f0e290a9ac8bf875a37866",
+                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/a166250ce69cdfbcd4087966094c50fb59ed1994",
+                "reference": "a166250ce69cdfbcd4087966094c50fb59ed1994",
                 "shasum": ""
             },
             "require": {
-                "liip/monitor": "1.0.*",
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.0"
+                "symfony/framework-bundle": "~2.3",
+                "zendframework/zenddiagnostics": "~1.0.2|~1.1"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "~3.8",
+                "matthiasnoback/symfony-dependency-injection-test": "~0.4",
+                "sensiolabs/security-checker": "~1.3"
             },
             "suggest": {
-                "sensio/distribution-bundle": "To be able to use the composer ScriptHandler"
+                "predis/predis": "To use the Redis check",
+                "sensio/distribution-bundle": "To be able to use the composer ScriptHandler",
+                "videlalvaro/php-amqplib": "To use the RabbitMQ check"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -2330,6 +2273,10 @@
                 {
                     "name": "Symfony Community",
                     "homepage": "https://github.com/liip/LiipMonitorBundle/contributors"
+                },
+                {
+                    "name": "Kevin Bond",
+                    "homepage": "http://zenstruck.com/"
                 }
             ],
             "description": "Liip Monitor Bundle",
@@ -2339,7 +2286,7 @@
                 "monitor",
                 "monitoring"
             ],
-            "time": "2014-02-08 12:49:51"
+            "time": "2014-07-09 12:14:29"
         },
         {
             "name": "michelf/php-markdown",
@@ -4634,6 +4581,65 @@
                 "npm"
             ],
             "time": "2013-07-09 08:57:03"
+        },
+        {
+            "name": "zendframework/zenddiagnostics",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendDiagnostics.git",
+                "reference": "a39a48e0fc3a28977087dec08399c923e87b4b7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZendDiagnostics/zipball/a39a48e0fc3a28977087dec08399c923e87b4b7a",
+                "reference": "a39a48e0fc3a28977087dec08399c923e87b4b7a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "guzzle/http": "3.*",
+                "guzzle/plugin-mock": "3.*",
+                "predis/predis": "0.8.*",
+                "sensiolabs/security-checker": "1.3.*@dev",
+                "symfony/yaml": "v2.3.11",
+                "videlalvaro/php-amqplib": "2.*",
+                "zendframework/zend-loader": "2.*"
+            },
+            "suggest": {
+                "ext-bcmath": "Required by Check\\CpuPerformance",
+                "guzzle/http": "Required by Check\\GuzzleHttpService",
+                "predis/predis": "Required by Check\\Redis",
+                "sensiolabs/security-checker": "Required by Check\\SecurityAdvisory",
+                "symfony/yaml": "Required by Check\\YamlFile",
+                "videlalvaro/php-amqplib": "Required by Check\\RabbitMQ"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendDiagnostics\\": "src/",
+                    "ZendDiagnosticsTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "A set of components for performing diagnostic tests in PHP applications",
+            "homepage": "https://github.com/zendframework/ZendDiagnostics",
+            "keywords": [
+                "diagnostics",
+                "php",
+                "test"
+            ],
+            "time": "2014-04-15 19:03:28"
         }
     ],
     "packages-dev": [

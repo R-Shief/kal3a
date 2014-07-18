@@ -178,15 +178,34 @@ doctrine_couch_db:
 # Liip monitor
 liip_monitor:
     checks:
-        php_extensions: [ intl, mcrypt, twig, curl ]
+        php_extensions: [ intl, mcrypt, curl ]
         writable_directory:
             - %kernel.cache_dir%
             - %kernel.logs_dir%
         doctrine_dbal:            default
-        deps_entries:             ~
-        symfony_version_check:    ~
+        symfony_version:          ~
         security_advisory:
             lock_file:            %kernel.root_dir%/../composer.lock
+        http_service:
+            couchdb:
+                host:                 localhost
+                port:                 5984
+                path:                 /
+                status_code:          200
+                content:              null
+            elasticsearch:
+                host:                 localhost
+                port:                 9200
+                path:                 /
+                status_code:          200
+                content:              null
+        rabbit_mq:
+            default:
+                host:                 localhost
+                port:                 5672
+                user:                 guest
+                password:             guest
+                vhost:                /
 
 bangpound_guzzle_proxy:
 

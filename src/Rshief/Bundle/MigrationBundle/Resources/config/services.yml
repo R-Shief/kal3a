@@ -20,12 +20,6 @@ parameters:
         escapeHtml: true
 
 services:
-    rshief_migration.check.couchdb:
-        class: Bangpound\Check\CouchDBCheck
-        arguments: [ @doctrine_couchdb ]
-        tags:
-            - { name: liip_monitor.check }
-
     rshief_migration.vbulletin_process_workflow.command:
         class: %rshief_migration.vbulletin_process_workflow.command.class%
         tags:
