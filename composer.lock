@@ -191,12 +191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/pubsub-bundle.git",
-                "reference": "082fc05de2e72d9827e0e986e1eec28649a3dea8"
+                "reference": "83e86089f066f64f2761395cb3cc661e9b37c953"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/082fc05de2e72d9827e0e986e1eec28649a3dea8",
-                "reference": "082fc05de2e72d9827e0e986e1eec28649a3dea8",
+                "url": "https://api.github.com/repos/bangpound/pubsub-bundle/zipball/83e86089f066f64f2761395cb3cc661e9b37c953",
+                "reference": "83e86089f066f64f2761395cb3cc661e9b37c953",
                 "shasum": ""
             },
             "require": {
@@ -220,7 +220,7 @@
                 }
             ],
             "description": "Pubsub bundle for Castle.",
-            "time": "2014-04-20 06:34:12"
+            "time": "2014-07-20 14:40:01"
         },
         {
             "name": "bangpound/twitter-streaming-bundle",
