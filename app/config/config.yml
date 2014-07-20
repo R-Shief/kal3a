@@ -97,21 +97,35 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-sonata_notification:
-    backend: sonata.notification.backend.rabbitmq
-    queues:
-        - { queue: twitter_stream, recover: true, routing_key: twitter_data.tweet }
-        - { queue: pubsub, recover: true, routing_key: pubsub_notification }
-        - { queue: catchall, default: true }
-    backends:
-        rabbitmq:
-            exchange: amq.direct
-            connection:
-                host:     %rabbitmq_host%
-                user:     %rabbitmq_user%
-                pass:     %rabbitmq_pass%
-                port:     %rabbitmq_port%
-                vhost:    %rabbitmq_vhost%
+old_sound_rabbit_mq:
+    enable_collector: true
+    connections:
+        default:
+            host:     %rabbitmq_host%
+            user:     %rabbitmq_user%
+            password: %rabbitmq_pass%
+            port:     %rabbitmq_port%
+            vhost:    %rabbitmq_vhost%
+    producers:
+        twitter:
+            connection:       default
+            exchange_options: { name: 'twitter', type: direct }
+            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
+        pubsub:
+            connection:       default
+            exchange_options: { name: 'pubsub', type: direct }
+            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
+    consumers:
+        twitter:
+            connection:       default
+            exchange_options: { name: 'twitter', type: direct }
+            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
+            callback:         bangpound_twitter_streaming.consumer.notification
+        pubsub:
+            connection:       default
+            exchange_options: { name: 'pubsub', type: direct }
+            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
+            callback:         rshief_bundle.consumer.notification
 
 sonata_block:
     default_contexts: [cms]
