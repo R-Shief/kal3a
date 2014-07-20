@@ -38,7 +38,7 @@ root:
         permanent: true
 
 _monitor:
-    resource: "@LiipMonitorBundle/Resources/config/routing.yml"
+    resource: "@LiipMonitorBundle/Resources/config/routing.xml"
     prefix: /monitor/health
 
 admin:

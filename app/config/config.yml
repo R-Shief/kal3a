@@ -191,6 +191,7 @@ doctrine_couch_db:
 
 # Liip monitor
 liip_monitor:
+    enable_controller: true
     checks:
         php_extensions: [ intl, mcrypt, curl ]
         writable_directory:
