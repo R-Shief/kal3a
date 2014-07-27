@@ -373,12 +373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ddeboer/data-import.git",
-                "reference": "72792d83b60ff6e5e7a3e953d199546d4e1f04f1"
+                "reference": "87283d9c644a98877f0e608988bd5f642bca2a67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/72792d83b60ff6e5e7a3e953d199546d4e1f04f1",
-                "reference": "72792d83b60ff6e5e7a3e953d199546d4e1f04f1",
+                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/87283d9c644a98877f0e608988bd5f642bca2a67",
+                "reference": "87283d9c644a98877f0e608988bd5f642bca2a67",
                 "shasum": ""
             },
             "require": {
@@ -417,13 +417,12 @@
             ],
             "authors": [
                 {
-                    "name": "David de Boer",
-                    "email": "david@ddeboer.nl",
-                    "homepage": "http://ddeboer.nl"
-                },
-                {
                     "name": "The community",
                     "homepage": "https://github.com/ddeboer/data-import/graphs/contributors"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
                 }
             ],
             "description": "Import data from, and export data to, a range of file formats and media",
@@ -435,7 +434,7 @@
                 "export",
                 "import"
             ],
-            "time": "2014-07-16 08:40:41"
+            "time": "2014-07-25 13:31:51"
         },
         {
             "name": "ddeboer/data-import-bundle",
@@ -2824,16 +2823,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Pimple.git",
-                "reference": "90b4710f115766d12e1a579b816c0974887b87a7"
+                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/90b4710f115766d12e1a579b816c0974887b87a7",
-                "reference": "90b4710f115766d12e1a579b816c0974887b87a7",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
+                "reference": "ea22fb2880faf7b7b0e17c9809c6fe25b071fd76",
                 "shasum": ""
             },
             "require": {
@@ -2857,9 +2856,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
@@ -2868,7 +2865,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2014-05-01 10:34:00"
+            "time": "2014-07-24 07:10:08"
         },
         {
             "name": "psr/log",
@@ -3161,12 +3158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5"
+                "reference": "d5b8fa79ad057c3d2d8cf6750a29520a438605dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3945b5794000e22b25e7c66774d8ea63eb919aa5",
-                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d5b8fa79ad057c3d2d8cf6750a29520a438605dd",
+                "reference": "d5b8fa79ad057c3d2d8cf6750a29520a438605dd",
                 "shasum": ""
             },
             "require": {
@@ -3232,7 +3229,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-07-18 14:00:40"
+            "time": "2014-07-25 11:30:11"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3954,15 +3951,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "0b82950ece96c1f091dcdb088298bd72dbc83a47"
+                "reference": "229730a14ccac63bb3c5d9f0494fcd27140c0dd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/0b82950ece96c1f091dcdb088298bd72dbc83a47",
-                "reference": "0b82950ece96c1f091dcdb088298bd72dbc83a47",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/229730a14ccac63bb3c5d9f0494fcd27140c0dd3",
+                "reference": "229730a14ccac63bb3c5d9f0494fcd27140c0dd3",
                 "shasum": ""
             },
             "require": {
+                "ext-intl": "*",
                 "lib-icu": ">=3.8",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
@@ -3993,21 +3991,20 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 10:05:23"
+            "time": "2014-07-25 10:00:11"
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.6.0",
-            "target-dir": "Symfony/Bundle/MonologBundle",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a"
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
                 "shasum": ""
             },
             "require": {
@@ -4029,8 +4026,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Symfony\\Bundle\\MonologBundle": ""
+                "psr-4": {
+                    "Symfony\\Bundle\\MonologBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4039,14 +4036,12 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony MonologBundle",
@@ -4055,7 +4050,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-06-04 16:49:13"
+            "time": "2014-07-21 00:36:06"
         },
         {
             "name": "symfony/swiftmailer-bundle",
