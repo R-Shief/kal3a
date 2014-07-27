@@ -27,15 +27,17 @@ monolog:
 # Liip monitor
 liip_monitor:
     checks:
-        disc_usage:
-            percentage:           80
+        disk_usage:
+            warning:              70
+            critical:             90
             path:                 %kernel.cache_dir%
         http_service:
-            host:                 localhost
-            port:                 80
-            path:                 /
-            status_code:          200
-            content:              ~
+            httpd:
+                host:                 localhost
+                port:                 80
+                path:                 /
+                status_code:          200
+                content:              ~
 
 sputnik_pubsub:
     live_hub: true
