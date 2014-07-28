@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "35e2a6d3fd96d9a2b178f463e7016a4364f741d3"
+                "reference": "11beb7ae2e95f079c75a6d3e4447b950955ab881"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/35e2a6d3fd96d9a2b178f463e7016a4364f741d3",
-                "reference": "35e2a6d3fd96d9a2b178f463e7016a4364f741d3",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/11beb7ae2e95f079c75a6d3e4447b950955ab881",
+                "reference": "11beb7ae2e95f079c75a6d3e4447b950955ab881",
                 "shasum": ""
             },
             "type": "library",
@@ -74,7 +74,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-07-19 20:15:43"
+            "time": "2014-07-28 16:48:49"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "800944cbe2dfe29944db207ccaa409c8fe869844"
+                "reference": "10d17484f7af5d487759e681f9da83a9b8d97d36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/800944cbe2dfe29944db207ccaa409c8fe869844",
-                "reference": "800944cbe2dfe29944db207ccaa409c8fe869844",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/10d17484f7af5d487759e681f9da83a9b8d97d36",
+                "reference": "10d17484f7af5d487759e681f9da83a9b8d97d36",
                 "shasum": ""
             },
             "require": {
@@ -259,7 +259,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2014-07-20 13:41:39"
+            "time": "2014-07-28 15:07:13"
         },
         {
             "name": "creof/doctrine2-spatial",
@@ -373,12 +373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ddeboer/data-import.git",
-                "reference": "87283d9c644a98877f0e608988bd5f642bca2a67"
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/87283d9c644a98877f0e608988bd5f642bca2a67",
-                "reference": "87283d9c644a98877f0e608988bd5f642bca2a67",
+                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
                 "shasum": ""
             },
             "require": {
@@ -434,7 +434,7 @@
                 "export",
                 "import"
             ],
-            "time": "2014-07-25 13:31:51"
+            "time": "2014-07-28 11:57:13"
         },
         {
             "name": "ddeboer/data-import-bundle",
@@ -2216,17 +2216,17 @@
         },
         {
             "name": "liip/monitor-bundle",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "target-dir": "Liip/MonitorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipMonitorBundle.git",
-                "reference": "a166250ce69cdfbcd4087966094c50fb59ed1994"
+                "reference": "f0b9ffbaedc8eb3bec2eff34d0e26573847dc03d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/a166250ce69cdfbcd4087966094c50fb59ed1994",
-                "reference": "a166250ce69cdfbcd4087966094c50fb59ed1994",
+                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/f0b9ffbaedc8eb3bec2eff34d0e26573847dc03d",
+                "reference": "f0b9ffbaedc8eb3bec2eff34d0e26573847dc03d",
                 "shasum": ""
             },
             "require": {
@@ -2284,7 +2284,7 @@
                 "monitor",
                 "monitoring"
             ],
-            "time": "2014-07-09 12:14:29"
+            "time": "2014-07-28 13:32:46"
         },
         {
             "name": "michelf/php-markdown",
@@ -4988,6 +4988,7 @@
         "bangpound/doctrine-datetime": 20,
         "cypresslab/angular-ng-routing-bundle": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
     },
