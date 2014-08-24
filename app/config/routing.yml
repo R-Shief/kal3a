@@ -1,6 +1,9 @@
 rshief_kal3a:
     resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
 
+castle:
+    resource: "@BangpoundCastleBundle/Resources/config/routing.yml"
+
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
 
