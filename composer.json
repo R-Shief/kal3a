@@ -9,6 +9,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
         },
         {
@@ -34,7 +38,7 @@
         "sonata-project/admin-bundle": "2.3.*@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev",
         "sonata-project/user-bundle": "~2.2",
-        "doctrine/couchdb": "dev-master",
+        "doctrine/couchdb": "dev-develop",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-develop",
         "robotsnowfall/enum": "dev-master",
