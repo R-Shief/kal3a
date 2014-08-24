@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "cb2c5d8ace52e744b843fe253ec49367dc8eb5c3"
+                "reference": "8253bb81f62de40ddc4550b5909250bdf4eebe85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/cb2c5d8ace52e744b843fe253ec49367dc8eb5c3",
-                "reference": "cb2c5d8ace52e744b843fe253ec49367dc8eb5c3",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/8253bb81f62de40ddc4550b5909250bdf4eebe85",
+                "reference": "8253bb81f62de40ddc4550b5909250bdf4eebe85",
                 "shasum": ""
             },
             "type": "library",
@@ -74,7 +74,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-08-24 09:44:32"
+            "time": "2014-08-24 17:41:02"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -3163,12 +3163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "fd6872967f215bed51e0b6bffa64cb3d20c8da10"
+                "reference": "98f80c82a6c78003377493b16ba8a088b5c79e23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/fd6872967f215bed51e0b6bffa64cb3d20c8da10",
-                "reference": "fd6872967f215bed51e0b6bffa64cb3d20c8da10",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/98f80c82a6c78003377493b16ba8a088b5c79e23",
+                "reference": "98f80c82a6c78003377493b16ba8a088b5c79e23",
                 "shasum": ""
             },
             "require": {
@@ -3234,7 +3234,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-08-23 19:58:04"
+            "time": "2014-08-24 11:00:05"
         },
         {
             "name": "sonata-project/block-bundle",

@@ -36,7 +36,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ BangpoundCastleSearchBundle, RshiefKal3aBundle ]
+    bundles:        [ BangpoundCastleSearchBundle, RshiefKal3aBundle, BangpoundCastleBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
