@@ -95,7 +95,7 @@
             'title': 'Daily',
             'body': 'Count of items per day for last week.',
             'design_document': 'stats',
-            'view': 'daily',
+            'view': 'published',
             'reduce': true,
             'group': true,
             'descending': true,
@@ -109,7 +109,7 @@
             'title': 'Hourly',
             'body': 'Count of items per hour for last 24 hours.',
             'design_document': 'stats',
-            'view': 'daily',
+            'view': 'published',
             'reduce': true,
             'group': true,
             'descending': true,
@@ -133,7 +133,7 @@
             'group_level': 1,
         }
     }) }}
-    {{ sonata_block_render({
+    {# sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
             'title': 'Today',
@@ -145,8 +145,8 @@
             'startkey': [ (date('+1 day') | date('Y')) + 0, (date('+1 day') | date('m')) + 0, (date('+1 day') | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
-    }) }}
-    {{ sonata_block_render({
+    }) #}
+    {# sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
             'title': 'Yesterday',
@@ -158,5 +158,5 @@
             'startkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
-    }) }}
+    }) #}
 {% endblock %}

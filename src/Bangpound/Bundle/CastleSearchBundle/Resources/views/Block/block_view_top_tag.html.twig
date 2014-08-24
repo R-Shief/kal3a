@@ -5,7 +5,7 @@
     {% for key,value in results | slice(0,50) %}
         <tr>
             <th><a href="{{ url('bangpound_castle_search_result', { 'tag': key }) }}">{{ key }}</a></th>
-            <td class="text-right">{{ value|number_format }}</td>
+            <td class="text-right">{{ value.count|number_format }}</td>
         </tr>
     {% endfor %}
     </table>

@@ -7,7 +7,7 @@
             <tr>
                 <th>{{ grouping }}</th>
                 <td>{{ key }}</td>
-                <td class="text-right">{{ value|number_format }}</td>
+                <td class="text-right">{{ value.count|number_format }}</td>
             </tr>
         {% endfor %}
     {% endfor %}

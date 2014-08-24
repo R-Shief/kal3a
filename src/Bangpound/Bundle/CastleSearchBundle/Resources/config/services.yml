@@ -17,13 +17,13 @@ services:
         tags:
             - { name: sonata.block }
 
-    bangpound_castle_search.block.top_tag_view:
-        class: %bangpound_castle_search.block.top_tag_view.class%
-        arguments: [ 'bangpound_castle_search.block.top_tag_view', @templating, @doctrine_couchdb.odm.default_document_manager ]
-        calls:
-            - [setClient, [@doctrine_couchdb.client.stats_connection]]
-        tags:
-            - { name: sonata.block }
+#    bangpound_castle_search.block.top_tag_view:
+#        class: %bangpound_castle_search.block.top_tag_view.class%
+#        arguments: [ 'bangpound_castle_search.block.top_tag_view', @templating, @doctrine_couchdb.odm.default_document_manager ]
+#        calls:
+#            - [setClient, [@doctrine_couchdb.client.stats_connection]]
+#        tags:
+#            - { name: sonata.block }
 
     bangpound_castle_search.block.collection_view:
         class: %bangpound_castle_search.block.collection_view.class%

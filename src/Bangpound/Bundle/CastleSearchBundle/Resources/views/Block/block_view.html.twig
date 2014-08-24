@@ -13,7 +13,7 @@
         {% for key,value in results %}
             <tr>
                 <th>{{ key }}</th>
-                <td class="text-right">{{ value|number_format }}</td>
+                <td class="text-right">{{ value.count|number_format }}</td>
             </tr>
         {% endfor %}
         </table>

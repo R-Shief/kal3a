@@ -13,7 +13,7 @@
         {% for result in results %}
             <tr>
                 <th><a href="{{ url('bangpound_castle_search_result', { 'collection': result.key | lower }) }}">{{ result.label }}</a></th>
-                <td class="text-right">{{ result.value|number_format }}</td>
+                <td class="text-right">{{ result.value.count|number_format }}</td>
             </tr>
         {% endfor %}
         </table>
