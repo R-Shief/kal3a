@@ -66,7 +66,9 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "raulfraile/ladybug-bundle": "~1.0.2"
+        "raulfraile/ladybug-bundle": "~1.0.2",
+        "jns/xhprof-bundle": "1.0.*@dev",
+        "facebook/xhprof": "dev-master@dev"
     },
     "scripts": {
         "post-root-package-install": [
