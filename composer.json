@@ -9,15 +9,15 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/couchdb.git"
+            "url": "https://github.com/bangpound/couchdb-client.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
+            "url": "https://github.com/bangpound/DoctrineCouchDBBundle.git"
         },
         {
             "type": "vcs",
-            "url": "git@github.com:bangpound/elasticsearch-bundle-1.git"
+            "url": "https://github.com/bangpound/elasticsearch-bundle-1.git"
         }
     ],
     "require": {
@@ -38,7 +38,7 @@
         "sonata-project/admin-bundle": "2.3.*@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev",
         "sonata-project/user-bundle": "~2.2",
-        "doctrine/couchdb": "dev-develop",
+        "doctrine/couchdb": "dev-develop as dev-master",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-develop",
         "robotsnowfall/enum": "dev-master",
