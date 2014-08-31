@@ -293,7 +293,7 @@ castleSearch
                     label: $scope.tag
                 }
             ],
-            lineMode: "bundle"
+            lineMode: "cardinal"
         };
 
 
