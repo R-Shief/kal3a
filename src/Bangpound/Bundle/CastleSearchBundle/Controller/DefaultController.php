@@ -96,6 +96,6 @@ class DefaultController extends Controller
     {
         $query = $request->query->all();
 
-        return $this->render('BangpoundCastleSearchBundle:Default:result.html.twig', ['query' => $query]);
+        return $this->render('BangpoundCastleSearchBundle:Default:result.html.twig', array('query' => $query));
     }
 }
