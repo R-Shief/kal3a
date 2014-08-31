@@ -320,7 +320,7 @@ castleSearch
         $scope.getData = function () {
             if ($scope.tag) {
                 $scope.db
-                    .query('stats', 'tag', {group: true, group_level: 5, startkey: [$scope.tag], endkey: [$scope.tag, {}]})
+                    .query('stats', 'tag', { stale: 'ok', group: true, group_level: 5, startkey: [$scope.tag], endkey: [$scope.tag, {}]})
                     .then(function (res) {
                         $scope.data = _.map(res.data.rows, function (row) {
                             var utc = row.key.splice(1);
