@@ -309,7 +309,7 @@ castleSearch
         $scope.getTags = function (val) {
             var endkey = val.substr(0, val.length - 1) + String.fromCharCode(val.charCodeAt(val.length - 1) + 1);
             return $scope.db
-                .query('stats', 'tag', { group: true, group_level: 1, startkey: [val], endkey: [endkey, {}] })
+                .query('stats', 'tag', { stale: 'ok', group: true, group_level: 1, startkey: [val], endkey: [endkey, {}] })
                 .then(function (res) {
                     return _.map(res.data.rows, function (row) {
                         return row.key[0];
