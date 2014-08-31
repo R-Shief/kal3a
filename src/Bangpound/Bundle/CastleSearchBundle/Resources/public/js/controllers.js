@@ -324,6 +324,7 @@ castleSearch
                     .then(function (res) {
                         $scope.data = _.map(res.data.rows, function (row) {
                             var utc = row.key.splice(1);
+                            utc[1] = utc[1] - 1;
                             return {
                                 x: new Date(Date.UTC.apply(null, utc)),
                                 value: parseInt(row.value.sum, 10)
