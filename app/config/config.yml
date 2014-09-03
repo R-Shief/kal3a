@@ -185,14 +185,6 @@ doctrine_couch_db:
                 dbname: %doctrine_couch_db.default.dbname%
                 user: %doctrine_couch_db.default.user%
                 password: %doctrine_couch_db.default.password%
-            stats:
-                dbname: %doctrine_couch_db.default.dbname%_stats
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
-            trends:
-                dbname: %doctrine_couch_db.default.dbname%_trends
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
     odm:
         auto_mapping: true
 
