@@ -54,7 +54,10 @@
         "cypresslab/angular-ng-routing-bundle": "~1.0@dev",
         "nesbot/Carbon": "~1.8",
         "friendsofsymfony/rest-bundle": "1.3.*",
-        "oldsound/rabbitmq-bundle": "~1.5.0"
+        "oldsound/rabbitmq-bundle": "~1.5.0",
+        "rshief/migration-bundle": "1.0.*@dev",
+        "rshief/kal3a-bundle": "1.0.*@dev",
+        "bangpound/castle-search-bundle": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
