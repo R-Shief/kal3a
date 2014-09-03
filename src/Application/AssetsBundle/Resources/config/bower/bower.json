@@ -1,6 +1,7 @@
 {
     "name": "search",
     "version": "0.0.0",
+    "private": true,
     "ignore": [
         "**/.*",
         "node_modules",
@@ -11,17 +12,10 @@
     "dependencies": {
         "angular-bootstrap": "master",
         "bootstrap-sass": "~3.0.2",
-        "d3": "~3.4.6",
-        "n3-charts.line-chart": "~1.1.2",
-        "elasticsearch": "~2.1.3",
-        "elastic.js": "master",
         "font-awesome": "~4.0.3",
         "html5shiv": "~3.7.1",
         "jquery": ">= 1.9.0",
         "respond": "~1.4.2",
-        "underscore.string": "~2.3.3",
-        "underscore": "~1.6.0",
-        "regression-js": null,
-        "CornerCouch": null
+        "regression-js": null
     }
 }

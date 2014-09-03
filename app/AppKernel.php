@@ -44,6 +44,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
+            new Application\AssetsBundle\ApplicationAssetsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,7 @@
+parameters:
+#    application_assets.example.class: Application\AssetsBundle\Example
+
+services:
+#    application_assets.example:
+#        class: %application_assets.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

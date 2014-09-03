@@ -234,6 +234,8 @@ fos_rest:
 sp_bower:
     bundles:
         BangpoundAngularJsBundle: ~
+        BangpoundCastleSearchBundle: ~
+        ApplicationAssetsBundle: ~
     assetic:
         enabled:              true
         nest_dependencies: false
