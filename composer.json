@@ -8,16 +8,8 @@
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/couchdb-client.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/DoctrineCouchDBBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/bangpound/elasticsearch-bundle-1.git"
+            "type": "composer",
+            "url": "http://bangpound.github.io/packages"
         }
     ],
     "require": {
