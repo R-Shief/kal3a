@@ -52,6 +52,8 @@ assetic:
         font_awesome_css:
             inputs:
                 - bundles/applicationassets/components/font-awesome/css/font-awesome.css
+            filters:
+                - cssrewrite
         underscore_string_js:
             inputs:
                 - "bundles/bangpoundcastlesearch/components/underscore.string/dist/underscore.string.min.js"
