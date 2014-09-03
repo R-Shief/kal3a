@@ -21,7 +21,6 @@ class ListQuery extends Query
      * @param string         $viewName
      * @param string         $listName
      * @param DesignDocument $doc
-     * @internal param string $listName
      */
     public function __construct(Client $client, $databaseName, $designDocName, $viewName, $listName, DesignDocument $doc = null)
     {
