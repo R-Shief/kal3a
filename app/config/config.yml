@@ -85,7 +85,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
         mappings:
-            ApplicationSonataUserBundle: ~
+            ApplicationUserBundle: ~
 
 
 # Swiftmailer Configuration
@@ -155,9 +155,9 @@ sonata_admin:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Application\Sonata\UserBundle\Entity\User
+    user_class: Application\UserBundle\Entity\User
     group:
-        group_class: Application\Sonata\UserBundle\Entity\Group
+        group_class: Application\UserBundle\Entity\Group
 
 sensio_framework_extra:
     router:  { annotations: true }
