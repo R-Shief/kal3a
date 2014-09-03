@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new \OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
+            new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Bangpound\PhirehoseBundle\BangpoundPhirehoseBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -52,6 +52,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+            $bundles[] = new Jns\Bundle\XhprofBundle\JnsXhprofBundle();
         }
 
         return $bundles;

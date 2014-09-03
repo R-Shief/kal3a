@@ -66,9 +66,6 @@
         "facebook/xhprof": "dev-master@dev"
     },
     "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
         "post-install-cmd": [
             "Sp\\BowerBundle\\Composer\\ScriptHandler::bowerInstall",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
