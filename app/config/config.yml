@@ -86,7 +86,6 @@ doctrine:
         auto_mapping: true
         mappings:
             ApplicationSonataUserBundle: ~
-            SonataUserBundle: ~
 
 
 # Swiftmailer Configuration
@@ -159,10 +158,6 @@ fos_user:
     user_class: Application\Sonata\UserBundle\Entity\User
     group:
         group_class: Application\Sonata\UserBundle\Entity\Group
-
-sonata_user:
-    security_acl: true
-    manager_type: orm # can be orm or mongodb
 
 sensio_framework_extra:
     router:  { annotations: true }

@@ -37,7 +37,7 @@
         "yohang/dependency-tools": "1.0.*",
         "sonata-project/admin-bundle": "2.3.*@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev",
-        "sonata-project/user-bundle": "~2.2",
+        "friendsofsymfony/user-bundle": "~2.0.0@dev",
         "doctrine/couchdb": "dev-develop as dev-master",
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-develop",
