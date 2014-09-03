@@ -230,3 +230,10 @@ fos_rest:
     format_listener: true
     view:
         view_response_listener: 'force'
+
+sp_bower:
+    bundles:
+        BangpoundAngularJsBundle: ~
+    assetic:
+        enabled:              true
+        nest_dependencies: false

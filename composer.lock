@@ -4,8 +4,52 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ff0d5743f198c68abc365718d26ad03",
+    "hash": "b32acd0037e8ce4b82d5e66742c6c51f",
     "packages": [
+        {
+            "name": "bangpound/angularjs-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/angularjs-bundle.git",
+                "reference": "2ebf3ed1af97a3a081d1921beeb88279a2a6d794"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/angularjs-bundle/zipball/2ebf3ed1af97a3a081d1921beeb88279a2a6d794",
+                "reference": "2ebf3ed1af97a3a081d1921beeb88279a2a6d794",
+                "shasum": ""
+            },
+            "require": {
+                "sp/bower-bundle": "~0.11"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bangpound\\Bundle\\AngularJsBundle\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "AngularJS Symfony bundle",
+            "support": {
+                "source": "https://github.com/bangpound/angularjs-bundle/tree/master",
+                "issues": "https://github.com/bangpound/angularjs-bundle/issues"
+            },
+            "time": "2014-09-01 17:42:08"
+        },
         {
             "name": "bangpound/atom-data-bundle",
             "version": "dev-master",
@@ -82,13 +126,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "f309fef62759f305837efd7e4508904f081e74be"
+                "reference": "556245439595448f406cda57d7b62a52a4284ffb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/f309fef62759f305837efd7e4508904f081e74be",
-                "reference": "f309fef62759f305837efd7e4508904f081e74be",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/556245439595448f406cda57d7b62a52a4284ffb",
+                "reference": "556245439595448f406cda57d7b62a52a4284ffb",
                 "shasum": ""
+            },
+            "require": {
+                "bangpound/angularjs-bundle": "1.0.*@dev"
             },
             "type": "library",
             "extra": {
@@ -115,7 +162,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-03 07:32:45"
+            "time": "2014-09-03 07:59:39"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -3545,6 +3592,67 @@
             "time": "2013-10-24 13:43:33"
         },
         {
+            "name": "sp/bower-bundle",
+            "version": "v0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spea/SpBowerBundle.git",
+                "reference": "e492c022755f5b764672f715c7ca3a52c942a2b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spea/SpBowerBundle/zipball/e492c022755f5b764672f715c7ca3a52c942a2b6",
+                "reference": "e492c022755f5b764672f715c7ca3a52c942a2b6",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "~1.0",
+                "doctrine/collections": "1.*",
+                "php": ">=5.3.3",
+                "symfony/assetic-bundle": "~2.1",
+                "symfony/framework-bundle": "~2.1",
+                "symfony/process": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*",
+                "symfony/console": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sp\\BowerBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Parsiegla",
+                    "email": "martin.parsiegla@gmail.com",
+                    "homepage": "http://speanet.info"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Spea/SpBowerBundle/contributors"
+                }
+            ],
+            "description": "Handle asset dependencies with bower",
+            "keywords": [
+                "asset",
+                "bower",
+                "bower manager",
+                "dependencies"
+            ],
+            "time": "2014-07-14 08:51:16"
+        },
+        {
             "name": "sputnik/pubsub-bundle",
             "version": "v0.3.0",
             "target-dir": "Sputnik/Bundle/PubsubBundle",
@@ -4292,51 +4400,6 @@
             "time": "2014-05-16 12:34:51"
         },
         {
-            "name": "yohang/dependency-tools",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yohang/dependency-tools.git",
-                "reference": "f68be8d3a709eff931cb1b892a9e572a09f0d18c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yohang/dependency-tools/zipball/f68be8d3a709eff931cb1b892a9e572a09f0d18c",
-                "reference": "f68be8d3a709eff931cb1b892a9e572a09f0d18c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/process": ">=2.0,<3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Yohang": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Yohan Giarelli",
-                    "email": "yohan@giarel.li",
-                    "homepage": "http://yohan.giarel.li"
-                }
-            ],
-            "description": "A simple Composer script to install NPM and/or Bower dependencies",
-            "homepage": "https://github.com/yohang/dependency-tools",
-            "keywords": [
-                "bower",
-                "composer",
-                "dependency",
-                "npm"
-            ],
-            "time": "2013-07-09 08:57:03"
-        },
-        {
             "name": "zendframework/zenddiagnostics",
             "version": "v1.0.3",
             "source": {
@@ -4866,6 +4929,7 @@
         "rshief/migration-bundle": 20,
         "rshief/kal3a-bundle": 20,
         "bangpound/castle-search-bundle": 20,
+        "bangpound/angularjs-bundle": 20,
         "jns/xhprof-bundle": 20,
         "facebook/xhprof": 20
     },

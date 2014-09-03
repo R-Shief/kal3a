@@ -42,6 +42,8 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Cypress\AngularNgRoutingBundle\CypressAngularNgRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new Sp\BowerBundle\SpBowerBundle(),
+            new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

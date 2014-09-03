@@ -9,9 +9,6 @@
         "tests"
     ],
     "dependencies": {
-        "angular-sanitize": "~1.2.1",
-        "angular": "~1.2.16",
-        "angular-resource": "~1.2.16",
         "angular-bootstrap": "master",
         "bootstrap-sass": "~3.0.2",
         "d3": "~3.4.6",
