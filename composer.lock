@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b32acd0037e8ce4b82d5e66742c6c51f",
+    "hash": "c3ada6c6a411172c633ed5c2685d3dce",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "5e063791d9ddc2291aaf67e0a95d8b09b97444df"
+                "reference": "63309adac999d6244c3c0f56aa0a0519bd32b0b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/5e063791d9ddc2291aaf67e0a95d8b09b97444df",
-                "reference": "5e063791d9ddc2291aaf67e0a95d8b09b97444df",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/63309adac999d6244c3c0f56aa0a0519bd32b0b7",
+                "reference": "63309adac999d6244c3c0f56aa0a0519bd32b0b7",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-03 08:37:28"
+            "time": "2014-09-03 10:52:35"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -403,57 +403,6 @@
                 "spatial"
             ],
             "time": "2014-03-17 13:45:28"
-        },
-        {
-            "name": "cypresslab/angular-ng-routing-bundle",
-            "version": "dev-master",
-            "target-dir": "Cypress/AngularNgRoutingBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/matteosister/CypressAngularNgRoutingBundle.git",
-                "reference": "9b77f47509dc1518f4a1fcd07a28fa43897efc59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/matteosister/CypressAngularNgRoutingBundle/zipball/9b77f47509dc1518f4a1fcd07a28fa43897efc59",
-                "reference": "9b77f47509dc1518f4a1fcd07a28fa43897efc59",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/jsrouting-bundle": "~1.5",
-                "php": ">=5.3.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Cypress\\AngularNgRoutingBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Matteo Giachino",
-                    "email": "matteog@gmail.com",
-                    "homepage": "https://github.com/matteosister/CypressTreeBundle/tree/develop",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A way to expose your Symfony2 routing to Angular $resource service.",
-            "keywords": [
-                "Js Routing",
-                "angular.js",
-                "javascript",
-                "routing"
-            ],
-            "time": "2014-06-25 12:40:50"
         },
         {
             "name": "ddeboer/data-import",
@@ -2914,12 +2863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "a93a3b75d385731238b3a80126421ffa3095a528"
+                "reference": "94d2674149a496c047f0a7a471e31c5fd1760bf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/a93a3b75d385731238b3a80126421ffa3095a528",
-                "reference": "a93a3b75d385731238b3a80126421ffa3095a528",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/94d2674149a496c047f0a7a471e31c5fd1760bf7",
+                "reference": "94d2674149a496c047f0a7a471e31c5fd1760bf7",
                 "shasum": ""
             },
             "type": "library",
@@ -2947,7 +2896,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-03 07:40:27"
+            "time": "2014-09-03 10:54:55"
         },
         {
             "name": "rshief/migration-bundle",
@@ -4925,7 +4874,6 @@
         "bangpound/guzzle-proxy-bundle": 20,
         "dr-que/polynomial-regression": 20,
         "bangpound/doctrine-datetime": 20,
-        "cypresslab/angular-ng-routing-bundle": 20,
         "rshief/migration-bundle": 20,
         "rshief/kal3a-bundle": 20,
         "bangpound/castle-search-bundle": 20,
