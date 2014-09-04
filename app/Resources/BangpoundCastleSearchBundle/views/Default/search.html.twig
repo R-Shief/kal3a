@@ -133,30 +133,30 @@
             'group_level': 1,
         }
     }) }}
-    {# sonata_block_render({
+    {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
             'title': 'Today',
             'body': 'Top tags for today.',
-            'design_document': 'top',
-            'view': 'top_tag',
+            'design_document': 'tag_trends',
+            'view': 'PT1D',
             'descending': true,
             'endkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
             'startkey': [ (date('+1 day') | date('Y')) + 0, (date('+1 day') | date('m')) + 0, (date('+1 day') | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
-    }) #}
-    {# sonata_block_render({
+    }) }}
+    {{ sonata_block_render({
         'type': 'bangpound_castle_search.block.top_tag_view',
         'settings': {
             'title': 'Yesterday',
             'body': 'Top tags for yesterday.',
-            'design_document': 'top',
-            'view': 'top_tag',
+            'design_document': 'tag_trends',
+            'view': 'PT1D',
             'descending': true,
             'endkey': [ (date('-1 day') | date('Y')) + 0, (date('-1 day') | date('m')) + 0, (date('-1 day') | date('d')) + 0 ],
             'startkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
         }
-    }) #}
+    }) }}
 {% endblock %}
