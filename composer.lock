@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3ada6c6a411172c633ed5c2685d3dce",
+    "hash": "348bb1f11107cd0a9ea32b8d73a2921c",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "fb95434c13a13574fd1632f938b48b52a9336691"
+                "reference": "da68c3e57b48d2e0538be88b4c74f6b94c426511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/fb95434c13a13574fd1632f938b48b52a9336691",
-                "reference": "fb95434c13a13574fd1632f938b48b52a9336691",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/da68c3e57b48d2e0538be88b4c74f6b94c426511",
+                "reference": "da68c3e57b48d2e0538be88b4c74f6b94c426511",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-03 12:44:08"
+            "time": "2014-09-04 03:13:51"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -406,16 +406,16 @@
         },
         {
             "name": "ddeboer/data-import",
-            "version": "dev-master",
+            "version": "0.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ddeboer/data-import.git",
-                "reference": "39ac4dcffd927e68e1ebbd32cc0c750d231a3928"
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/39ac4dcffd927e68e1ebbd32cc0c750d231a3928",
-                "reference": "39ac4dcffd927e68e1ebbd32cc0c750d231a3928",
+                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
                 "shasum": ""
             },
             "require": {
@@ -471,11 +471,11 @@
                 "export",
                 "import"
             ],
-            "time": "2014-08-21 20:27:50"
+            "time": "2014-07-28 11:57:13"
         },
         {
             "name": "ddeboer/data-import-bundle",
-            "version": "dev-master",
+            "version": "0.1.0",
             "target-dir": "Ddeboer/DataImportBundle",
             "source": {
                 "type": "git",
@@ -1444,63 +1444,6 @@
                 "twitter"
             ],
             "time": "2014-04-22 23:13:31"
-        },
-        {
-            "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "1.5.3",
-            "target-dir": "FOS/JsRoutingBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/dade3bb0b21007e5c0fb40f203ed197841eb913c",
-                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/console": "~2.0",
-                "symfony/framework-bundle": "~2.0",
-                "symfony/serializer": "~2.0",
-                "willdurand/jsonp-callback-validator": "~1.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "FOS\\JsRoutingBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
-                },
-                {
-                    "name": "FriendsOfSymfony Community",
-                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
-                }
-            ],
-            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
-            "homepage": "http://friendsofsymfony.github.com",
-            "keywords": [
-                "Js Routing",
-                "javascript",
-                "routing"
-            ],
-            "time": "2014-01-23 21:25:39"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -2904,13 +2847,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/migration-bundle.git",
-                "reference": "8f1d2179b3e35cfd59a16b6eb6881cd0170a5f86"
+                "reference": "5775b57f7115ad2e563b5802f59f855394fa108d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/migration-bundle/zipball/8f1d2179b3e35cfd59a16b6eb6881cd0170a5f86",
-                "reference": "8f1d2179b3e35cfd59a16b6eb6881cd0170a5f86",
+                "url": "https://api.github.com/repos/R-Shief/migration-bundle/zipball/5775b57f7115ad2e563b5802f59f855394fa108d",
+                "reference": "5775b57f7115ad2e563b5802f59f855394fa108d",
                 "shasum": ""
+            },
+            "require": {
+                "ddeboer/data-import": "~0.16",
+                "ddeboer/data-import-bundle": "~0.1.0",
+                "mjohnson/decoda": "~6.2.3"
             },
             "type": "library",
             "extra": {
@@ -2937,7 +2885,7 @@
                 "source": "https://github.com/R-Shief/migration-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/migration-bundle/issues"
             },
-            "time": "2014-09-03 07:48:11"
+            "time": "2014-09-04 03:26:13"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -4860,8 +4808,6 @@
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,
         "robotsnowfall/enum": 20,
-        "ddeboer/data-import-bundle": 20,
-        "ddeboer/data-import": 20,
         "ushios/elasticsearch-bundle": 20,
         "bangpound/atom-data-bundle": 20,
         "fennb/phirehose": 20,

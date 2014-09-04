@@ -33,7 +33,6 @@
         "doctrine/couchdb-odm": "dev-master",
         "doctrine/couchdb-odm-bundle": "dev-develop",
         "robotsnowfall/enum": "dev-master",
-        "mjohnson/decoda": "~6.2.3",
         "liip/monitor-bundle": "~2.0.2",
         "ushios/elasticsearch-bundle": "dev-develop",
         "bangpound/atom-data-bundle": "dev-master",
