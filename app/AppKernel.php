@@ -39,7 +39,6 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
