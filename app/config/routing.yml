@@ -84,6 +84,3 @@ sputnik_pubsub_hub:
 sputnik_pubsub_callback:
     resource: "@SputnikPubsubBundle/Resources/config/routing/callback.xml"
     prefix:   /push
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
