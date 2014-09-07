@@ -2863,12 +2863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "b4a301618a1aaeed0e0510a854c10fcc2bf3e842"
+                "reference": "52d2b63de6d5ff1e01bef7d45fcef61dc1922f47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/b4a301618a1aaeed0e0510a854c10fcc2bf3e842",
-                "reference": "b4a301618a1aaeed0e0510a854c10fcc2bf3e842",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/52d2b63de6d5ff1e01bef7d45fcef61dc1922f47",
+                "reference": "52d2b63de6d5ff1e01bef7d45fcef61dc1922f47",
                 "shasum": ""
             },
             "type": "library",
@@ -2896,7 +2896,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-03 12:43:32"
+            "time": "2014-09-06 20:43:38"
         },
         {
             "name": "rshief/migration-bundle",
@@ -3159,12 +3159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "e72157423a5d14b4494514db0d993917aa856513"
+                "reference": "05b20e179f6f59c6fa7cfae3177e660bed60d511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/e72157423a5d14b4494514db0d993917aa856513",
-                "reference": "e72157423a5d14b4494514db0d993917aa856513",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/05b20e179f6f59c6fa7cfae3177e660bed60d511",
+                "reference": "05b20e179f6f59c6fa7cfae3177e660bed60d511",
                 "shasum": ""
             },
             "require": {
@@ -3230,7 +3230,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-09-06 06:39:47"
+            "time": "2014-09-07 11:57:49"
         },
         {
             "name": "sonata-project/block-bundle",
