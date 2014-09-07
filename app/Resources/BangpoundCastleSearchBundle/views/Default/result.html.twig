@@ -4,6 +4,8 @@
     {{ parent() }}
     {% stylesheets filter='cssrewrite' %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
     {% endstylesheets %}
 {% endblock %}
 
@@ -35,30 +37,32 @@
 {% block navbar %}
     {{ parent() }}
 <div class="global-search active">
-    <div class="search-logo"><a href="/"><img src="bundles/rshiefkal3a/images/rshief-gray.png" alt="R-Shief"></a></div>
-    <form ng-submit="search()" class="form-inline facetview_search_options_container">
-        <div class="btn-group">
-            <a class="search-info" title="Search Help" data-toggle="modal" data-target="#search-help">
-                <i class="glyphicon glyphicon-question-sign"></i>
-            </a>
-        </div>
-        <div class="form-group">
-            <input class="form-control" ng-model="queryTerm" placeholder="Search our Archive | &#1573;&#1576;&#1581;&#1579; &#1571;&#1585;&#1588;&#1610;&#1601;"type="search" />
-        </div>
-        <div class="search-variables">
-            {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
-            <a title="change result set size" data-toggle="modal" data-target="#modal-results">
-                {% verbatim %}{{ query.size() }}{% endverbatim %}
-            </a>
-            <a class="btn btn-default" ng-click="toggleSort()">
-                <i ng-class="{'asc': 'glyphicon-sort-by-attributes glyphicon-flip-vertical', 'desc': 'glyphicon-sort-by-attributes-alt'}[sort.order]" class="glyphicon"></i>
-            </a>
-            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'asc'"><i class="glyphicon glyphicon-sort-by-attributes-alt fa-flip-vertical"></i></button>
-            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'desc'"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button>
-            <button type="button" class="btn btn-default" ng-model="sort" btn-radio="'_score'"><i class="glyphicon glyphicon-sort-by-order-alt"></i></button>
-        </div>
-        <button ng-click="search()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-    </form>
+	<div class="container">
+	    <div class="search-logo"><a href="/"><img src="bundles/rshiefkal3a/images/r-shief-web.png" alt="R-Shief"></a></div>
+
+	    <form ng-submit="search()" class="form-inline facetview_search_options_container">
+	        <div class="btn-group">
+	            <a class="search-info" title="Search Help" data-toggle="modal" data-target="#search-help">
+	                <i class="glyphicon glyphicon-question-sign"></i>
+	            </a>
+	        </div>
+	        <div class="form-group">
+	            <input class="form-control" ng-model="queryTerm" placeholder="Search our Archive | &#1573;&#1576;&#1581;&#1579; &#1571;&#1585;&#1588;&#1610;&#1601;"type="search" />
+	        </div>
+
+	        <div class="search-variables">
+	            {% include '@BangpoundCastleSearch/modal_results.html.twig' %}
+	            <a id="changeResults" title="change result set size" data-toggle="modal" data-target="#modal-results">
+	                Results
+	            </a>
+
+	            <button data-toggle="tooltip" data-placement="bottom" title="Sort Ascending" type="button" class="btn btn-default" ng-model="sort" btn-radio="'asc'"><i class="glyphicon glyphicon-sort-by-attributes-alt fa-flip-vertical"></i></button>
+	            <button data-toggle="tooltip" data-placement="bottom" title="Sort Descending" type="button" class="btn btn-default" ng-model="sort" btn-radio="'desc'"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></button>
+	            <button data-toggle="tooltip" data-placement="bottom" title="Sort by Relevance" type="button" class="btn btn-default" ng-model="sort" btn-radio="'_score'"><i class="glyphicon glyphicon-sort-by-order-alt"></i></button>
+	        </div>
+	        <button ng-click="search()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+	    </form>
+	 </div>
 </div>
 {% endblock %}
 
@@ -88,24 +92,27 @@
 
 {% block main %}
     <ul class="list-unstyled">
-        <li ng-repeat="doc in results.hits.hits" class="media row">
-            <div class="pull-left col-sm-2 col-md-2">
-                <span class="thumbnail">
-                    <img class="media-object" ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
-                </span>
+        <li ng-repeat="doc in results.hits.hits" class="media">
+            <div class="pull-left">
+                <div class="thumbnail">
+                	<span class="helper"></span>
+                    <img ng-src="{% verbatim %}{{doc.castleView.thumbnailLink.href}}{% endverbatim %}" alt="{% verbatim %}{{doc._source.name}}{% endverbatim %}" />
+                </div>
             </div>
             <div class="media-body">
-                <strong>
+                <p class="author">
                     <a ng-if="doc.castleView.authorLink" href="{% verbatim %}{{ doc.castleView.authorLink.href }}{% endverbatim %}" target="_blank">
                         {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
                     </a>
                     <span ng-if="!doc.castleView.authorLink">
                         {% verbatim %}{{ doc._source.authors[0].name }}{% endverbatim %}
                     </span>
-                </strong>
-                <span>{% verbatim %}{{ doc._source.source.title.text}}{% endverbatim %}</span>
-                <span>{% verbatim %}{{ doc._source.published | badDate | date:'medium' }}{% endverbatim %}</span>
-                <h4>
+                </p>
+                <p class="date">
+	                <span>{% verbatim %}{{ doc._source.source.title.text}}{% endverbatim %}</span>
+	                <span>{% verbatim %}{{ doc._source.published | badDate | date:'medium' }}{% endverbatim %}</span>
+	            </p>
+                <p>
                     <a ng-if="doc.castleView.alternateLink" ng-bind-html="doc._source.title.text | unsafe" ng-href="{% verbatim %}{{ doc.castleView.alternateLink.href }}{% endverbatim %}" target="_blank"></a>
                     <span ng-if="!doc.castleView.alternateLink" ng-bind-html="doc._source.title.text | unsafe"></span>
                     <small ng-show="doc.castleView.canonicalLink">
@@ -113,7 +120,7 @@
                             <i class="glyphicon glyphicon-link"></i>
                         </a>
                     </small>
-                </h4>
+                </p>
                 <atom-text-construct atom-element="doc._source.summary"></atom-text-construct>
                 <ul>
                     <li ng-repeat="(key, value) in doc.castleView.displayLinks">

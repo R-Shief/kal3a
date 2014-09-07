@@ -45,12 +45,13 @@
 {%- block navbar -%}
     {{- parent() -}}
 <div class="global-search active">
-    <div class="search-logo"><a href="/"><img src="bundles/rshiefkal3a/images/rshief-gray.png" alt="R-Shief"></a></div>
+	<div class="container">
+    <div class="search-logo"><a href="http://nu.r-shief.org"><img src="bundles/rshiefkal3a/images/r-shief-web.png" alt="R-Shief"></a></div>
     {{- form_start(form) -}}
     {% spaceless %}
         <div class="btn-group">
             <a class="search-info" title="Search Help" data-toggle="modal" data-target="#search-help">
-                <i class="glyphicon glyphicon-question-sign"></i>
+                <i class="fa fa-question-circle"></i>
             </a>
         </div>
     {% endspaceless %}
@@ -60,6 +61,7 @@
         {{- form_row(form.published_upper) -}}
         {{- form_widget(form.search) -}}
     {{- form_end(form) -}}
+    </div>
 </div>
 {%- endblock -%}
 

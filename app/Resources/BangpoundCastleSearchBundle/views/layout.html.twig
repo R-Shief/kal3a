@@ -3,6 +3,8 @@
 {% block stylesheets %}
     {% stylesheets filter='cssrewrite' "@font_awesome_css" "bundles/rshiefkal3a/css/style.scss" %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
     {% endstylesheets %}
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -27,85 +29,65 @@
     <div ng-app="castleSearch">
         <div{{ block('body_controller') }}>
             {% block navbar %}
+
                 <header class="rshief-header">
+                	<div class="container">
                     <div class="main-nav">
                         <button type="button" class="navbar-toggle" id="showLeftPush">
                             <i class="icon-reorder"></i>
                         </button>
 
-                        <a class="navbar-brand" href="http://r-shief.org">
-                            {% image '@RshiefKal3aBundle/Resources/public/images/star.png' %}
-                            <img src="{{ asset_url }}" alt="R-Shief">
-                            {% endimage %}
-                        </a>
+
 
                         <div class="nav-collapse collapse in navbar-responsive-collapse">
                             <nav id="nav" class="menu-global-container">
-                                <ul id="menu-global" class="nav navbar-nav">
+                            	<ul id="menu-global" class="nav social-nav navbar-nav pull-left">
+                                    <li>
+                                        <a title="Twitter" target="_blank" href="http://twitter.com/rshief"><i class="fa fa-twitter"></i></a>
+                                     </li>
+                                     <li>
+                                        <a title="Facebook" target="_blank" href="http://facebook.com/rshief"><i class="fa fa-facebook"></i></a>
+                                     </li>
+                                      <li>
+                                        <a title="Github" target="_blank" href="https://github.com/R-Shief/"><i class="fa fa-github-alt"></i></a>
+                                     </li>
+
+                                </ul>
+                                <ul id="menu-global" class="nav navbar-nav pull-right">
                                     <li id="menu-item-1192"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1192">
-                                        <a title="Search" href="http://kal3a.r-shief.org/search">Search</a></li>
+                                        <a title="Home" href="http://nu.r-shief.org">Home</a></li>
                                     <li id="menu-item-13"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a
-                                                title="About" href="http://r-shief.org/about/">About</a></li>
+                                                title="About" href="http://nu.r-shief.org/about/">About</a></li>
                                     <li id="menu-item-11"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11"><a
-                                                title="Blog" href="http://r-shief.org/blog/">Blog</a></li>
+                                                title="Tools" href="http://nu.r-shief.org/tools/">Tools</a></li>
                                     <li id="menu-item-164"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164">
-                                        <a title="Visualizers" href="http://r-shief.org/visualizers/">Visualizers</a>
+                                        <a title="Projects" href="http://nu.r-shief.org/projects/">Projects</a>
                                     </li>
-                                    <li id="menu-item-1181"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1181 dropdown">
-                                        <a title="Text Analysis" href="#" data-toggle="dropdown"
-                                           class="dropdown-toggle">Text Analysis <span class="caret"></span></a>
-                                        <ul role="menu" class=" dropdown-menu">
-                                            <li id="menu-item-1191"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1191">
-                                                <a title="Arabic Entity Extraction Engine Demo"
-                                                   href="http://r-shief.org/text-analysis/entity-extraction-demo/">Arabic
-                                                    Entity Extraction Engine Demo</a></li>
-                                            <li id="menu-item-1203"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1203">
-                                                <a title="Arabic Entity Extraction API Documentation"
-                                                   href="http://r-shief.org/text-analysis/arabic-entity-extraction-api-documentation/">Arabic
-                                                    Entity Extraction API Documentation</a></li>
-                                            <li id="menu-item-1199"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1199">
-                                                <a title="Arabic Sentiment"
-                                                   href="http://r-shief.org/text-analysis/arabic-sentiment-api/">Arabic
-                                                    Sentiment</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li id="menu-item-185"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185">
-                                        <a title="Index" href="http://r-shief.org/index/">Index</a></li>
+                                        <a title="Archive" href="http://nu.r-shief.org/archive/">Archive</a></li>
                                     <li id="menu-item-1180"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1180">
-                                        <a title="Under Development" href="http://r-shief.org/under-development/">Under
-                                            Development</a></li>
+                                        <a title="Blog" href="http://nu.r-shief.org/blog/">Blog</a></li>
+                                    <li><a title="Community" href="http://nu.r-shief.org/community">Community</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <!-- /.nav-collapse -->
 
-                        <ul class="nav navbar-nav social-nav visible-lg pull-right">
 
-                            <li class="divider-vertical"></li>
-                            <li><a href="http://sandbox.r-shief.org/register">Register</a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a href="#login-modal" data-toggle="modal">Login</a></li>
-                        </ul>
+                    </div>
                     </div>
                 </header>
             {% endblock %}
             <section id="pagetop">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
                             {% block header %}{% endblock %}
-                        </div>
-                    </div>
                 </div>
             </section>
             <section id="pagemain">
@@ -118,22 +100,7 @@
     {% block footer %}
         <footer class="global">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-12">
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <ul class="list-inline">
-                            <li><a href="https://twitter.com/rshief" target="_blank" title="R-Shief on Twitter">Twitter</a></li>
-                            <li><a href="https://www.facebook.com/RShief" target="_blank" title="R-Shief on Facebook">Facebook</a></li>
-                            <li><a href="http://github.com/rshief" target="_blank" title="R-Shief on Github">Github</a></li>
-                            <li><a data-toggle="modal" href="#contact-modal" title="Contact Us" target="_blank"><i class="glyphicon glyphicon-envelope"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </footer>
     {% endblock %}
