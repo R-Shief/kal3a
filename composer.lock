@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "a44984c1de5a1dc4acc61760c4f4bdbef68e6e15"
+                "reference": "60bb9c003e600d4e5d559260c7bc1d8eefbda77c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/a44984c1de5a1dc4acc61760c4f4bdbef68e6e15",
-                "reference": "a44984c1de5a1dc4acc61760c4f4bdbef68e6e15",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/60bb9c003e600d4e5d559260c7bc1d8eefbda77c",
+                "reference": "60bb9c003e600d4e5d559260c7bc1d8eefbda77c",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-09-19 05:44:29"
+            "time": "2014-09-19 07:33:49"
         },
         {
             "name": "bangpound/castle-search-bundle",
