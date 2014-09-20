@@ -53,29 +53,8 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix: /admin
-
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /admin/profile
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /admin/register
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /admin/resetting
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /admin/profile
-
-fos_user_group:
-    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
-    prefix: /group
+_fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 sputnik_pubsub_hub:
     resource: "@SputnikPubsubBundle/Resources/config/routing/hub.xml"
