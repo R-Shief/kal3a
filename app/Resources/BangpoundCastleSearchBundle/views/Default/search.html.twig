@@ -143,6 +143,7 @@
             'design_document': 'tag_trends',
             'view': 'PT1D',
             'descending': true,
+            'group': true,
             'endkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
             'startkey': [ (date('+1 day') | date('Y')) + 0, (date('+1 day') | date('m')) + 0, (date('+1 day') | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
@@ -156,6 +157,7 @@
             'design_document': 'tag_trends',
             'view': 'PT1D',
             'descending': true,
+            'group': true,
             'endkey': [ (date('-1 day') | date('Y')) + 0, (date('-1 day') | date('m')) + 0, (date('-1 day') | date('d')) + 0 ],
             'startkey': [ (date() | date('Y')) + 0, (date() | date('m')) + 0, (date() | date('d')) + 0 ],
             'template': 'BangpoundCastleSearchBundle:Block:block_view_top_tag.html.twig'
