@@ -144,14 +144,6 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
 
-        sonata.block.service.text:
-        sonata.block.service.rss:
-
-        bangpound_castle_search.block.view:
-        bangpound_castle_search.block.date_view:
-        bangpound_castle_search.block.top_tag_view:
-        bangpound_castle_search.block.collection_view:
-
 sonata_doctrine_orm_admin:
     # default value is null, so doctrine uses the value defined in the configuration
     entity_manager: ~
