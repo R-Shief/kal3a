@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "80d48125d34eadd136c3fb24e8321349",
+    "hash": "e17693ef4134d5f1164f9caf8f14140f",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -94,16 +94,16 @@
         },
         {
             "name": "bangpound/castle-bundle",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "60bb9c003e600d4e5d559260c7bc1d8eefbda77c"
+                "reference": "76c7382aba43861e41eda4784e9375742afdbd08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/60bb9c003e600d4e5d559260c7bc1d8eefbda77c",
-                "reference": "60bb9c003e600d4e5d559260c7bc1d8eefbda77c",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/76c7382aba43861e41eda4784e9375742afdbd08",
+                "reference": "76c7382aba43861e41eda4784e9375742afdbd08",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-09-19 07:33:49"
+            "time": "2014-09-21 14:50:12"
         },
         {
             "name": "bangpound/castle-search-bundle",
@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "fc171b5314266bf0ce5ac7e21c56d50d54e90a57"
+                "reference": "a2d94e200f13ea9e2957e1f43e561603f72e8725"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/fc171b5314266bf0ce5ac7e21c56d50d54e90a57",
-                "reference": "fc171b5314266bf0ce5ac7e21c56d50d54e90a57",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/a2d94e200f13ea9e2957e1f43e561603f72e8725",
+                "reference": "a2d94e200f13ea9e2957e1f43e561603f72e8725",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-20 23:01:13"
+            "time": "2014-09-21 14:43:05"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -2888,12 +2888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "4e9c9c512121ce4a7305d5f29603a94bf827864d"
+                "reference": "cad500001d18b37dfce46ab57b83889b137051e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/4e9c9c512121ce4a7305d5f29603a94bf827864d",
-                "reference": "4e9c9c512121ce4a7305d5f29603a94bf827864d",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/cad500001d18b37dfce46ab57b83889b137051e6",
+                "reference": "cad500001d18b37dfce46ab57b83889b137051e6",
                 "shasum": ""
             },
             "type": "library",
@@ -2921,7 +2921,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-20 23:25:31"
+            "time": "2014-09-21 04:40:49"
         },
         {
             "name": "rshief/migration-bundle",
