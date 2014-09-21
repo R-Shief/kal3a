@@ -145,7 +145,7 @@ sonata_doctrine_orm_admin:
 
 sonata_admin:
     title:      kal3a
-    title_logo: /images/logo_title.png
+    title_logo: bundles/applicationassets/images/logo_title.png
     dashboard:
         blocks:
             # display a dashboard block
