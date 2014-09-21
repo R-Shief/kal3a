@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "7c2e9fd0912b72e1efc358fb70ad6dd42effb8cc"
+                "reference": "fc171b5314266bf0ce5ac7e21c56d50d54e90a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/7c2e9fd0912b72e1efc358fb70ad6dd42effb8cc",
-                "reference": "7c2e9fd0912b72e1efc358fb70ad6dd42effb8cc",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/fc171b5314266bf0ce5ac7e21c56d50d54e90a57",
+                "reference": "fc171b5314266bf0ce5ac7e21c56d50d54e90a57",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-19 04:10:40"
+            "time": "2014-09-20 23:01:13"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -2888,12 +2888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "f3b7e04273d7012a22440ca1054e565d2178cfab"
+                "reference": "4e9c9c512121ce4a7305d5f29603a94bf827864d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/f3b7e04273d7012a22440ca1054e565d2178cfab",
-                "reference": "f3b7e04273d7012a22440ca1054e565d2178cfab",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/4e9c9c512121ce4a7305d5f29603a94bf827864d",
+                "reference": "4e9c9c512121ce4a7305d5f29603a94bf827864d",
                 "shasum": ""
             },
             "type": "library",
@@ -2921,7 +2921,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-20 18:36:24"
+            "time": "2014-09-20 23:25:31"
         },
         {
             "name": "rshief/migration-bundle",
