@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "433a8701fec39d1d0df8ea10f866666e",
+    "hash": "52eb62f9abe80a82f20628b88598397f",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -4445,99 +4445,6 @@
     ],
     "packages-dev": [
         {
-            "name": "facebook/xhprof",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lox/xhprof.git",
-                "reference": "6bf00728827fc1e2a639dff6f94f1618396bffc5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lox/xhprof/zipball/6bf00728827fc1e2a639dff6f94f1618396bffc5",
-                "reference": "6bf00728827fc1e2a639dff6f94f1618396bffc5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "xhprof_lib/utils/xhprof_lib.php",
-                    "xhprof_lib/utils/xhprof_runs.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "XHProf: A Hierarchical Profiler for PHP",
-            "homepage": "http://pecl.php.net/package/xhprof",
-            "keywords": [
-                "performance",
-                "profiling"
-            ],
-            "time": "2014-08-29 01:48:15"
-        },
-        {
-            "name": "jns/xhprof-bundle",
-            "version": "dev-master",
-            "target-dir": "Jns/Bundle/XhprofBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jonaswouters/XhprofBundle.git",
-                "reference": "05281f2b14cefe128c52a816f843762d62f33db0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jonaswouters/XhprofBundle/zipball/05281f2b14cefe128c52a816f843762d62f33db0",
-                "reference": "05281f2b14cefe128c52a816f843762d62f33db0",
-                "shasum": ""
-            },
-            "require": {
-                "facebook/xhprof": "dev-master@dev",
-                "php": ">=5.3.2",
-                "symfony/dependency-injection": "2.*",
-                "symfony/http-kernel": "2.*"
-            },
-            "require-dev": {
-                "phpspec/prophecy": "~1.1.2",
-                "phpunit/phpunit": "~4.1.3"
-            },
-            "suggest": {
-                "doctrine/orm": "Persist details in a storage via doctrine",
-                "ext-xhprof": "Hierarchical Profiler for PHP"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Jns\\Bundle\\XhprofBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonas Wouters",
-                    "email": "hello@jonaswouters.be"
-                }
-            ],
-            "description": "Symfony JnsXhprofBundle",
-            "homepage": "https://github.com/jonaswouters/XhprofBundle",
-            "keywords": [
-                "xhprof"
-            ],
-            "time": "2014-06-18 07:56:21"
-        },
-        {
             "name": "ptachoire/cssembed",
             "version": "v1.0.2",
             "source": {
@@ -4909,9 +4816,7 @@
         "rshief/migration-bundle": 20,
         "rshief/kal3a-bundle": 20,
         "bangpound/castle-search-bundle": 20,
-        "bangpound/angularjs-bundle": 20,
-        "jns/xhprof-bundle": 20,
-        "facebook/xhprof": 20
+        "bangpound/angularjs-bundle": 20
     },
     "prefer-stable": false,
     "platform": {

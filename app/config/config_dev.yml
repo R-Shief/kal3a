@@ -44,8 +44,3 @@ sputnik_pubsub:
 
 raul_fraile_ladybug:
     object_max_nesting_level: 5
-
-jns_xhprof:
-    location_web:    http://localhost:8001
-    enabled:         false
-    command: "on"
