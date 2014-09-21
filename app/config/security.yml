@@ -18,12 +18,12 @@ security:
         admin:
             switch_user:        true
             context:            user
-            pattern:            /(.*)
+            pattern:            /admin(.*)
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     /admin/login
                 use_forward:    false
-                check_path:     /login_check
+                check_path:     /admin/login_check
                 failure_path:   null
                 use_referer:    true
             logout:
@@ -36,12 +36,11 @@ security:
         # URL of FOSUserBundle which need to be available to anonymous users
         - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # -> custom access control for the admin area of the URL
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login-check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         # -> end
 
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -51,7 +50,6 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin, role: [ROLE_ADMIN] }
-        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
     acl:
         connection: default
