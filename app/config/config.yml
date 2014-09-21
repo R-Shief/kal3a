@@ -54,6 +54,9 @@ assetic:
         elasticsearch_angular_js:
             inputs:
                 - "bundles/bangpoundcastlesearch/components/elasticsearch/elasticsearch.angular.js"
+        hinclude_js:
+            inputs:
+                - "bundles/applicationassets/components/hinclude/hinclude.js"
 
 # Doctrine Configuration
 doctrine:

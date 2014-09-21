@@ -91,12 +91,12 @@
 {% endblock %}
 
 {% block first_sidebar %}
-    {{ render(controller('BangpoundCastleSearchBundle:Statistics:daily')) }}
-    {{ render(controller('BangpoundCastleSearchBundle:Statistics:hourly')) }}
+    {{ render_hinclude(controller('BangpoundCastleSearchBundle:Statistics:daily')) }}
+    {{ render_hinclude(controller('BangpoundCastleSearchBundle:Statistics:hourly')) }}
 {% endblock %}
 
 {% block second_sidebar %}
-    {{ render(controller('BangpoundCastleSearchBundle:Statistics:collection')) }}
-    {{ render(controller('BangpoundCastleSearchBundle:Statistics:topTag', {'title': 'Today', 'body': 'Top tags for today', 'start': date('now') | date('Y-m-d'), 'end': date('-1 day') | date('Y-m-d')})) }}
-    {{ render(controller('BangpoundCastleSearchBundle:Statistics:topTag', {'title': 'Yesterday', 'body': 'Top tags for yesterday', 'start': date('-1 day') | date('Y-m-d'), 'end': date('-2 day') | date('Y-m-d')})) }}
+    {{ render_hinclude(controller('BangpoundCastleSearchBundle:Statistics:collection')) }}
+    {{ render_hinclude(controller('BangpoundCastleSearchBundle:Statistics:topTag', {'title': 'Today', 'body': 'Top tags for today', 'start': date('now') | date('Y-m-d'), 'end': date('-1 day') | date('Y-m-d')})) }}
+    {{ render_hinclude(controller('BangpoundCastleSearchBundle:Statistics:topTag', {'title': 'Yesterday', 'body': 'Top tags for yesterday', 'start': date('-1 day') | date('Y-m-d'), 'end': date('-2 day') | date('Y-m-d')})) }}
 {% endblock %}

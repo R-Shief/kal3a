@@ -15,6 +15,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     {% javascripts "bundles/fosjsrouting/js/router.js" %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
