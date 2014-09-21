@@ -18,12 +18,12 @@ security:
         admin:
             switch_user:        true
             context:            user
-            pattern:            /(.*)
+            pattern:            /admin(.*)
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     /admin/login
                 use_forward:    false
-                check_path:     /login_check
+                check_path:     /admin/login_check
                 failure_path:   null
                 use_referer:    true
             logout:
@@ -39,9 +39,9 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # -> custom access control for the admin area of the URL
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login-check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login-check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         # -> end
 
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
