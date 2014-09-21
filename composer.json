@@ -39,7 +39,7 @@
         "fennb/phirehose": "dev-master",
         "bangpound/twitter-streaming-bundle": "~1.0@dev",
         "bangpound/pubsub-bundle": "~1.0@dev",
-        "bangpound/castle-bundle": "~1.0@dev",
+        "bangpound/castle-bundle": "dev-develop",
         "creof/doctrine2-spatial": "dev-master",
         "phayes/geophp": "dev-master",
         "sensiolabs/security-checker": "~1.2",

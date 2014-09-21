@@ -12,7 +12,7 @@
     "dependencies": {
         "angular-bootstrap": "master",
         "bootstrap-sass": "~3.0.2",
-        "font-awesome": "~4.0.3",
+        "font-awesome": "~4.2.0",
         "html5shiv": "~3.7.1",
         "jquery": ">= 1.9.0",
         "respond": "~1.4.2",
