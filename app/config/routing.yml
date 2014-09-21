@@ -53,8 +53,9 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-_fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+_fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /admin
 
 sputnik_pubsub_hub:
     resource: "@SputnikPubsubBundle/Resources/config/routing/hub.xml"
