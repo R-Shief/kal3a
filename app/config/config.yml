@@ -49,11 +49,6 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
     assets:
-        font_awesome_css:
-            inputs:
-                - "bundles/applicationassets/components/font-awesome/css/font-awesome.css"
-            filters:
-                - cssrewrite
         underscore_string_js:
             inputs:
                 - "bundles/bangpoundcastlesearch/components/underscore.string/dist/underscore.string.min.js"
