@@ -2882,12 +2882,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "e2ca8947f95080b88ce72bbf63dbfbadff207095"
+                "reference": "7bcef95cc11072300d22665b0b6ed601f86558c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/e2ca8947f95080b88ce72bbf63dbfbadff207095",
-                "reference": "e2ca8947f95080b88ce72bbf63dbfbadff207095",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/7bcef95cc11072300d22665b0b6ed601f86558c8",
+                "reference": "7bcef95cc11072300d22665b0b6ed601f86558c8",
                 "shasum": ""
             },
             "type": "library",
@@ -2915,7 +2915,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-21 17:01:08"
+            "time": "2014-09-28 18:51:30"
         },
         {
             "name": "rshief/migration-bundle",
@@ -3966,16 +3966,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3a369dddea56596df91977d8c2083e70784852f2"
+                "reference": "2aef97bbc95d0c4ae63537cca81bd6d984427d81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3a369dddea56596df91977d8c2083e70784852f2",
-                "reference": "3a369dddea56596df91977d8c2083e70784852f2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2aef97bbc95d0c4ae63537cca81bd6d984427d81",
+                "reference": "2aef97bbc95d0c4ae63537cca81bd6d984427d81",
                 "shasum": ""
             },
             "require": {
@@ -4076,7 +4076,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-09-03 09:51:48"
+            "time": "2014-09-28 17:33:53"
         },
         {
             "name": "twig/extensions",
