@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "76c7382aba43861e41eda4784e9375742afdbd08"
+                "reference": "6272a4b9dcde23f37636b0e508aec3c112188c27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/76c7382aba43861e41eda4784e9375742afdbd08",
-                "reference": "76c7382aba43861e41eda4784e9375742afdbd08",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/6272a4b9dcde23f37636b0e508aec3c112188c27",
+                "reference": "6272a4b9dcde23f37636b0e508aec3c112188c27",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-09-21 14:50:12"
+            "time": "2014-09-28 04:24:29"
         },
         {
             "name": "bangpound/castle-search-bundle",
@@ -4439,12 +4439,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/invoker-bundle.git",
-                "reference": "9d2f3a291a610d60f03fd23d6054260c7b219849"
+                "reference": "7ba58cdf7ec51f4bd44cf2750d99c4a52a810b3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/invoker-bundle/zipball/9d2f3a291a610d60f03fd23d6054260c7b219849",
-                "reference": "9d2f3a291a610d60f03fd23d6054260c7b219849",
+                "url": "https://api.github.com/repos/bangpound/invoker-bundle/zipball/7ba58cdf7ec51f4bd44cf2750d99c4a52a810b3f",
+                "reference": "7ba58cdf7ec51f4bd44cf2750d99c4a52a810b3f",
                 "shasum": ""
             },
             "require": {
@@ -4461,6 +4461,7 @@
                     "Bangpound\\Bundle\\InvokerBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4471,11 +4472,7 @@
                 }
             ],
             "description": "Manage server processes in your Symfony development environment",
-            "support": {
-                "source": "https://github.com/bangpound/invoker-bundle/tree/master",
-                "issues": "https://github.com/bangpound/invoker-bundle/issues"
-            },
-            "time": "2014-09-22 00:29:15"
+            "time": "2014-09-25 16:43:51"
         },
         {
             "name": "evenement/evenement",
