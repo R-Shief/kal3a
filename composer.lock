@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "6272a4b9dcde23f37636b0e508aec3c112188c27"
+                "reference": "cd3ed3c5b63a61f331dd774db86190cbec8df899"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/6272a4b9dcde23f37636b0e508aec3c112188c27",
-                "reference": "6272a4b9dcde23f37636b0e508aec3c112188c27",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/cd3ed3c5b63a61f331dd774db86190cbec8df899",
+                "reference": "cd3ed3c5b63a61f331dd774db86190cbec8df899",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-09-28 04:24:29"
+            "time": "2014-09-28 15:12:44"
         },
         {
             "name": "bangpound/castle-search-bundle",
@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "a2d94e200f13ea9e2957e1f43e561603f72e8725"
+                "reference": "777616acfbe6e73a47a6f4b824f6b4cc61ad5589"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/a2d94e200f13ea9e2957e1f43e561603f72e8725",
-                "reference": "a2d94e200f13ea9e2957e1f43e561603f72e8725",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/777616acfbe6e73a47a6f4b824f6b4cc61ad5589",
+                "reference": "777616acfbe6e73a47a6f4b824f6b4cc61ad5589",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-21 14:43:05"
+            "time": "2014-09-28 06:33:43"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -341,12 +341,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "ecad5c0094e6aa1cfd7a668bb62738ed6e9b0d2a"
+                "reference": "b850c2138257eff8a5f33707847a1b2007cfe395"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/ecad5c0094e6aa1cfd7a668bb62738ed6e9b0d2a",
-                "reference": "ecad5c0094e6aa1cfd7a668bb62738ed6e9b0d2a",
+                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/b850c2138257eff8a5f33707847a1b2007cfe395",
+                "reference": "b850c2138257eff8a5f33707847a1b2007cfe395",
                 "shasum": ""
             },
             "require": {
@@ -377,7 +377,7 @@
                 }
             ],
             "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2014-09-19 06:00:05"
+            "time": "2014-09-28 15:10:53"
         },
         {
             "name": "creof/doctrine2-spatial",
