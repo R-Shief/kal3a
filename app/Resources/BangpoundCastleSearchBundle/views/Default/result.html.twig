@@ -130,7 +130,7 @@
             </div>
         </li>
     </ul>
-    <pagination items-per-page="pager.limit" boundary-links="true" rotate="false" total-items="results.hits.total" ng-model="page" max-size="10" ng-change="setPage(page)"></pagination>
+    <pagination ng-model="page" items-per-page="pager.limit" boundary-links="true" total-items="results.hits.total" max-size="10" ng-change="setPage(page)"></pagination>
 {% endblock %}
 
 {% block content %}
