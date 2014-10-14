@@ -45,6 +45,7 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Application\AssetsBundle\ApplicationAssetsBundle(),
+            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

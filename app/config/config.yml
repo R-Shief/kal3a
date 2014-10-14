@@ -198,14 +198,10 @@ liip_monitor:
                 host:                 localhost
                 port:                 5984
                 path:                 /
-                status_code:          200
-                content:              null
             elasticsearch:
                 host:                 localhost
                 port:                 9200
                 path:                 /
-                status_code:          200
-                content:              null
         rabbit_mq:
             default:
                 host:                 localhost
@@ -252,3 +248,9 @@ nelmio_cors:
             allow_origin: ['*']
             allow_methods: ['GET']
             max_age: 3600
+
+doctrine_cache:
+    providers:
+        statistics:
+            type: file_system
+            namespace: statistics
