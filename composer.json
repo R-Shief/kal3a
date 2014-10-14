@@ -55,7 +55,8 @@
         "rshief/migration-bundle": "1.0.*@dev",
         "rshief/kal3a-bundle": "1.0.*@dev",
         "bangpound/castle-search-bundle": "1.0.*@dev",
-        "bangpound/angularjs-bundle": "1.0.*@dev"
+        "bangpound/angularjs-bundle": "1.0.*@dev",
+        "nelmio/cors-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

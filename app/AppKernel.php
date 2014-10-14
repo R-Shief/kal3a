@@ -43,6 +43,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Application\AssetsBundle\ApplicationAssetsBundle(),
         );
 
