@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "777616acfbe6e73a47a6f4b824f6b4cc61ad5589"
+                "reference": "b6d6d696934bb7fd930378a2ac972c6383d0f296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/777616acfbe6e73a47a6f4b824f6b4cc61ad5589",
-                "reference": "777616acfbe6e73a47a6f4b824f6b4cc61ad5589",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/b6d6d696934bb7fd930378a2ac972c6383d0f296",
+                "reference": "b6d6d696934bb7fd930378a2ac972c6383d0f296",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-09-28 06:33:43"
+            "time": "2014-10-14 04:05:37"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -1247,16 +1247,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.4.5",
+            "version": "v2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "c0d3cdbdfbf873871167050ab077e49b1ad02ab0"
+                "reference": "bebacf79d8d4dae9168f0f9bc6811e6c2cb6a4d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/c0d3cdbdfbf873871167050ab077e49b1ad02ab0",
-                "reference": "c0d3cdbdfbf873871167050ab077e49b1ad02ab0",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bebacf79d8d4dae9168f0f9bc6811e6c2cb6a4d9",
+                "reference": "bebacf79d8d4dae9168f0f9bc6811e6c2cb6a4d9",
                 "shasum": ""
             },
             "require": {
@@ -1316,7 +1316,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-09-22 21:58:51"
+            "time": "2014-10-06 13:22:50"
         },
         {
             "name": "dr-que/polynomial-regression",
@@ -1603,12 +1603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "3be6e7b86a397be785efee5490a7fc19aeae0381"
+                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3be6e7b86a397be785efee5490a7fc19aeae0381",
-                "reference": "3be6e7b86a397be785efee5490a7fc19aeae0381",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/cac56e025c1d2d1fe5acb644e4cafe0830f17150",
+                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150",
                 "shasum": ""
             },
             "require": {
@@ -1662,7 +1662,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-10-04 17:10:16"
+            "time": "2014-10-10 08:00:05"
         },
         {
             "name": "guzzle/guzzle",
@@ -2582,12 +2582,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/videlalvaro/RabbitMqBundle.git",
-                "reference": "a6f0c781b99d3fbbc39110d40c773683dc6b4540"
+                "reference": "93a721fe873e43e01c1ea1a15bb07db140d20759"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/a6f0c781b99d3fbbc39110d40c773683dc6b4540",
-                "reference": "a6f0c781b99d3fbbc39110d40c773683dc6b4540",
+                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/93a721fe873e43e01c1ea1a15bb07db140d20759",
+                "reference": "93a721fe873e43e01c1ea1a15bb07db140d20759",
                 "shasum": ""
             },
             "require": {
@@ -2626,7 +2626,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2014-09-18 22:19:06"
+            "time": "2014-10-06 11:16:50"
         },
         {
             "name": "phayes/geophp",
@@ -4132,16 +4132,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.16.0",
+            "version": "v1.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8ce37115802e257a984a82d38254884085060024"
+                "reference": "7c4c01dcf578523cfcddf383641a4f12790270ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8ce37115802e257a984a82d38254884085060024",
-                "reference": "8ce37115802e257a984a82d38254884085060024",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/7c4c01dcf578523cfcddf383641a4f12790270ec",
+                "reference": "7c4c01dcf578523cfcddf383641a4f12790270ec",
                 "shasum": ""
             },
             "require": {
@@ -4170,7 +4170,7 @@
                     "role": "Lead Developer"
                 },
                 {
-                    "name": "Armin Ronacher2",
+                    "name": "Armin Ronacher",
                     "email": "armin.ronacher@active-4.com",
                     "role": "Project Founder"
                 },
@@ -4185,7 +4185,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-07-05 12:19:05"
+            "time": "2014-10-10 14:09:53"
         },
         {
             "name": "ushios/elasticsearch-bundle",
@@ -4640,17 +4640,17 @@
         },
         {
             "name": "raulfraile/ladybug-bundle",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "target-dir": "RaulFraile/Bundle/LadybugBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/LadybugBundle.git",
-                "reference": "e2ef2c979444300e8fe85eee292bb43d87ea908c"
+                "reference": "0a3171f1d15194aadaba12fd9c81c11707c6b1c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/e2ef2c979444300e8fe85eee292bb43d87ea908c",
-                "reference": "e2ef2c979444300e8fe85eee292bb43d87ea908c",
+                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/0a3171f1d15194aadaba12fd9c81c11707c6b1c3",
+                "reference": "0a3171f1d15194aadaba12fd9c81c11707c6b1c3",
                 "shasum": ""
             },
             "require": {
@@ -4691,7 +4691,7 @@
                 "tree",
                 "twig"
             ],
-            "time": "2014-08-29 20:43:09"
+            "time": "2014-10-10 06:09:15"
         },
         {
             "name": "raulfraile/ladybug-installer",
