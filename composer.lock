@@ -3025,12 +3025,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "085ad5e8e888e3ccdc3af5bec9daa2e16f4688a2"
+                "reference": "ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/085ad5e8e888e3ccdc3af5bec9daa2e16f4688a2",
-                "reference": "085ad5e8e888e3ccdc3af5bec9daa2e16f4688a2",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c",
+                "reference": "ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c",
                 "shasum": ""
             },
             "type": "library",
@@ -3058,7 +3058,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-09-28 18:58:25"
+            "time": "2014-10-14 12:15:36"
         },
         {
             "name": "rshief/migration-bundle",
