@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "cd3ed3c5b63a61f331dd774db86190cbec8df899"
+                "reference": "1acd0edcbf9e7f09da3083dba696e482c2df2a31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/cd3ed3c5b63a61f331dd774db86190cbec8df899",
-                "reference": "cd3ed3c5b63a61f331dd774db86190cbec8df899",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/1acd0edcbf9e7f09da3083dba696e482c2df2a31",
+                "reference": "1acd0edcbf9e7f09da3083dba696e482c2df2a31",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-09-28 15:12:44"
+            "time": "2014-10-14 17:57:32"
         },
         {
             "name": "bangpound/castle-search-bundle",
@@ -2291,12 +2291,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "52eff4c53d6fb47b1eddb3df0597a8f1be6447b4"
+                "reference": "df991c124a2212371443b586a1be767500036dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/52eff4c53d6fb47b1eddb3df0597a8f1be6447b4",
-                "reference": "52eff4c53d6fb47b1eddb3df0597a8f1be6447b4",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/df991c124a2212371443b586a1be767500036dee",
+                "reference": "df991c124a2212371443b586a1be767500036dee",
                 "shasum": ""
             },
             "require": {
@@ -2311,8 +2311,8 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
-                "patchwork/jsqueeze": "*",
-                "phpunit/phpunit": "~3.7",
+                "patchwork/jsqueeze": "~1.0",
+                "phpunit/phpunit": "~4",
                 "psr/log": "~1.0",
                 "ptachoire/cssembed": "*",
                 "twig/twig": "~1.6"
@@ -2357,7 +2357,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2014-09-27 20:24:07"
+            "time": "2014-10-14 14:45:32"
         },
         {
             "name": "liip/monitor-bundle",
