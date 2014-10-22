@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "fe342c1548e701af2d389d933cbfbd9a87fd3854"
+                "reference": "e5f715111c1227aca88bc35835346ba3a4e171c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/fe342c1548e701af2d389d933cbfbd9a87fd3854",
-                "reference": "fe342c1548e701af2d389d933cbfbd9a87fd3854",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/e5f715111c1227aca88bc35835346ba3a4e171c5",
+                "reference": "e5f715111c1227aca88bc35835346ba3a4e171c5",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-10-22 00:38:08"
+            "time": "2014-10-22 01:00:30"
         },
         {
             "name": "bangpound/doctrine-datetime",
