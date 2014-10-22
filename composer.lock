@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "cfb9b49836ed688cd9a2acd58ef4208efd2e4896"
+                "reference": "fe342c1548e701af2d389d933cbfbd9a87fd3854"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/cfb9b49836ed688cd9a2acd58ef4208efd2e4896",
-                "reference": "cfb9b49836ed688cd9a2acd58ef4208efd2e4896",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/fe342c1548e701af2d389d933cbfbd9a87fd3854",
+                "reference": "fe342c1548e701af2d389d933cbfbd9a87fd3854",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-10-14 11:35:36"
+            "time": "2014-10-22 00:38:08"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -1684,12 +1684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150"
+                "reference": "9714a92e968f7e12431ccf5fecb1346f0d5adc65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/cac56e025c1d2d1fe5acb644e4cafe0830f17150",
-                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9714a92e968f7e12431ccf5fecb1346f0d5adc65",
+                "reference": "9714a92e968f7e12431ccf5fecb1346f0d5adc65",
                 "shasum": ""
             },
             "require": {
@@ -1743,7 +1743,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-10-10 08:00:05"
+            "time": "2014-10-20 09:15:23"
         },
         {
             "name": "guzzle/guzzle",
@@ -2288,12 +2288,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "df991c124a2212371443b586a1be767500036dee"
+                "reference": "f8a41b17522dadccbaeb422d4c6617b46c4c52f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/df991c124a2212371443b586a1be767500036dee",
-                "reference": "df991c124a2212371443b586a1be767500036dee",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/f8a41b17522dadccbaeb422d4c6617b46c4c52f5",
+                "reference": "f8a41b17522dadccbaeb422d4c6617b46c4c52f5",
                 "shasum": ""
             },
             "require": {
@@ -2354,7 +2354,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2014-10-14 14:45:32"
+            "time": "2014-10-21 16:08:58"
         },
         {
             "name": "liip/monitor-bundle",
@@ -2718,12 +2718,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/videlalvaro/RabbitMqBundle.git",
-                "reference": "93a721fe873e43e01c1ea1a15bb07db140d20759"
+                "reference": "30f15f3b64f0155c3603eb20d1e490f3b502ea36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/93a721fe873e43e01c1ea1a15bb07db140d20759",
-                "reference": "93a721fe873e43e01c1ea1a15bb07db140d20759",
+                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/30f15f3b64f0155c3603eb20d1e490f3b502ea36",
+                "reference": "30f15f3b64f0155c3603eb20d1e490f3b502ea36",
                 "shasum": ""
             },
             "require": {
@@ -2762,7 +2762,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2014-10-06 11:16:50"
+            "time": "2014-10-20 11:37:04"
         },
         {
             "name": "phayes/geophp",
@@ -4378,16 +4378,16 @@
         },
         {
             "name": "videlalvaro/php-amqplib",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/videlalvaro/php-amqplib.git",
-                "reference": "d8294736e47340e8d96f37d788b15f578bfc084f"
+                "reference": "58044157b30853a1a425e26e9ff9895247668ac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/videlalvaro/php-amqplib/zipball/d8294736e47340e8d96f37d788b15f578bfc084f",
-                "reference": "d8294736e47340e8d96f37d788b15f578bfc084f",
+                "url": "https://api.github.com/repos/videlalvaro/php-amqplib/zipball/58044157b30853a1a425e26e9ff9895247668ac3",
+                "reference": "58044157b30853a1a425e26e9ff9895247668ac3",
                 "shasum": ""
             },
             "require": {
@@ -4401,6 +4401,11 @@
                 "ext-sockets": "Use AMQPSocketConnection"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "PhpAmqpLib": ""
@@ -4422,7 +4427,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2014-06-21 09:27:57"
+            "time": "2014-10-06 11:00:55"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
