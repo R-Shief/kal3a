@@ -244,7 +244,7 @@ nelmio_cors:
         max_age: 0
         hosts: []
     paths:
-        '^/tagstatistic/summary.json/':
+        '^/tagstatistic/summary.json':
             allow_origin: ['*']
             allow_methods: ['GET']
             max_age: 3600
