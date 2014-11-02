@@ -1444,22 +1444,22 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elasticsearch/elasticsearch-php.git",
-                "reference": "3a677634a46d01882f57dc634eb9ac0e10adfb77"
+                "reference": "22ac00b78d50eb876e64b1063197a93ebf0db8e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/3a677634a46d01882f57dc634eb9ac0e10adfb77",
-                "reference": "3a677634a46d01882f57dc634eb9ac0e10adfb77",
+                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/22ac00b78d50eb876e64b1063197a93ebf0db8e0",
+                "reference": "22ac00b78d50eb876e64b1063197a93ebf0db8e0",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "guzzle/http": "~3.7",
-                "monolog/monolog": "~1.5",
+                "monolog/monolog": "~1.11",
                 "php": ">=5.3.9",
                 "pimple/pimple": "~2.1",
                 "psr/log": "~1.0"
@@ -1497,7 +1497,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2014-08-06 16:04:48"
+            "time": "2014-10-23 19:04:38"
         },
         {
             "name": "fennb/phirehose",
@@ -2288,12 +2288,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "f8a41b17522dadccbaeb422d4c6617b46c4c52f5"
+                "reference": "eb82167d176eb40078469ef9408ff56fd32a5d66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/f8a41b17522dadccbaeb422d4c6617b46c4c52f5",
-                "reference": "f8a41b17522dadccbaeb422d4c6617b46c4c52f5",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/eb82167d176eb40078469ef9408ff56fd32a5d66",
+                "reference": "eb82167d176eb40078469ef9408ff56fd32a5d66",
                 "shasum": ""
             },
             "require": {
@@ -2354,7 +2354,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2014-10-21 16:08:58"
+            "time": "2014-10-30 11:33:12"
         },
         {
             "name": "liip/monitor-bundle",
@@ -2718,12 +2718,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/videlalvaro/RabbitMqBundle.git",
-                "reference": "30f15f3b64f0155c3603eb20d1e490f3b502ea36"
+                "reference": "7cc536b1be93870c2d4180c95c646c0e2eeeac32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/30f15f3b64f0155c3603eb20d1e490f3b502ea36",
-                "reference": "30f15f3b64f0155c3603eb20d1e490f3b502ea36",
+                "url": "https://api.github.com/repos/videlalvaro/RabbitMqBundle/zipball/7cc536b1be93870c2d4180c95c646c0e2eeeac32",
+                "reference": "7cc536b1be93870c2d4180c95c646c0e2eeeac32",
                 "shasum": ""
             },
             "require": {
@@ -2762,7 +2762,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2014-10-20 11:37:04"
+            "time": "2014-10-24 15:13:46"
         },
         {
             "name": "phayes/geophp",
@@ -3022,12 +3022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c"
+                "reference": "8bfb9a0531f07504afd3388895497e6ff4dee709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c",
-                "reference": "ec5febd1d5bdfe2d8c770a988aa98f1447a5ca0c",
+                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/8bfb9a0531f07504afd3388895497e6ff4dee709",
+                "reference": "8bfb9a0531f07504afd3388895497e6ff4dee709",
                 "shasum": ""
             },
             "type": "library",
@@ -3055,7 +3055,7 @@
                 "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
             },
-            "time": "2014-10-14 12:15:36"
+            "time": "2014-10-26 17:26:07"
         },
         {
             "name": "rshief/migration-bundle",
@@ -4108,23 +4108,22 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.5",
+            "version": "v2.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2aef97bbc95d0c4ae63537cca81bd6d984427d81"
+                "reference": "1a1b1e528935f15dd76169f8b1dc3ef97f0d6210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2aef97bbc95d0c4ae63537cca81bd6d984427d81",
-                "reference": "2aef97bbc95d0c4ae63537cca81bd6d984427d81",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/1a1b1e528935f15dd76169f8b1dc3ef97f0d6210",
+                "reference": "1a1b1e528935f15dd76169f8b1dc3ef97f0d6210",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
-                "symfony/icu": "~1.0",
                 "twig/twig": "~1.12"
             },
             "replace": {
@@ -4218,29 +4217,35 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-09-28 17:33:53"
+            "time": "2014-10-24 06:55:39"
         },
         {
             "name": "twig/extensions",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "c0ab818595338dd5569369bfce2552d02cec5d50"
+                "url": "https://github.com/twigphp/Twig-extensions.git",
+                "reference": "8cf4b9fe04077bd54fc73f4fde83347040c3b8cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/c0ab818595338dd5569369bfce2552d02cec5d50",
-                "reference": "c0ab818595338dd5569369bfce2552d02cec5d50",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/8cf4b9fe04077bd54fc73f4fde83347040c3b8cd",
+                "reference": "8cf4b9fe04077bd54fc73f4fde83347040c3b8cd",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "~1.12"
             },
+            "require-dev": {
+                "symfony/translation": "~2.3"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -4255,18 +4260,16 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Common additional features for Twig that do not directly belong in core",
-            "homepage": "https://github.com/fabpot/Twig-extensions",
+            "homepage": "http://twig.sensiolabs.org/doc/extensions/index.html",
             "keywords": [
                 "i18n",
                 "text"
             ],
-            "time": "2014-07-05 10:01:35"
+            "time": "2014-10-30 14:30:03"
         },
         {
             "name": "twig/twig",
