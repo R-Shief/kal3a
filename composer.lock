@@ -1444,16 +1444,16 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elasticsearch/elasticsearch-php.git",
-                "reference": "22ac00b78d50eb876e64b1063197a93ebf0db8e0"
+                "reference": "a0ae1f2f951190c598054613164fec8ec4b9123a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/22ac00b78d50eb876e64b1063197a93ebf0db8e0",
-                "reference": "22ac00b78d50eb876e64b1063197a93ebf0db8e0",
+                "url": "https://api.github.com/repos/elasticsearch/elasticsearch-php/zipball/a0ae1f2f951190c598054613164fec8ec4b9123a",
+                "reference": "a0ae1f2f951190c598054613164fec8ec4b9123a",
                 "shasum": ""
             },
             "require": {
@@ -1497,7 +1497,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2014-10-23 19:04:38"
+            "time": "2014-11-06 15:12:58"
         },
         {
             "name": "fennb/phirehose",
