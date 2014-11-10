@@ -24,12 +24,12 @@ bangpound_elasticsearch_proxy_search:
     methods: [GET,POST]
 
 bangpound_couchdb_proxy:
-    path: /couchdb/{path}
+    path: /couchdb/symfony/{path}
     requirements:
         path: '.+'
     defaults:
         _controller: BangpoundGuzzleProxyBundle:Default:index
-        endpoint: http://localhost:5984
+        endpoint: http://127.0.0.1:5984/symfony
         _format: json
     methods: [GET]
 
