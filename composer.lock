@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "782ccffecbc2a174cec3d4d35a3be942",
+    "hash": "0cd177c75598052cafe1ea802d165176",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -94,16 +94,16 @@
         },
         {
             "name": "bangpound/castle-bundle",
-            "version": "dev-develop",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "4311f2c12e2895c4b153e85b681fb40c4dd19a81"
+                "reference": "8c4858cb67eb984684cbbad71e12e7875bd4ed30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/4311f2c12e2895c4b153e85b681fb40c4dd19a81",
-                "reference": "4311f2c12e2895c4b153e85b681fb40c4dd19a81",
+                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/8c4858cb67eb984684cbbad71e12e7875bd4ed30",
+                "reference": "8c4858cb67eb984684cbbad71e12e7875bd4ed30",
                 "shasum": ""
             },
             "type": "library",
@@ -128,7 +128,7 @@
                 }
             ],
             "description": "Castle application bundle",
-            "time": "2014-11-05 13:03:09"
+            "time": "2014-11-10 05:48:57"
         },
         {
             "name": "bangpound/castle-search-bundle",
@@ -136,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "e5f715111c1227aca88bc35835346ba3a4e171c5"
+                "reference": "e48f6d48540a2aa98087186bf530dc859f6bcbcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/e5f715111c1227aca88bc35835346ba3a4e171c5",
-                "reference": "e5f715111c1227aca88bc35835346ba3a4e171c5",
+                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/e48f6d48540a2aa98087186bf530dc859f6bcbcf",
+                "reference": "e48f6d48540a2aa98087186bf530dc859f6bcbcf",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
             },
-            "time": "2014-10-22 01:00:30"
+            "time": "2014-11-10 06:20:35"
         },
         {
             "name": "bangpound/doctrine-datetime",
@@ -5166,7 +5166,6 @@
         "fennb/phirehose": 20,
         "bangpound/twitter-streaming-bundle": 20,
         "bangpound/pubsub-bundle": 20,
-        "bangpound/castle-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "phayes/geophp": 20,
         "nojimage/twitter-text-php": 20,
