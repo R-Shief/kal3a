@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "08b4d6b49844dc9afe11528d93000c19",
+    "hash": "b8c7686669a9cfabb4ec845fb08cddc4",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
