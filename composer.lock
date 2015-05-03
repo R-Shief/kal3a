@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0cd177c75598052cafe1ea802d165176",
+    "hash": "08b4d6b49844dc9afe11528d93000c19",
     "packages": [
         {
             "name": "bangpound/angularjs-bundle",
@@ -2589,7 +2589,7 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "1.2.x-dev",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
@@ -5521,7 +5521,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony/icu": 20,
-        "kriswallsmith/assetic": 20,
         "jms/serializer-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
         "doctrine/couchdb": 20,
