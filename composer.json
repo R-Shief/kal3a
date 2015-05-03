@@ -14,8 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/icu": "1.1.*@dev",
-        "symfony/symfony": "2.5.*",
+        "symfony/symfony": "2.6.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -41,8 +40,8 @@
         "dr-que/polynomial-regression": "~1.1.1",
         "fennb/phirehose": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "~1.5.3",
-        "friendsofsymfony/rest-bundle": "~1.4.2",
-        "friendsofsymfony/user-bundle": "~2.0.0@dev",
+        "friendsofsymfony/rest-bundle": "~1.5",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "jms/serializer-bundle": "0.13.*@dev",
         "liip/monitor-bundle": "~2.0.2",
         "nelmio/cors-bundle": "~1.0",
@@ -53,7 +52,6 @@
         "robotsnowfall/enum": "dev-master",
         "rshief/kal3a-bundle": "1.0.*@dev",
         "rshief/migration-bundle": "1.0.*@dev",
-        "sensiolabs/security-checker": "~1.2",
         "sonata-project/admin-bundle": "~2.3.0",
         "sonata-project/doctrine-orm-admin-bundle": "~2.3.0",
         "ushios/elasticsearch-bundle": "dev-develop"
