@@ -41,6 +41,3 @@ assetic:
 
 sputnik_pubsub:
     live_hub: false
-
-raul_fraile_ladybug:
-    object_max_nesting_level: 5
