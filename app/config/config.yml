@@ -202,7 +202,7 @@ liip_monitor:
 
 bangpound_guzzle_proxy:
 
-ushios_elastic_search:
+caxy_elasticsearch:
     client:
         default:
             hosts: [ "localhost:9200" ]

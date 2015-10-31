@@ -1,8 +1,8 @@
 parameters:
-    ushios_elastic_search.setup:
+    caxy_elasticsearch.setup:
         production: [ atom ]
  
-    ushios_elastic_search.index.params:
+    caxy_elasticsearch.index.params:
         production:
             settings:
                 analysis:
@@ -14,7 +14,7 @@ parameters:
                                 - unique
                             tokenizer: keyword
         
-    ushios_elastic_search.mapping.params:
+    caxy_elasticsearch.mapping.params:
         atom:
             properties:
                 _attachments:

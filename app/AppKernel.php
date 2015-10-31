@@ -41,7 +41,7 @@ class AppKernel extends Kernel
             new Rshief\Bundle\MigrationBundle\RshiefMigrationBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
-            new Ushios\Bundle\ElasticSearchBundle\UshiosElasticSearchBundle(),
+            new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

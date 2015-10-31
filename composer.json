@@ -52,7 +52,7 @@
         "robotsnowfall/enum": "dev-master",
         "rshief/kal3a-bundle": "1.0.*@dev",
         "rshief/migration-bundle": "1.0.*@dev",
-        "ushios/elasticsearch-bundle": "dev-develop",
+        "caxy/elasticsearch-bundle": "dev-develop",
         "javiereguiluz/easyadmin-bundle": "~1.4"
     },
     "require-dev": {
