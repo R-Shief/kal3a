@@ -54,8 +54,6 @@
         "caxy/elasticsearch-bundle": "dev-develop"
     },
     "require-dev": {
-        "bangpound/invoker-bundle": "~1.0@dev",
-        "react/child-process": "~0.5@dev",
         "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
