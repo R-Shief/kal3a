@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new Application\AssetsBundle\ApplicationAssetsBundle(),
             new Application\UserBundle\ApplicationUserBundle(),
             new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
-            new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
             new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
@@ -39,7 +38,6 @@ class AppKernel extends Kernel
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
             new Rshief\Bundle\MigrationBundle\RshiefMigrationBundle(),
-            new Sp\BowerBundle\SpBowerBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
             new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
         );

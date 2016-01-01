@@ -215,15 +215,6 @@ fos_rest:
         view_response_listener: 'force'
         jsonp_handler: ~
 
-sp_bower:
-    bundles:
-        BangpoundAngularJsBundle: ~
-        BangpoundCastleSearchBundle: ~
-        ApplicationAssetsBundle: ~
-    assetic:
-        enabled:              true
-        nest_dependencies: false
-
 nelmio_cors:
     defaults:
         allow_credentials: false
