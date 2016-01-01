@@ -50,7 +50,6 @@
         "phayes/geophp": "dev-master",
         "robotsnowfall/enum": "dev-master",
         "rshief/kal3a-bundle": "1.0.*@dev",
-        "rshief/migration-bundle": "1.0.*@dev",
         "caxy/elasticsearch-bundle": "dev-develop"
     },
     "require-dev": {

@@ -24,7 +24,6 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\PubsubBundle\BangpoundPubsubBundle(),
             new Bangpound\Bundle\TwitterStreamingBundle\BangpoundTwitterStreamingBundle(),
             new Bangpound\PhirehoseBundle\BangpoundPhirehoseBundle(),
-            new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
             new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
@@ -36,7 +35,6 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
-            new Rshief\Bundle\MigrationBundle\RshiefMigrationBundle(),
             new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
             new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
         );
