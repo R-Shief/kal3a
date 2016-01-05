@@ -24,14 +24,6 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-    assets:
-        packages:
-            underscore_string_js:
-                base_path: "bundles/bangpoundcastlesearch/components/underscore.string/dist/underscore.string.min.js"
-            elasticsearch_angular_js:
-                base_path: "bundles/bangpoundcastlesearch/components/elasticsearch/elasticsearch.angular.js"
-            hinclude_js:
-                base_path: "bundles/applicationassets/components/hinclude/hinclude.js"
 
 # Twig Configuration
 twig:
