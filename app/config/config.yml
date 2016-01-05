@@ -101,21 +101,12 @@ old_sound_rabbit_mq:
             connection:       default
             exchange_options: { name: 'twitter', type: direct }
             queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
-        pubsub:
-            connection:       default
-            exchange_options: { name: 'pubsub', type: direct }
-            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
     consumers:
         twitter:
             connection:       default
             exchange_options: { name: 'twitter', type: direct }
             queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
             callback:         bangpound_twitter_streaming.consumer.notification
-        pubsub:
-            connection:       default
-            exchange_options: { name: 'pubsub', type: direct }
-            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
-            callback:         rshief_bundle.consumer.notification
 
 easy_admin:
     site_name: Castle
@@ -123,7 +114,6 @@ easy_admin:
         - Bangpound\Bundle\TwitterStreamingBundle\Entity\Follow
         - Bangpound\Bundle\TwitterStreamingBundle\Entity\Location
         - Bangpound\Bundle\TwitterStreamingBundle\Entity\Track
-        - Sputnik\Bundle\PubsubBundle\Entity\Topic
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

@@ -35,6 +35,3 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
-
-sputnik_pubsub:
-    live_hub: false

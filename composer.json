@@ -28,7 +28,6 @@
         "bangpound/castle-search-bundle": "1.0.*@dev",
         "bangpound/doctrine-datetime": "~1.0@dev",
         "bangpound/guzzle-proxy-bundle": "~1.0@dev",
-        "bangpound/pubsub-bundle": "~1.0@dev",
         "bangpound/twitter-streaming-bundle": "~1.0@dev",
         "creof/doctrine2-spatial": "dev-master",
         "doctrine/couchdb-odm-bundle": "~2.1@alpha",
