@@ -34,7 +34,6 @@
         "doctrine/couchdb-odm": "~1.0@alpha",
         "doctrine/couchdb": "dev-master",
         "doctrine/doctrine-cache-bundle": "~1.0",
-        "dr-que/polynomial-regression": "~1.1.1",
         "fennb/phirehose": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "~1.5.3",
         "friendsofsymfony/rest-bundle": "~1.5",
