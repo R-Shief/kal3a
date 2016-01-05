@@ -16,14 +16,11 @@ bangpound_elasticsearch_proxy_search:
         expose: true
 
 bangpound_couchdb_proxy:
-    path: /couchdb/symfony/{path}
-    requirements:
-        path: '.+'
-    defaults:
-        _controller: BangpoundGuzzleProxyBundle:Default:index
-        endpoint: http://127.0.0.1:5984/symfony
-        _format: json
-    methods: [GET]
+    type: guzzle_proxy
+    resource: couchdb
+    prefix: /couchdb/symfony
+    options:
+        expose: true
 
 root:
     path:     /
