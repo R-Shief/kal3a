@@ -159,6 +159,11 @@ liip_monitor:
                 vhost:                /
 
 bangpound_guzzle_proxy:
+    endpoints:
+        elasticsearch:
+            base_url: http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/
+        couchdb:
+            base_url: http://127.0.0.1:5984/symfony
 
 caxy_elasticsearch:
     client:
@@ -169,20 +174,21 @@ fos_rest:
     param_fetcher_listener: true
     body_listener: true
     format_listener: true
-    view:
-        view_response_listener: 'force'
-        jsonp_handler: ~
 
 nelmio_cors:
     defaults:
         allow_credentials: false
         allow_origin: []
-        allow_headers: []
+        allow_headers: ['Content-Type']
         allow_methods: []
         expose_headers: []
         max_age: 0
         hosts: []
     paths:
+        '^/elasticsearch':
+            allow_origin: ['*']
+            allow_methods: ['GET', 'POST']
+            max_age: 3600
         '^/tagstatistic/summary.json':
             allow_origin: ['*']
             allow_methods: ['GET']

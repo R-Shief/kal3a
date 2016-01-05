@@ -7,21 +7,13 @@ castle:
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
 
-bangpound_elasticsearch_proxy:
-    path: /elasticsearch/production
-    options:
-        expose: true
 
 bangpound_elasticsearch_proxy_search:
-    path: /elasticsearch/{path}
-    requirements:
-        path: 'production/_search'
-    defaults:
-        _controller: BangpoundGuzzleProxyBundle:Default:index
-        endpoint: http://localhost:9200
-        path: 'production/_search'
-        _format: json
-    methods: [GET,POST]
+    type: guzzle_proxy
+    resource: elasticsearch
+    prefix: /elasticsearch/production
+    options:
+        expose: true
 
 bangpound_couchdb_proxy:
     path: /couchdb/symfony/{path}
