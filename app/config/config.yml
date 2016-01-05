@@ -122,12 +122,6 @@ fos_user:
     group:
         group_class: Application\UserBundle\Entity\Group
 
-sensio_framework_extra:
-    router:  { annotations: true }
-    request: { converters: true }
-    view:    { annotations: false }
-    cache:   { annotations: true }
-
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
