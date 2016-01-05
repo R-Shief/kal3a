@@ -8,8 +8,12 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "http://bangpound.github.io/packages"
+            "type": "vcs",
+            "url": "https://github.com/R-Shief/castle-search-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/R-Shief/kal3a-bundle"
         }
     ],
     "require": {
