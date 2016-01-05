@@ -155,8 +155,8 @@ liip_monitor:
                 port:                 5984
                 path:                 /
             elasticsearch:
-                host:                 localhost
-                port:                 9200
+                host:                 %elasticsearch_host%
+                port:                 %elasticsearch_port%
                 path:                 /
         rabbit_mq:
             default:
@@ -171,7 +171,7 @@ bangpound_guzzle_proxy:
 caxy_elasticsearch:
     client:
         default:
-            hosts: [ "localhost:9200" ]
+            hosts: [ %elasticsearch_host%:%elasticsearch_port% ]
 
 fos_rest:
     param_fetcher_listener: true

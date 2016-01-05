@@ -57,3 +57,7 @@ parameters:
         rshief.migrationbundle.couchdocument.atomentry: "FB+Web Original (Aug 2010 to Jul 2013)"
         bangpound.bundle.castlebundle.couchdocument.atomentry: Castle
         bangpound.bundle.pubsubbundle.couchdocument.atomentry: 'Kal3a: FB+Web (Jul 2013 to current)'
+
+    elasticsearch_host: localhost
+    elasticsearch_port: 9200
+    elasticsearch_index_name: ~
