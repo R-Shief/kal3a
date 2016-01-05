@@ -17,18 +17,6 @@ parameters:
     caxy_elasticsearch.mapping.params:
         atom:
             properties:
-                _attachments:
-                    properties:
-                        original:
-                            properties:
-                                content_type:
-                                    type: string
-                                digest:
-                                    type: string
-                                length:
-                                    type: long
-                                revpos:
-                                    type: long
                 _rev:
                     type: string
                 authors:
@@ -60,9 +48,6 @@ parameters:
                             type: string
                         type:
                             type: string
-                doctrine_metadata:
-                    type: object
-                    enabled: false
                 id:
                     type: string
                 links:
@@ -142,8 +127,6 @@ parameters:
                             type: string
                         type:
                             type: string
-                type:
-                    type: string
                 updated:
                     type: date
                     format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
