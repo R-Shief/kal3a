@@ -45,13 +45,5 @@ _fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix:   /admin
 
-sputnik_pubsub_hub:
-    resource: "@SputnikPubsubBundle/Resources/config/routing/hub.xml"
-    prefix:   /hub
-
-sputnik_pubsub_callback:
-    resource: "@SputnikPubsubBundle/Resources/config/routing/callback.xml"
-    prefix:   /push
-
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
