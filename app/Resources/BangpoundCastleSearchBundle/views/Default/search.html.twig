@@ -2,16 +2,10 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='cssrewrite' %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
 {% endblock %}
 
 {% form_theme form _self %}
@@ -46,7 +40,7 @@
     {{- parent() -}}
 <div class="global-search active">
 	<div class="container">
-    <div class="search-logo"><a href="http://r-shief.org"><img src="bundles/rshiefkal3a/images/r-shief-web.png" alt="R-Shief"></a></div>
+    <div class="search-logo"><a href="http://r-shief.org"><img src="{{ asset('bundles/rshiefkal3a/images/r-shief-web.png') }}" alt="R-Shief"></a></div>
     {{- form_start(form) -}}
     {% spaceless %}
         <div class="btn-group">

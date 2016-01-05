@@ -2,34 +2,29 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {% stylesheets filter='cssrewrite' %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {#<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />#}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
-    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
-        "@underscore_js"
-        "@underscore_string_js"
-        "@angular_js"
-        "@angular_sanitize_js"
-        "@angular_resource_js"
-        "@angular_bootstrap_js"
-        "@elasticsearch_angular_js"
-        "@elastic_js_js"
-        "@d3_js"
-        "@n3_charts_line_chart_js"
-        "@CornerCouch_js"
-        "@BangpoundCastleSearchBundle/Resources/public/js/app.js"
-        "@BangpoundCastleSearchBundle/Resources/public/js/controllers.js"
-        "@BangpoundCastleSearchBundle/Resources/public/js/components.js"
-        "@BangpoundCastleSearchBundle/Resources/public/js/filters.js"
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script type="text/javascript" src="{{ asset('underscore/underscore.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('underscore.string/lib/underscore.string.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular/angular.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-sanitize/angular-sanitize.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-resource/angular-resource.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-bootstrap/ui-bootstrap.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('elasticsearch/elasticsearch.angular.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('elastic.js/dist/elastic.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('d3/d3.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('n3-charts.line-chart/build/line-chart.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('CornerCouch/angular-cornercouch.js', 'vendor') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/app.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/controllers.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/components.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/filters.js', 'bundles') }}"></script>
 {% endblock %}
 
 {% block body_controller %} ng-controller="SearchCtrl" ng-cloak{% endblock %}

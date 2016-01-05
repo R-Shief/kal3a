@@ -12,9 +12,7 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-            {% javascripts '@hinclude_js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+            <script type="text/javascript" src="{{ asset('hinclude/hinclude.js', 'vendor') }}"></script>
         {% endblock %}
     </body>
 </html>
