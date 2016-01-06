@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bf7603c63bed9f57f3b2085918d249c1",
-    "content-hash": "a5372123ceab3f0266457963cdb7bc32",
+    "hash": "a0d7c0ad72683683939f0e1b116b7390",
+    "content-hash": "6dfc3476067e0f70d26b065d65ee396f",
     "packages": [
         {
             "name": "bangpound/atom-data-bundle",
@@ -4825,10 +4825,11 @@
         "bangpound/doctrine-datetime": 20,
         "bangpound/guzzle-proxy-bundle": 20,
         "bangpound/twitter-streaming-bundle": 20,
+        "caxy/elasticsearch-bundle": 20,
         "creof/doctrine2-spatial": 20,
-        "doctrine/couchdb-odm-bundle": 20,
-        "doctrine/couchdb-odm": 15,
         "doctrine/couchdb": 20,
+        "doctrine/couchdb-odm": 15,
+        "doctrine/couchdb-odm-bundle": 20,
         "fennb/phirehose": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
@@ -4837,8 +4838,7 @@
         "oldsound/rabbitmq-bundle": 20,
         "phayes/geophp": 20,
         "robotsnowfall/enum": 20,
-        "rshief/kal3a-bundle": 20,
-        "caxy/elasticsearch-bundle": 20
+        "rshief/kal3a-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

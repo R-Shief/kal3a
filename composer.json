@@ -33,10 +33,11 @@
         "bangpound/doctrine-datetime": "~1.0@dev",
         "bangpound/guzzle-proxy-bundle": "~2.0@dev",
         "bangpound/twitter-streaming-bundle": "~1.0@dev",
+        "caxy/elasticsearch-bundle": "dev-develop",
         "creof/doctrine2-spatial": "dev-master",
-        "doctrine/couchdb-odm-bundle": "dev-master",
-        "doctrine/couchdb-odm": "~1.0@alpha",
         "doctrine/couchdb": "dev-master",
+        "doctrine/couchdb-odm": "~1.0@alpha",
+        "doctrine/couchdb-odm-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "~1.0",
         "fennb/phirehose": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "~2.0@dev",
@@ -51,8 +52,7 @@
         "oldsound/rabbitmq-bundle": "~1.6.0@dev",
         "phayes/geophp": "dev-master",
         "robotsnowfall/enum": "dev-master",
-        "rshief/kal3a-bundle": "1.0.*@dev",
-        "caxy/elasticsearch-bundle": "dev-develop"
+        "rshief/kal3a-bundle": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
