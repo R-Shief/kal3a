@@ -4,7 +4,8 @@
     "type": "project",
     "description": "Aggregation and collection engine.",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "repositories": [
         {
@@ -17,15 +18,14 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "2.7.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
-        "twig/extensions": "~1.0",
+        "php": ">=5.3.9",
+        "symfony/symfony": "2.8.*",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/doctrine-bundle": "~1.4",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/distribution-bundle": "~5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "bangpound/atom-data-bundle": "~1.0@dev",
         "bangpound/castle-bundle": "~1.0",
@@ -34,17 +34,17 @@
         "bangpound/guzzle-proxy-bundle": "~2.0@dev",
         "bangpound/twitter-streaming-bundle": "~1.0@dev",
         "creof/doctrine2-spatial": "dev-master",
-        "doctrine/couchdb-odm-bundle": "~2.1@alpha",
+        "doctrine/couchdb-odm-bundle": "dev-master",
         "doctrine/couchdb-odm": "~1.0@alpha",
         "doctrine/couchdb": "dev-master",
         "doctrine/doctrine-cache-bundle": "~1.0",
         "fennb/phirehose": "dev-master",
-        "friendsofsymfony/jsrouting-bundle": "~1.5.3",
+        "friendsofsymfony/jsrouting-bundle": "~2.0@dev",
         "friendsofsymfony/rest-bundle": "~1.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "javiereguiluz/easyadmin-bundle": "~1.4",
-        "jms/serializer-bundle": "0.13.*@dev",
-        "liip/monitor-bundle": "~2.0.2",
+        "jms/serializer-bundle": "~1.1",
+        "liip/monitor-bundle": "~2.3@dev",
         "nelmio/cors-bundle": "~1.0",
         "nesbot/Carbon": "~1.12",
         "nojimage/twitter-text-php": "dev-master",
@@ -55,7 +55,8 @@
         "caxy/elasticsearch-bundle": "dev-develop"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7"
     },
     "scripts": {
         "post-install-cmd": [
@@ -64,7 +65,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
             "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
         ],
@@ -74,7 +74,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
             "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
         ]
@@ -82,13 +81,13 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
-        "symfony-assets-install": "relative",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "symlink",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
