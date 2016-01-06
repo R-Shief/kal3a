@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    {% if settings.title %}
+        <div class="panel-heading">{{ settings.title }}</div>
+    {% endif %}
+    {% if settings.body %}
+        <div class="panel-body">{{ settings.body }}</div>
+    {% endif %}
+    <table class="table table-condensed">
+        {% for key,value in results | slice(0,50) %}
+            <tr>
+                <th><a href="{{ url('bangpound_castle_search_result', { 'tag': key }) }}">{{ key }}</a></th>
+                <td class="text-right">{{ value.count|number_format }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

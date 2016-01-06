@@ -1,0 +1,23 @@
+{
+    "name": "bangpound/castle-search-bundle",
+    "description": "Angular UI search for Castle.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Bangpound\\Bundle\\CastleSearchBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>pid</th>
+                <th>type</th>
+                <th>progress</th>
+                <th>started_on</th>
+                <th>updated_on</th>
+                <th>details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row.pid }}</td>
+                    <td>{{ row.type }}</td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ row.progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ row.progress }}%">
+                                {{ row.progress }}%<span class="sr-only"> Complete</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ row.started_on | date }}</td>
+                    <td>{{ row.updated_on | date }}</td>
+                    <td>
+                        <dl>
+                            {% for key, value in row %}
+                                {% if key not in ["pid","type","progress","started_on","updated_on"] %}
+                                    <dt>{{ key }}</dt>
+                                    <dd>{{ value }}</dd>
+                                {% endif %}
+                            {% endfor %}
+                        </dl>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/bangpoundcastlesearch/css/style.css') }}" type="text/css" rel="stylesheet" />
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+{% endblock %}

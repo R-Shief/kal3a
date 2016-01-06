@@ -1,0 +1,356 @@
+@import "bootstrap-theme";
+@import "bootstrap";
+@import "compass";
+
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+a.ng-binding {
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.carousel-indicators {
+  display: none !important;
+}
+
+header.rshief-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0e7171;
+  z-index: 1000;
+  height: 34px;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.social-header {
+  background: #0e7171;
+  height: 34px;
+  width: 100%;
+  top: 0;
+  z-index: 9000;
+  position: fixed;
+}
+
+#menu-global.navbar-nav li {
+  line-height: 88px;
+
+}
+
+#menu-global.navbar-nav li a {
+  padding: 0 12px;
+  font-size: 12px;
+  color: #444444;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 88px;
+  font-weight: 400;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header .main-nav {
+  margin-bottom: 0;
+  padding-right: 0;
+
+}
+
+header.rshief-header .social-nav li {
+  border-right: 1px solid #fff;
+  text-align: center;
+
+}
+
+header.rshief-header .social-nav li:last-child {
+  border-right: 0;
+}
+
+header.rshief-header .main-nav .navbar-toggle {
+  border: none;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+  padding-top: 12px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  top: 0;
+}
+
+header.rshief-header .main-nav .navbar-toggle:hover {
+  background: none;
+}
+
+header.rshief-header .main-nav .navbar-brand {
+  border-right: 1px solid #084444;
+  margin-right: 0;
+  min-height: 45px;
+  margin-left: 5px;
+  padding: 10px 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 400px) {
+  header.rshief-header .main-nav .navbar-brand {
+    border-right: none;
+  }
+}
+
+header.rshief-header .main-nav .navbar-brand img {
+  width: 22px;
+}
+
+header.rshief-header .main-nav .navbar-nav {
+  border-left: 1px solid #149e9e;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header .main-nav .navbar-nav li > a {
+  color: #ffffff;
+  line-height: 33px;
+  font-size: 12px;
+  padding: 0 0 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header .main-nav .navbar-nav li > a i {
+  width: 33px;
+  height: 33px;
+  line-height: 33px;
+}
+
+header.rshief-header .main-nav .navbar-nav li > a:hover {
+  color: #ffffff;
+
+}
+
+header.rshief-header .main-nav .navbar-nav li > a:hover .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+header.rshief-header .main-nav .navbar-nav li > a:hover .caret:hover,
+header.rshief-header .main-nav .navbar-nav li > a:hover .caret:focus {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+header.rshief-header .main-nav .navbar-nav li.open > a {
+  background: #084444 url('../images/patternme.png');
+}
+
+header.rshief-header .main-nav .navbar-nav li.current_page_item a,
+header.rshief-header .main-nav .navbar-nav li.current-menu-item a {
+  color: #ffffff;
+  background: #084444 url('../images/patternme.png');
+}
+
+header.rshief-header .main-nav .navbar-nav li.current_page_item a:hover,
+header.rshief-header .main-nav .navbar-nav li.current_page_item a:focus,
+header.rshief-header .main-nav .navbar-nav li.current-menu-item a:hover,
+header.rshief-header .main-nav .navbar-nav li.current-menu-item a:focus {
+  color: #ffffff;
+  background: #084444 url('../images/patternme.png');
+}
+
+header.rshief-header .main-nav .navbar-nav li.active > a {
+  background: #084444 url('../images/patternme.png');
+}
+
+header.rshief-header .main-nav .navbar-nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+}
+
+header.rshief-header .main-nav .navbar-nav .dropdown-menu {
+  padding: 0;
+}
+
+header.rshief-header .main-nav .navbar-nav .dropdown-menu li.current-menu-item a {
+  background: #fff;
+  color: #888;
+}
+
+header.rshief-header .main-nav .navbar-nav .dropdown-menu li.current-menu-item a:hover {
+  background: #f4f4f8;
+}
+
+header.rshief-header .main-nav .navbar-nav .dropdown-menu li a {
+  color: #888;
+  background: #fff;
+}
+
+header.rshief-header .main-nav .navbar-nav .dropdown-menu li a:hover {
+  background: $body-bg;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav {
+  border-left: 0;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li a {
+  padding: 0 0 0;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li a i {
+  font-size: 13px;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li:last-child a {
+  padding-right: 30px;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.account {
+  line-height: 34px;
+  color: #c3c3c8;
+  font-size: 12px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.account:hover {
+  background: none;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.account a {
+  display: inline;
+  color: $body-bg;
+  padding-left: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.account a:hover {
+  background: none;
+  color: #fff;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.account a i {
+  margin-left: 3px;
+}
+
+header.rshief-header .main-nav .navbar-nav.social-nav li.divider-vertical {
+  height: 45px;
+  margin: 0;
+  border-right: 1px solid #149e9e;
+  border-left: 1px solid #084444;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.rshief-header.rshief-header-shrink {
+  height: 30px;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-toggle {
+  padding-top: 5px;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-brand {
+  min-height: 30px;
+  padding: 4px 30px;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-brand img {
+  width: 22px;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav li > a {
+  line-height: 30px;
+  padding: 0 15px 0;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav li.dropdown a:hover .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav li.dropdown a:hover .caret:hover,
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav li.dropdown a:hover .caret:focus {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav li.account {
+  line-height: 30px;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav.social-nav {
+  border-left: 0;
+}
+
+header.rshief-header.rshief-header-shrink .main-nav .navbar-nav.social-nav li.divider-vertical {
+  height: 30px;
+}
+
+.navbar-nav.social-nav li a {
+  padding: 0 15px 0;
+}
+
+.navbar-nav.social-nav li a i {
+  font-size: 13px;
+}
+
+.navbar-nav.social-nav li:last-child a {
+  padding-right: 30px;
+}
+
+.navbar-nav.social-nav li.account {
+  line-height: 45px;
+  color: #c4c4c8;
+  font-size: 12px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.navbar-nav.social-nav li.account:hover {
+  background: none;
+}
+
+.navbar-nav.social-nav li.account a {
+  display: inline;
+  color: $body-bg;
+  padding-left: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.navbar-nav.social-nav li.account a:hover {
+  background: none;
+  color: #fff;
+}
+
+.navbar-nav.social-nav li.account a i {
+  margin-left: 3px;
+}
+
+.navbar-nav.social-nav li.divider-vertical {
+  height: 45px;
+  margin: 0;
+  border-right: 1px solid #149e9e;
+  border-left: 1px solid #084444;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+

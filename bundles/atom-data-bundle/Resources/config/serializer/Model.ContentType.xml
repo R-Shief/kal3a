@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Bangpound\Atom\DataBundle\Model\ContentType" access-type="public_method">
+        <property name="lang" type="string"/>
+        <property name="base" type="string"/>
+        <property name="type" type="string" xml-attribute="true"/>
+        <property name="src" type="string" xml-attribute="true"/>
+        <property name="content" type="string" xml-value="true"/>
+    </class>
+</serializer>

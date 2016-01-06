@@ -1,0 +1,17 @@
+<span ng-controller="LimitModal">
+    <script type="text/ng-template" id="modal_results.html">
+        <div class="modal-header">
+            <h4 id="modal-results-header">Number of results per page</h4>
+        </div>
+        <div class="modal-body">
+            <input ng-model="pager.limit" type="number" min="1">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="ok()">Save changes</button>
+        </div>
+    </script>
+    <a title="change result set size" class="btn btn-default" ng-click="open()">
+        {% verbatim %}{{ pager.limit }}{% endverbatim %}
+    </a>
+</span>

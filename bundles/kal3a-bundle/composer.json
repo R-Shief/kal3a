@@ -1,0 +1,22 @@
+{
+    "name": "rshief/kal3a-bundle",
+    "description": "Kal3a modifications of Castle.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Rshief\\Bundle\\Kal3aBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

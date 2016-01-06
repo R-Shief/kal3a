@@ -4,129 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "caea6d68583bd2472c89715f1aa13bf3",
-    "content-hash": "09a7bf9e3b6e8e572b52fa777b3fd507",
+    "hash": "b75cf78608bf498f18bc8887929884cd",
+    "content-hash": "3ccb3495401be7f9f23c274aae7318d8",
     "packages": [
-        {
-            "name": "bangpound/atom-data-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/atom-data-bundle.git",
-                "reference": "78b6dc0422b84fd95378f7f95d7d8265376d26c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-data-bundle/zipball/78b6dc0422b84fd95378f7f95d7d8265376d26c5",
-                "reference": "78b6dc0422b84fd95378f7f95d7d8265376d26c5",
-                "shasum": ""
-            },
-            "require": {
-                "jms/serializer-bundle": "~1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bangpound\\Atom\\DataBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Atom entities and admin controllers",
-            "time": "2016-01-06 02:58:28"
-        },
-        {
-            "name": "bangpound/castle-bundle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/castle-bundle.git",
-                "reference": "8c4858cb67eb984684cbbad71e12e7875bd4ed30"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/castle-bundle/zipball/8c4858cb67eb984684cbbad71e12e7875bd4ed30",
-                "reference": "8c4858cb67eb984684cbbad71e12e7875bd4ed30",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bangpound\\Bundle\\CastleBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Castle application bundle",
-            "time": "2014-11-10 05:48:57"
-        },
-        {
-            "name": "bangpound/castle-search-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/R-Shief/castle-search-bundle.git",
-                "reference": "56a30c1ea879d435b180b9920c73f869dfc6b6e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/castle-search-bundle/zipball/56a30c1ea879d435b180b9920c73f869dfc6b6e6",
-                "reference": "56a30c1ea879d435b180b9920c73f869dfc6b6e6",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bangpound\\Bundle\\CastleSearchBundle\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Angular UI search for Castle.",
-            "support": {
-                "source": "https://github.com/R-Shief/castle-search-bundle/tree/master",
-                "issues": "https://github.com/R-Shief/castle-search-bundle/issues"
-            },
-            "time": "2016-01-05 07:50:51"
-        },
         {
             "name": "bangpound/doctrine-datetime",
             "version": "dev-master",
@@ -261,50 +141,6 @@
             ],
             "description": "Symfony2 bundle to integrate Phirehose",
             "time": "2016-01-06 02:34:44"
-        },
-        {
-            "name": "bangpound/twitter-streaming-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bangpound/twitter-streaming-bundle.git",
-                "reference": "99679ad9238a26758980056b504d081d56c417f1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/twitter-streaming-bundle/zipball/99679ad9238a26758980056b504d081d56c417f1",
-                "reference": "99679ad9238a26758980056b504d081d56c417f1",
-                "shasum": ""
-            },
-            "require": {
-                "bangpound/phirehose-bundle": "~1.0",
-                "ext-pcntl": "*",
-                "oldsound/rabbitmq-bundle": "~1.5",
-                "symfony/dependency-injection": "~2.3|3.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bangpound\\Bundle\\TwitterStreamingBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Entities and admin controllers for streaming API parameters",
-            "time": "2016-01-06 02:58:48"
         },
         {
             "name": "caxy/elasticsearch-bundle",
@@ -3336,47 +3172,6 @@
             "time": "2012-11-16 16:56:42"
         },
         {
-            "name": "rshief/kal3a-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/R-Shief/kal3a-bundle.git",
-                "reference": "fbbdcd7420297c3e29b60d923244a964ad436411"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/kal3a-bundle/zipball/fbbdcd7420297c3e29b60d923244a964ad436411",
-                "reference": "fbbdcd7420297c3e29b60d923244a964ad436411",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Rshief\\Bundle\\Kal3aBundle\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Kal3a modifications of Castle.",
-            "support": {
-                "source": "https://github.com/R-Shief/kal3a-bundle/tree/master",
-                "issues": "https://github.com/R-Shief/kal3a-bundle/issues"
-            },
-            "time": "2016-01-05 08:00:31"
-        },
-        {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.3",
             "source": {
@@ -4869,11 +4664,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "bangpound/atom-data-bundle": 20,
-        "bangpound/castle-search-bundle": 20,
         "bangpound/doctrine-datetime": 20,
         "bangpound/guzzle-proxy-bundle": 20,
-        "bangpound/twitter-streaming-bundle": 20,
         "caxy/elasticsearch-bundle": 20,
         "creof/doctrine2-spatial": 20,
         "doctrine/couchdb": 20,
@@ -4886,13 +4678,13 @@
         "nojimage/twitter-text-php": 20,
         "oldsound/rabbitmq-bundle": 20,
         "phayes/geophp": 20,
-        "robotsnowfall/enum": 20,
-        "rshief/kal3a-bundle": 20
+        "robotsnowfall/enum": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.9"
+        "php": ">=5.3.9",
+        "ext-pcntl": "*"
     },
     "platform-dev": []
 }

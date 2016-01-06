@@ -1,0 +1,25 @@
+parameters:
+    bangpound_phirehose.stream.class: Bangpound\PhirehoseBundle\Stream\BasicStream
+    bangpound_phirehose.follow: []
+    bangpound_phirehose.track: []
+    bangpound_phirehose.locations: []
+    bangpound_phirehose.count: null
+
+services:
+    bangpound_phirehose.stream:
+        class: %bangpound_phirehose.stream.class%
+        arguments:
+            - %bangpound_phirehose.oauth_token%
+            - %bangpound_phirehose.oauth_secret%
+            - 'filter'
+            - 'json'
+        calls:
+            - [setFollow, [%bangpound_phirehose.follow%]]
+            - [setTrack, [%bangpound_phirehose.track%]]
+            - [setLocations, [%bangpound_phirehose.locations%]]
+            - [setCount, [%bangpound_phirehose.count%]]
+            - [setDispatcher, ['@event_dispatcher']]
+            - [setEntityManager, ["@doctrine.orm.entity_manager"]]
+        properties:
+            consumerKey: %bangpound_phirehose.twitter_consumer_key%
+            consumerSecret: %bangpound_phirehose.twitter_consumer_secret%

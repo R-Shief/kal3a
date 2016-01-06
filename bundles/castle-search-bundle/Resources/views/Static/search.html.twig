@@ -1,0 +1,100 @@
+{% extends "@BangpoundCastleSearch/layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body_controller %} ng-controller="TagsTypeahead" ng-cloak{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('underscore/underscore.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('underscore.string/lib/underscore.string.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular/angular.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-sanitize/angular-sanitize.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-resource/angular-resource.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('angular-bootstrap/ui-bootstrap.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('elasticsearch/elasticsearch.angular.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('elastic.js/dist/elastic.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('d3/d3.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('n3-charts.line-chart/build/line-chart.js', 'vendor') }}"></script>
+    <script type="text/javascript" src="{{ asset('CornerCouch/angular-cornercouch.js', 'vendor') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/app.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/controllers.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/components.js', 'bundles') }}"></script>
+    <script type="text/javascript" src="{{ asset('bangpoundcastlesearch/js/filters.js', 'bundles') }}"></script>
+{% endblock %}
+
+{% block navbar %}
+    <header class="rshief-header">
+        <div class="container">
+            <div class="main-nav">
+                <nav id="nav" class="menu-global-container">
+                    <ul class="nav social-nav navbar-nav pull-left">
+                        <li>
+                            <a title="Twitter" target="_blank" href="http://twitter.com/rshief"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a title="Facebook" target="_blank" href="http://facebook.com/rshief"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a title="Github" target="_blank" href="https://github.com/R-Shief/"><i class="fa fa-github-alt"></i></a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="global-search active">
+        <div class="container">
+            <div class="search-logo">
+                <a href="http://r-shief.org" title="R-Shief Home"><img src="http://nu.r-shief.org/wp-content/uploads/2014/08/r-shief-web.png" alt="R-Shief"></a>
+            </div>
+            <ul id="menu-global" class="nav navbar-nav pull-right">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1192">
+                    <a title="Home" href="http://r-shief.org">Home</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13"><a
+                            title="About" href="http://r-shief.org/about/">About</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11"><a
+                            title="Tools" href="http://r-shief.org/tools/">Tools</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164">
+                    <a title="Projects" href="http://r-shief.org/projects/">Projects</a>
+                </li>
+
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185">
+                    <a title="Archive" href="http://r-shief.org/archive/">Archive</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1180">
+                    <a title="Blog" href="http://r-shief.org/blog/">Blog</a></li>
+                <li><a title="Community" href="http://r-shief.org/community">Community</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-header">Enter a hashtag</h1>
+    <input type="text" ng-model="tag" typeahead-on-select="getData()" typeahead-min-length="3" typeahead-wait-ms="100" typeahead-editable="false" placeholder="Start typing and our list of keywords will drop down" typeahead="address for address in getTags($viewValue) | filter:$viewValue" class="form-control input-lg">
+    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+    <div class="clearfix">
+        <linechart data="data" options="options" mode=""></linechart>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Top Images</h2>
+            <carousel interval="5000">
+                <slide ng-repeat="slide in slides">
+                    <img ng-src="{% verbatim %}{{ slide }}{% endverbatim %}">
+                </slide>
+            </carousel>
+        </div>
+        <div class="col-md-6">
+            <h2>Top Links</h2>
+            <ul>
+                <li ng-repeat="link in links"><a ng-href="{% verbatim %}{{ link }}{% endverbatim %}">{% verbatim %}{{ link }}{% endverbatim %}</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

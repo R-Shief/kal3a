@@ -1,0 +1,28 @@
+{
+    "name": "bangpound/twitter-streaming-bundle",
+    "description": "Entities and admin controllers for streaming API parameters",
+    "autoload": {
+        "psr-4": {
+            "Bangpound\\Bundle\\TwitterStreamingBundle\\": ""
+        }
+    },
+    "require": {
+        "ext-pcntl": "*",
+        "symfony/dependency-injection": "~2.3|3.*",
+        "bangpound/phirehose-bundle": "~1.0",
+        "oldsound/rabbitmq-bundle": "~1.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

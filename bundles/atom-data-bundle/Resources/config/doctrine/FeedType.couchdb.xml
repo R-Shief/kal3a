@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <document name="Bangpound\Atom\DataBundle\CouchDocument\FeedType">
+        <field name="icon" json-name="icon" type="string" />
+        <field name="id" json-name="id" type="string" />
+        <field name="logo" json-name="logo" type="string" />
+        <field name="title" json-name="title" type="mixed" />
+        <field name="subtitle" json-name="subtitle" type="mixed" />
+        <field name="rights" json-name="rights" type="mixed" />
+        <field name="updated" json-name="updated" type="datetime" />
+        <embed-one target-document="GeneratorType" field="generator" />
+
+        <field name="authors" type="mixed" />
+        <field name="categories" type="mixed" />
+        <field name="contributors" type="mixed" />
+        <field name="links" type="mixed" />
+
+        <embed-many target-document="EntryType" field="entries" />
+    </document>
+</doctrine-mapping>
