@@ -1,3 +1,7 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
 rshief_kal3a:
     resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
 
