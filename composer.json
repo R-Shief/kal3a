@@ -52,7 +52,8 @@
         "oldsound/rabbitmq-bundle": "~1.6.0@dev",
         "phayes/geophp": "dev-master",
         "robotsnowfall/enum": "dev-master",
-        "rshief/kal3a-bundle": "1.0.*@dev"
+        "rshief/kal3a-bundle": "1.0.*@dev",
+        "wikimedia/composer-merge-plugin": "^1.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
