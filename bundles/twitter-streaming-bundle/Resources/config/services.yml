@@ -31,7 +31,7 @@ services:
 
     bangpound_twitter_streaming.consumer.notification:
         class: %bangpound_twitter_streaming.consumer.notification.class%
-        arguments: [ "@doctrine_couchdb.odm.document_manager", "@jms_serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
+        arguments: [ "@doctrine_couchdb.client.default_connection", "@serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
         calls:
             - [ setLogger, [ "@logger" ] ]
 
@@ -47,9 +47,3 @@ services:
         tags:
             - { name: bangpound_phirehose.event_subscriber }
             - { name: monolog.logger, channel: twitter_data }
-
-    bangpound_twitter_streaming.listener.flush:
-        class: %bangpound_twitter_streaming.listener.flush.class%
-        arguments: [ "@doctrine_couchdb.odm.document_manager", 'twitter' ]
-        tags:
-            - { name: kernel.event_listener, event: console.terminate, method: onConsoleTerminate }

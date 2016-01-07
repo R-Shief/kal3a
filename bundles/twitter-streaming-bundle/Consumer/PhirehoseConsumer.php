@@ -8,36 +8,45 @@ use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\PersonType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
-use Doctrine\Common\Persistence\ObjectManager;
-use JMS\Serializer\Serializer;
-use JMS\Serializer\SerializerInterface;
+use Doctrine\CouchDB\Attachment;
+use Doctrine\CouchDB\CouchDBClient;
+use Doctrine\CouchDB\HTTP\Client;
+use Doctrine\CouchDB\HTTP\HTTPException;
 use PhpAmqpLib\Message\AMQPMessage;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class PhirehoseConsumer.
  */
 class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
 {
-    private $objectManager;
-    private $serializer;
+    private $client;
     private $jsonOptions;
     private $atomEntryClass;
-    private $logger;
 
     /**
-     * @param ObjectManager       $objectManager
-     * @param SerializerInterface $serializer
-     * @param string              $atomEntryClass
+     * @var LoggerInterface
      */
-    public function __construct(ObjectManager $objectManager, SerializerInterface $serializer, $atomEntryClass)
+    private $logger;
+    /**
+     * @var Serializer
+     */
+    private $serializer;
+
+    /**
+     * @param CouchDBClient $client
+     * @param string        $atomEntryClass
+     */
+    public function __construct(CouchDBClient $client, SerializerInterface $serializer, $atomEntryClass)
     {
-        $this->objectManager = $objectManager;
-        $this->serializer = $serializer;
+        $this->client = $client;
         $this->atomEntryClass = $atomEntryClass;
         $this->jsonOptions = (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0', '>=')) ? JSON_BIGINT_AS_STRING : 0;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -55,7 +64,13 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        $data = json_decode($msg->body, true, 512, $this->jsonOptions);
+        $context = array(
+          'json_decode_associative' => true,
+          'json_decode_recursion_depth' => 512,
+          'json_decode_options' => $this->jsonOptions,
+        );
+
+        $data = $this->serializer->decode($msg->body, 'json', $context);
 
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
         $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
@@ -65,7 +80,7 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
         /** @var \Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry $entry */
         $entry = new $this->atomEntryClass();
         $entry->setId($id);
-        $entry->setOriginalData($msg->body, 'application/json');
+        $entry->setAttachment('original', Attachment::createFromBinaryData($msg->body, 'application/json'));
 
         $title = new TextType();
         $title->setText($data['text']);
@@ -141,8 +156,13 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
 
         $entry->setExtra('filter_level', $data['filter_level']);
 
-        $this->objectManager->persist($entry);
+        $data = $this->serializer->normalize($entry);
+        try {
+            $result = $this->client->postDocument($data);
 
-        return ConsumerInterface::MSG_ACK;
+            return ConsumerInterface::MSG_ACK;
+        } catch (HTTPException $e) {
+            return ConsumerInterface::MSG_REJECT_REQUEUE;
+        }
     }
 }

@@ -3,12 +3,21 @@
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
 use Bangpound\Atom\Model\EntryType as BaseEntryType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class EntryType.
  */
 class EntryType extends BaseEntryType
 {
+    public function __construct()
+    {
+        $this->authors = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
+        $this->links = new ArrayCollection();
+    }
+
     /**
      * @var string
      */
