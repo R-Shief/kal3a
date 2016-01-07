@@ -132,8 +132,6 @@ doctrine_couch_db:
                 dbname: %doctrine_couch_db.default.dbname%_stats
                 user: %doctrine_couch_db.default.user%
                 password: %doctrine_couch_db.default.password%
-    odm:
-        auto_mapping: true
 
 # Liip monitor
 liip_monitor:
