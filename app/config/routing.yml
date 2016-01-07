@@ -44,7 +44,6 @@ easy_admin_bundle:
 
 _fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix:   /admin
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
