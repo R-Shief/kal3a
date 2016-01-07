@@ -25,7 +25,6 @@
         "doctrine/couchdb-odm": "~1.0@alpha",
         "doctrine/couchdb-odm-bundle": "dev-master",
         "doctrine/doctrine-cache-bundle": "~1.0",
-        "fennb/phirehose": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "~2.0@dev",
         "friendsofsymfony/rest-bundle": "~1.5",
         "friendsofsymfony/user-bundle": "~2.0@dev",
