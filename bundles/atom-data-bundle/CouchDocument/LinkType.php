@@ -2,7 +2,7 @@
 
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\LinkType as BaseLinkType;
+use Bangpound\Atom\Model\LinkType as BaseLinkType;
 
 /**
  * Class LinkType

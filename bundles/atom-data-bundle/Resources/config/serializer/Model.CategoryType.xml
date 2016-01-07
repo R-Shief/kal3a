@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <serializer>
-    <class name="Bangpound\Atom\DataBundle\Model\CategoryType" access-type="public_method">
+    <class name="Bangpound\Atom\Model\CategoryType" access-type="public_method">
         <property name="lang" type="string"/>
         <property name="base" type="string"/>
         <property name="term" type="string" xml-attribute="true"/>

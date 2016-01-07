@@ -8,7 +8,7 @@
 
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\GeneratorType as BaseGeneratorType;
+use Bangpound\Atom\Model\GeneratorType as BaseGeneratorType;
 
 /**
  * Class GeneratorType

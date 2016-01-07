@@ -2,7 +2,7 @@
 
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\CommonAttributes as BaseCommonAttributes;
+use Bangpound\Atom\Model\CommonAttributes as BaseCommonAttributes;
 
 /**
  * Class CommonAttributes

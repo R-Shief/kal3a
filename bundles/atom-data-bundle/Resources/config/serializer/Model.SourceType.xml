@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <serializer>
-    <class name="Bangpound\Atom\DataBundle\Model\SourceType" xml-root-name="source" access-type="public_method">
+    <class name="Bangpound\Atom\Model\SourceType" xml-root-name="source" access-type="public_method">
         <property name="icon" type="string" />
         <property name="id" type="string" />
         <property name="logo" type="string" />

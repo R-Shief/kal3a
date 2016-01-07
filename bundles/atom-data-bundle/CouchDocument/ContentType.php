@@ -1,7 +1,7 @@
 <?php
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\ContentType as BaseContentType;
+use Bangpound\Atom\Model\ContentType as BaseContentType;
 
 /**
  * Class ContentType

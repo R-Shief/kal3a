@@ -14,6 +14,7 @@
         }
     },
     "require": {
+        "bangpound/atom-models": "dev-master",
         "jms/serializer-bundle": "~1.1"
     },
     "extra": {

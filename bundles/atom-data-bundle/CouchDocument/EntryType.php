@@ -1,7 +1,7 @@
 <?php
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\EntryType as BaseEntryType;
+use Bangpound\Atom\Model\EntryType as BaseEntryType;
 
 /**
  * Class EntryType

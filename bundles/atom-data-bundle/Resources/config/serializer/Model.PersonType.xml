@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <serializer>
-    <class name="Bangpound\Atom\DataBundle\Model\PersonType" access-type="public_method">
+    <class name="Bangpound\Atom\Model\PersonType" access-type="public_method">
         <property name="name" type="string" />
         <property name="uri" type="string" />
         <property name="email" type="string" />

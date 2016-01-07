@@ -1,7 +1,7 @@
 <?php
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\SourceType as BaseSourceType;
+use Bangpound\Atom\Model\SourceType as BaseSourceType;
 
 /**
  * Class SourceType

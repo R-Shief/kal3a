@@ -1,7 +1,7 @@
 <?php
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\Model\PersonType as BasePersonType;
+use Bangpound\Atom\Model\PersonType as BasePersonType;
 
 /**
  * Class PersonType
