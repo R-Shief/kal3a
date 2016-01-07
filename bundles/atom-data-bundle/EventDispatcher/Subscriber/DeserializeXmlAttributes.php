@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 10/28/13
- * Time: 4:13 AM
- */
 
 namespace Bangpound\Atom\DataBundle\EventDispatcher\Subscriber;
 
@@ -13,8 +7,7 @@ use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
 
 /**
- * Class XmlNamespaceHandler
- * @package Bangpound\Atom\DataBundle\EventDispatcher\Subscriber
+ * Class XmlNamespaceHandler.
  */
 class DeserializeXmlAttributes implements EventSubscriberInterface
 {
@@ -34,6 +27,7 @@ class DeserializeXmlAttributes implements EventSubscriberInterface
     public function onPreDeserialize(PreDeserializeEvent $event)
     {
         $type = $event->getType();
+        /** @var \SimpleXMLElement $data */
         $data = $event->getData();
         if (is_subclass_of($type['name'], 'Bangpound\Atom\DataBundle\Model\CommonAttributes')) {
             $namespaces = $data->getNamespaces(true);

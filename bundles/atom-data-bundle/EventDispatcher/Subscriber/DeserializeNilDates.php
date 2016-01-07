@@ -1,6 +1,7 @@
 <?php
 
 namespace Bangpound\Atom\DataBundle\EventDispatcher\Subscriber;
+
 use JMS\Serializer\Exception\RuntimeException;
 use JMS\Serializer\Handler\DateHandler;
 use JMS\Serializer\EventDispatcher\Event;
@@ -10,8 +11,7 @@ use JMS\Serializer\VisitorInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- * Class DeserializeNilDates
- * @package Bangpound\Atom\DataBundle\EventDispatcher\Subscriber
+ * Class DeserializeNilDates.
  */
 class DeserializeNilDates implements EventSubscriberInterface
 {
@@ -52,12 +52,11 @@ class DeserializeNilDates implements EventSubscriberInterface
             /** @var \SimpleXMLElement $data */
             $data = $event->getData();
 
-
             try {
                 $this->handler->deserializeDateTimeFromXml($visitor, $data, $type);
             } catch (RuntimeException $e) {
                 $attributes = $data->attributes('xsi', true);
-                if (!isset($attributes['nil'][0]) || (string) $attributes['nil'][0] ==! 'true') {
+                if (!isset($attributes['nil'][0]) || (string) $attributes['nil'][0] == !'true') {
                     $data->addAttribute('xsi:nil', 'true', 'http://www.w3.org/2001/XMLSchema-instance');
                 }
                 $event->setData($data);

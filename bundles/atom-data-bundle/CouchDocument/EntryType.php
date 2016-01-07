@@ -1,11 +1,11 @@
 <?php
+
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
 use Bangpound\Atom\Model\EntryType as BaseEntryType;
 
 /**
- * Class EntryType
- * @package Bangpound\Atom\DataBundle\CouchDocument
+ * Class EntryType.
  */
 class EntryType extends BaseEntryType
 {

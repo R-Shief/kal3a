@@ -5,9 +5,8 @@ namespace Bangpound\Atom\DataBundle\CouchDocument;
 use Bangpound\Atom\Model\CommonAttributes as BaseCommonAttributes;
 
 /**
- * Class CommonAttributes
- * @package Bangpound\Atom\DataBundle\CouchDocument
+ * Class CommonAttributes.
  */
-class CommonAttributes extends BaseCommonAttributes {
-
-} 
+class CommonAttributes extends BaseCommonAttributes
+{
+}

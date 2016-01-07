@@ -1,11 +1,11 @@
 <?php
+
 namespace Bangpound\Atom\DataBundle\CouchDocument;
 
 use Bangpound\Atom\Model\TextType as BaseTextType;
 
 /**
- * Class TextType
- * @package Bangpound\Atom\DataBundle\CouchDocument
+ * Class TextType.
  */
 class TextType extends BaseTextType
 {
