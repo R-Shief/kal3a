@@ -7,16 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
- * Class CopyTrendsCommand
- * @package Rshief\Bundle\Kal3aBundle\Command
+ * Class CopyTrendsCommand.
  */
 class CopyTrendsCommand extends ContainerAwareCommand
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function configure()
     {
@@ -30,7 +28,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
@@ -65,8 +63,8 @@ class CopyTrendsCommand extends ContainerAwareCommand
 
         $output->writeln(sprintf('%s -> %s', $start->format('Y-m-d'), $end->format('Y-m-d')));
 
-        $query->setStartKey([(int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d') ]);
-        $query->setEndKey([(int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'), array() ]);
+        $query->setStartKey([(int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d')]);
+        $query->setEndKey([(int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'), array()]);
         $query->setLimit($limit + 1);
 
         do {
@@ -92,9 +90,9 @@ class CopyTrendsCommand extends ContainerAwareCommand
                         'timestamp' => $timestamp,
                     ));
 
-                    $new = TRUE;
+                    $new = true;
                     if ($stats) {
-                        $new = FALSE;
+                        $new = false;
                     }
 
                     if ($new) {

@@ -5,7 +5,7 @@ namespace Bangpound\Bundle\TwitterStreamingBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Location
+ * Location.
  *
  * @ORM\Table("location")
  * @ORM\Entity(repositoryClass="Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Location implements FilterInterface
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -50,16 +50,17 @@ class Location implements FilterInterface
     private $east;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive = true;
 
     /**
-     * Set isActive
+     * Set isActive.
      *
-     * @param  boolean $isActive
+     * @param bool $isActive
+     *
      * @return Track
      */
     public function setIsActive($isActive)
@@ -70,9 +71,9 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get isActive
+     * Get isActive.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsActive()
     {
@@ -80,9 +81,9 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -90,9 +91,10 @@ class Location implements FilterInterface
     }
 
     /**
-     * Set south
+     * Set south.
      *
-     * @param  float    $south
+     * @param float $south
+     *
      * @return Location
      */
     public function setSouth($south)
@@ -103,7 +105,7 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get south
+     * Get south.
      *
      * @return float
      */
@@ -113,9 +115,10 @@ class Location implements FilterInterface
     }
 
     /**
-     * Set west
+     * Set west.
      *
-     * @param  float    $west
+     * @param float $west
+     *
      * @return Location
      */
     public function setWest($west)
@@ -126,7 +129,7 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get west
+     * Get west.
      *
      * @return float
      */
@@ -136,9 +139,10 @@ class Location implements FilterInterface
     }
 
     /**
-     * Set north
+     * Set north.
      *
-     * @param  float    $north
+     * @param float $north
+     *
      * @return Location
      */
     public function setNorth($north)
@@ -149,7 +153,7 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get north
+     * Get north.
      *
      * @return float
      */
@@ -159,9 +163,10 @@ class Location implements FilterInterface
     }
 
     /**
-     * Set east
+     * Set east.
      *
-     * @param  float    $east
+     * @param float $east
+     *
      * @return Location
      */
     public function setEast($east)
@@ -172,7 +177,7 @@ class Location implements FilterInterface
     }
 
     /**
-     * Get east
+     * Get east.
      *
      * @return float
      */

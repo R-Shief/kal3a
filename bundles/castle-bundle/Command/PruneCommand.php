@@ -3,9 +3,8 @@
  * Created by PhpStorm.
  * User: bjd
  * Date: 8/24/14
- * Time: 2:01 AM
+ * Time: 2:01 AM.
  */
-
 namespace Bangpound\Bundle\CastleBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -13,8 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Doctrine\CouchDB\CouchDBClient;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class PruneCommand extends ContainerAwareCommand
 {
@@ -70,7 +67,7 @@ class PruneCommand extends ContainerAwareCommand
                     $next_start_key = $result[$limit]['key'];
                     $query->setStartKey($result[$limit]['key']);
                     $query->setStartKeyDocId($result[$limit]['id']);
-                    $output->writeln('resume with '. implode('-', $result[$limit]['key']) .' '. $result[$limit]['id']);
+                    $output->writeln('resume with '.implode('-', $result[$limit]['key']).' '.$result[$limit]['id']);
                 }
 
                 $bulk = $default_client->createBulkUpdater();

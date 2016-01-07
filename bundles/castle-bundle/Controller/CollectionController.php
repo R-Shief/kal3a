@@ -6,15 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
- * Class CollectionController
- * @package Bangpound\Bundle\CastleBundle\Controller
+ * Class CollectionController.
  */
 class CollectionController extends Controller
 {
     /**
      * @Route("/hashtag")
+     *
      * @return \Symfony\Component\HttpFoundation\Response|static
      */
     public function hashtagAction()

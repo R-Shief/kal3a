@@ -11,12 +11,13 @@ class StatisticsController extends Controller
 {
     /**
      * @Template
+     *
      * @return array
      * @Cache(expires="+1 hour", public=true)
      */
     public function dailyAction()
     {
-        /** @var \Doctrine\CouchDB\CouchDBClient $dm */
+        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
         $settings = array(
             'title' => 'Daily',
@@ -54,9 +55,9 @@ class StatisticsController extends Controller
         }
 
         return array(
-            'query'     => $query,
-            'results'   => $results,
-            'settings'  => $settings,
+            'query' => $query,
+            'results' => $results,
+            'settings' => $settings,
         );
     }
 
@@ -68,7 +69,7 @@ class StatisticsController extends Controller
      */
     public function hourlyAction()
     {
-        /** @var \Doctrine\CouchDB\CouchDBClient $dm */
+        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
         $settings = array(
             'title' => 'Hourly',
@@ -105,20 +106,21 @@ class StatisticsController extends Controller
         }
 
         return array(
-            'query'     => $query,
-            'results'   => $results,
-            'settings'  => $settings,
+            'query' => $query,
+            'results' => $results,
+            'settings' => $settings,
         );
     }
 
     /**
      * @Template
+     *
      * @return array
      */
     public function collectionAction()
     {
         $map = $this->container->getParameter('bangpound_castle.types');
-        /** @var \Doctrine\CouchDB\CouchDBClient $dm */
+        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
         $settings = array(
             'title' => 'Collections',
@@ -138,19 +140,20 @@ class StatisticsController extends Controller
         }
 
         return array(
-            'query'     => $query,
-            'results'   => $results,
-            'settings'  => $settings,
+            'query' => $query,
+            'results' => $results,
+            'settings' => $settings,
         );
     }
 
     /**
      * @Template
+     *
      * @return array
      */
     public function languageAction()
     {
-        /** @var \Doctrine\CouchDB\CouchDBClient $dm */
+        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
         $start = new \DateTime('-1 month');
         $end = new \DateTime();
@@ -175,9 +178,9 @@ class StatisticsController extends Controller
         }
 
         return array(
-          'query'     => $query,
-          'results'   => $results,
-          'settings'  => $settings,
+          'query' => $query,
+          'results' => $results,
+          'settings' => $settings,
         );
     }
 
@@ -185,11 +188,12 @@ class StatisticsController extends Controller
      * @Template
      * @ParamConverter("start", options={"format": "Y-m-d"})
      * @ParamConverter("end", options={"format": "Y-m-d"})
+     *
      * @return array
      */
     public function topTagAction(\DateTime $start, \DateTime $end, $title, $body = '')
     {
-        /** @var \Doctrine\CouchDB\CouchDBClient $dm */
+        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
         $settings = array(
             'title' => $title,
@@ -200,7 +204,7 @@ class StatisticsController extends Controller
         $endKey = array((int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'));
 
         /**
-         * @var \Doctrine\CouchDB\View\Query $query
+         * @var \Doctrine\CouchDB\View\Query
          */
         $query = $conn->createViewQuery('tag_trends', 'PT1M');
         $query->setStale('ok');
@@ -217,11 +221,10 @@ class StatisticsController extends Controller
             $results[$result['key'][5]] = $result['value'];
         }
 
-
         return array(
-            'query'     => $query,
-            'results'   => $results,
-            'settings'  => $settings,
+            'query' => $query,
+            'results' => $results,
+            'settings' => $settings,
         );
     }
 

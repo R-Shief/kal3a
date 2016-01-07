@@ -7,14 +7,14 @@ use FOS\UserBundle\Model\Group as BaseGroup;
 class Group extends BaseGroup
 {
     /**
-     * @var integer $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer $id
+     * @return int $id
      */
     public function getId()
     {

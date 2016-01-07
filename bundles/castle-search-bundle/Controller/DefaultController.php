@@ -4,17 +4,16 @@ namespace Bangpound\Bundle\CastleSearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Class DefaultController
- * @package Bangpound\Bundle\CastleSearchBundle\Controller
+ * Class DefaultController.
  */
 class DefaultController extends Controller
 {
     /**
-     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function searchAction(Request $request)

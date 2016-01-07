@@ -10,8 +10,7 @@ use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class StreamLoggerSubscriber
- * @package Bangpound\Bundle\TwitterStreamingBundle\Subscriber
+ * Class StreamLoggerSubscriber.
  */
 class StreamLoggerSubscriber implements EventSubscriberInterface
 {

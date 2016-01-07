@@ -8,8 +8,8 @@ use Doctrine\CouchDB\Attachment;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
- * Class AtomEntry
- * @package Bangpound\Bundle\CastleBundle\CouchDocument
+ * Class AtomEntry.
+ *
  * @ODM\Document
  */
 abstract class AtomEntry extends EntryType
@@ -30,10 +30,11 @@ abstract class AtomEntry extends EntryType
     }
 
     /**
-     * Add attachment
+     * Add attachment.
      *
      * @param $filename
-     * @param  Attachment $attachment
+     * @param Attachment $attachment
+     *
      * @return AtomEntry
      */
     public function setAttachment($filename, Attachment $attachment)
@@ -44,7 +45,7 @@ abstract class AtomEntry extends EntryType
     }
 
     /**
-     * Remove attachment
+     * Remove attachment.
      *
      * @param $filename
      * @param Attachment $attachment
@@ -55,7 +56,7 @@ abstract class AtomEntry extends EntryType
     }
 
     /**
-     * Get attachments
+     * Get attachments.
      *
      * @return Collection
      */
@@ -65,9 +66,10 @@ abstract class AtomEntry extends EntryType
     }
 
     /**
-     * Set attachments
+     * Set attachments.
      *
-     * @param  Collection $attachments
+     * @param Collection $attachments
+     *
      * @return AtomEntry
      */
     public function setAttachments(Collection $attachments)

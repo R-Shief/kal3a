@@ -6,7 +6,6 @@ use Bangpound\PhirehoseBundle\Stream\BasicStream;
 
 class DoctrineStream extends BasicStream
 {
-
     public function checkFilterPredicates()
     {
         /* @var \Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository $repository */

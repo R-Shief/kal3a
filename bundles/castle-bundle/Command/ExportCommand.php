@@ -7,8 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Doctrine\CouchDB\CouchDBClient;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class ExportCommand extends ContainerAwareCommand
 {
@@ -72,7 +70,7 @@ class ExportCommand extends ContainerAwareCommand
                     $next_start_key = $result[$limit]['key'];
                     $query->setStartKey($result[$limit]['key']);
                     $query->setStartKeyDocId($result[$limit]['id']);
-                    $output->writeln('resume with '. implode('-', $result[$limit]['key']) .' '. $result[$limit]['id']);
+                    $output->writeln('resume with '.implode('-', $result[$limit]['key']).' '.$result[$limit]['id']);
                 }
 
                 $rows = array();

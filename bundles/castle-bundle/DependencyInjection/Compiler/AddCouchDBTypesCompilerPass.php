@@ -13,6 +13,6 @@ class AddCouchDBTypesCompilerPass implements CompilerPassInterface
         $resolver = new Definition('Bangpound\Bundle\CastleBundle\MetadataResolver\DoctrineResolver');
 
         $definition = $container->getDefinition('doctrine_couchdb.odm.default_configuration');
-        $definition->addMethodCall('setMetadataResolverImpl', [ $resolver ]);
+        $definition->addMethodCall('setMetadataResolverImpl', [$resolver]);
     }
 }

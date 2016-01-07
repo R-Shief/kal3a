@@ -5,20 +5,20 @@ namespace Rshief\Bundle\Kal3aBundle\Controller;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\FOSRestController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
- * Class StatisticsController
- * @package Rshief\Bundle\Kal3aBundle\Controller
+ * Class StatisticsController.
+ *
  * @RouteResource("TagStatistic")
  */
 class StatisticController extends FOSRestController
 {
     /**
-     * @param  \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @return mixed
      */
     public function cgetAction(Request $request)
@@ -29,7 +29,7 @@ class StatisticController extends FOSRestController
         $conn = $this->get('database_connection');
 
         if ($q) {
-            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics WHERE tag LIKE ?', array($q .'%'))->fetchAll(Query::HYDRATE_SCALAR);
+            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics WHERE tag LIKE ?', array($q.'%'))->fetchAll(Query::HYDRATE_SCALAR);
         } else {
             $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics')->fetchAll(Query::HYDRATE_SCALAR);
         }
@@ -58,6 +58,7 @@ class StatisticController extends FOSRestController
 
     /**
      * @param $tag
+     *
      * @return \FOS\RestBundle\View\View
      * @Cache(expires="+1 hour", public=true)
      */
@@ -86,8 +87,7 @@ class StatisticController extends FOSRestController
 
             $result = $query->execute();
             $cache->save($group, $result, 3600);
-        }
-        else {
+        } else {
             $result = $cache->fetch($group);
         }
 

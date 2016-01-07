@@ -11,6 +11,7 @@ class CouchDbController extends Controller
 {
     /**
      * @return mixed
+     *
      * @throws \Doctrine\CouchDB\CouchDBException
      * @Route("/_active_tasks")
      * @Template
@@ -23,7 +24,7 @@ class CouchDbController extends Controller
         $response = $conn->getHttpClient()->request('GET', '/_active_tasks');
 
         if ($response->status != 200) {
-            throw new CouchDBException("Could not retrieve active tasks from CouchDB.");
+            throw new CouchDBException('Could not retrieve active tasks from CouchDB.');
         }
 
         return array(

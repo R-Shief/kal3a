@@ -56,13 +56,13 @@ class DBALHandler extends AbstractProcessingHandler
         $schemaManager = $this->connection->getSchemaManager();
         if (!$schemaManager->tablesExist(array('monolog'))) {
             $table = new Table('monolog');
-            $table->addColumn("channel", "string", array("length" => 255));
-            $table->addColumn("level", "integer");
-            $table->addColumn("level_name", "string", array("length" => 255));
-            $table->addColumn("message", "text");
-            $table->addColumn("context", "array");
-            $table->addColumn("extra", "array");
-            $table->addColumn("datetime", "datetime");
+            $table->addColumn('channel', 'string', array('length' => 255));
+            $table->addColumn('level', 'integer');
+            $table->addColumn('level_name', 'string', array('length' => 255));
+            $table->addColumn('message', 'text');
+            $table->addColumn('context', 'array');
+            $table->addColumn('extra', 'array');
+            $table->addColumn('datetime', 'datetime');
             $schemaManager->createTable($table);
         }
 

@@ -6,8 +6,7 @@ use Doctrine\CouchDB\Tools\Migrations\AbstractMigration;
 use Doctrine\ODM\CouchDB\Migrations\DocumentMigration;
 
 /**
- * Class TypeRenameMigration
- * @package Rshief\Bundle\Kal3aBundle\Migrations
+ * Class TypeRenameMigration.
  */
 class TypeRenameMigration extends AbstractMigration implements DocumentMigration
 {
@@ -17,7 +16,8 @@ class TypeRenameMigration extends AbstractMigration implements DocumentMigration
      * This method has to return null (or nothing) when no migration
      * needs to take place.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return array
      */
     public function migrate(array $data)

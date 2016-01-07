@@ -8,8 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class DefaultController
- * @package Rshief\Bundle\Kal3aBundle\Controller
+ * Class DefaultController.
+ *
  * @Route("/embed")
  */
 class EmbedController extends Controller
@@ -22,7 +22,7 @@ class EmbedController extends Controller
     {
         /** @var \Doctrine\DBAL\Connection $conn */
         $conn = $this->getDoctrine()->getConnection();
-        $sql = "SELECT * FROM tag_trend ORDER BY slope DESC LIMIT 0,10";
+        $sql = 'SELECT * FROM tag_trend ORDER BY slope DESC LIMIT 0,10';
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $trends = $stmt->fetchAll();

@@ -5,7 +5,7 @@ namespace Rshief\Bundle\Kal3aBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TagTrend
+ * TagTrend.
  *
  * @ORM\Table(name="tag_trend", options={"collate"="utf8_bin"})
  * @ORM\Entity
@@ -27,14 +27,14 @@ class TagTrend
     private $slope;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="count", type="integer")
      */
     private $count;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id

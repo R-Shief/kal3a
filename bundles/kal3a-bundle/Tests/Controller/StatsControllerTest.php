@@ -12,5 +12,4 @@ class StatsControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/search');
     }
-
 }

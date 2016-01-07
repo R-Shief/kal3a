@@ -19,7 +19,7 @@ class FlushEntityManagerListener
     public function onConsoleTerminate(ConsoleTerminateEvent $event)
     {
         $command = $event->getCommand();
-        $input= $event->getInput();
+        $input = $event->getInput();
 
         if ('rabbitmq:consumer' === $command->getName() && ($this->consumerName === $input->getArgument('name'))) {
             $this->om->flush();

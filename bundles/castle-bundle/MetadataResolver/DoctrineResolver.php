@@ -3,12 +3,10 @@
 namespace Bangpound\Bundle\CastleBundle\MetadataResolver;
 
 use Doctrine\ODM\CouchDB\Mapping\ClassMetadata;
-
 use Doctrine\ODM\CouchDB\Mapping\MetadataResolver\DoctrineResolver as BaseDoctrineResolver;
 
 /**
- * Class DoctrineResolver
- * @package Bangpound\Bundle\CastleBundle\MetadataResolver
+ * Class DoctrineResolver.
  */
 class DoctrineResolver extends BaseDoctrineResolver
 {
@@ -24,7 +22,8 @@ class DoctrineResolver extends BaseDoctrineResolver
     }
 
     /**
-     * @param  ClassMetadata $class
+     * @param ClassMetadata $class
+     *
      * @return array
      */
     public function createDefaultDocumentStruct(ClassMetadata $class)
@@ -39,7 +38,8 @@ class DoctrineResolver extends BaseDoctrineResolver
     }
 
     /**
-     * @param  array $documentData
+     * @param array $documentData
+     *
      * @return mixed
      */
     public function getDocumentType(array $documentData)

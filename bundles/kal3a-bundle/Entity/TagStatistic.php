@@ -5,7 +5,7 @@ namespace Rshief\Bundle\Kal3aBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TagStatistic
+ * TagStatistic.
  *
  * @ORM\Table(name="tag_statistics", uniqueConstraints={@ORM\UniqueConstraint(columns={"tag", "timestamp", "period"})}, options={"collate"="utf8_bin"})
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class TagStatistic
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -43,16 +43,16 @@ class TagStatistic
     private $period;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="count", type="integer")
      */
     private $count;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -60,9 +60,10 @@ class TagStatistic
     }
 
     /**
-     * Set tag
+     * Set tag.
      *
-     * @param  string       $tag
+     * @param string $tag
+     *
      * @return TagStatistic
      */
     public function setTag($tag)
@@ -73,7 +74,7 @@ class TagStatistic
     }
 
     /**
-     * Get tag
+     * Get tag.
      *
      * @return string
      */
@@ -83,9 +84,10 @@ class TagStatistic
     }
 
     /**
-     * Set timestamp
+     * Set timestamp.
      *
-     * @param  \DateTime    $timestamp
+     * @param \DateTime $timestamp
+     *
      * @return TagStatistic
      */
     public function setTimestamp(\DateTime $timestamp)
@@ -96,9 +98,10 @@ class TagStatistic
     }
 
     /**
-     * Set period
+     * Set period.
      *
-     * @param  string       $period
+     * @param string $period
+     *
      * @return TagStatistic
      */
     public function setPeriod($period)
@@ -109,7 +112,7 @@ class TagStatistic
     }
 
     /**
-     * Get period
+     * Get period.
      *
      * @return string
      */
@@ -119,7 +122,7 @@ class TagStatistic
     }
 
     /**
-     * Get timestamp
+     * Get timestamp.
      *
      * @return \DateTime
      */
@@ -129,9 +132,10 @@ class TagStatistic
     }
 
     /**
-     * Set count
+     * Set count.
      *
-     * @param  integer      $count
+     * @param int $count
+     *
      * @return TagStatistic
      */
     public function setCount($count)
@@ -142,9 +146,9 @@ class TagStatistic
     }
 
     /**
-     * Get count
+     * Get count.
      *
-     * @return integer
+     * @return int
      */
     public function getCount()
     {

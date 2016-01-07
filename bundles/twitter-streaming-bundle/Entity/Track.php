@@ -5,7 +5,7 @@ namespace Bangpound\Bundle\TwitterStreamingBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Track
+ * Track.
  *
  * @ORM\Table("track")
  * @ORM\Entity(repositoryClass="Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Track implements FilterInterface
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -29,16 +29,17 @@ class Track implements FilterInterface
     private $phrase;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive = true;
 
     /**
-     * Set isActive
+     * Set isActive.
      *
-     * @param  boolean $isActive
+     * @param bool $isActive
+     *
      * @return Track
      */
     public function setIsActive($isActive)
@@ -49,9 +50,9 @@ class Track implements FilterInterface
     }
 
     /**
-     * Get isActive
+     * Get isActive.
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsActive()
     {
@@ -59,9 +60,9 @@ class Track implements FilterInterface
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -69,9 +70,10 @@ class Track implements FilterInterface
     }
 
     /**
-     * Set phrase
+     * Set phrase.
      *
-     * @param  string $phrase
+     * @param string $phrase
+     *
      * @return Track
      */
     public function setPhrase($phrase)
@@ -82,7 +84,7 @@ class Track implements FilterInterface
     }
 
     /**
-     * Get phrase
+     * Get phrase.
      *
      * @return string
      */
@@ -95,5 +97,4 @@ class Track implements FilterInterface
     {
         return (string) $this->getPhrase();
     }
-
 }

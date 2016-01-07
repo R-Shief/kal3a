@@ -11,13 +11,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class CalculateTrendsCommand
- * @package Rshief\Bundle\Kal3aBundle\Command
+ * Class CalculateTrendsCommand.
  */
 class CalculateTrendsCommand extends ContainerAwareCommand
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function configure()
     {
@@ -27,21 +26,21 @@ class CalculateTrendsCommand extends ContainerAwareCommand
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         /** @var \Doctrine\DBAL\Connection $conn */
         $conn = $this->getContainer()->get('database_connection');
 
-        $sql = "SELECT DISTINCT tag FROM tag_statistics ORDER BY tag";
+        $sql = 'SELECT DISTINCT tag FROM tag_statistics ORDER BY tag';
         $stmt = $conn->query($sql); // Simple, but has several drawbacks
 
         $stmt->execute();
 
         $tags = array_map(function ($input) { return reset($input); }, $stmt->fetchAll(\PDO::FETCH_NUM));
 
-        $sql = "SELECT * FROM tag_statistics WHERE tag = ? ORDER BY timestamp";
+        $sql = 'SELECT * FROM tag_statistics WHERE tag = ? ORDER BY timestamp';
         $stmt = $conn->prepare($sql);
 
         foreach ($tags as $tag) {
@@ -56,8 +55,8 @@ class CalculateTrendsCommand extends ContainerAwareCommand
                     $regression->addData(Carbon::createFromFormat('Y-m-d H:i:s', $result['timestamp'])->timestamp, $result['sum']);
                 }
                 $coefficients = $regression->getCoefficients();
-                $slope = round( $coefficients[ 1 ], 2 );
-                $y_int = round( $coefficients[ 0 ], 2 );
+                $slope = round($coefficients[ 1 ], 2);
+                $y_int = round($coefficients[ 0 ], 2);
                 $conn->insert('tag_trend', array(
                     'tag' => $tag,
                     'slope' => $slope,

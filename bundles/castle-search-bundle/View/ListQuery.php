@@ -7,8 +7,7 @@ use Doctrine\CouchDB\HTTP\Client;
 use Doctrine\CouchDB\View\DesignDocument;
 
 /**
- * Class ListQuery
- * @package Bangpound\Bundle\CastleSearchBundle\View
+ * Class ListQuery.
  */
 class ListQuery extends Query
 {
@@ -43,7 +42,7 @@ class ListQuery extends Query
         }
 
         return sprintf(
-            "/%s/_design/%s/_list/%s/%s?%s",
+            '/%s/_design/%s/_list/%s/%s?%s',
             $this->databaseName,
             $this->designDocumentName,
             $this->listName,

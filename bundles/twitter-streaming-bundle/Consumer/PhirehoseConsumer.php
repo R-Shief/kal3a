@@ -1,4 +1,5 @@
 <?php
+
 namespace Bangpound\Bundle\TwitterStreamingBundle\Consumer;
 
 use Bangpound\Atom\DataBundle\CouchDocument\CategoryType;
@@ -16,12 +17,10 @@ use Psr\Log\LoggerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 
 /**
- * Class PhirehoseConsumer
- * @package Bangpound\Bundle\TwitterStreamingBundle\Consumer
+ * Class PhirehoseConsumer.
  */
 class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
 {
-
     private $objectManager;
     private $serializer;
     private $jsonOptions;
@@ -42,10 +41,9 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
     }
 
     /**
-     * Sets a logger instance on the object
+     * Sets a logger instance on the object.
      *
-     * @param  LoggerInterface $logger
-     * @return null
+     * @param LoggerInterface $logger
      */
     public function setLogger(LoggerInterface $logger)
     {
@@ -60,12 +58,12 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
         $data = json_decode($msg->body, true, 512, $this->jsonOptions);
 
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
-        $tweet_path = $data['user']['screen_name'].'/status/'. $data['id_str'];
+        $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
 
-        $id = 'tag:twitter.com,'. $created_at->format('Y-m-d') .':/'. $tweet_path;
+        $id = 'tag:twitter.com,'.$created_at->format('Y-m-d').':/'.$tweet_path;
 
         /** @var \Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry $entry */
-        $entry = new $this->atomEntryClass;
+        $entry = new $this->atomEntryClass();
         $entry->setId($id);
         $entry->setOriginalData($msg->body, 'application/json');
 
@@ -83,7 +81,7 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
         $entry->addAuthor($author);
 
         $link = new LinkType();
-        $link->setHref('https://twitter.com/intent/user?user_id='. $data['user']['id_str']);
+        $link->setHref('https://twitter.com/intent/user?user_id='.$data['user']['id_str']);
         $link->setRel('author');
         $entry->addLink($link);
 

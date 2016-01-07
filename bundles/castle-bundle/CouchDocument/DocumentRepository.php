@@ -3,9 +3,8 @@
  * Created by PhpStorm.
  * User: bjd
  * Date: 10/30/13
- * Time: 8:02 AM
+ * Time: 8:02 AM.
  */
-
 namespace Bangpound\Bundle\CastleBundle\CouchDocument;
 
 use Doctrine\ODM\CouchDB\DocumentManager;
@@ -14,7 +13,7 @@ use Doctrine\ODM\CouchDB\Mapping\ClassMetadata;
 
 class DocumentRepository extends BaseDocumentRepository
 {
-    /**
+    /*
      * Initializes a new <tt>DocumentRepository</tt>.
      *
      * @param DocumentManager $dm    The DocumentManager to use.

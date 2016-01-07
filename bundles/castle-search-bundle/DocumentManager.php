@@ -5,8 +5,7 @@ namespace Bangpound\Bundle\CastleSearchBundle;
 use Bangpound\Bundle\CastleSearchBundle\View\ListQuery;
 
 /**
- * Class DocumentManager
- * @package Bangpound\Bundle\CastleSearchBundle
+ * Class DocumentManager.
  */
 class DocumentManager extends \Doctrine\ODM\CouchDB\DocumentManager
 {
@@ -15,9 +14,10 @@ class DocumentManager extends \Doctrine\ODM\CouchDB\DocumentManager
      *
      * A native query will return an array of data from the &include_docs=true parameter.
      *
-     * @param  string    $designDocName
-     * @param  string    $viewName
-     * @param  string    $listName
+     * @param string $designDocName
+     * @param string $viewName
+     * @param string $listName
+     *
      * @return ListQuery
      */
     public function createNativeListQuery($designDocName, $viewName, $listName)

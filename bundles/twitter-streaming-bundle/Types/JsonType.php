@@ -6,13 +6,14 @@ use Doctrine\DBAL\Types\JsonArrayType as BaseType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 
 /**
- * convert a value into a json string to be stored into the persistency layer
+ * convert a value into a json string to be stored into the persistency layer.
  */
 class JsonType extends BaseType
 {
     /**
      * @param $value
-     * @param  \Doctrine\DBAL\Platforms\AbstractPlatform $platform
+     * @param \Doctrine\DBAL\Platforms\AbstractPlatform $platform
+     *
      * @return mixed
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)

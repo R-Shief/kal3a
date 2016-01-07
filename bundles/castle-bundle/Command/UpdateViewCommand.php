@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Doctrine\CouchDB\CouchDBClient;
 
 class UpdateViewCommand extends ContainerAwareCommand
 {
@@ -39,7 +38,6 @@ class UpdateViewCommand extends ContainerAwareCommand
         $query = $client->createViewQuery($designdoc, $view);
         $ret = $query->execute();
         $output->writeln('Updated');
-
     }
 
     public function setRegistry(ManagerRegistry $registry)

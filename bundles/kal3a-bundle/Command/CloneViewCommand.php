@@ -6,17 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
-use Doctrine\CouchDB\CouchDBClient;
 
 /**
- * Class CopyTrendsCommand
- * @package Rshief\Bundle\Kal3aBundle\Command
+ * Class CopyTrendsCommand.
  */
 class CloneViewCommand extends ContainerAwareCommand
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function configure()
     {
@@ -31,7 +28,7 @@ class CloneViewCommand extends ContainerAwareCommand
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
@@ -63,8 +60,8 @@ class CloneViewCommand extends ContainerAwareCommand
 
         $output->writeln(sprintf('%s -> %s', $start->format('Y-m-d'), $end->format('Y-m-d')));
 
-        $query->setStartKey([(int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d') ]);
-        $query->setEndKey([(int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'), array() ]);
+        $query->setStartKey([(int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d')]);
+        $query->setEndKey([(int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'), array()]);
         $query->setLimit($limit + 1);
 
         do {
@@ -89,7 +86,7 @@ class CloneViewCommand extends ContainerAwareCommand
                 }
 
                 // Query for the revision IDs of any existing documents with the same keys.
-                $results = $stats_client->getHttpClient()->request('POST', '/' . $stats_client->getDatabase() . '/_all_docs',
+                $results = $stats_client->getHttpClient()->request('POST', '/'.$stats_client->getDatabase().'/_all_docs',
                     json_encode(
                         array('keys' => array_values($ids))
                     )
@@ -132,6 +129,6 @@ class CloneViewCommand extends ContainerAwareCommand
 
     private function generateId($design_document, $view_name, $key)
     {
-        return $design_document .' '. $view_name .' '. implode(' ', $key);
+        return $design_document.' '.$view_name.' '.implode(' ', $key);
     }
 }
