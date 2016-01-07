@@ -203,7 +203,7 @@ class StatisticsController extends Controller
         $startKey = array((int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d'));
         $endKey = array((int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'));
 
-        /**
+        /*
          * @var \Doctrine\CouchDB\View\Query
          */
         $query = $conn->createViewQuery('tag_trends', 'PT1M');
