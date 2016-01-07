@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doctrine-mapping>
-    <document name="Bangpound\Atom\DataBundle\CouchDocument\FeedType">
+    <embedded-document name="Bangpound\Atom\DataBundle\CouchDocument\SourceType">
+        <field name="lang" type="string" />
+        <field name="base" type="string" />
+
+        <embed-one field="generator" target-document="GeneratorType" />
+
         <field name="icon" type="string" />
         <field name="id" type="string" />
         <field name="logo" type="string" />
-        <field name="title" type="mixed" />
-        <field name="subtitle" type="mixed" />
-        <field name="rights" type="mixed" />
+        <embed-one field="rights" target-document="TextType" />
+        <embed-one field="subtitle" target-document="TextType" />
+        <embed-one field="title" target-document="TextType" />
         <field name="updated" type="datetime" />
-        <embed-one target-document="GeneratorType" field="generator" />
 
         <embed-many target-document="PersonType" field="authors" />
         <embed-many target-document="CategoryType" field="categories" />
         <embed-many target-document="PersonType" field="contributors" />
         <embed-many target-document="LinkType" field="links" />
-
-        <embed-many target-document="EntryType" field="entries" />
-    </document>
+    </embedded-document>
 </doctrine-mapping>

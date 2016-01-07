@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping>
+    <embedded-document name="Bangpound\Atom\DataBundle\CouchDocument\TextType">
+        <field name="lang" type="string" />
+        <field name="base" type="string" />
+
+        <field name="text" type="string" />
+        <field name="type" type="string" />
+    </embedded-document>
+</doctrine-mapping>

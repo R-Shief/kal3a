@@ -15,19 +15,10 @@ use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 abstract class AtomEntry extends EntryType
 {
     /** @var array<Attachment> $attachments */
-    protected $attachments;
+    protected $attachments = array();
 
     /**  @var array */
-    protected $extra;
-
-    /**
-     *
-     */
-    public function __construct()
-    {
-        $this->attachments = array();
-        $this->extra = array();
-    }
+    protected $extra = array();
 
     /**
      * Add attachment.
@@ -77,13 +68,6 @@ abstract class AtomEntry extends EntryType
         $this->attachments = $attachments;
 
         return $this;
-    }
-
-    public function setOriginalData($data, $type)
-    {
-        $attachment = Attachment::createFromBinaryData($data, $type);
-
-        return $this->setAttachment('original', $attachment);
     }
 
     public function getExtra($key)

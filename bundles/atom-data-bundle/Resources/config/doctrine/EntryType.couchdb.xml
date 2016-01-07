@@ -7,18 +7,19 @@
         <id name="identifier" type="string" />
 
         <field name="id" type="string" index="true" />
-        <field name="content" json-name="content" type="mixed" />
-        <field name="published" json-name="published" type="datetime" />
-        <field name="rights" json-name="rights" type="mixed" />
-        <field name="summary" json-name="summary" type="mixed" />
-        <field name="title" json-name="title" type="mixed" />
-        <field name="updated" json-name="updated" type="datetime" />
 
-        <field name="source" type="mixed" />
+        <embed-one field="content" target-document="ContentType" />
+        <field name="published" type="datetime" />
+        <embed-one field="rights" target-document="TextType" />
+        <embed-one field="summary" target-document="TextType" />
+        <embed-one field="title" target-document="TextType" />
+        <field name="updated" type="datetime" />
 
-        <field name="authors" type="mixed" />
-        <field name="categories" type="mixed" />
-        <field name="contributors" type="mixed" />
-        <field name="links" type="mixed" />
+        <embed-one target-document="SourceType" field="source" />
+
+        <embed-many target-document="PersonType" field="authors" />
+        <embed-many target-document="CategoryType" field="categories" />
+        <embed-many target-document="PersonType" field="contributors" />
+        <embed-many target-document="LinkType" field="links" />
     </document>
 </doctrine-mapping>
