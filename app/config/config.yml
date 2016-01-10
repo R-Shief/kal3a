@@ -74,8 +74,6 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        mappings:
-            ApplicationUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -119,9 +117,7 @@ easy_admin:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Application\UserBundle\Entity\User
-    group:
-        group_class: Application\UserBundle\Entity\Group
+    user_class: AppBundle\Entity\User
 
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
