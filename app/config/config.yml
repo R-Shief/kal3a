@@ -179,6 +179,11 @@ fos_rest:
     body_listener: true
     format_listener: true
 
+nelmio_api_doc:
+    sandbox:
+        request_format:
+            method: accept_header
+
 nelmio_cors:
     defaults:
         allow_credentials: false

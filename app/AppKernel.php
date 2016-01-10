@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
             new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
