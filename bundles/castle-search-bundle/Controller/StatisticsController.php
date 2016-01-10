@@ -2,42 +2,71 @@
 
 namespace Bangpound\Bundle\CastleSearchBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\CouchDB\CouchDBClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Intl\Intl;
+use FOS\RestBundle\Controller\Annotations as FOSRest;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-class StatisticsController extends Controller
+/**
+ * Class StatisticsController.
+ *
+ * @FOSRest\Route("/api/statistics", service="bangpound_castle_search.controller.statistics")
+ */
+class StatisticsController
 {
     /**
-     * @Template
+     * @var CouchDBClient
+     */
+    private $conn;
+
+    /**
+     * @var array
+     */
+    private $types;
+
+    public function __construct(CouchDBClient $conn, array $types)
+    {
+        $this->conn = $conn;
+        $this->types = $types;
+    }
+
+    /**
+     * @ParamConverter("start", options={"format": "Y-m-d"})
+     * @ParamConverter("end", options={"format": "Y-m-d"})
+     * @FOSRest\QueryParam(name="start")
+     * @FOSRest\QueryParam(name="end")
+     * @FOSRest\QueryParam(name="group")
+     * @FOSRest\QueryParam(name="limit")
+     * @FOSRest\Route("/published", methods={"GET"})
+     * @FOSRest\View
+     * @ApiDoc
      *
      * @return array
      * @Cache(expires="+1 hour", public=true)
      */
-    public function dailyAction()
+    public function publishedTimeseriesAction(\DateTime $start, \DateTime $end, $group, $limit)
     {
-        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
-        $conn = $this->get('doctrine_couchdb.client.default_connection');
-        $settings = array(
-            'title' => 'Daily',
-            'body' => 'Count of items per day for last week.',
+        $params = array(
+          'hourly' => ['group_level' => 4, 'format' => 'H:i'],
+          'daily' => ['group_level' => 3, 'format' => 'M-d-Y'],
         );
-        $query = $conn->createViewQuery('published', 'timeseries');
+        $query = $this->conn->createViewQuery('published', 'timeseries');
 
         $query->setStale('ok');
-        $query->setLimit(7);
-        $query->setDescending(true);
+        $query->setLimit($limit);
+        $query->setDescending($start > $end);
         $query->setReduce(true);
         $query->setGroup(true);
-        $query->setGroupLevel(3);
+        $query->setGroupLevel($params[$group]['group_level']);
 
         $results = array();
 
         if ($query) {
             $date_key = 0;
-            $format = 'M-d-Y';
+            $format = $params[$group]['format'];
             foreach ($query->execute() as $result) {
                 $date = date($format, mktime(
                         isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
@@ -55,119 +84,28 @@ class StatisticsController extends Controller
             }
         }
 
-        return array(
-            'query' => $query,
-            'results' => $results,
-            'settings' => $settings,
-        );
-    }
-
-    /**
-     * @Template("BangpoundCastleSearchBundle:Statistics:daily.html.twig")
-     *
-     * @return array
-     * @Cache(expires="+1 hour", public=true)
-     */
-    public function hourlyAction()
-    {
-        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
-        $conn = $this->get('doctrine_couchdb.client.default_connection');
-        $settings = array(
-            'title' => 'Hourly',
-            'body' => 'Count of items per hour for last 24 hours.',
-        );
-        $query = $conn->createViewQuery('published', 'timeseries');
-        $results = array();
-
-        if ($query) {
-            $query->setStale('ok');
-            $query->setLimit(24);
-            $query->setDescending(true);
-            $query->setReduce(true);
-            $query->setGroup(true);
-            $query->setGroupLevel(4);
-
-            $date_key = 0;
-            $format = 'H:i';
-            foreach ($query->execute() as $result) {
-                $date = date($format, mktime(
-                        isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
-                        isset($result['key'][$date_key + 4]) ? $result['key'][$date_key + 4] : 0,
-                        isset($result['key'][$date_key + 5]) ? $result['key'][$date_key + 5] : 0,
-                        isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
-                        isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
-                        isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
-                    ));
-                if ($date_key > 0) {
-                    $results[$result['key'][0]][$date] = $result['value'];
-                } else {
-                    $results[$date] = $result['value'];
-                }
-            }
-        }
-
-        return array(
-            'query' => $query,
-            'results' => $results,
-            'settings' => $settings,
-        );
+        return $results;
     }
 
     /**
      * @Template
-     *
-     * @return array
-     */
-    public function collectionAction()
-    {
-        $map = $this->container->getParameter('bangpound_castle.types');
-        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
-        $conn = $this->get('doctrine_couchdb.client.default_connection');
-        $settings = array(
-            'title' => 'Collections',
-            'body' => 'Count of items in each collection.',
-        );
-        $query = $conn->createViewQuery('collection', 'timeseries');
-        $query->setGroup(true);
-        $query->setStale('ok');
-
-        $results = array();
-        foreach ($query->execute() as $result) {
-            $results[] = [
-                'key' => $result['key'][0],
-                'label' => isset($map[$result['key'][0]]) ? $map[$result['key'][0]] : $result['key'][0],
-                'value' => $result['value'],
-            ];
-        }
-
-        return array(
-            'query' => $query,
-            'results' => $results,
-            'settings' => $settings,
-        );
-    }
-
-    /**
-     * @Template
+     * @FOSRest\Route("/language", methods={"GET"})
+     * @ApiDoc
+     * @FOSRest\View
      *
      * @return array
      */
     public function languageAction()
     {
-        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
-        $conn = $this->get('doctrine_couchdb.client.default_connection');
         $start = new \DateTime('-1 month');
         $end = new \DateTime();
-        $settings = array(
-          'title' => 'Languages',
-          'body' => 'Collected from '.$start->format('n M').' to '.$end->format('n M'),
-        );
-        $query = $conn->createViewQuery('lang', 'basic');
+
+        $query = $this->conn->createViewQuery('lang', 'basic');
         $query->setGroup(true);
         $query->setStale('ok');
         $query->setGroupLevel(1);
 
-        $map = $this->languagesArrayAction();
+        $map = Intl::getLanguageBundle()->getLanguageNames();
 
         $results = array();
         foreach ($query->execute() as $result) {
@@ -178,43 +116,42 @@ class StatisticsController extends Controller
             ];
         }
 
-        return array(
-          'query' => $query,
-          'results' => $results,
-          'settings' => $settings,
-        );
+        return $results;
     }
 
     /**
      * @Template
      * @ParamConverter("start", options={"format": "Y-m-d"})
      * @ParamConverter("end", options={"format": "Y-m-d"})
+     * @FOSRest\QueryParam(name="start")
+     * @FOSRest\QueryParam(name="end")
+     * @FOSRest\Route("/top-tag", methods={"GET"})
+     * @FOSRest\View
+     * @ApiDoc
+     *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @param $title
+     * @param string $body
      *
      * @return array
      */
-    public function topTagAction(\DateTime $start, \DateTime $end, $title, $body = '')
+    public function topTagAction(\DateTime $start, \DateTime $end)
     {
-        /* @var \Doctrine\CouchDB\CouchDBClient $dm */
-        $conn = $this->get('doctrine_couchdb.client.default_connection');
-        $settings = array(
-            'title' => $title,
-            'body' => $body,
-        );
-
         $startKey = array((int) $start->format('Y'), (int) $start->format('m'), (int) $start->format('d'));
         $endKey = array((int) $end->format('Y'), (int) $end->format('m'), (int) $end->format('d'));
 
         /*
          * @var \Doctrine\CouchDB\View\Query
          */
-        $query = $conn->createViewQuery('tag_trends', 'PT1M');
+        $query = $this->conn->createViewQuery('tag_trends', 'PT1M');
         $query->setStale('ok');
         $query->setLimit(10);
         $query->setGroup(true);
         $query->setGroupLevel(6);
         $query->setStartKey($startKey);
         $query->setEndKey($endKey);
-        $query->setDescending(true);
+        $query->setDescending($start > $end);
 
         $results = array();
 
@@ -222,18 +159,6 @@ class StatisticsController extends Controller
             $results[$result['key'][5]] = $result['value'];
         }
 
-        return array(
-            'query' => $query,
-            'results' => $results,
-            'settings' => $settings,
-        );
-    }
-
-    /**
-     * @return \string[]
-     */
-    public function languagesArrayAction()
-    {
-        return Intl::getLanguageBundle()->getLanguageNames();
+        return $results;
     }
 }

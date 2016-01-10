@@ -15,3 +15,7 @@ bangpound_tag_search:
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    'BangpoundCastleSearchBundle:Static:search.html.twig'
+
+bangpound_statistics:
+    resource: "@BangpoundCastleSearchBundle/Controller/StatisticsController.php"
+    type:     annotation
