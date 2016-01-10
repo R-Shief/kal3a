@@ -180,6 +180,7 @@ fos_rest:
         rules:
             - { path: '^/api/doc', stop: true }
             - { path: '^/api', priorities: ['json'] }
+            - { path: '^/', stop: true }
     view:
         view_response_listener:
             enabled: true
