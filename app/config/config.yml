@@ -106,6 +106,9 @@ old_sound_rabbit_mq:
             queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
             callback:         bangpound_twitter_streaming.consumer.notification
 
+sensio_framework_extra:
+    view: { annotations: false }
+
 easy_admin:
     site_name: Castle
     entities:
@@ -175,9 +178,15 @@ caxy_elasticsearch:
             hosts: [ %elasticsearch_host%:%elasticsearch_port% ]
 
 fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
-    format_listener: true
+    param_fetcher_listener: force
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/api/doc', stop: true }
+            - { path: '^/api', priorities: ['json'] }
+    view:
+        view_response_listener:
+            enabled: true
 
 nelmio_api_doc:
     sandbox:
