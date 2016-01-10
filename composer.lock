@@ -1625,12 +1625,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c"
+                "reference": "6ccff96434c0ac7fee077d1dce90966341dfd278"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6ccff96434c0ac7fee077d1dce90966341dfd278",
-                "reference": "e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c",
+                "reference": "6ccff96434c0ac7fee077d1dce90966341dfd278",
                 "shasum": ""
             },
             "require": {
@@ -1686,7 +1686,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2015-12-28 18:02:43"
+            "time": "2016-01-08 10:46:39"
         },
         {
             "name": "guzzle/guzzle",
@@ -2182,12 +2182,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipMonitorBundle.git",
-                "reference": "b3a5422af9a3fe53a347c98af11430b562775f49"
+                "reference": "5e51011e0a709d52d7c44ca424ca5480dc311bec"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/5e51011e0a709d52d7c44ca424ca5480dc311bec",
-                "reference": "b3a5422af9a3fe53a347c98af11430b562775f49",
+                "reference": "5e51011e0a709d52d7c44ca424ca5480dc311bec",
                 "shasum": ""
             },
             "require": {
@@ -2246,7 +2246,7 @@
                 "monitor",
                 "monitoring"
             ],
-            "time": "2016-01-04 22:12:43"
+            "time": "2016-01-08 06:49:11"
         },
         {
             "name": "michelf/php-markdown",
@@ -2758,16 +2758,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
                 "shasum": ""
             },
             "require": {
@@ -2802,7 +2802,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-10 14:48:13"
+            "time": "2016-01-06 13:31:20"
         },
         {
             "name": "phayes/geophp",
