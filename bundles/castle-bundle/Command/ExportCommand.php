@@ -6,6 +6,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ExportCommand extends ContainerAwareCommand
@@ -21,10 +22,10 @@ class ExportCommand extends ContainerAwareCommand
             ->setName('castle:export')
             ->setDescription('Export atom entities by tag and date')
             ->addArgument('tag', InputArgument::REQUIRED, 'Which tag to export?')
-            ->addOption('start', 'start', InputArgument::OPTIONAL, 'Start date')
-            ->addOption('end', 'end', InputArgument::OPTIONAL, 'End date')
-            ->addOption('output', 'o', InputArgument::OPTIONAL, 'Output file')
-            ->addOption('stale', 'stale', InputArgument::OPTIONAL, 'Stale')
+            ->addArgument('start', InputArgument::REQUIRED, 'Start date')
+            ->addArgument('end', InputArgument::REQUIRED, 'End date')
+            ->addOption('output', 'o', InputOption::VALUE_REQUIRED, 'Output file')
+            ->addOption('stale', 'stale', InputOption::VALUE_NONE, 'Stale')
         ;
     }
 
@@ -38,8 +39,8 @@ class ExportCommand extends ContainerAwareCommand
 
         $tag = $input->getArgument('tag');
         $outputFile = $input->getOption('output');
-        $start = \DateTime::createFromFormat('Y-m-d', $input->getOption('start'));
-        $end = \DateTime::createFromFormat('Y-m-d', $input->getOption('end'));
+        $start = \DateTime::createFromFormat('Y-m-d', $input->getArgument('start'));
+        $end = \DateTime::createFromFormat('Y-m-d', $input->getArgument('end'));
         $limit = 1000;
 
         // Executing the query without grouping allows the view to be refreshed.
