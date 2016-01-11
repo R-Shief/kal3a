@@ -74,8 +74,6 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        mappings:
-            ApplicationUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -106,6 +104,9 @@ old_sound_rabbit_mq:
             queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
             callback:         bangpound_twitter_streaming.consumer.notification
 
+sensio_framework_extra:
+    view: { annotations: false }
+
 easy_admin:
     site_name: Castle
     entities:
@@ -116,9 +117,7 @@ easy_admin:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Application\UserBundle\Entity\User
-    group:
-        group_class: Application\UserBundle\Entity\Group
+    user_class: AppBundle\Entity\User
 
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
@@ -175,9 +174,21 @@ caxy_elasticsearch:
             hosts: [ %elasticsearch_host%:%elasticsearch_port% ]
 
 fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
-    format_listener: true
+    param_fetcher_listener: force
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/api/doc', stop: true }
+            - { path: '^/api', priorities: ['json'] }
+            - { path: '^/', stop: true }
+    view:
+        view_response_listener:
+            enabled: true
+
+nelmio_api_doc:
+    sandbox:
+        request_format:
+            method: accept_header
 
 nelmio_cors:
     defaults:

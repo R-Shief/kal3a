@@ -4,3 +4,6 @@ parameters:
 services:
     bangpound_castle_search.controller.statistics:
         class: %bangpound_castle_search.controller.statistics.class%
+        arguments:
+            - @doctrine_couchdb.client.default_connection
+            - %bangpound_castle.types%
