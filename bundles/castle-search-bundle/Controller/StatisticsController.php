@@ -38,7 +38,7 @@ class StatisticsController
      * @ParamConverter("end", options={"format": "Y-m-d"})
      * @FOSRest\QueryParam(name="start")
      * @FOSRest\QueryParam(name="end")
-     * @FOSRest\QueryParam(name="group")
+     * @FOSRest\QueryParam(name="group", requirements="(hourly|daily)")
      * @FOSRest\QueryParam(name="limit")
      * @FOSRest\Route("/published", methods={"GET"})
      * @FOSRest\View
