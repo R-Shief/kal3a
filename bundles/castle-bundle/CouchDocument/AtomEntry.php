@@ -12,7 +12,7 @@ use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
  *
  * @ODM\Document
  */
-abstract class AtomEntry extends EntryType
+class AtomEntry extends EntryType
 {
     /** @var array<Attachment> $attachments */
     protected $attachments = array();
