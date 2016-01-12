@@ -148,7 +148,7 @@ bangpound_guzzle_proxy:
         elasticsearch:
             base_url: http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/
         couchdb:
-            base_url: http://%couchdb_host%:%couchdb_port%/%couchdb_name%
+            base_url: http://%couchdb_host%:%couchdb_port%/%couchdb_name%/
 
 caxy_elasticsearch:
     client:
@@ -182,6 +182,11 @@ nelmio_cors:
         max_age: 0
         hosts: []
     paths:
+        '^/couchdb':
+            allow_credentials: true
+            allow_origin: ['*']
+            allow_methods: ['GET', 'POST']
+            max_age: 3600
         '^/elasticsearch':
             allow_origin: ['*']
             allow_methods: ['GET', 'POST']
