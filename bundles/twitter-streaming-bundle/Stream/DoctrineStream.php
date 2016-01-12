@@ -3,9 +3,23 @@
 namespace Bangpound\Bundle\TwitterStreamingBundle\Stream;
 
 use Bangpound\PhirehoseBundle\Stream\BasicStream;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class DoctrineStream extends BasicStream
 {
+    /**
+     * @var ObjectManager
+     */
+    protected $em;
+
+    /**
+     * @param ObjectManager $em
+     */
+    public function setEntityManager(ObjectManager $em)
+    {
+        $this->em = $em;
+    }
+
     public function checkFilterPredicates()
     {
         /* @var \Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository $repository */

@@ -4,7 +4,6 @@ namespace Bangpound\PhirehoseBundle\Stream;
 
 use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
 use Bangpound\PhirehoseBundle\PhirehoseEvents;
-use Doctrine\Common\Persistence\ObjectManager;
 use OauthPhirehose as OauthPhirehose;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -23,22 +22,9 @@ class BasicStream extends OauthPhirehose implements LoggerAwareInterface
     protected $logger;
 
     /**
-     * @var ObjectManager
-     */
-    protected $em;
-
-    /**
      * @var int
      */
     protected $lastMemoryUsage;
-
-    /**
-     * @param ObjectManager $em
-     */
-    public function setEntityManager(ObjectManager $em)
-    {
-        $this->em = $em;
-    }
 
     /**
      * @param EventDispatcherInterface $dispatcher
