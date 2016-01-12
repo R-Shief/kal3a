@@ -1,4 +1,13 @@
 parameters:
+    bangpound_phirehose.twitter_consumer_key: %twitter_consumer_key%
+    bangpound_phirehose.twitter_consumer_secret: %twitter_consumer_secret%
+    bangpound_phirehose.oauth_token: %twitter_access_token%
+    bangpound_phirehose.oauth_secret: %twitter_access_token_secret%
+    bangpound_phirehose.stream.class: Bangpound\Bundle\TwitterStreamingBundle\Stream\DoctrineStream
+    bangpound_phirehose.follow: []
+    bangpound_phirehose.track: []
+    bangpound_phirehose.locations: []
+    bangpound_phirehose.count: null
     bangpound_twitter_streaming.db.table_prefix: twitter_streaming__
     bangpound_twitter_streaming.consumer.notification.class: Bangpound\Bundle\TwitterStreamingBundle\Consumer\PhirehoseConsumer
     bangpound_twitter_streaming.consumer.notification.max_unit_of_work_size: 100
@@ -9,6 +18,33 @@ parameters:
     bangpound_twitter_streaming.stream.notify.type: 'twitter_data.tweet'
 
 services:
+    bangpound_phirehose.stream:
+        class: %bangpound_phirehose.stream.class%
+        arguments:
+            - %bangpound_phirehose.oauth_token%
+            - %bangpound_phirehose.oauth_secret%
+            - "@=constant('Phirehose::METHOD_FILTER')"
+            - "@=constant('Phirehose::FORMAT_JSON')"
+        calls:
+            - [setDispatcher, ['@event_dispatcher']]
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+            - [setLogger, ['@logger']]
+        properties:
+            consumerKey: %bangpound_phirehose.twitter_consumer_key%
+            consumerSecret: %bangpound_phirehose.twitter_consumer_secret%
+        tags:
+            - { name: monolog.logger, channel: phirehose }
+
+    bangpound_phirehose.logger.processor.memory_peak_usage:
+        class: Monolog\Processor\MemoryPeakUsageProcessor
+        tags:
+            - { name: monolog.processor, channel: phirehose }
+
+    bangpound_phirehose.logger.processor.memory_usage:
+        class: Monolog\Processor\MemoryUsageProcessor
+        tags:
+            - { name: monolog.processor, channel: phirehose }
+
     bangpound_twitter_streaming.tblprefix_subscriber:
         class: Bangpound\Bundle\TwitterStreamingBundle\Subscriber\TablePrefixSubscriber
         arguments: [%bangpound_twitter_streaming.db.table_prefix%]

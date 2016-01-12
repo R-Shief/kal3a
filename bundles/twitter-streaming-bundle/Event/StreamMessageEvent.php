@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\PhirehoseBundle\Event;
+namespace Bangpound\Bundle\TwitterStreamingBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 

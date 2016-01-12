@@ -21,13 +21,10 @@ parameters:
     superfeedr_user: user
     superfeedr_password: password
 
-    bangpound_phirehose.twitter_consumer_key:
-    bangpound_phirehose.twitter_consumer_secret:
-
-    bangpound_phirehose.oauth_token:
-    bangpound_phirehose.oauth_secret:
-
-    bangpound_phirehose.stream.class: ~
+    twitter_consumer_key: ~
+    twitter_consumer_secret: ~
+    twitter_access_token: ~
+    twitter_access_token_secret: ~
 
     rabbitmq_host: localhost
     rabbitmq_user: guest

@@ -1,6 +1,6 @@
 {
     "name": "bangpound/twitter-streaming-bundle",
-    "description": "Entities and admin controllers for streaming API parameters",
+    "description": "Entities and services for Twitter Streaming API",
     "autoload": {
         "psr-4": {
             "Bangpound\\Bundle\\TwitterStreamingBundle\\": ""
@@ -9,6 +9,7 @@
     "require": {
         "php": ">=5.4.0",
         "ext-pcntl": "*",
+        "fennb/phirehose": "dev-master",
         "symfony/dependency-injection": "~2.3|3.*",
         "oldsound/rabbitmq-bundle": "~1.5"
     },

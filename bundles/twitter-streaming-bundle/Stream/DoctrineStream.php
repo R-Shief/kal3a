@@ -2,7 +2,6 @@
 
 namespace Bangpound\Bundle\TwitterStreamingBundle\Stream;
 
-use Bangpound\PhirehoseBundle\Stream\BasicStream;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class DoctrineStream extends BasicStream

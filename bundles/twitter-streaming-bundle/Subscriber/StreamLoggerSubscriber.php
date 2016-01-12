@@ -2,11 +2,10 @@
 
 namespace Bangpound\Bundle\TwitterStreamingBundle\Subscriber;
 
-use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
-use Bangpound\PhirehoseBundle\PhirehoseEvents;
+use Bangpound\Bundle\TwitterStreamingBundle\Event\StreamMessageEvent;
+use Bangpound\Bundle\TwitterStreamingBundle\PhirehoseEvents;
 use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
-use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

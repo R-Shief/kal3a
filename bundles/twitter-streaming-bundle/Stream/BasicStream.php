@@ -1,9 +1,9 @@
 <?php
 
-namespace Bangpound\PhirehoseBundle\Stream;
+namespace Bangpound\Bundle\TwitterStreamingBundle\Stream;
 
-use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
-use Bangpound\PhirehoseBundle\PhirehoseEvents;
+use Bangpound\Bundle\TwitterStreamingBundle\Event\StreamMessageEvent;
+use Bangpound\Bundle\TwitterStreamingBundle\PhirehoseEvents;
 use OauthPhirehose as OauthPhirehose;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;

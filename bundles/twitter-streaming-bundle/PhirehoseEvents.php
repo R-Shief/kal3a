@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\PhirehoseBundle;
+namespace Bangpound\Bundle\TwitterStreamingBundle;
 
 final class PhirehoseEvents
 {

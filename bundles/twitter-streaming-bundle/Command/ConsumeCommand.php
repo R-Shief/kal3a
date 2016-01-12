@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\PhirehoseBundle\Command;
+namespace Bangpound\Bundle\TwitterStreamingBundle\Command;
 
 use Bangpound\Bundle\TwitterStreamingBundle\Stream\DoctrineStream;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

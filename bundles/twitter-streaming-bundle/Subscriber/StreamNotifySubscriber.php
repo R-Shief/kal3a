@@ -2,8 +2,8 @@
 
 namespace Bangpound\Bundle\TwitterStreamingBundle\Subscriber;
 
-use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
-use Bangpound\PhirehoseBundle\PhirehoseEvents;
+use Bangpound\Bundle\TwitterStreamingBundle\Event\StreamMessageEvent;
+use Bangpound\Bundle\TwitterStreamingBundle\PhirehoseEvents;
 use OldSound\RabbitMqBundle\RabbitMq\Producer;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
