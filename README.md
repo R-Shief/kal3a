@@ -145,6 +145,11 @@ Configure your web server to serve from the `web` directory of the project. Kal3
 to [Configuring a Web Server](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html) in
 the official Symfony Cookbook which has advice for Apache and nginx. Using PHP-FPM is recommended.
 
+### Troubleshooting
+
+Whenever you `git pull` updates or update dependencies, Kal3a may give a fatal error because it has a stale cache. Run
+`bin/console cache:clear --env=prod` to clear the cache.
+
 ## Twitter
 
 ### Configuration
