@@ -32,7 +32,6 @@
         "liip/monitor-bundle": "~2.3@dev",
         "nelmio/cors-bundle": "~1.0",
         "nesbot/Carbon": "~1.12",
-        "nojimage/twitter-text-php": "dev-master",
         "oldsound/rabbitmq-bundle": "~1.6.0@dev",
         "phayes/geophp": "dev-master",
         "wikimedia/composer-merge-plugin": "^1.3",
