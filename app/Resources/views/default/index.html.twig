@@ -13,6 +13,11 @@
             <a href="{{ url('liip_monitor_health_interface') }}">Monitor</a>
         </li>
     </ul>
+    <h2>JS Routes</h2>
+    <pre>
+&lt;script src="{{ asset('bundles/fosjsrouting/js/router.js', null, true) }}"&gt;&lt;/script&gt;
+&lt;script src="{{ url('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"&gt;&lt;/script&gt;
+    </pre>
 {% endblock %}
 
 {% block stylesheets %}
