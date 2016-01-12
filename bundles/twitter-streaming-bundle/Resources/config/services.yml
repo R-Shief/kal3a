@@ -43,4 +43,4 @@ services:
         arguments: [ "@logger", "@database_connection" ]
         tags:
             - { name: bangpound_phirehose.event_subscriber }
-            - { name: monolog.logger, channel: twitter_data }
+            - { name: monolog.logger, channel: phirehose }

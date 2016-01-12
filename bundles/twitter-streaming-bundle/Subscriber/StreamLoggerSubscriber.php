@@ -5,7 +5,7 @@ namespace Bangpound\Bundle\TwitterStreamingBundle\Subscriber;
 use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
 use Bangpound\PhirehoseBundle\PhirehoseEvents;
 use Doctrine\DBAL\Connection;
-use Bangpound\Bundle\TwitterStreamingBundle\Logger\DBALHandler;
+use Psr\Log\LoggerInterface;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -18,14 +18,13 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     private $connection;
 
     /**
-     * @param Logger     $logger
-     * @param Connection $connection
+     * @param LoggerInterface $logger
+     * @param Connection      $connection
      */
-    public function __construct(Logger $logger, Connection $connection)
+    public function __construct(LoggerInterface $logger, Connection $connection)
     {
         $this->logger = $logger;
         $this->connection = $connection;
-        $this->logger->pushHandler(new DBALHandler($this->connection, Logger::DEBUG, false));
     }
 
     /**
@@ -50,7 +49,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onDelete(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('delete', $context);
+        $this->logger->info('delete', $context);
     }
 
     /**
@@ -59,7 +58,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onScrubGeo(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('scrub_geo', $context);
+        $this->logger->info('scrub_geo', $context);
     }
 
     /**
@@ -69,7 +68,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     {
         $context = current(json_decode($event->getMessage(), true));
         $message = sprintf('Stream has matched more Tweets than its current rate limit allows to be delivered. %d undelivered Tweets since the connection was opened.', $context['track']);
-        $this->logger->addInfo($message, $context);
+        $this->logger->info($message, $context);
     }
 
     /**
@@ -78,7 +77,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onStatusWithheld(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('status_withheld', $context);
+        $this->logger->info('status_withheld', $context);
     }
 
     /**
@@ -87,7 +86,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onUserWithheld(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('user_withheld', $context);
+        $this->logger->info('user_withheld', $context);
     }
 
     /**
@@ -96,7 +95,7 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onDisconnect(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('disconnect', $context);
+        $this->logger->info('disconnect', $context);
     }
 
     /**
@@ -105,6 +104,6 @@ class StreamLoggerSubscriber implements EventSubscriberInterface
     public function onWarning(StreamMessageEvent $event)
     {
         $context = current(json_decode($event->getMessage(), true));
-        $this->logger->addInfo('warning', $context);
+        $this->logger->info('warning', $context);
     }
 }
