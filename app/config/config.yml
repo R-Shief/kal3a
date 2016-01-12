@@ -52,9 +52,6 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
-                mapping_types:
-                    polygon: Polygon
-                    point: Point
             collector:
                 driver:   pdo_mysql
                 host:     %database_host%
@@ -63,12 +60,6 @@ doctrine:
                 user:     %database_user%
                 password: %database_password%
                 charset:  UTF8
-        types:
-            Geometry:   CrEOF\Spatial\DBAL\Types\GeometryType
-            Point:      CrEOF\Spatial\DBAL\Types\Geometry\PointType
-            Polygon:    CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
-            LineString: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
-
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
