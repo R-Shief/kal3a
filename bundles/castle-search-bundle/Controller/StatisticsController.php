@@ -20,15 +20,9 @@ class StatisticsController
      */
     private $conn;
 
-    /**
-     * @var array
-     */
-    private $types;
-
-    public function __construct(CouchDBClient $conn, array $types)
+    public function __construct(CouchDBClient $conn)
     {
         $this->conn = $conn;
-        $this->types = $types;
     }
 
     /**

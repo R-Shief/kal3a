@@ -36,8 +36,6 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    globals:
-        castle_type_names: %bangpound_castle.types.lower%
 
 # Doctrine Configuration
 doctrine:
