@@ -3,9 +3,7 @@
 namespace Bangpound\Bundle\CastleSearchBundle\Controller;
 
 use Doctrine\CouchDB\CouchDBClient;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Symfony\Component\Intl\Intl;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -34,9 +32,10 @@ class StatisticsController
     }
 
     /**
-     * @ParamConverter("start", options={"format": "Y-m-d"})
-     * @ParamConverter("end", options={"format": "Y-m-d"})
-     * @FOSRest\QueryParam(name="start")
+     * @Sensio\ParamConverter("start", options={"format": "Y-m-d"})
+     * @Sensio\ParamConverter("end", options={"format": "Y-m-d"})
+     * @Sensio\Cache(maxage="3600", public=true)
+     * @FOSRest\QueryParam(name="start", default="''")
      * @FOSRest\QueryParam(name="end")
      * @FOSRest\QueryParam(name="group", requirements="(hourly|daily)")
      * @FOSRest\QueryParam(name="limit")
@@ -44,8 +43,12 @@ class StatisticsController
      * @FOSRest\View
      * @ApiDoc
      *
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @param $group
+     * @param $limit
+     *
      * @return array
-     * @Cache(expires="+1 hour", public=true)
      */
     public function publishedTimeseriesAction(\DateTime $start, \DateTime $end, $group, $limit)
     {
@@ -88,7 +91,6 @@ class StatisticsController
     }
 
     /**
-     * @Template
      * @FOSRest\Route("/language", methods={"GET"})
      * @ApiDoc
      * @FOSRest\View
@@ -97,9 +99,6 @@ class StatisticsController
      */
     public function languageAction()
     {
-        $start = new \DateTime('-1 month');
-        $end = new \DateTime();
-
         $query = $this->conn->createViewQuery('lang', 'basic');
         $query->setGroup(true);
         $query->setStale('ok');
@@ -120,9 +119,8 @@ class StatisticsController
     }
 
     /**
-     * @Template
-     * @ParamConverter("start", options={"format": "Y-m-d"})
-     * @ParamConverter("end", options={"format": "Y-m-d"})
+     * @Sensio\ParamConverter("start", options={"format": "Y-m-d"})
+     * @Sensio\ParamConverter("end", options={"format": "Y-m-d"})
      * @FOSRest\QueryParam(name="start")
      * @FOSRest\QueryParam(name="end")
      * @FOSRest\Route("/top-tag", methods={"GET"})
@@ -131,8 +129,6 @@ class StatisticsController
      *
      * @param \DateTime $start
      * @param \DateTime $end
-     * @param $title
-     * @param string $body
      *
      * @return array
      */
