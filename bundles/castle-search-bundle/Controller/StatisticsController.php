@@ -34,7 +34,7 @@ class StatisticsController
     /**
      * @Sensio\ParamConverter("start", options={"format": "Y-m-d"})
      * @Sensio\ParamConverter("end", options={"format": "Y-m-d"})
-     * @Sensio\Cache(maxage="3600", public=true)
+     * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
      * @FOSRest\QueryParam(name="start", default="''")
      * @FOSRest\QueryParam(name="end")
      * @FOSRest\QueryParam(name="group", requirements="(hourly|daily)")

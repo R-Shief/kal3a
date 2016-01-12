@@ -7,7 +7,7 @@ use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 
 /**
  * Class StatisticsController.
@@ -60,7 +60,7 @@ class StatisticController extends FOSRestController
      * @param $tag
      *
      * @return \FOS\RestBundle\View\View
-     * @Cache(expires="+1 hour", public=true)
+     * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
      */
     public function getStatisticsAction($tag, $group = 4)
     {
@@ -110,7 +110,7 @@ class StatisticController extends FOSRestController
 
     /**
      * @return \FOS\RestBundle\View\View
-     * @Cache(expires="+1 hour", public=true)
+     * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
      */
     public function getSummaryAction()
     {

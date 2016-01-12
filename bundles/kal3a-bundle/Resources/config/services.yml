@@ -17,8 +17,3 @@ services:
 
     rshief_kal3a.controller.tag_statistics:
         class: %rshief_kal3a.controller.tag_statistics.class%
-
-    rshief_kal3a.listener.default_response_header:
-        class: %rshief_kal3a.listener.default_response_header.class%
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
