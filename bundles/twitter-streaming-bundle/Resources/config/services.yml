@@ -23,8 +23,6 @@ services:
             - %bangpound_phirehose.oauth_secret%
             - 'filter'
             - 'json'
-        calls:
-            - [setContainer, ["@service_container"]]
         properties:
             consumerKey: %bangpound_phirehose.twitter_consumer_key%
             consumerSecret: %bangpound_phirehose.twitter_consumer_secret%

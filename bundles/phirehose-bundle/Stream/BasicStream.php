@@ -6,10 +6,11 @@ use Bangpound\PhirehoseBundle\Event\StreamMessageEvent;
 use Bangpound\PhirehoseBundle\PhirehoseEvents;
 use Doctrine\Common\Persistence\ObjectManager;
 use OauthPhirehose as OauthPhirehose;
-use Symfony\Component\Console\Output\OutputInterface;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class BasicStream extends OauthPhirehose
+class BasicStream extends OauthPhirehose implements LoggerAwareInterface
 {
     /**
      * @var EventDispatcherInterface
@@ -17,30 +18,31 @@ class BasicStream extends OauthPhirehose
     protected $dispatcher;
 
     /**
-     * @var OutputInterface
+     * @var LoggerInterface
      */
-    protected $output;
+    protected $logger;
 
     /**
      * @var ObjectManager
      */
     protected $em;
+
+    /**
+     * @var int
+     */
     protected $lastMemoryUsage;
 
-    public function setOutput(OutputInterface $output)
-    {
-        $this->output = $output;
-
-        return $this;
-    }
-
+    /**
+     * @param ObjectManager $em
+     */
     public function setEntityManager(ObjectManager $em)
     {
         $this->em = $em;
-
-        return $this;
     }
 
+    /**
+     * @param EventDispatcherInterface $dispatcher
+     */
     public function setDispatcher(EventDispatcherInterface $dispatcher)
     {
         $this->dispatcher = $dispatcher;
@@ -65,46 +67,16 @@ class BasicStream extends OauthPhirehose
     /**
      * {@inheritdoc}
      */
-    public function heartbeat()
+    protected function log($message, $level = 'notice')
     {
-        $memory_usage = memory_get_usage();
-        $message = 'Memory usage: '.$this->formatMemory($memory_usage).', ';
-        if ($this->lastMemoryUsage) {
-            if ($memory_usage > $this->lastMemoryUsage) {
-                $message .= 'Δ <info>'.$this->formatMemory($memory_usage - $this->lastMemoryUsage).'</info>, ';
-            } else {
-                $message .= 'Δ '.$this->formatMemory($memory_usage - $this->lastMemoryUsage).', ';
-            }
-        }
-
-        $message .= 'Peak: '.$this->formatMemory(memory_get_peak_usage(true));
-        $this->log($message);
-        $this->lastMemoryUsage = $memory_usage;
-
-        parent::heartbeat();
-    }
-
-    private function formatMemory($memory)
-    {
-        $memory = (int) $memory;
-        if (abs($memory) < 1024) {
-            return $memory.' B';
-        } elseif (abs($memory) < 1048576) {
-            return round($memory / 1024, 2).' KB';
-        } else {
-            return round($memory / 1048576, 2).' MB';
-        }
+        $this->logger->log($level, trim($message));
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function log($message, $level = 'notice')
+    public function setLogger(LoggerInterface $logger)
     {
-        if ($level == 'notice') {
-            $this->output->writeln(sprintf('%s', trim($message)));
-        } else {
-            $this->output->writeln(sprintf('<%s>%s</%s>', $level, trim($message), $level));
-        }
+        $this->logger = $logger;
     }
 }

@@ -18,14 +18,13 @@ class ConsumeCommand extends ContainerAwareCommand
     /**
      * @param InputInterface  $input
      * @param OutputInterface $output
+     *
+     * @return int|null|void
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        // Start streaming
-
         /* @var $stream DoctrineStream  */
-        $stream = $this->getContainer()->get('bangpound_phirehose.stream')
-            ->setOutput($output);
+        $stream = $this->getContainer()->get('bangpound_phirehose.stream');
         $stream->checkFilterPredicates();
         $stream->consume(false);
     }
