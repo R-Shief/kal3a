@@ -38,8 +38,9 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
     private $serializer;
 
     /**
-     * @param CouchDBClient $client
-     * @param string        $atomEntryClass
+     * @param CouchDBClient       $client
+     * @param SerializerInterface $serializer
+     * @param string              $atomEntryClass
      */
     public function __construct(CouchDBClient $client, SerializerInterface $serializer, $atomEntryClass)
     {
