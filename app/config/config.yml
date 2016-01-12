@@ -114,13 +114,13 @@ doctrine_couch_db:
     client:
         connections:
             default:
-                dbname: %doctrine_couch_db.default.dbname%
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
+                dbname: %couchdb_name%
+                user: %couchdb_user%
+                password: %couchdb_password%
             stats:
-                dbname: %doctrine_couch_db.default.dbname%_stats
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
+                dbname: %couchdb_name%_stats
+                user: %couchdb_user%
+                password: %couchdb_password%
     odm:
         auto_mapping: true
 
