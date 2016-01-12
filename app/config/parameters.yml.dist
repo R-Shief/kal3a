@@ -4,7 +4,7 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
+    database_name:     kal3a
     database_user:     root
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite
@@ -32,10 +32,10 @@ parameters:
     rabbitmq_port: 5672
     rabbitmq_vhost: /
 
-    couchdb_name: symfony
-    couchdb_user: guest
-    couchdb_password: guest
+    couchdb_name: kal3a
+    couchdb_user: ~
+    couchdb_password: ~
 
     elasticsearch_host: localhost
     elasticsearch_port: 9200
-    elasticsearch_index_name: ~
+    elasticsearch_index_name: kal3a
