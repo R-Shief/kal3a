@@ -3,6 +3,7 @@
     "description": "Symfony2 bundle to integrate Phirehose",
     "license" : "MIT",
     "require": {
+        "php": ">=5.4.0",
         "fennb/phirehose": "dev-master"
     },
     "autoload": {

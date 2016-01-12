@@ -64,7 +64,6 @@ doctrine:
                 password: %database_password%
                 charset:  UTF8
         types:
-            json:       Bangpound\Bundle\TwitterStreamingBundle\Types\JsonType
             Geometry:   CrEOF\Spatial\DBAL\Types\GeometryType
             Point:      CrEOF\Spatial\DBAL\Types\Geometry\PointType
             Polygon:    CrEOF\Spatial\DBAL\Types\Geometry\PolygonType

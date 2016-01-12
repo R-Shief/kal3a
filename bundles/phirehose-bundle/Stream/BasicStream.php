@@ -53,12 +53,7 @@ class BasicStream extends OauthPhirehose implements LoggerAwareInterface
      */
     public function enqueueStatus($status)
     {
-        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            $body = json_decode($status, true, 512, JSON_BIGINT_AS_STRING);
-        } else {
-            $body = json_decode($status, true, 512);
-        }
-
+        $body = json_decode($status, true, 512, JSON_BIGINT_AS_STRING);
         $eventName = count($body) > 1 ? PhirehoseEvents::TWEET : 'phirehose.'.key($body);
         $event = new StreamMessageEvent(trim($status));
         $this->dispatcher->dispatch($eventName, $event);
