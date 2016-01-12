@@ -13,8 +13,6 @@ use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\HTTP\Client;
 use Doctrine\CouchDB\HTTP\HTTPException;
 use PhpAmqpLib\Message\AMQPMessage;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -22,16 +20,12 @@ use Symfony\Component\Serializer\SerializerInterface;
 /**
  * Class PhirehoseConsumer.
  */
-class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
+class PhirehoseConsumer implements ConsumerInterface
 {
     private $client;
     private $jsonOptions;
     private $atomEntryClass;
 
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
     /**
      * @var Serializer
      */
@@ -48,16 +42,6 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
         $this->atomEntryClass = $atomEntryClass;
         $this->jsonOptions = (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0', '>=')) ? JSON_BIGINT_AS_STRING : 0;
         $this->serializer = $serializer;
-    }
-
-    /**
-     * Sets a logger instance on the object.
-     *
-     * @param LoggerInterface $logger
-     */
-    public function setLogger(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
     }
 
     /**

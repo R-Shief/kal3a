@@ -29,8 +29,6 @@ services:
     bangpound_twitter_streaming.consumer.notification:
         class: %bangpound_twitter_streaming.consumer.notification.class%
         arguments: [ "@doctrine_couchdb.client.default_connection", "@serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
-        calls:
-            - [ setLogger, [ "@logger" ] ]
 
     bangpound_twitter_streaming.stream.notify:
         class: %bangpound_twitter_streaming.stream.notify.class%
