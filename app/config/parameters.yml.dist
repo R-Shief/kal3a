@@ -27,10 +27,6 @@ parameters:
     bangpound_phirehose.oauth_token:
     bangpound_phirehose.oauth_secret:
 
-    bangpound_phirehose.track: []
-    bangpound_phirehose.locations: []
-    bangpound_phirehose.follow: []
-
     bangpound_phirehose.stream.class: ~
 
     rabbitmq_host: localhost
