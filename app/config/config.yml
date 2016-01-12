@@ -136,8 +136,8 @@ liip_monitor:
             lock_file:            %kernel.root_dir%/../composer.lock
         http_service:
             couchdb:
-                host:                 localhost
-                port:                 5984
+                host:                 %couchdb_host%
+                port:                 %couchdb_port%
                 path:                 /
             elasticsearch:
                 host:                 %elasticsearch_host%
@@ -145,11 +145,11 @@ liip_monitor:
                 path:                 /
         rabbit_mq:
             default:
-                host:                 localhost
-                port:                 5672
-                user:                 guest
-                password:             guest
-                vhost:                /
+                host:                 %rabbitmq_host%
+                port:                 %rabbitmq_port%
+                user:                 %rabbitmq_user%
+                password:             %rabbitmq_pass%
+                vhost:                %rabbitmq_vhost%
 
 bangpound_guzzle_proxy:
     endpoints:
