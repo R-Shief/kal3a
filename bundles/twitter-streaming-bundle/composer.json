@@ -9,7 +9,6 @@
     "require": {
         "ext-pcntl": "*",
         "symfony/dependency-injection": "~2.3|3.*",
-        "bangpound/phirehose-bundle": "~1.0",
         "oldsound/rabbitmq-bundle": "~1.5"
     },
     "license": "MIT",
