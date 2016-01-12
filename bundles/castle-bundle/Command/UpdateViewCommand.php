@@ -33,7 +33,7 @@ class UpdateViewCommand extends ContainerAwareCommand
         $view = $input->getArgument('view');
 
         /** @var \Doctrine\CouchDB\CouchDBClient $client */
-        $client = $this->registry->getConnection($dbname);
+        $client = $this->getContainer()->get('doctrine_couchdb')->getConnection($dbname);
 
         $query = $client->createViewQuery($designdoc, $view);
         $ret = $query->execute();

@@ -31,11 +31,8 @@ class ExportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry
-        $em = $this->registry->getManager();
-
         /** @var \Doctrine\CouchDB\CouchDBClient $default_client */
-        $default_client = $this->registry->getConnection();
+        $default_client = $this->getContainer()->get('doctrine_couchdb')->getConnection();
 
         $tag = $input->getArgument('tag');
         $outputFile = $input->getOption('output');
@@ -89,10 +86,5 @@ class ExportCommand extends ContainerAwareCommand
         } while ($next_start_key);
 
         file_put_contents($outputFile, ']', FILE_APPEND | LOCK_EX);
-    }
-
-    public function setRegistry(ManagerRegistry $registry)
-    {
-        $this->registry = $registry;
     }
 }

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjd
- * Date: 8/24/14
- * Time: 2:01 AM.
- */
+
 namespace Bangpound\Bundle\CastleBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -34,11 +29,8 @@ class PruneCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry
-        $em = $this->registry->getManager();
-
         /** @var \Doctrine\CouchDB\CouchDBClient $default_client */
-        $default_client = $this->registry->getConnection();
+        $default_client = $this->getContainer()->get('doctrine_couchdb')->getConnection();
 
         $date = \DateTime::createFromFormat('Y-m-d', $input->getArgument('date'));
         $limit = 1000;
@@ -81,10 +73,5 @@ class PruneCommand extends ContainerAwareCommand
                 $result = $bulk->execute();
             }
         } while ($next_start_key);
-    }
-
-    public function setRegistry(ManagerRegistry $registry)
-    {
-        $this->registry = $registry;
     }
 }
