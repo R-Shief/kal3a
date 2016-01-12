@@ -32,10 +32,12 @@ class StatisticsController
     }
 
     /**
+     * Counts of entries by published time.
+     *
      * @Sensio\ParamConverter("start", options={"format": "Y-m-d"})
      * @Sensio\ParamConverter("end", options={"format": "Y-m-d"})
      * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
-     * @FOSRest\QueryParam(name="start", default="''")
+     * @FOSRest\QueryParam(name="start")
      * @FOSRest\QueryParam(name="end")
      * @FOSRest\QueryParam(name="group", requirements="(hourly|daily)")
      * @FOSRest\QueryParam(name="limit")
