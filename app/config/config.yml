@@ -156,7 +156,7 @@ bangpound_guzzle_proxy:
         elasticsearch:
             base_url: http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/
         couchdb:
-            base_url: http://127.0.0.1:5984/symfony
+            base_url: http://%couchdb_host%:%couchdb_port%/%couchdb_name%
 
 caxy_elasticsearch:
     client:

@@ -32,6 +32,8 @@ parameters:
     rabbitmq_port: 5672
     rabbitmq_vhost: /
 
+    couchdb_host: localhost
+    couchdb_port: 5984
     couchdb_name: kal3a
     couchdb_user: ~
     couchdb_password: ~
