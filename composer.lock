@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "4ffcff18b0e5ce8c8a5e2baec1d1fd149ca5d720"
+                "reference": "0a6257524d4ecf918cfa30c01e14761ea58d5acd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/4ffcff18b0e5ce8c8a5e2baec1d1fd149ca5d720",
-                "reference": "4ffcff18b0e5ce8c8a5e2baec1d1fd149ca5d720",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/0a6257524d4ecf918cfa30c01e14761ea58d5acd",
+                "reference": "0a6257524d4ecf918cfa30c01e14761ea58d5acd",
                 "shasum": ""
             },
             "type": "library",
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-01-07 04:11:42"
+            "time": "2016-01-12 23:43:45"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -1891,12 +1891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipMonitorBundle.git",
-                "reference": "5e51011e0a709d52d7c44ca424ca5480dc311bec"
+                "reference": "71179b1a26346e452379e039bceba08d19e81880"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/5e51011e0a709d52d7c44ca424ca5480dc311bec",
-                "reference": "5e51011e0a709d52d7c44ca424ca5480dc311bec",
+                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/71179b1a26346e452379e039bceba08d19e81880",
+                "reference": "71179b1a26346e452379e039bceba08d19e81880",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1955,7 @@
                 "monitor",
                 "monitoring"
             ],
-            "time": "2016-01-08 06:49:11"
+            "time": "2016-01-12 10:55:23"
         },
         {
             "name": "michelf/php-markdown",
