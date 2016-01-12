@@ -60,7 +60,7 @@ make free space if it is colocated with CouchDB. For Kal3a, Elasticsearch never 
 * `composer install` This installs all the PHP dependencies and then asks you for some configuration details. You can
   safely accept the default value for every choice. These settings are saved to `app/config/parameters.yml`.
 * Run `bin/console server:run` and visit `http://localhost:8000` to confirm that the basic install is complete.
-* `bin/console doctrine:schema:create --force` to create the MySQL database schema.
+* `bin/console doctrine:schema:create` to create the MySQL database schema.
 * Create a user with `bin/console fos:user:create --super-admin` to create your admin user.
 
 ### Orientation
