@@ -1,15 +1,3 @@
-bangpound_castle_search_start:
-    path:  /search
-    defaults:
-        _controller: BangpoundCastleSearchBundle:Default:search
-        template: 'BangpoundCastleSearchBundle:Default:search.html.twig'
-
-bangpound_castle_search_result:
-    path:  /result
-    defaults:
-        _controller: BangpoundCastleSearchBundle:Default:result
-        template: 'BangpoundCastleSearchBundle:Default:result.html.twig'
-
 bangpound_tag_search:
     path: /tag/search
     defaults:
