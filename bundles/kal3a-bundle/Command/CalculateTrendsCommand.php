@@ -2,7 +2,6 @@
 
 namespace Rshief\Bundle\Kal3aBundle\Command;
 
-use Carbon\Carbon;
 use Doctrine\ORM\Query;
 use DrQue\PolynomialRegression;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -20,8 +19,11 @@ class CalculateTrendsCommand extends ContainerAwareCommand
      */
     public function configure()
     {
+        $date = new \DateTime();
+        $date->sub(new \DateInterval('P1D'));
+
         $this->setName('rshief:trends:calculate')
-            ->addArgument('date', InputArgument::OPTIONAL, 'Date', Carbon::now(new \DateTimeZone('UTC'))->modify('-1 day'))
+            ->addArgument('date', InputArgument::OPTIONAL, 'Date', $date)
         ;
     }
 
@@ -52,7 +54,7 @@ class CalculateTrendsCommand extends ContainerAwareCommand
                 $regression = new PolynomialRegression();
                 foreach ($results as $result) {
                     $count += $result['sum'];
-                    $regression->addData(Carbon::createFromFormat('Y-m-d H:i:s', $result['timestamp'])->timestamp, $result['sum']);
+                    $regression->addData(\DateTime::createFromFormat('Y-m-d H:i:s', $result['timestamp'])->getTimestamp(), $result['sum']);
                 }
                 $coefficients = $regression->getCoefficients();
                 $slope = round($coefficients[ 1 ], 2);
