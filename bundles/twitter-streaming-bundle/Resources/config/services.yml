@@ -7,7 +7,6 @@ parameters:
     bangpound_twitter_streaming.stream.logger.class: Bangpound\Bundle\TwitterStreamingBundle\Subscriber\StreamLoggerSubscriber
     bangpound_twitter_streaming.persistent_atom_entry.class: Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry
     bangpound_twitter_streaming.stream.notify.type: 'twitter_data.tweet'
-    bangpound_twitter_streaming.listener.flush.class: Bangpound\Bundle\TwitterStreamingBundle\EventListener\FlushEntityManagerListener
 
 services:
     bangpound_twitter_streaming.tblprefix_subscriber:
