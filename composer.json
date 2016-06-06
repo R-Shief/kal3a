@@ -28,7 +28,7 @@
         "javiereguiluz/easyadmin-bundle": "~1.4",
         "liip/monitor-bundle": "~2.3@dev",
         "nelmio/cors-bundle": "~1.0",
-        "oldsound/rabbitmq-bundle": "~1.6.0@dev",
+        "php-amqplib/rabbitmq-bundle": "~1.10.0",
         "wikimedia/composer-merge-plugin": "^1.3",
         "nelmio/api-doc-bundle": "^2.11"
     },
