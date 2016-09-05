@@ -4,6 +4,7 @@ namespace Bangpound\Atom\DataBundle\CouchDocument;
 
 use Bangpound\Atom\Model\EntryType as BaseEntryType;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation as Serializer;
 
 /**
  * Class EntryType.
@@ -25,6 +26,8 @@ class EntryType extends BaseEntryType
 
     /**
      * @return string
+     *
+     * @Serializer\Groups
      */
     public function getIdentifier()
     {

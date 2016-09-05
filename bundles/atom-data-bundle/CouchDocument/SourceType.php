@@ -9,4 +9,7 @@ use Bangpound\Atom\Model\SourceType as BaseSourceType;
  */
 class SourceType extends BaseSourceType
 {
+    public function __construct($title) {
+        $this->setTitle($title);
+    }
 }

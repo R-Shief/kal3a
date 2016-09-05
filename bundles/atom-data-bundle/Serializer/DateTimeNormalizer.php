@@ -3,6 +3,7 @@
 namespace Bangpound\Atom\DataBundle\Serializer;
 
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class DateTimeNormalizer implements NormalizerInterface
 {
@@ -19,7 +20,7 @@ class DateTimeNormalizer implements NormalizerInterface
      */
     public function normalize($object, $format = null, array $context = array())
     {
-        return $object->format('Y-m-d H:i:s.u');
+        return $object->format(\DateTime::ATOM);
     }
 
     /**
@@ -51,7 +52,7 @@ class DateTimeNormalizer implements NormalizerInterface
       $format = null,
       array $context = array()
     ) {
-        return \DateTime::createFromFormat(\DateTime::ISO8601, $data);
+        return \DateTime::createFromFormat(\DateTime::ATOM, $data);
     }
 
     /**
@@ -65,6 +66,6 @@ class DateTimeNormalizer implements NormalizerInterface
      */
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'json' === $format && (preg_match(self::ISO_8601_REGEXP, $data) === 1);
+        return 'json' === $format && $type === 'DateTime' && (preg_match(self::ISO_8601_REGEXP, $data) === 1);
     }
 }
