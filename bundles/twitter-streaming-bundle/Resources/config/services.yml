@@ -15,7 +15,7 @@ parameters:
     bangpound_twitter_streaming.stream.notify.class: Bangpound\Bundle\TwitterStreamingBundle\Subscriber\StreamNotifySubscriber
     bangpound_twitter_streaming.stream.logger.class: Bangpound\Bundle\TwitterStreamingBundle\Subscriber\StreamLoggerSubscriber
     bangpound_twitter_streaming.persistent_atom_entry.class: Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry
-    bangpound_twitter_streaming.stream.notify.type: 'twitter_data.tweet'
+    bangpound_twitter_streaming.stream.notify.type: 'tweet'
 
 services:
     bangpound_phirehose.stream:
@@ -64,7 +64,7 @@ services:
 
     bangpound_twitter_streaming.consumer.notification:
         class: %bangpound_twitter_streaming.consumer.notification.class%
-        arguments: [ "@doctrine_couchdb.client.default_connection", "@serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
+        arguments: [ "@old_sound_rabbit_mq.atom_producer", "@serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
 
     bangpound_twitter_streaming.stream.notify:
         class: %bangpound_twitter_streaming.stream.notify.class%
@@ -74,7 +74,19 @@ services:
 
     bangpound_twitter_streaming.stream.logger:
         class: %bangpound_twitter_streaming.stream.logger.class%
-        arguments: [ "@logger", "@database_connection" ]
+        arguments: [ "@logger" ]
         tags:
             - { name: bangpound_phirehose.event_subscriber }
             - { name: monolog.logger, channel: phirehose }
+
+    bangpound_twitter_streaming.console.application:
+        class: Symfony\Component\Console\Application
+        arguments: ['kal3a daemon']
+        calls:
+            - [ add, ["@bangpound_twitter_streaming.command.consume"] ]
+
+    bangpound_twitter_streaming.command.consume:
+        class: Bangpound\Bundle\TwitterStreamingBundle\Command\ConsumeCommand
+        arguments: [ 'phirehose' ]
+        calls:
+            - [ setContainer, ["@service_container"]]

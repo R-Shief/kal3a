@@ -4,7 +4,6 @@ namespace Bangpound\Bundle\TwitterStreamingBundle\Subscriber;
 
 use Bangpound\Bundle\TwitterStreamingBundle\Event\StreamMessageEvent;
 use Bangpound\Bundle\TwitterStreamingBundle\PhirehoseEvents;
-use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -14,16 +13,13 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class StreamLoggerSubscriber implements EventSubscriberInterface
 {
     private $logger;
-    private $connection;
 
     /**
      * @param LoggerInterface $logger
-     * @param Connection      $connection
      */
-    public function __construct(LoggerInterface $logger, Connection $connection)
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
-        $this->connection = $connection;
     }
 
     /**

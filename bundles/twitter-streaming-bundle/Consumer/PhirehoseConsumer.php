@@ -8,12 +8,15 @@ use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
 use Bangpound\Atom\DataBundle\CouchDocument\PersonType;
 use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
 use Bangpound\Atom\DataBundle\CouchDocument\TextType;
+use Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry;
 use Doctrine\CouchDB\Attachment;
 use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\HTTP\Client;
 use Doctrine\CouchDB\HTTP\HTTPException;
+use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -22,7 +25,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 class PhirehoseConsumer implements ConsumerInterface
 {
-    private $client;
+    private $producer;
     private $jsonOptions;
     private $atomEntryClass;
 
@@ -36,9 +39,9 @@ class PhirehoseConsumer implements ConsumerInterface
      * @param SerializerInterface $serializer
      * @param string              $atomEntryClass
      */
-    public function __construct(CouchDBClient $client, SerializerInterface $serializer, $atomEntryClass)
+    public function __construct(ProducerInterface $producer, SerializerInterface $serializer, $atomEntryClass)
     {
-        $this->client = $client;
+        $this->producer = $producer;
         $this->atomEntryClass = $atomEntryClass;
         $this->jsonOptions = (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0', '>=')) ? JSON_BIGINT_AS_STRING : 0;
         $this->serializer = $serializer;
@@ -55,14 +58,15 @@ class PhirehoseConsumer implements ConsumerInterface
           'json_decode_options' => $this->jsonOptions,
         );
 
-        $data = $this->serializer->decode($msg->body, 'json', $context);
+        /** @var AtomEntry $entry */
+        $entry = $this->serializer->deserialize($msg->body, AtomEntry::class, 'json', $context);
 
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
         $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
 
         $id = 'tag:twitter.com,'.$created_at->format('Y-m-d').':/'.$tweet_path;
 
-        /** @var \Bangpound\Bundle\TwitterStreamingBundle\CouchDocument\AtomEntry $entry */
+        /** @var AtomEntry $entry */
         $entry = new $this->atomEntryClass();
         $entry->setId($id);
         $entry->setAttachment('original', Attachment::createFromBinaryData($msg->body, 'application/json'));
@@ -131,19 +135,18 @@ class PhirehoseConsumer implements ConsumerInterface
 
         $entry->setPublished($created_at);
 
-        $source = new SourceType();
-        $title = new TextType();
-        $title->setText('Twitter');
-        $source->setTitle($title);
-        $entry->setSource($source);
 
         $entry->setLang($data['lang']);
 
         $entry->setExtra('filter_level', $data['filter_level']);
 
-        $data = $this->serializer->normalize($entry);
+
+        $entry->setSource(new SourceType('Twitter'));
+
         try {
-            $result = $this->client->postDocument($data);
+            $data = $this->serializer->serialize($entry, 'json');
+
+            $this->producer->publish($data, 'entry', ['content_type' => 'application/json']);
 
             return ConsumerInterface::MSG_ACK;
         } catch (HTTPException $e) {
