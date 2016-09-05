@@ -4,9 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8d22f2a43c9f437948cf239a3fc567ff",
-    "content-hash": "71ba024be2f7d541dd4fbf2a03060460",
+    "hash": "4da083c1c95ab9c44f15259b5b63bc15",
+    "content-hash": "2f2568c8ec4dc43ce612812a9725220e",
     "packages": [
+        {
+            "name": "bangpound/atom-models",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/atom-models.git",
+                "reference": "2f14a2d4c310da00eab0f568cf9f28ca40e9aa37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/2f14a2d4c310da00eab0f568cf9f28ca40e9aa37",
+                "reference": "2f14a2d4c310da00eab0f568cf9f28ca40e9aa37",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bangpound\\Atom\\Model\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "description": "Atom model classes",
+            "time": "2016-09-05 02:35:03"
+        },
         {
             "name": "bangpound/guzzle-proxy-bundle",
             "version": "dev-master",
@@ -1098,6 +1131,50 @@
                 "search"
             ],
             "time": "2016-07-14 14:13:40"
+        },
+        {
+            "name": "fennb/phirehose",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fennb/phirehose.git",
+                "reference": "5cb4430939c6a12e2435add954c7ccc2b6dd817c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fennb/phirehose/zipball/5cb4430939c6a12e2435add954c7ccc2b6dd817c",
+                "reference": "5cb4430939c6a12e2435add954c7ccc2b6dd817c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Fenn Bailey",
+                    "homepage": "http://fennb.com/"
+                }
+            ],
+            "description": "A PHP interface to the Twitter Streaming API.",
+            "homepage": "https://github.com/fennb/phirehose",
+            "keywords": [
+                "api",
+                "phirehose",
+                "php",
+                "streaming",
+                "twitter"
+            ],
+            "time": "2016-05-09 04:26:55"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -3891,12 +3968,15 @@
         "doctrine/couchdb-odm-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "friendsofsymfony/rest-bundle": 10,
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "bangpound/atom-models": 20,
+        "fennb/phirehose": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "ext-pcntl": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

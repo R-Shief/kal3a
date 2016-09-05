@@ -77,6 +77,11 @@
         "symfony-assets-install": "symlink",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
+        },
+        "merge-plugin": {
+            "include": [
+                "bundles/*/composer.json"
+            ]
         }
     }
 }
