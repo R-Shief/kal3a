@@ -40,7 +40,7 @@ class Follow implements FilterInterface
      *
      * @param bool $isActive
      *
-     * @return Track
+     * @return Follow
      */
     public function setIsActive($isActive)
     {
