@@ -22,7 +22,6 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
             new Bangpound\Bundle\TwitterStreamingBundle\BangpoundTwitterStreamingBundle(),
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
-            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),

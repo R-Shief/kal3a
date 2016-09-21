@@ -195,9 +195,3 @@ nelmio_cors:
             allow_origin: ['*']
             allow_methods: ['GET']
             max_age: 3600
-
-doctrine_cache:
-    providers:
-        statistics:
-            type: file_system
-            namespace: statistics
