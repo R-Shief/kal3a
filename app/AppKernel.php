@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
             new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
+            new RShief\Nab3aBundle\Nab3aBundle(),
             new Bangpound\Bundle\TwitterStreamingBundle\BangpoundTwitterStreamingBundle(),
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
