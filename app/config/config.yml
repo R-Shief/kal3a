@@ -76,14 +76,10 @@ old_sound_rabbit_mq:
             vhost:    '%rabbitmq_vhost%'
     producers:
         twitter:
-            connection:       default
-            exchange_options: { name: 'twitter', type: direct }
-            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
+            queue_options:    { name: 'twitter' }
     consumers:
         twitter:
-            connection:       default
-            exchange_options: { name: 'twitter', type: direct }
-            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
+            queue_options:    { name: 'twitter' }
             callback:         bangpound_twitter_streaming.consumer.notification
 
 sensio_framework_extra:
