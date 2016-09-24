@@ -195,19 +195,18 @@ services:
 
     doctrine.key_value.configuration:
         class: Doctrine\KeyValueStore\Configuration
+        public: false
         calls:
             - ['setMappingDriverImpl', ['@annotations.driver']]
 
     doctrine.key_value.cache:
         class: Doctrine\Common\Cache\ArrayCache
+        public: false
 
-    doctrine.key_value:
+    doctrine.key_value.storage:
         class: Doctrine\KeyValueStore\Storage\DBALStorage
         arguments:
             - '@doctrine.dbal.default_connection'
-            - 'store'
-            - 'meta_key'
-            - 'meta_value'
 
     annotations.driver:
         class: Doctrine\KeyValueStore\Mapping\AnnotationDriver
@@ -215,4 +214,4 @@ services:
 
     doctrine.key_value.manager:
         class: Doctrine\KeyValueStore\EntityManager
-        arguments: ['@doctrine.key_value', '@doctrine.key_value.configuration']
+        arguments: ['@doctrine.key_value.storage', '@doctrine.key_value.configuration']
