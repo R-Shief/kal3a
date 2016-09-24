@@ -179,3 +179,24 @@ services:
     acl_manager:
         class: AppBundle\Security\AclManager
         arguments: ['@security.acl.dbal.provider']
+
+    key_value.dbal:
+        class: Webmozart\KeyValueStore\DbalStore
+        arguments: ['@doctrine.dbal.default_connection']
+
+    key_value.schema.table:
+        class: Doctrine\DBAL\Schema\Table
+        public: false
+        factory: ['@key_value.dbal', 'getTableForCreate']
+
+    key_value.schema:
+        class: AppBundle\Doctrine\DbalStoreSchema
+        public: false
+        calls:
+            - [ 'setTable', ['@key_value.schema.table']]
+
+    key_value.schema_listener:
+        class: AppBundle\EventListener\KeyValueSchemaListener
+        arguments: ['@key_value.schema']
+        tags:
+            - { name: doctrine.event_listener, connection: default, event: postGenerateSchema, lazy: true }
