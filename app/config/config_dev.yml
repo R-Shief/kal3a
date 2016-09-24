@@ -11,6 +11,9 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
+old_sound_rabbit_mq:
+    enable_collector: false
+
 monolog:
     handlers:
         main:
