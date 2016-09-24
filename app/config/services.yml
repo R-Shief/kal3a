@@ -7,3 +7,8 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    # workaround for implicit dependency on PHP templating library.
+    # see https://github.com/liip/LiipMonitorBundle/issues/125#issuecomment-220337440
+    templating.helper.assets: '@assets.packages'
+    templating.helper.router: '@router'
