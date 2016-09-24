@@ -14,7 +14,7 @@ function main($argv)
         exit(1);
     }
 
-    $kernel = new Nab3aKernel('dev', true);
+    $kernel = new AppKernel('dev', true);
     $kernel->boot();
     $container = $kernel->getContainer();
     $kernel->shutdown();
