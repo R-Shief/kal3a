@@ -1,10 +1,10 @@
 parameters:
     bangpound_twitter_streaming.consumer.notification.class: Bangpound\Bundle\TwitterStreamingBundle\Consumer\PhirehoseConsumer
-    bangpound_twitter_streaming.consumer.notification.max_unit_of_work_size: 100
     bangpound_twitter_streaming.persistent_atom_entry.class: Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry
-    bangpound_twitter_streaming.stream.notify.type: 'tweet'
 
 services:
     bangpound_twitter_streaming.consumer.notification:
         class: '%bangpound_twitter_streaming.consumer.notification.class%'
         arguments: [ "@doctrine_couchdb.client.default_connection", '%bangpound_twitter_streaming.persistent_atom_entry.class%' ]
+        calls:
+            - [ 'setSerializer', ['@serializer']]
