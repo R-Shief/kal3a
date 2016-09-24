@@ -180,19 +180,6 @@ services:
         class: AppBundle\Security\AclManager
         arguments: ['@security.acl.dbal.provider']
 
-    key_value.dbal:
-        class: Webmozart\KeyValueStore\DbalStore
-        arguments: ['@doctrine.dbal.default_connection']
-
-    key_value.schema.table:
-        class: Doctrine\DBAL\Schema\Table
-        public: false
-        factory: ['@key_value.dbal', 'getTableForCreate']
-
-    key_value.schema:
-        class: AppBundle\Doctrine\DbalStoreSchema
-        public: false
-
     doctrine.key_value.configuration:
         class: Doctrine\KeyValueStore\Configuration
         public: false
