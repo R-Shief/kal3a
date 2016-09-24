@@ -21,7 +21,7 @@ class TweetTransformerToAtom
      */
     public function transformTweet($data)
     {
-        /** @var AtomEntry $entry */
+        /* @var AtomEntry $entry */
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
 
         $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
@@ -96,14 +96,11 @@ class TweetTransformerToAtom
 
         $entry->setPublished($created_at);
 
-
         $entry->setLang($data['lang']);
 
         $entry->setExtra('filter_level', $data['filter_level']);
 
-
         $entry->setSource(new SourceType('Twitter'));
-
 
         return $entry;
     }

@@ -2,7 +2,6 @@
 
 namespace Bangpound\Bundle\TwitterStreamingBundle\Consumer;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\CouchDB\CouchDBClient;
 use PhpAmqpLib\Message\AMQPMessage;
 use Psr\Log\LoggerAwareInterface;
@@ -11,8 +10,7 @@ use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use Symfony\Component\Serializer\SerializerAwareTrait;
 
 /**
- * Class PhirehoseConsumer
- * @package Bangpound\Bundle\TwitterStreamingBundle\Consumer
+ * Class PhirehoseConsumer.
  */
 class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
 {
@@ -25,7 +23,7 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
 
     /**
      * @param CouchDBClient $client
-     * @param string $atomEntryClass
+     * @param string        $atomEntryClass
      */
     public function __construct(CouchDBClient $client, $atomEntryClass)
     {
