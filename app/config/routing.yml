@@ -11,6 +11,7 @@ rshief_kal3a:
 
 castle:
     resource: "@BangpoundCastleBundle/Resources/config/routing.yml"
+    type: rest
 
 bangpound_castle_search:
     resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
