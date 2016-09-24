@@ -192,11 +192,27 @@ services:
     key_value.schema:
         class: AppBundle\Doctrine\DbalStoreSchema
         public: false
-        calls:
-            - [ 'setTable', ['@key_value.schema.table']]
 
-    key_value.schema_listener:
-        class: AppBundle\EventListener\KeyValueSchemaListener
-        arguments: ['@key_value.schema']
-        tags:
-            - { name: doctrine.event_listener, connection: default, event: postGenerateSchema, lazy: true }
+    doctrine.key_value.configuration:
+        class: Doctrine\KeyValueStore\Configuration
+        calls:
+            - ['setMappingDriverImpl', ['@annotations.driver']]
+
+    doctrine.key_value.cache:
+        class: Doctrine\Common\Cache\ArrayCache
+
+    doctrine.key_value:
+        class: Doctrine\KeyValueStore\Storage\DBALStorage
+        arguments:
+            - '@doctrine.dbal.default_connection'
+            - 'store'
+            - 'meta_key'
+            - 'meta_value'
+
+    annotations.driver:
+        class: Doctrine\KeyValueStore\Mapping\AnnotationDriver
+        arguments: ['@annotations.reader']
+
+    doctrine.key_value.manager:
+        class: Doctrine\KeyValueStore\EntityManager
+        arguments: ['@doctrine.key_value', '@doctrine.key_value.configuration']
