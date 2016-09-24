@@ -37,3 +37,6 @@ services:
             - status
         tags:
             - { name: liip_monitor.check, alias: elasticsearch }
+
+    amqp.callback.noop:
+        class: AppBundle\RabbitMQ\NoopMessageConsumer

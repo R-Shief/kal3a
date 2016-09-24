@@ -77,10 +77,15 @@ old_sound_rabbit_mq:
     producers:
         twitter:
             queue_options:    { name: 'twitter' }
+        atom:
+            queue_options:    { name: 'atom' }
     consumers:
         twitter:
             queue_options:    { name: 'twitter' }
             callback:         bangpound_twitter_streaming.consumer.notification
+        atom:
+            queue_options:    { name: 'atom' }
+            callback:         amqp.callback.noop
 
 sensio_framework_extra:
     view: { annotations: false }
