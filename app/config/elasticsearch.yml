@@ -1,9 +1,9 @@
 parameters:
     caxy_elasticsearch.setup:
-        production: [ atom ]
+        '%elasticsearch_index_name%': [ atom ]
  
     caxy_elasticsearch.index.params:
-        production:
+        '%elasticsearch_index_name%':
             settings:
                 analysis:
                     analyzer:
@@ -13,7 +13,7 @@ parameters:
                                 - trim
                                 - unique
                             tokenizer: keyword
-        
+
     caxy_elasticsearch.mapping.params:
         atom:
             properties:
@@ -62,7 +62,7 @@ parameters:
                             type: string
                 published:
                     type: date
-                    format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                    format: "strict_date_optional_time||epoch_millis"
                     ignore_malformed: true
                 source:
                     properties:
@@ -111,7 +111,7 @@ parameters:
                             type: string
                         updated:
                             type: date
-                            format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                            format: strict_date_time
                             ignore_malformed: true
                 summary:
                     type: object
@@ -129,5 +129,5 @@ parameters:
                             type: string
                 updated:
                     type: date
-                    format: "yyyy-MM-dd HH:mm:ss.SSSSSS"
+                    format: strict_date_time
                     ignore_malformed: true
