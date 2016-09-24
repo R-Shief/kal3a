@@ -3,14 +3,12 @@
 namespace Bangpound\Bundle\TwitterStreamingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Track.
- *
- * @ORM\Table("track")
- * @ORM\Entity(repositoryClass="Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository")
  */
-class Track implements FilterInterface
+class Track
 {
     /**
      * @var int
@@ -19,45 +17,17 @@ class Track implements FilterInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="phrase", type="string", length=60)
-     */
-    private $phrase;
-
-    /**
-     * @var bool
      *
-     * @ORM\Column(name="is_active", type="boolean")
+     * @Assert\NotBlank
+     * @Assert\Length(max=60)
      */
-    private $isActive = true;
-
-    /**
-     * Set isActive.
-     *
-     * @param bool $isActive
-     *
-     * @return Track
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get isActive.
-     *
-     * @return bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
+    protected $phrase;
 
     /**
      * Get id.

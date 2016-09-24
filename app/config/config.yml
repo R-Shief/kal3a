@@ -94,14 +94,54 @@ easy_admin:
     site_name: Castle
     design:
         menu:
-            - { label: 'Twitter Streaming', icon: twitter, children: ['Follow', 'Location', 'Track'] }
+            - { label: 'Twitter Streaming', icon: twitter, children: ['StreamParameters'] }
+            - { label: Users, entity: User, icon: 'users' }
             - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
             - { label: 'System Health Status', route: 'liip_monitor_health_interface', icon: 'heartbeat' }
-
+            - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' } ] }
     entities:
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Follow
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Location
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Track
+        'StreamParameters':
+            class: AppBundle\Entity\StreamParameters
+            label: Stream Parameters
+            list:
+                title:  '%%entity_label%%'
+                actions:
+                    -
+                        name: new
+                        label: Add %%entity_label%%
+            form:
+                fields:
+                    -
+                        property: language
+                        type: language
+                        type_options:
+                            preferred_choices: ['zh','es','en','hi','ar','pt','bn','ru','jp','ms','te']
+                    -
+                        property: follow
+                        type: collection
+                        type_options:
+                            entry_type: AppBundle\Form\FollowType
+                            by_reference: false
+                    -
+                        property: track
+                        type: collection
+                        type_options:
+                            entry_type: AppBundle\Form\TrackType
+                            by_reference: false
+                    -
+                        property: locations
+                        type: collection
+                        type_options:
+                            entry_type: AppBundle\Form\LocationType
+                            by_reference: false
+            new:
+                title:  'Create %%entity_label%%'
+            edit:
+                title: 'Edit %%entity_label%% (#%%entity_id%%)'
+        User:
+            class: AppBundle\Entity\User
+            form:
+                fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
 
 fos_user:
     db_driver: orm

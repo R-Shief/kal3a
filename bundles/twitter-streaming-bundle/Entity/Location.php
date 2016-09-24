@@ -3,14 +3,12 @@
 namespace Bangpound\Bundle\TwitterStreamingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Location.
- *
- * @ORM\Table("location")
- * @ORM\Entity(repositoryClass="Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository")
  */
-class Location implements FilterInterface
+class Location
 {
     /**
      * @var int
@@ -19,66 +17,43 @@ class Location implements FilterInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var float
      *
      * @ORM\Column(name="south", type="float")
+     * @Assert\Type("float")
+     * @Assert\Range(min=-180,max=180)
      */
-    private $south;
+    protected $south;
 
     /**
      * @var float
      *
      * @ORM\Column(name="west", type="float")
+     * @Assert\Type("float")
+     * @Assert\Range(min=-90,max=90)
      */
-    private $west;
+    protected $west;
 
     /**
      * @var float
      *
      * @ORM\Column(name="north", type="float")
+     * @Assert\Type("float")
+     * @Assert\Range(min=-180,max=180)
      */
-    private $north;
+    protected $north;
 
     /**
      * @var float
      *
      * @ORM\Column(name="east", type="float")
+     * @Assert\Type("float")
+     * @Assert\Range(min=-90,max=90)
      */
-    private $east;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive = true;
-
-    /**
-     * Set isActive.
-     *
-     * @param bool $isActive
-     *
-     * @return Track
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get isActive.
-     *
-     * @return bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
+    protected $east;
 
     /**
      * Get id.

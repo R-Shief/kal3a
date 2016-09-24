@@ -3,14 +3,12 @@
 namespace Bangpound\Bundle\TwitterStreamingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Follow.
- *
- * @ORM\Table("follow")
- * @ORM\Entity(repositoryClass="Bangpound\Bundle\TwitterStreamingBundle\Entity\FilterRepository")
  */
-class Follow implements FilterInterface
+class Follow
 {
     /**
      * @var int
@@ -19,45 +17,16 @@ class Follow implements FilterInterface
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="user_id", type="bigint", options={"unsigned"=true})
-     */
-    private $userId;
-
-    /**
-     * @var bool
      *
-     * @ORM\Column(name="is_active", type="boolean")
+     * @Assert\Type("integer")
      */
-    private $isActive = true;
-
-    /**
-     * Set isActive.
-     *
-     * @param bool $isActive
-     *
-     * @return Follow
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get isActive.
-     *
-     * @return bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
+    protected $userId;
 
     /**
      * Get id.
@@ -91,5 +60,10 @@ class Follow implements FilterInterface
     public function getUserId()
     {
         return $this->userId;
+    }
+
+    public function __toString()
+    {
+        return $this->getUserId();
     }
 }
