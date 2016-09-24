@@ -26,7 +26,6 @@
         "doctrine/couchdb-odm-bundle": "dev-develop",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
-        "doctrine/key-value-store": "dev-master",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/jsrouting-bundle": "2.0.x-dev",
         "friendsofsymfony/rest-bundle": "^2.0",
