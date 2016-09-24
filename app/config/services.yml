@@ -12,3 +12,28 @@ services:
     # see https://github.com/liip/LiipMonitorBundle/issues/125#issuecomment-220337440
     templating.helper.assets: '@assets.packages'
     templating.helper.router: '@router'
+
+    check_couchdb:
+        class: ZendDiagnostics\Check\CouchDBCheck
+        arguments:
+            -
+                dbname: '%couchdb_name%'
+                host: '%couchdb_host%'
+                protocol: 'http'
+                port: '%couchdb_port%'
+                username: '%couchdb_user%'
+                password: '%couchdb_password%'
+
+        tags:
+            - { name: liip_monitor.check, alias: couchdb }
+
+    check_elasticsearch:
+        class: ZendDiagnostics\Check\GuzzleHttpService
+        arguments:
+            - 'http://%elasticsearch_host%:%elasticsearch_port%/_cluster/health'
+            - []
+            - []
+            - 200
+            - status
+        tags:
+            - { name: liip_monitor.check, alias: elasticsearch }

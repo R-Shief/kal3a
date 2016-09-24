@@ -134,15 +134,6 @@ liip_monitor:
         doctrine_dbal:            default
         symfony_version:          ~
         security_advisory:
-        http_service:
-            couchdb:
-                host:                 %couchdb_host%
-                port:                 %couchdb_port%
-                path:                 /
-            elasticsearch:
-                host:                 %elasticsearch_host%
-                port:                 %elasticsearch_port%
-                path:                 /
             lock_file:            '%kernel.root_dir%/../composer.lock'
         rabbit_mq:
             default:
