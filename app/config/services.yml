@@ -179,26 +179,3 @@ services:
     acl_manager:
         class: AppBundle\Security\AclManager
         arguments: ['@security.acl.dbal.provider']
-
-    doctrine.key_value.configuration:
-        class: Doctrine\KeyValueStore\Configuration
-        public: false
-        calls:
-            - ['setMappingDriverImpl', ['@annotations.driver']]
-
-    doctrine.key_value.cache:
-        class: Doctrine\Common\Cache\ArrayCache
-        public: false
-
-    doctrine.key_value.storage:
-        class: Doctrine\KeyValueStore\Storage\DBALStorage
-        arguments:
-            - '@doctrine.dbal.default_connection'
-
-    annotations.driver:
-        class: Doctrine\KeyValueStore\Mapping\AnnotationDriver
-        arguments: ['@annotations.reader']
-
-    doctrine.key_value.manager:
-        class: Doctrine\KeyValueStore\EntityManager
-        arguments: ['@doctrine.key_value.storage', '@doctrine.key_value.configuration']
