@@ -90,6 +90,12 @@ sensio_framework_extra:
 
 easy_admin:
     site_name: Castle
+    design:
+        menu:
+            - { label: 'Twitter Streaming', icon: twitter, children: ['Follow', 'Location', 'Track'] }
+            - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
+            - { label: 'System Health Status', route: 'liip_monitor_health_interface', icon: 'heartbeat' }
+
     entities:
         - Bangpound\Bundle\TwitterStreamingBundle\Entity\Follow
         - Bangpound\Bundle\TwitterStreamingBundle\Entity\Location
