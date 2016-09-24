@@ -40,3 +40,15 @@ services:
 
     amqp.callback.noop:
         class: AppBundle\RabbitMQ\NoopMessageConsumer
+
+    serializer.normalizer.atom:
+        class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
+        tags:
+            - { name: serializer.normalizer }
+
+    bangpound_guzzle_proxy.client.couchdb:
+        parent: bangpound_guzzle_proxy.client
+        arguments:
+          -
+            base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
+            auth: ['%couchdb_user%', '%couchdb_password%']
