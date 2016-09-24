@@ -27,7 +27,7 @@ monolog:
             channels: [!event, !doctrine]
         elasticsearch:
             type:   stream
-            path:   %kernel.logs_dir%/elasticsearch.%kernel.environment%.log
+            path:   '%kernel.logs_dir%/elasticsearch.%kernel.environment%.log'
             level:  debug
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration

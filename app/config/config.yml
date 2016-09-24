@@ -66,11 +66,11 @@ swiftmailer:
 old_sound_rabbit_mq:
     connections:
         default:
-            host:     %rabbitmq_host%
-            user:     %rabbitmq_user%
-            password: %rabbitmq_pass%
-            port:     %rabbitmq_port%
-            vhost:    %rabbitmq_vhost%
+            host:     '%rabbitmq_host%'
+            user:     '%rabbitmq_user%'
+            password: '%rabbitmq_pass%'
+            port:     '%rabbitmq_port%'
+            vhost:    '%rabbitmq_vhost%'
     producers:
         twitter:
             connection:       default
@@ -103,13 +103,15 @@ doctrine_couch_db:
     client:
         connections:
             default:
-                dbname: %couchdb_name%
-                user: %couchdb_user%
-                password: %couchdb_password%
+                host: '%couchdb_host%'
+                dbname: '%couchdb_name%'
+                user: '%couchdb_user%'
+                password: '%couchdb_password%'
             stats:
-                dbname: %couchdb_name%_stats
-                user: %couchdb_user%
-                password: %couchdb_password%
+                host: '%couchdb_host%'
+                dbname: '%couchdb_name%_stats'
+                user: '%couchdb_user%'
+                password: '%couchdb_password%'
     odm:
         auto_mapping: true
 
@@ -119,12 +121,11 @@ liip_monitor:
     checks:
         php_extensions: [ intl, mcrypt, curl ]
         writable_directory:
-            - %kernel.cache_dir%
-            - %kernel.logs_dir%
+            - '%kernel.cache_dir%'
+            - '%kernel.logs_dir%'
         doctrine_dbal:            default
         symfony_version:          ~
         security_advisory:
-            lock_file:            %kernel.root_dir%/../composer.lock
         http_service:
             couchdb:
                 host:                 %couchdb_host%
@@ -134,25 +135,26 @@ liip_monitor:
                 host:                 %elasticsearch_host%
                 port:                 %elasticsearch_port%
                 path:                 /
+            lock_file:            '%kernel.root_dir%/../composer.lock'
         rabbit_mq:
             default:
-                host:                 %rabbitmq_host%
-                port:                 %rabbitmq_port%
-                user:                 %rabbitmq_user%
-                password:             %rabbitmq_pass%
-                vhost:                %rabbitmq_vhost%
+                host:                 '%rabbitmq_host%'
+                port:                 '%rabbitmq_port%'
+                user:                 '%rabbitmq_user%'
+                password:             '%rabbitmq_pass%'
+                vhost:                '%rabbitmq_vhost%'
 
 bangpound_guzzle_proxy:
     endpoints:
         elasticsearch:
-            base_url: http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/
+            base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
         couchdb:
-            base_url: http://%couchdb_host%:%couchdb_port%/%couchdb_name%/
+            base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
 
 caxy_elasticsearch:
     client:
         default:
-            hosts: [ %elasticsearch_host%:%elasticsearch_port% ]
+            hosts: [ '%elasticsearch_host%:%elasticsearch_port%' ]
 
 fos_rest:
     param_fetcher_listener: force

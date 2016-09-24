@@ -6,14 +6,14 @@ parameters:
 
 services:
     rshief_kal3a.command.copy_trends:
-        class: %rshief_kal3a.command.copy_trends.class%
+        class: '%rshief_kal3a.command.copy_trends.class%'
         tags:
             -  { name: console.command }
 
     rshief_kal3a.command.calculate_trends:
-        class: %rshief_kal3a.command.calculate_trends.class%
+        class: '%rshief_kal3a.command.calculate_trends.class%'
         tags:
             -  { name: console.command }
 
     rshief_kal3a.controller.tag_statistics:
-        class: %rshief_kal3a.controller.tag_statistics.class%
+        class: '%rshief_kal3a.controller.tag_statistics.class%'

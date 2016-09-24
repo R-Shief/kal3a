@@ -15,16 +15,16 @@ services:
             - { name: serializer.normalizer }
 
     bangpound_castle.command.export:
-        class: %bangpound_castle.command.export.class%
+        class: '%bangpound_castle.command.export.class%'
         tags:
             - { name: console.command }
 
     bangpound_castle.command.prune:
-        class: %bangpound_castle.command.prune.class%
+        class: '%bangpound_castle.command.prune.class%'
         tags:
             - { name: console.command }
 
     bangpound_castle.command.update_view:
-        class: %bangpound_castle.command.update_view.class%
+        class: '%bangpound_castle.command.update_view.class%'
         tags:
             - { name: console.command }

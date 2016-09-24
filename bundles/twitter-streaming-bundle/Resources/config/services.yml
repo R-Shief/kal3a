@@ -6,5 +6,5 @@ parameters:
 
 services:
     bangpound_twitter_streaming.consumer.notification:
-        class: %bangpound_twitter_streaming.consumer.notification.class%
-        arguments: [ "@old_sound_rabbit_mq.atom_producer", "@serializer", %bangpound_twitter_streaming.persistent_atom_entry.class% ]
+        class: '%bangpound_twitter_streaming.consumer.notification.class%'
+        arguments: [ "@doctrine_couchdb.client.default_connection", '%bangpound_twitter_streaming.persistent_atom_entry.class%' ]
