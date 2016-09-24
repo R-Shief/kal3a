@@ -88,7 +88,7 @@ old_sound_rabbit_mq:
             callback:         amqp.callback.noop
 
 sensio_framework_extra:
-    view: { annotations: false }
+    view: { annotations: true }
 
 easy_admin:
     site_name: Castle
