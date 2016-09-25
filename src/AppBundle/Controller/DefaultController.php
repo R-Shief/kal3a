@@ -2,18 +2,33 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\StreamParameters;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
+use FOS\RestBundle\Controller\Annotations as FOSRest;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Sensio\Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig');
+    }
+
+    /**
+     * @FOSRest\Route("/api/stream", methods={"GET"})
+     * @FOSRest\View(serializerGroups={"default"})
+     */
+    public function streamAction()
+    {
+        $repo = $this->getDoctrine()->getManager()->getRepository(StreamParameters::class);
+
+        $data = $repo->findAll();
+
+        return $data[0];
     }
 }
