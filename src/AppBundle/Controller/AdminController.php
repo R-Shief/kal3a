@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\StreamParametersType;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseController;
 
 /**
