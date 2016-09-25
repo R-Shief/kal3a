@@ -92,6 +92,7 @@ sensio_framework_extra:
 easy_admin:
     site_name: Castle
     design:
+        form_theme: vertical
         menu:
             - { label: 'Twitter Streaming', icon: twitter, children: ['StreamParameters'] }
             - { label: Users, entity: User, icon: 'users' }
@@ -104,6 +105,7 @@ easy_admin:
             label: Stream Parameters
             list:
                 title:  '%%entity_label%%'
+                fields: [id, language, track, follow, locations ]
                 actions:
                     -
                         name: new
@@ -119,25 +121,21 @@ easy_admin:
                         property: follow
                         type: collection
                         type_options:
-                            entry_type: Symfony\Component\Form\Extension\Core\Type\IntegerType
                             entry_options:
                                 label: false
-                            by_reference: false
                     -
                         property: track
                         type: collection
                         type_options:
                             entry_options:
                                 label: false
-                            by_reference: false
                     -
                         property: locations
                         type: collection
                         type_options:
+                            entry_type: AppBundle\Form\LocationType
                             entry_options:
                                 label: false
-                            entry_type: AppBundle\Form\LocationType
-                            by_reference: false
             new:
                 title:  'Create %%entity_label%%'
             edit:
