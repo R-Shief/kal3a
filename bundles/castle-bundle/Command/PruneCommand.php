@@ -36,7 +36,7 @@ class PruneCommand extends ContainerAwareCommand
         $limit = 1000;
 
         // Executing the query without grouping allows the view to be refreshed.
-        /** @var  $query */
+        /** @var $query */
         $query = $default_client->createViewQuery('maint', 'date');
         $output->writeln('Updating view.');
         $query->execute();

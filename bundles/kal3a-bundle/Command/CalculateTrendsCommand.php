@@ -40,7 +40,9 @@ class CalculateTrendsCommand extends ContainerAwareCommand
 
         $stmt->execute();
 
-        $tags = array_map(function ($input) { return reset($input); }, $stmt->fetchAll(\PDO::FETCH_NUM));
+        $tags = array_map(function ($input) {
+            return reset($input);
+        }, $stmt->fetchAll(\PDO::FETCH_NUM));
 
         $sql = 'SELECT * FROM tag_statistics WHERE tag = ? ORDER BY timestamp';
         $stmt = $conn->prepare($sql);

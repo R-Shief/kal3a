@@ -33,7 +33,9 @@ class StatisticController extends FOSRestController
         } else {
             $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics')->fetchAll(Query::HYDRATE_SCALAR);
         }
-        $result = array_map(function ($value) { return $value[0]; }, $result);
+        $result = array_map(function ($value) {
+            return $value[0];
+        }, $result);
 
         return $result;
     }

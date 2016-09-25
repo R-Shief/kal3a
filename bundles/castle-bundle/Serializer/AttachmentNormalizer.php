@@ -24,8 +24,8 @@ class AttachmentNormalizer implements NormalizerInterface
     /**
      * Checks whether the given class is supported for normalization by this normalizer.
      *
-     * @param mixed  $data   Data to normalize.
-     * @param string $format The format being (de-)serialized from or into.
+     * @param mixed  $data   Data to normalize
+     * @param string $format The format being (de-)serialized from or into
      *
      * @return bool
      */
