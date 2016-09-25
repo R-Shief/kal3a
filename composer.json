@@ -37,7 +37,8 @@
         "wikimedia/composer-merge-plugin": "^1.3",
         "nelmio/api-doc-bundle": "^2.11",
         "r-shief/nab3a-bundle": "^1.0@dev",
-        "react/eep": "dev-master"
+        "react/eep": "dev-master",
+        "yzalis/supervisor-bundle": "dev-develop"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -51,6 +52,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:R-Shief/nab3a-bundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/SupervisorBundle.git"
         }
     ],
     "scripts": {

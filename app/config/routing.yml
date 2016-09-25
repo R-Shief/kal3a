@@ -52,3 +52,8 @@ _fos_user_security:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+# app/config/routing.yml
+YZSupervisorBundle:
+    resource: "@YZSupervisorBundle/Resources/config/routing.xml"
+    prefix: /supervisor

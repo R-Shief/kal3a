@@ -237,3 +237,13 @@ nelmio_cors:
             allow_origin: ['*']
             allow_methods: ['GET']
             max_age: 3600
+
+yz_supervisor:
+    default_environment: dev
+    servers:
+        dev:
+            locahost:
+                host: 127.0.0.1
+                username: user
+                password: 123
+                port: 9001

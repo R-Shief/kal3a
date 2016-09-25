@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
             new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new \YZ\SupervisorBundle\YZSupervisorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
