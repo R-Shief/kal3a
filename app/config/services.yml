@@ -23,7 +23,8 @@ services:
                 port: '%couchdb_port%'
                 username: '%couchdb_user%'
                 password: '%couchdb_password%'
-
+        calls:
+            - [ setLabel, ['CouchDB']]
         tags:
             - { name: liip_monitor.check, alias: couchdb }
 
@@ -35,6 +36,8 @@ services:
             - []
             - 200
             - status
+        calls:
+            - [ setLabel, ['Elasticsearch']]
         tags:
             - { name: liip_monitor.check, alias: elasticsearch }
 
