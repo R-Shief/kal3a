@@ -153,17 +153,10 @@ fos_user:
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
-        connections:
-            default:
-                host: '%couchdb_host%'
-                dbname: '%couchdb_name%'
-                user: '%couchdb_user%'
-                password: '%couchdb_password%'
-            stats:
-                host: '%couchdb_host%'
-                dbname: '%couchdb_name%_stats'
-                user: '%couchdb_user%'
-                password: '%couchdb_password%'
+        host: '%couchdb_host%'
+        dbname: '%couchdb_name%'
+        user: '%couchdb_user%'
+        password: '%couchdb_password%'
     odm:
         auto_mapping: true
 
