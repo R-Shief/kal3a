@@ -2,9 +2,10 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Class StreamParameters.
@@ -27,59 +28,62 @@ class StreamParameters
      * @Assert\Language()
      *
      * @ORM\Column(nullable=true)
+     * @Serializer\Groups({"default"})
      *
      * @var string
      */
     protected $language;
 
     /**
-     * @var Track[]
+     * @var string[]
      *
-     * @ORM\OneToMany(targetEntity="Track", mappedBy="streamParameters", cascade={"all"}, orphanRemoval=true)
+     * @ORM\Column(type="json_array")
+     * @Serializer\Groups({"default"})
      *
      * @Assert\Count(
      *   min = "0",
      *   max = "400"
      * )
-     * @Assert\Valid(traverse=true)
+     * @Assert\All({
+     *     @Assert\NotBlank,
+     *     @Assert\Length(max=60)
+     * })
      */
-    protected $track;
+    protected $track = [];
 
     /**
-     * @var Follow[]
+     * @var int[]
      *
-     * @ORM\OneToMany(targetEntity="Follow", mappedBy="streamParameters", cascade={"all"}, orphanRemoval=true)
+     * @ORM\Column(type="json_array")
      *
      * @Assert\Count(
      *   min = "0",
      *   max = "5000"
      * )
-     * @Assert\Valid(traverse=true)
+     * @Assert\All({@Assert\Type("integer")})
      */
-    protected $follow;
+    protected $follow = [];
 
     /**
-     * @var Location[]
+     * @var array[]
      *
-     * @ORM\OneToMany(targetEntity="Location", mappedBy="streamParameters", cascade={"all"}, orphanRemoval=true)
+     * @ORM\Column(type="json_array")
+     * @Serializer\Groups({"default"})
      *
      * @Assert\Count(
      *   min = "0",
      *   max = "25"
      * )
-     * @Assert\Valid(traverse=true)
+     * @Assert\All({
+     *     @Assert\Collection(fields={
+     *       {@Assert\Type("float"),@Assert\Range(min=-180,max=180)},
+     *       {@Assert\Type("float"),@Assert\Range(min=-90,max=90)},
+     *       {@Assert\Type("float"),@Assert\Range(min=-180,max=180)},
+     *       {@Assert\Type("float"),@Assert\Range(min=-90,max=90)}
+     *     })
+     * })
      */
-    protected $locations;
-
-    /**
-     * StreamParameters constructor.
-     */
-    public function __construct()
-    {
-        $this->follow = new ArrayCollection();
-        $this->track = new ArrayCollection();
-        $this->locations = new ArrayCollection();
-    }
+    protected $locations = [];
 
     /**
      * @return int
@@ -106,7 +110,7 @@ class StreamParameters
     }
 
     /**
-     * @return Track[]
+     * @return string[]
      */
     public function getTrack()
     {
@@ -114,25 +118,23 @@ class StreamParameters
     }
 
     /**
-     * @param Track $track
+     * @param string $track
      */
-    public function addTrack(Track $track)
+    public function addTrack(string $track)
     {
         $this->track[] = $track;
-        $track->setStreamParameters($this);
     }
 
     /**
-     * @param Track $track
+     * @param string $track
      */
-    public function removeTrack(Track $track)
+    public function removeTrack(string $track)
     {
-        $this->track->removeElement($track);
-        $track->setStreamParameters(null);
+        $this->track = array_diff($this->track, [$track]);
     }
 
     /**
-     * @return Follow[]
+     * @return int[]
      */
     public function getFollow()
     {
@@ -140,46 +142,31 @@ class StreamParameters
     }
 
     /**
-     * @param Follow $follow
+     * @param int $follow
      */
-    public function addFollow(Follow $follow)
+    public function addFollow(int $follow)
     {
         $this->follow[] = $follow;
-        $follow->setStreamParameters($this);
     }
 
     /**
-     * @param Follow $follow
+     * @param int $follow
      */
-    public function removeFollow(Follow $follow)
+    public function removeFollow(int $follow)
     {
-        $this->follow->removeElement($follow);
-        $follow->setStreamParameters(null);
+        $this->follow = array_diff($this->follow, [$follow]);
     }
 
     /**
-     * @return Location[]
+     * @return array[]
      */
     public function getLocations()
     {
         return $this->locations;
     }
 
-    /**
-     * @param Location $location
-     */
-    public function addLocation(Location $location)
+    public function setLocations(array $locations)
     {
-        $this->locations[] = $location;
-        $location->setStreamParameters($this);
-    }
-
-    /**
-     * @param Location $location
-     */
-    public function removeLocation(Location $location)
-    {
-        $this->locations->removeElement($location);
-        $location->setStreamParameters(null);
+        $this->locations = array_values($locations);
     }
 }

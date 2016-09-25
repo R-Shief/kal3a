@@ -120,18 +120,23 @@ easy_admin:
                         property: follow
                         type: collection
                         type_options:
-                            entry_type: AppBundle\Form\FollowType
+                            entry_type: Symfony\Component\Form\Extension\Core\Type\IntegerType
+                            entry_options:
+                                label: false
                             by_reference: false
                     -
                         property: track
                         type: collection
                         type_options:
-                            entry_type: AppBundle\Form\TrackType
+                            entry_options:
+                                label: false
                             by_reference: false
                     -
                         property: locations
                         type: collection
                         type_options:
+                            entry_options:
+                                label: false
                             entry_type: AppBundle\Form\LocationType
                             by_reference: false
             new:

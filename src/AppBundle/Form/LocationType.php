@@ -3,8 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LocationType extends AbstractType
 {
@@ -15,20 +15,10 @@ class LocationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('south')
-            ->add('west')
-            ->add('north')
-            ->add('east')
+            ->add(0, NumberType::class, ['label' => 'South'])
+            ->add(1, NumberType::class, ['label' => 'West'])
+            ->add(2, NumberType::class, ['label' => 'North'])
+            ->add(3, NumberType::class, ['label' => 'East'])
         ;
-    }
-
-    /**
-     * @param OptionsResolver $resolver
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Location',
-        ));
     }
 }
