@@ -1,9 +1,0 @@
-ongr_elasticsearch:
-    analysis:
-        analyzer:
-            tag_analyzer:
-                filter:
-                    - lowercase
-                    - trim
-                    - unique
-                tokenizer: keyword

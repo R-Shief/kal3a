@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: elasticsearch.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -198,6 +197,14 @@ bangpound_guzzle_proxy:
             base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
 
 ongr_elasticsearch:
+    analysis:
+        analyzer:
+            tag_analyzer:
+                filter:
+                    - lowercase
+                    - trim
+                    - unique
+                tokenizer: keyword
     connections:
         default:
             index_name: '%elasticsearch_index_name%'
