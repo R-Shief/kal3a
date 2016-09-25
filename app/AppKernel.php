@@ -31,7 +31,7 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
-            new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
+            new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new \YZ\SupervisorBundle\YZSupervisorBundle(),
         );

@@ -23,7 +23,6 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "bangpound/guzzle-proxy-bundle": "^2.0@dev",
-        "caxy/elasticsearch-bundle": "dev-develop",
         "doctrine/couchdb": "^1.0@dev",
         "doctrine/couchdb-odm": "^1.0@alpha",
         "doctrine/couchdb-odm-bundle": "dev-symfony3",
@@ -38,7 +37,8 @@
         "nelmio/api-doc-bundle": "^2.11",
         "r-shief/nab3a-bundle": "^1.0@dev",
         "react/eep": "dev-master",
-        "yzalis/supervisor-bundle": "dev-develop"
+        "yzalis/supervisor-bundle": "dev-develop",
+        "ongr/elasticsearch-bundle": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

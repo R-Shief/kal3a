@@ -197,10 +197,19 @@ bangpound_guzzle_proxy:
         couchdb:
             base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
 
-caxy_elasticsearch:
-    client:
+ongr_elasticsearch:
+    connections:
         default:
-            hosts: [ '%elasticsearch_host%:%elasticsearch_port%' ]
+            index_name: '%elasticsearch_index_name%'
+            analysis:
+                analyzer:
+                    - tag_analyzer
+    managers:
+        default:
+            index:
+                index_name: '%elasticsearch_index_name%'
+            mappings:
+                - AppBundle
 
 fos_rest:
     param_fetcher_listener: force
