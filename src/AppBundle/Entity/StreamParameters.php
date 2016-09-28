@@ -54,12 +54,15 @@ class StreamParameters
      * @var int[]
      *
      * @ORM\Column(type="json_array")
+     * @Serializer\Groups({"default"})
      *
      * @Assert\Count(
      *   min = "0",
      *   max = "5000"
      * )
-     * @Assert\All({@Assert\Type("integer")})
+     * @Assert\All({
+     *     @Assert\Type("integer")
+     * })
      */
     protected $follow = [];
 
@@ -117,19 +120,11 @@ class StreamParameters
     }
 
     /**
-     * @param string $track
+     * @param \string[] $track
      */
-    public function addTrack(string $track)
+    public function setTrack(array $track)
     {
-        $this->track[] = $track;
-    }
-
-    /**
-     * @param string $track
-     */
-    public function removeTrack(string $track)
-    {
-        $this->track = array_diff($this->track, [$track]);
+        $this->track = $track;
     }
 
     /**
@@ -141,19 +136,11 @@ class StreamParameters
     }
 
     /**
-     * @param int $follow
+     * @param array $follow
      */
-    public function addFollow(int $follow)
+    public function setFollow(array $follow)
     {
-        $this->follow[] = $follow;
-    }
-
-    /**
-     * @param int $follow
-     */
-    public function removeFollow(int $follow)
-    {
-        $this->follow = array_diff($this->follow, [$follow]);
+        $this->follow = array_values($follow);
     }
 
     /**
@@ -164,6 +151,9 @@ class StreamParameters
         return $this->locations;
     }
 
+    /**
+     * @param array $locations
+     */
     public function setLocations(array $locations)
     {
         $this->locations = array_values($locations);
