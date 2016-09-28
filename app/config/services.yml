@@ -55,3 +55,7 @@ services:
         class: Monolog\Processor\PsrLogMessageProcessor
         tags:
             - { name: monolog.processor }
+
+    aws.endpoint.provider:
+        class: Aws\Endpoint\PatternEndpointProvider
+        arguments: ['%aws_endpoint_map%']

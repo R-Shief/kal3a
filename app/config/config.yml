@@ -266,3 +266,5 @@ aws:
     credentials:
         key: '%aws_access_key_id%'
         secret: '%aws_secret_access_key%'
+    endpoint_provider: '@aws.endpoint.provider'
+    scheme: http
