@@ -41,3 +41,7 @@ parameters:
     elasticsearch_host: localhost
     elasticsearch_port: 9200
     elasticsearch_index_name: kal3a
+
+    aws_region: ~
+    aws_access_key_id: ~
+    aws_secret_access_key: ~

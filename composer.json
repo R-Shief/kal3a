@@ -38,7 +38,8 @@
         "r-shief/nab3a-bundle": "^1.0@dev",
         "react/eep": "dev-master",
         "yzalis/supervisor-bundle": "dev-develop",
-        "ongr/elasticsearch-bundle": "^1.2"
+        "ongr/elasticsearch-bundle": "^1.2",
+        "aws/aws-sdk-php-symfony": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new \YZ\SupervisorBundle\YZSupervisorBundle(),
+            new \Aws\Symfony\AwsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
