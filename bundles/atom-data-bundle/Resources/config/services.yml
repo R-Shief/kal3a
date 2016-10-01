@@ -8,9 +8,3 @@ parameters:
     bangpound_atom_data.document.person.class: Bangpound\Atom\DataBundle\CouchDocument\PersonType
     bangpound_atom_data.document.source.class: Bangpound\Atom\DataBundle\CouchDocument\SourceType
     bangpound_atom_data.document.text.class: Bangpound\Atom\DataBundle\CouchDocument\TextType
-
-services:
-    bangpound_atom_data.normalizer.date_time:
-        class: Bangpound\Atom\DataBundle\Serializer\DateTimeNormalizer
-        tags:
-            - { name: serializer.normalizer }
