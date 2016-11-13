@@ -27,7 +27,7 @@
         "doctrine/couchdb-odm": "^1.0@alpha",
         "doctrine/couchdb-odm-bundle": "dev-symfony3",
         "friendsofsymfony/jsrouting-bundle": "^2.0@dev",
-        "friendsofsymfony/rest-bundle": "^2.0@beta",
+        "friendsofsymfony/rest-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "^2.0@dev",
         "javiereguiluz/easyadmin-bundle": "^1.13",
         "liip/monitor-bundle": "^2.3",
