@@ -14,7 +14,7 @@ class CollectionController extends Controller
     /**
      * @Route("/hashtag")
      *
-     * @return \Symfony\Component\HttpFoundation\Response|static
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function hashtagAction()
     {
