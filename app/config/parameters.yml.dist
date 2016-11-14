@@ -47,3 +47,4 @@ parameters:
     aws_secret_access_key: ~
 
     aws_endpoint_map: ~
+    kal3a_web_url: http://localhost:8000/api/
