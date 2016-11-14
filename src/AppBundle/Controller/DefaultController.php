@@ -20,15 +20,14 @@ class DefaultController extends Controller
     }
 
     /**
-     * @FOSRest\Route("/api/stream", methods={"GET"})
+     * @FOSRest\Route("/api/stream/{streamParameters}", methods={"GET"})
      * @FOSRest\View(serializerGroups={"default"})
+     * @Sensio\ParamConverter
+     * @param StreamParameters $streamParameters
+     * @return StreamParameters
      */
-    public function streamAction()
+    public function streamAction(StreamParameters $streamParameters)
     {
-        $repo = $this->getDoctrine()->getManager()->getRepository(StreamParameters::class);
-
-        $data = $repo->findAll();
-
-        return $data[0];
+        return $streamParameters;
     }
 }
