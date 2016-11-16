@@ -63,3 +63,11 @@ services:
     aws.signature.provider:
         class: Aws\Signature\SignatureInterface
         factory: ['SignatureProvider', 'create']
+
+    s3_consumer:
+        class: AppBundle\Consumer\S3Consumer
+        arguments: ['@aws.s3']
+
+    atom_consumer:
+        class: AppBundle\Consumer\AtomConsumer
+        arguments: ['@old_sound_rabbit_mq.atom_producer', '@serializer']
