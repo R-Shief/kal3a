@@ -30,10 +30,8 @@ class TweetTransformerToAtom
         /** @var AtomEntry $entry */
         $entry = new AtomEntry();
         $entry->setId($id);
-        $entry->setAttachment('original', Attachment::createFromBinaryData($data, 'application/json'));
 
-        $title = new TextType();
-        $title->setText($data['text']);
+        $title = new TextType($data['text']);
         $entry->setTitle($title);
 
         $content = new ContentType();
@@ -60,14 +58,16 @@ class TweetTransformerToAtom
 
         if (isset($data['entities']['urls'])) {
             foreach ($data['entities']['urls'] as $url) {
-                $link = new LinkType();
-                $link->setHref($url['expanded_url']);
-                if (substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0) {
-                    $link->setRel('shortlink');
-                } else {
-                    $link->setRel('nofollow');
+                if (!empty($url['expanded_url'])) {
+                    $link = new LinkType();
+                    $link->setHref($url['expanded_url']);
+                    if (substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0) {
+                        $link->setRel('shortlink');
+                    } else {
+                        $link->setRel('nofollow');
+                    }
+                    $entry->addLink($link);
                 }
-                $entry->addLink($link);
             }
         }
 

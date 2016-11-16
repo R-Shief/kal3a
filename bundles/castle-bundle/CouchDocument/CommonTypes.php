@@ -4,6 +4,9 @@ namespace Bangpound\Bundle\CastleBundle\CouchDocument;
 
 use ONGR\ElasticsearchBundle\Collection\Collection;
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use Bangpound\Atom\DataBundle\CouchDocument\PersonType;
+use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
+use Bangpound\Atom\DataBundle\CouchDocument\CategoryType;
 
 trait CommonTypes
 {
