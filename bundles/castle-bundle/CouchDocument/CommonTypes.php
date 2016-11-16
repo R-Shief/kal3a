@@ -43,7 +43,7 @@ trait CommonTypes
      *
      * @return $this
      */
-    public function addAuthor(PersonType $author)
+    public function addAuthor($author)
     {
         $this->authors[] = $author;
     }
@@ -77,7 +77,7 @@ trait CommonTypes
      *
      * @return static
      */
-    public function addCategory(CategoryType $category)
+    public function addCategory($category)
     {
         $this->categories[] = $category;
     }
@@ -111,7 +111,7 @@ trait CommonTypes
      *
      * @return static
      */
-    public function addContributor(PersonType $contributor)
+    public function addContributor($contributor)
     {
         $this->contributors[] = $contributor;
     }
@@ -143,7 +143,7 @@ trait CommonTypes
      *
      * @param LinkType $link
      */
-    public function addLink(LinkType $link)
+    public function addLink($link)
     {
         $this->links[] = $link;
     }
