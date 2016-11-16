@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "821687c7641909c90fafd2af036cb718ab47d43a"
+                "reference": "99b6c2a662bf2478b77d4a83ee362be604f40126"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/821687c7641909c90fafd2af036cb718ab47d43a",
-                "reference": "821687c7641909c90fafd2af036cb718ab47d43a",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/99b6c2a662bf2478b77d4a83ee362be604f40126",
+                "reference": "99b6c2a662bf2478b77d4a83ee362be604f40126",
                 "shasum": ""
             },
             "type": "library",
@@ -171,7 +171,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-11-16 15:41:10"
+            "time": "2016-11-16 16:56:45"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
