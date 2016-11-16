@@ -43,7 +43,12 @@ class S3Consumer implements ConsumerInterface, LoggerAwareInterface
         $data = \GuzzleHttp\json_decode($msg->getBody(), true);
 
         try {
-            $result = $this->client->upload('kal3a', 'twitter.com/'.$data['user']['screen_name'].'/status/'.$data['id_str'], $msg->getBody(), 'private', [
+            $tweet_path = 'twitter.com/';
+            $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
+            $tweet_path .= $created_at->format('Y').'/'.$created_at->format('m').'/'.$created_at->format('d').'/';
+            $tweet_path .= $data['user']['screen_name'].'/'.$data['id_str'];
+
+            $result = $this->client->upload('kal3a', $tweet_path, $msg->getBody(), 'private', [
               'before_upload' => function (Command $command) {
                   $command->getHandlerList()->appendBuild(function (callable $handler) {
                       return function (CommandInterface $command, RequestInterface $request = null) use ($handler) {
