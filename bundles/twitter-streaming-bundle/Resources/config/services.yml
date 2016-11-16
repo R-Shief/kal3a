@@ -1,5 +1,5 @@
 parameters:
-    bangpound_twitter_streaming.consumer.notification.class: Bangpound\Bundle\TwitterStreamingBundle\Consumer\PhirehoseConsumer
+    bangpound_twitter_streaming.consumer.notification.class: Bangpound\Bundle\TwitterStreamingBundle\Consumer\CouchDbConsumer
     bangpound_twitter_streaming.persistent_atom_entry.class: Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry
 
 services:

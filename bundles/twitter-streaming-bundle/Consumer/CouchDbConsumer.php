@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\SerializerAwareTrait;
 /**
  * Class PhirehoseConsumer.
  */
-class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
+class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
 {
     use SerializerAwareTrait;
     use LoggerAwareTrait;
@@ -37,9 +37,10 @@ class PhirehoseConsumer implements ConsumerInterface, LoggerAwareInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        $data = json_decode($msg->body, true, 512, $this->jsonOptions);
+//        $data = $this->serializer->deserialize($msg->body, $this->atomEntryClass, 'json');
+        $data = json_decode($msg->body, true);
 
-        $this->client->postDocument($data);
+        $result = $this->client->postDocument($data);
 
         return ConsumerInterface::MSG_ACK;
     }
