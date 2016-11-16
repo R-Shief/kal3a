@@ -59,3 +59,7 @@ services:
     aws.endpoint.provider:
         class: Aws\Endpoint\PatternEndpointProvider
         arguments: ['%aws_endpoint_map%']
+
+    aws.signature.provider:
+        class: Aws\Signature\SignatureInterface
+        factory: ['SignatureProvider', 'create']

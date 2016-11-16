@@ -271,3 +271,4 @@ aws:
         secret: '%aws_secret_access_key%'
     endpoint_provider: '@aws.endpoint.provider'
     scheme: http
+    signature_provider: '@aws.signature.provider'
