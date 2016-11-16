@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "2f14a2d4c310da00eab0f568cf9f28ca40e9aa37"
+                "reference": "821687c7641909c90fafd2af036cb718ab47d43a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/2f14a2d4c310da00eab0f568cf9f28ca40e9aa37",
-                "reference": "2f14a2d4c310da00eab0f568cf9f28ca40e9aa37",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/821687c7641909c90fafd2af036cb718ab47d43a",
+                "reference": "821687c7641909c90fafd2af036cb718ab47d43a",
                 "shasum": ""
             },
             "type": "library",
@@ -171,7 +171,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-09-05 02:35:03"
+            "time": "2016-11-16 15:41:10"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -3543,12 +3543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "0bc4116482d623c631168e7675d62eebb23f82d8"
+                "reference": "9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/0bc4116482d623c631168e7675d62eebb23f82d8",
-                "reference": "0bc4116482d623c631168e7675d62eebb23f82d8",
+                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06",
+                "reference": "9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06",
                 "shasum": ""
             },
             "require": {
@@ -3585,7 +3585,7 @@
                 "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
             },
-            "time": "2016-11-16 07:08:48"
+            "time": "2016-11-16 16:46:15"
         },
         {
             "name": "react/child-process",
