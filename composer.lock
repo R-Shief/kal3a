@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.19.26",
+            "version": "3.19.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b7daaf43bad94416cb8a2a9700ac5ff484a779e5"
+                "reference": "4d65385d9ab9716cdffd69303761970b5a3c6452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b7daaf43bad94416cb8a2a9700ac5ff484a779e5",
-                "reference": "b7daaf43bad94416cb8a2a9700ac5ff484a779e5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4d65385d9ab9716cdffd69303761970b5a3c6452",
+                "reference": "4d65385d9ab9716cdffd69303761970b5a3c6452",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-11-15 22:26:28"
+            "time": "2016-11-16 21:53:56"
         },
         {
             "name": "aws/aws-sdk-php-symfony",
@@ -3543,12 +3543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06"
+                "reference": "dafb68e2f5a022aa1831c3d7d309eab60f09c296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06",
-                "reference": "9ce84a4e6455e9db8286b6c0cc2e6b271a3e8e06",
+                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/dafb68e2f5a022aa1831c3d7d309eab60f09c296",
+                "reference": "dafb68e2f5a022aa1831c3d7d309eab60f09c296",
                 "shasum": ""
             },
             "require": {
@@ -3585,7 +3585,7 @@
                 "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
             },
-            "time": "2016-11-16 16:46:15"
+            "time": "2016-11-16 22:36:44"
         },
         {
             "name": "react/child-process",
