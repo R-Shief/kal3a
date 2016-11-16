@@ -14,7 +14,7 @@ function main($argv)
         exit(1);
     }
 
-    $kernel = new AppKernel('dev', true);
+    $kernel = new AppKernel('prod', false);
     $kernel->boot();
     $container = $kernel->getContainer();
     $kernel->shutdown();
