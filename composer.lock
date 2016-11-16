@@ -712,12 +712,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/DoctrineCouchDBBundle.git",
-                "reference": "dd0029ca95655ebff8e4bd1c8b11ed2bf5f7f2e9"
+                "reference": "044ac3c3a5f07a3be6b8c4bc342c95218504feb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/dd0029ca95655ebff8e4bd1c8b11ed2bf5f7f2e9",
-                "reference": "dd0029ca95655ebff8e4bd1c8b11ed2bf5f7f2e9",
+                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/044ac3c3a5f07a3be6b8c4bc342c95218504feb1",
+                "reference": "044ac3c3a5f07a3be6b8c4bc342c95218504feb1",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,7 @@
             "support": {
                 "source": "https://github.com/bangpound/DoctrineCouchDBBundle/tree/symfony3"
             },
-            "time": "2016-08-30 06:02:30"
+            "time": "2016-11-16 06:27:49"
         },
         {
             "name": "doctrine/dbal",
@@ -3543,12 +3543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "5ce9f791030f15515c205935579c3affc2d94250"
+                "reference": "0bc4116482d623c631168e7675d62eebb23f82d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/5ce9f791030f15515c205935579c3affc2d94250",
-                "reference": "5ce9f791030f15515c205935579c3affc2d94250",
+                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/0bc4116482d623c631168e7675d62eebb23f82d8",
+                "reference": "0bc4116482d623c631168e7675d62eebb23f82d8",
                 "shasum": ""
             },
             "require": {
@@ -3585,7 +3585,7 @@
                 "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
             },
-            "time": "2016-11-13 23:51:37"
+            "time": "2016-11-16 07:08:48"
         },
         {
             "name": "react/child-process",
