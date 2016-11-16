@@ -170,6 +170,7 @@ doctrine_couch_db:
         dbname: '%couchdb_name%'
         user: '%couchdb_user%'
         password: '%couchdb_password%'
+        timeout: 10
     odm:
         auto_mapping: true
 
