@@ -4,7 +4,6 @@ namespace AppBundle\ESDocument;
 
 use Bangpound\Atom\Model\PersonType as BasePersonType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class PersonType.
@@ -17,7 +16,6 @@ class PersonType extends BasePersonType
      * @var string
      *
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
      */
     protected $name;
 
@@ -25,7 +23,6 @@ class PersonType extends BasePersonType
      * @var string
      *
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
      */
     protected $uri;
 
@@ -33,7 +30,6 @@ class PersonType extends BasePersonType
      * @var string
      *
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
      */
     protected $email;
 }

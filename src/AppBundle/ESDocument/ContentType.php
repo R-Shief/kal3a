@@ -2,10 +2,9 @@
 
 namespace AppBundle\ESDocument;
 
-use AppBundle\Annotations\PropertyInfoType;
+use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\ContentType as BaseContentType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class ContentType.
@@ -17,24 +16,21 @@ class ContentType extends BaseContentType
     /**
      * @var string
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
-     * @PropertyInfoType("string")
+     * @App\PropertyInfoType("string")
      */
     protected $type = 'text';
 
     /**
      * @var string
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
-     * @PropertyInfoType("string")
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $src;
 
     /**
      * @var string
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
-     * @PropertyInfoType("string")
+     * @App\PropertyInfoType("string")
      */
     protected $content;
 }

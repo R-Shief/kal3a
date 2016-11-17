@@ -5,7 +5,6 @@ namespace AppBundle\ESDocument;
 use Bangpound\Atom\Model\SourceType as BaseSourceType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
 use ONGR\ElasticsearchBundle\Collection\Collection;
-use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 use AppBundle\Annotations as App;
 
 /**
@@ -67,7 +66,6 @@ class SourceType extends BaseSourceType
      * @var string
      *
      * @internal element (http://www.w3.org/2001/XMLSchema)
-     * @ODM\Field(type="string")
      */
     protected $icon;
 
@@ -75,7 +73,6 @@ class SourceType extends BaseSourceType
      * @var string
      *
      * @ES\Property(type="string")
-     * @ODM\Field(type="string")
      */
     protected $id;
 
@@ -83,7 +80,6 @@ class SourceType extends BaseSourceType
      * @var string
      *
      * @internal element (http://www.w3.org/2001/XMLSchema)
-     * @ODM\Field(type="string")
      */
     protected $logo;
 
@@ -115,7 +111,6 @@ class SourceType extends BaseSourceType
      * @var \DateTime
      *
      * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
-     * @ODM\Field(type="datetime")
      */
     protected $updated;
 }
