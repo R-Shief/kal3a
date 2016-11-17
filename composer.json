@@ -40,7 +40,9 @@
         "yzalis/supervisor-bundle": "dev-develop",
         "ongr/elasticsearch-bundle": "^1.2",
         "aws/aws-sdk-php-symfony": "^1.2",
-        "react/http": "^0.4.1"
+        "react/http": "^0.4.1",
+        "phpdocumentor/reflection": "^2.0@dev",
+        "bangpound/callable-compiler-pass": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
