@@ -33,6 +33,8 @@ framework:
     http_method_override: true
     assets:
         enabled: true
+    property_info:
+        enabled: true
 
 # Twig Configuration
 twig:
@@ -171,8 +173,6 @@ doctrine_couch_db:
         user: '%couchdb_user%'
         password: '%couchdb_password%'
         timeout: 10
-    odm:
-        auto_mapping: true
 
 # Liip monitor
 liip_monitor:

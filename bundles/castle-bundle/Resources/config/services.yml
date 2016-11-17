@@ -6,13 +6,9 @@ parameters:
 services:
     bangpound_castle.normalizer.couchdb:
         class: Bangpound\Bundle\CastleBundle\Serializer\CouchDbNormalizer
-        tags:
-            - { name: serializer.normalizer }
 
     bangpound_castle.normalizer.couchdb_attachment:
         class: Bangpound\Bundle\CastleBundle\Serializer\AttachmentNormalizer
-        tags:
-            - { name: serializer.normalizer }
 
     bangpound_castle.command.export:
         class: '%bangpound_castle.command.export.class%'

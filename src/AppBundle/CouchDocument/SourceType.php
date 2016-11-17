@@ -47,14 +47,6 @@ class SourceType extends BaseSourceType
      */
     protected $links;
 
-    public function __construct()
-    {
-        $this->authors = new Collection();
-        $this->categories = new Collection();
-        $this->contributors = new Collection();
-        $this->links = new Collection();
-    }
-
     /**
      * @var GeneratorType
      *

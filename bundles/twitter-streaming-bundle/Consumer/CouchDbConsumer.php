@@ -37,8 +37,7 @@ class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
      */
     public function execute(AMQPMessage $msg)
     {
-//        $data = $this->serializer->deserialize($msg->body, $this->atomEntryClass, 'json');
-        $data = json_decode($msg->body, true);
+        $data = $this->serializer->deserialize($msg->body, $this->atomEntryClass, 'json');
 
         $result = $this->client->postDocument($data);
 

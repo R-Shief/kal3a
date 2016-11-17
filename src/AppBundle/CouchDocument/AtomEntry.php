@@ -6,7 +6,6 @@ use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\EntryType;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 use ONGR\ElasticsearchBundle\Annotation as ES;
-use ONGR\ElasticsearchBundle\Collection\Collection;
 
 /**
  * Class AtomEntry.
@@ -41,6 +40,7 @@ class AtomEntry extends EntryType
     /**
      * @var ContentType
      * @ES\Embedded(class="ContentType")
+     * @ODM\Field()
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\ContentType")
      */
     protected $content;
@@ -57,6 +57,7 @@ class AtomEntry extends EntryType
     /**
      * @var TextType
      * @ES\Embedded(class="TextType")
+     * @ODM\Field()
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $rights;
@@ -65,6 +66,7 @@ class AtomEntry extends EntryType
      * @var SourceType
      *
      * @ES\Embedded(class="SourceType")
+     * @ODM\Field()
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\SourceType")
      */
     protected $source;
@@ -72,6 +74,7 @@ class AtomEntry extends EntryType
     /**
      * @var TextType
      * @ES\Embedded(class="TextType")
+     * @ODM\Field()
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $summary;
@@ -79,6 +82,7 @@ class AtomEntry extends EntryType
     /**
      * @var TextType
      * @ES\Embedded(class="TextType")
+     * @ODM\Field()
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $title;
@@ -87,6 +91,7 @@ class AtomEntry extends EntryType
      * @var \DateTime
      *
      * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
+     * @ODM\Field(type="datetime")
      * @App\PropertyInfoType("object", class="DateTime")
      */
     protected $updated;
@@ -95,6 +100,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ES\Embedded(class="PersonType", multiple=true)
+     * @ODM\Field()
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $authors;
@@ -103,6 +109,7 @@ class AtomEntry extends EntryType
      * @var CategoryType[]
      *
      * @ES\Embedded(class="CategoryType", multiple=true)
+     * @ODM\Field()
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
      */
     protected $categories;
@@ -111,6 +118,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ES\Embedded(class="PersonType", multiple=true)
+     * @ODM\Field()
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $contributors;
@@ -119,15 +127,8 @@ class AtomEntry extends EntryType
      * @var LinkType[]
      *
      * @ES\Embedded(class="LinkType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
+     * @ODM\Field()
+     * @App\PropertyInfoType("array", collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
      */
     protected $links;
-
-    public function __construct()
-    {
-        $this->authors = new Collection();
-        $this->categories = new Collection();
-        $this->contributors = new Collection();
-        $this->links = new Collection();
-    }
 }
