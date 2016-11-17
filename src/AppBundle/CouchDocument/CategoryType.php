@@ -1,9 +1,10 @@
 <?php
 
-namespace Bangpound\Bundle\CastleBundle\CouchDocument;
+namespace AppBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\CouchDocument\CategoryType as BaseCategoryType;
+use Bangpound\Atom\Model\CategoryType as BaseCategoryType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class CategoryType.
@@ -13,23 +14,26 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
 class CategoryType extends BaseCategoryType
 {
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string", options={"analyzer"="tag_analyzer"})
+     * @ODM\Field(type="string")
      */
     protected $term;
 
     /**
-     * @var string (xs:anyURI)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $scheme;
 
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $label;
 }

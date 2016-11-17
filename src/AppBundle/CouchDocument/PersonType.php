@@ -1,9 +1,10 @@
 <?php
 
-namespace Bangpound\Bundle\CastleBundle\CouchDocument;
+namespace AppBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\CouchDocument\PersonType as BasePersonType;
+use Bangpound\Atom\Model\PersonType as BasePersonType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class PersonType.
@@ -12,29 +13,27 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
  */
 class PersonType extends BasePersonType
 {
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $name;
 
     /**
-     * @var string (atom:uriType)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $uri;
 
     /**
-     * @var string (atom:emailType)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $email;
 }

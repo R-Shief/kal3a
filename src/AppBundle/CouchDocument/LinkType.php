@@ -1,9 +1,10 @@
 <?php
 
-namespace Bangpound\Bundle\CastleBundle\CouchDocument;
+namespace AppBundle\CouchDocument;
 
-use Bangpound\Atom\DataBundle\CouchDocument\LinkType as BaseLinkType;
+use Bangpound\Atom\Model\LinkType as BaseLinkType;
 use ONGR\ElasticsearchBundle\Annotation as ES;
+use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class LinkType.
@@ -13,40 +14,48 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
 class LinkType extends BaseLinkType
 {
     /**
-     * @var string (xs:anyURI)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $href;
 
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $rel;
 
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $type;
 
     /**
-     * @var string (xs:NMTOKEN)
+     * @var string
+     * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $hreflang;
 
     /**
-     * @var string (xs:string)
+     * @var string
      *
      * @ES\Property(type="string")
+     * @ODM\Field(type="string")
      */
     protected $title;
 
     /**
-     * @var int (xs:positiveInteger)
+     * @var int
+     * @ES\Property(type="integer")
+     * @ODM\Field(type="integer")
      */
     protected $length;
 }

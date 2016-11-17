@@ -2,14 +2,8 @@
 
 namespace Bangpound\Bundle\TwitterStreamingBundle;
 
-use Bangpound\Atom\DataBundle\CouchDocument\CategoryType;
-use Bangpound\Atom\DataBundle\CouchDocument\ContentType;
-use Bangpound\Atom\DataBundle\CouchDocument\LinkType;
-use Bangpound\Atom\DataBundle\CouchDocument\PersonType;
-use Bangpound\Atom\DataBundle\CouchDocument\SourceType;
-use Bangpound\Atom\DataBundle\CouchDocument\TextType;
-use Bangpound\Bundle\CastleBundle\CouchDocument\AtomEntry;
-use Doctrine\CouchDB\Attachment;
+use AppBundle\CouchDocument\AtomEntry;
+use AppBundle\CouchDocument\TextType;
 
 /**
  * Class TweetTransformerToAtom.
@@ -21,7 +15,6 @@ class TweetTransformerToAtom
      */
     public function transformTweet($data)
     {
-        /* @var AtomEntry $entry */
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
 
         $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
