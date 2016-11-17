@@ -23,7 +23,8 @@ class ContentType extends BaseContentType
     /**
      * @var string
      * @ES\Property(type="string")
-     * App\PropertyInfoType("string", nullable=true)
+     * @App\PropertyInfoType("string", nullable=true)
+     * @App\PropertyInfoType("null", nullable=true)
      */
     protected $src;
 
