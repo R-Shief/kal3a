@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37b53a15718ecc9b2bc463e14a96ef25",
-    "content-hash": "cab55a738b1bc64b1f9bb9f255148be6",
+    "hash": "74717a46a4f04c2ec29d2dbb84ff79fd",
+    "content-hash": "0529814d3eec9bc97f6d101a45c1fd23",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -363,35 +363,35 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.7",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
-                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
+                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
-                "php": ">=5.3.2"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^5.6.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Annotations\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -427,7 +427,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2015-08-31 12:32:49"
+            "time": "2016-10-24 11:45:47"
         },
         {
             "name": "doctrine/cache",
@@ -1296,30 +1296,31 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v2.2.3",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elastic/elasticsearch-php.git",
-                "reference": "588ede911141543f5b43e9f605931d5e6490a3d6"
+                "reference": "30be1c0367c865eec5ca0a9c09ce293869da7665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/588ede911141543f5b43e9f605931d5e6490a3d6",
-                "reference": "588ede911141543f5b43e9f605931d5e6490a3d6",
+                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/30be1c0367c865eec5ca0a9c09ce293869da7665",
+                "reference": "30be1c0367c865eec5ca0a9c09ce293869da7665",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/ringphp": "~1.0",
-                "php": ">=5.4",
+                "php": "^5.6.6|^7.0",
                 "psr/log": "~1.0"
             },
             "require-dev": {
                 "cpliakas/git-wrapper": "~1.0",
+                "doctrine/inflector": "^1.1",
                 "mockery/mockery": "0.9.4",
-                "phpunit/phpunit": "~4.7",
+                "phpunit/phpunit": "^4.7|^5.4",
                 "sami/sami": "~3.2",
-                "symfony/yaml": "2.4.3 as 2.4.2",
-                "twig/twig": "1.*"
+                "symfony/finder": "^2.8",
+                "symfony/yaml": "^2.8"
             },
             "suggest": {
                 "ext-curl": "*",
@@ -1346,7 +1347,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2016-11-04 17:59:06"
+            "time": "2016-10-26 14:35:32"
         },
         {
             "name": "evenement/evenement",
@@ -2785,38 +2786,38 @@
         },
         {
             "name": "ongr/elasticsearch-bundle",
-            "version": "v1.2.5",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
-                "reference": "e8afb4bd4632c2d95329d5f4c01807fd3b2b370e"
+                "url": "https://github.com/bangpound/ElasticsearchBundle.git",
+                "reference": "fefff91143d3a5321340d5b62225b4241f0a01d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/e8afb4bd4632c2d95329d5f4c01807fd3b2b370e",
-                "reference": "e8afb4bd4632c2d95329d5f4c01807fd3b2b370e",
+                "url": "https://api.github.com/repos/bangpound/ElasticsearchBundle/zipball/fefff91143d3a5321340d5b62225b4241f0a01d1",
+                "reference": "fefff91143d3a5321340d5b62225b4241f0a01d1",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "~1.2",
                 "doctrine/cache": "~1.4",
                 "doctrine/inflector": "~1.0",
-                "elasticsearch/elasticsearch": "^2.1.3",
+                "elasticsearch/elasticsearch": "~5.0",
                 "monolog/monolog": "~1.10",
                 "ongr/elasticsearch-dsl": "^2.1.2",
-                "php": ">=5.5",
-                "symfony/symfony": "~2.7|~3.0"
+                "php": "^5.6.6|^7.0",
+                "symfony/symfony": "~2.8|~3.0"
             },
             "require-dev": {
                 "mikey179/vfsstream": "~1.4",
-                "phpunit/phpunit": "~4.4",
+                "phpunit/phpunit": "~5.6",
                 "satooshi/php-coveralls": "~1.0",
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -2828,7 +2829,6 @@
                     "/Test/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2840,7 +2840,10 @@
             ],
             "description": "Elasticsearch bundle for Symfony.",
             "homepage": "http://ongr.io",
-            "time": "2016-11-14 10:35:13"
+            "support": {
+                "source": "https://github.com/bangpound/ElasticsearchBundle/tree/develop"
+            },
+            "time": "2016-11-17 21:29:34"
         },
         {
             "name": "ongr/elasticsearch-dsl",
@@ -5752,6 +5755,7 @@
         "r-shief/nab3a-bundle": 20,
         "react/eep": 20,
         "yzalis/supervisor-bundle": 20,
+        "ongr/elasticsearch-bundle": 20,
         "phpdocumentor/reflection": 20,
         "bangpound/atom-models": 20
     },
@@ -5761,8 +5765,5 @@
         "php": ">=5.5.9",
         "ext-pcntl": "*"
     },
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "5.5.9"
-    }
+    "platform-dev": []
 }

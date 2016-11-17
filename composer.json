@@ -38,7 +38,7 @@
         "r-shief/nab3a-bundle": "^1.0@dev",
         "react/eep": "dev-master",
         "yzalis/supervisor-bundle": "dev-develop",
-        "ongr/elasticsearch-bundle": "^1.2",
+        "ongr/elasticsearch-bundle": "dev-develop",
         "aws/aws-sdk-php-symfony": "^1.2",
         "react/http": "^0.4.1",
         "phpdocumentor/reflection": "^2.0@dev",
@@ -60,6 +60,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:bangpound/SupervisorBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bangpound/ElasticsearchBundle.git"
         }
     ],
     "scripts": {
@@ -77,11 +81,6 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ]
-    },
-    "config": {
-        "platform": {
-            "php": "5.5.9"
-        }
     },
     "extra": {
         "symfony-app-dir": "app",
