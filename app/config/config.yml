@@ -94,7 +94,7 @@ old_sound_rabbit_mq:
         atom_couchdb:
             exchange_options: { name: 'atom', type: 'fanout' }
             queue_options:    { name: 'atom.couchdb' }
-            callback:         bangpound_twitter_streaming.consumer.notification
+            callback:         couchdb_consumer
         atom_elasticsearch:
             exchange_options: { name: 'atom', type: 'fanout' }
             queue_options:    { name: 'atom.elasticsearch' }

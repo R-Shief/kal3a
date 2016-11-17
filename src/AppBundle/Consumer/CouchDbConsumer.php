@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\Bundle\TwitterStreamingBundle\Consumer;
+namespace AppBundle\Consumer;
 
 use Doctrine\CouchDB\CouchDBClient;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -10,7 +10,7 @@ use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use Symfony\Component\Serializer\SerializerAwareTrait;
 
 /**
- * Class PhirehoseConsumer.
+ * Class CouchDbConsumer.
  */
 class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
 {

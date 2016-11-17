@@ -74,7 +74,7 @@ services:
 
     elasticsearch_consumer:
         class: AppBundle\Consumer\ElasticsearchConsumer
-        arguments: ['@es.manager.default', '%bangpound_twitter_streaming.persistent_atom_entry.class%']
+        arguments: ['@es.manager.default', 'AppBundle\CouchDocument\AtomEntry']
         calls:
           - ['setSerializer', ['@serializer']]
 
@@ -93,3 +93,9 @@ services:
         arguments: ['@annotation_reader']
         tags:
             - { name: property_info.type_extractor }
+
+    couchdb_consumer:
+        class: AppBundle\Consumer\CouchDbConsumer
+        arguments: [ "@doctrine_couchdb.client.default_connection", 'AppBundle\CouchDocument\AtomEntry' ]
+        calls:
+            - [ 'setSerializer', ['@serializer']]
