@@ -173,6 +173,33 @@ doctrine_couch_db:
         user: '%couchdb_user%'
         password: '%couchdb_password%'
         timeout: 10
+    odm:
+        document_managers:
+            default:
+                design_documents:
+                    enclosure:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/enclosure'
+                    lang:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/lang'
+                    maint:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/maint'
+                    nofollow:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/nofollow'
+                    published:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/published'
+                    tag:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tag'
+                    tag_trends:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tag_trends'
+                auto_mapping: false
+#                all_or_nothing_flush: false
 
 # Liip monitor
 liip_monitor:
