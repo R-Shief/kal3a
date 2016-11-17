@@ -2,6 +2,7 @@
 
 namespace AppBundle\Consumer;
 
+use AppBundle\ESDocument\AtomEntry;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use ONGR\ElasticsearchBundle\Service\Manager;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -29,7 +30,7 @@ class ElasticsearchConsumer implements ConsumerInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        $data = $this->serializer->deserialize($msg->body, $this->atomEntryClass, 'json');
+        $data = $this->serializer->deserialize($msg->body, AtomEntry::class, 'json');
 
         $this->manager->persist($data);
         $result = $this->manager->commit();
