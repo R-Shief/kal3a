@@ -1,12 +1,15 @@
 <?php
 
-namespace AppBundle\CouchDocument;
+namespace AppBundle\ESDocument;
 
 use Bangpound\Atom\Model\GeneratorType as BaseGeneratorType;
+use ONGR\ElasticsearchBundle\Annotation as ES;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class GeneratorType.
+ *
+ * @ES\Object
  */
 class GeneratorType extends BaseGeneratorType
 {

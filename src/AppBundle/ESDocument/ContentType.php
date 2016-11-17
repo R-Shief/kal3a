@@ -1,18 +1,22 @@
 <?php
 
-namespace AppBundle\CouchDocument;
+namespace AppBundle\ESDocument;
 
 use AppBundle\Annotations\PropertyInfoType;
 use Bangpound\Atom\Model\ContentType as BaseContentType;
+use ONGR\ElasticsearchBundle\Annotation as ES;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
  * Class ContentType.
+ *
+ * @ES\Object
  */
 class ContentType extends BaseContentType
 {
     /**
      * @var string
+     * @ES\Property(type="string")
      * @ODM\Field(type="string")
      * @PropertyInfoType("string")
      */
@@ -20,6 +24,7 @@ class ContentType extends BaseContentType
 
     /**
      * @var string
+     * @ES\Property(type="string")
      * @ODM\Field(type="string")
      * @PropertyInfoType("string")
      */
@@ -27,6 +32,7 @@ class ContentType extends BaseContentType
 
     /**
      * @var string
+     * @ES\Property(type="string")
      * @ODM\Field(type="string")
      * @PropertyInfoType("string")
      */

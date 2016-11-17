@@ -3,22 +3,18 @@
 namespace AppBundle\CouchDocument;
 
 use Bangpound\Atom\Model\SourceType as BaseSourceType;
-use ONGR\ElasticsearchBundle\Annotation as ES;
 use ONGR\ElasticsearchBundle\Collection\Collection;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 use AppBundle\Annotations as App;
 
 /**
  * Class SourceType.
- *
- * @ES\Object
  */
 class SourceType extends BaseSourceType
 {
     /**
      * @var PersonType[]
      *
-     * @ES\Embedded(class="PersonType", multiple=true)
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $authors;
@@ -26,7 +22,6 @@ class SourceType extends BaseSourceType
     /**
      * @var CategoryType[]
      *
-     * @ES\Embedded(class="CategoryType", multiple=true)
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
      */
     protected $categories;
@@ -34,7 +29,6 @@ class SourceType extends BaseSourceType
     /**
      * @var PersonType[]
      *
-     * @ES\Embedded(class="PersonType", multiple=true)
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $contributors;
@@ -42,7 +36,6 @@ class SourceType extends BaseSourceType
     /**
      * @var LinkType[]
      *
-     * @ES\Embedded(class="LinkType", multiple=true)
      * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
      */
     protected $links;
@@ -50,7 +43,6 @@ class SourceType extends BaseSourceType
     /**
      * @var GeneratorType
      *
-     * @ES\Embedded(class="GeneratorType")
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\GeneratorType")
      */
     protected $generator;
@@ -66,7 +58,6 @@ class SourceType extends BaseSourceType
     /**
      * @var string
      *
-     * @ES\Property(type="string")
      * @ODM\Field(type="string")
      */
     protected $id;
@@ -82,7 +73,6 @@ class SourceType extends BaseSourceType
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="TextType")
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $rights;
@@ -90,7 +80,6 @@ class SourceType extends BaseSourceType
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="TextType")
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $subtitle;
@@ -98,7 +87,6 @@ class SourceType extends BaseSourceType
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="TextType")
      * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
      */
     protected $title;
@@ -106,7 +94,6 @@ class SourceType extends BaseSourceType
     /**
      * @var \DateTime
      *
-     * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
      * @ODM\Field(type="datetime")
      */
     protected $updated;

@@ -1,29 +1,31 @@
 <?php
 
-namespace AppBundle\CouchDocument;
+namespace AppBundle\ESDocument;
 
 use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\TextType as BaseTextType;
+use ONGR\ElasticsearchBundle\Annotation as ES;
 use Bangpound\Atom\Model\Enum;
-use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 use Symfony\Component\Serializer\Normalizer\DenormalizableInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 /**
  * Class TextType.
+ *
+ * @ES\Object
  */
 class TextType extends BaseTextType implements DenormalizableInterface
 {
     /**
      * @var string
-     * @ODM\Field(type="string")
+     * @ES\Property(type="string")
      * @App\PropertyInfoType("string")
      */
     protected $type = Enum\TextConstructType::text;
 
     /**
      * @var string
-     * @ODM\Field(type="string")
+     * @ES\Property(type="string")
      * @App\PropertyInfoType("string")
      */
     protected $text;
