@@ -3,6 +3,11 @@
 namespace Bangpound\Bundle\TwitterStreamingBundle;
 
 use AppBundle\CouchDocument\AtomEntry;
+use AppBundle\CouchDocument\CategoryType;
+use AppBundle\CouchDocument\ContentType;
+use AppBundle\CouchDocument\LinkType;
+use AppBundle\CouchDocument\PersonType;
+use AppBundle\CouchDocument\SourceType;
 use AppBundle\CouchDocument\TextType;
 
 /**
@@ -90,8 +95,6 @@ class TweetTransformerToAtom
         $entry->setPublished($created_at);
 
         $entry->setLang($data['lang']);
-
-        $entry->setExtra('filter_level', $data['filter_level']);
 
         $entry->setSource(new SourceType('Twitter'));
 
