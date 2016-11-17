@@ -142,19 +142,24 @@
         },
         {
             "name": "bangpound/atom-models",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "99b6c2a662bf2478b77d4a83ee362be604f40126"
+                "reference": "b58248635d439a16f61c7e5e86d6e7879d0101ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/99b6c2a662bf2478b77d4a83ee362be604f40126",
-                "reference": "99b6c2a662bf2478b77d4a83ee362be604f40126",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/b58248635d439a16f61c7e5e86d6e7879d0101ff",
+                "reference": "b58248635d439a16f61c7e5e86d6e7879d0101ff",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Bangpound\\Atom\\Model\\": "src"
@@ -171,7 +176,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-11-16 16:56:45"
+            "time": "2016-11-17 19:56:39"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -4913,16 +4918,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.27.0",
+            "version": "v1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97"
+                "reference": "60ae30368f7ac50a95de032f16c1e882b0f69813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
-                "reference": "3c6c0033fd3b5679c6e1cb60f4f9766c2b424d97",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/60ae30368f7ac50a95de032f16c1e882b0f69813",
+                "reference": "60ae30368f7ac50a95de032f16c1e882b0f69813",
                 "shasum": ""
             },
             "require": {
@@ -4935,7 +4940,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.27-dev"
+                    "dev-master": "1.28-dev"
                 }
             },
             "autoload": {
@@ -4970,7 +4975,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-10-25 19:17:17"
+            "time": "2016-11-17 17:46:53"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
