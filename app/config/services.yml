@@ -72,6 +72,12 @@ services:
         class: AppBundle\Consumer\AtomConsumer
         arguments: ['@old_sound_rabbit_mq.atom_producer', '@serializer']
 
+    elasticsearch_consumer:
+        class: AppBundle\Consumer\ElasticsearchConsumer
+        arguments: ['@es.manager.default', '%bangpound_twitter_streaming.persistent_atom_entry.class%']
+        calls:
+          - ['setSerializer', ['@serializer']]
+
     custom_normalizer:
         class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
         tags:
