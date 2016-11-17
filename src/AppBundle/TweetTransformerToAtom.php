@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\Bundle\TwitterStreamingBundle;
+namespace AppBundle;
 
 use AppBundle\CouchDocument\AtomEntry;
 use AppBundle\CouchDocument\CategoryType;

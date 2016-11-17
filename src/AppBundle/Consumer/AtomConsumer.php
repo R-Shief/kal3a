@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: bjd
- * Date: 11/16/16
- * Time: 5:51 AM.
- */
 
 namespace AppBundle\Consumer;
 
-use Bangpound\Bundle\TwitterStreamingBundle\TweetTransformerToAtom;
+use AppBundle\TweetTransformerToAtom;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
