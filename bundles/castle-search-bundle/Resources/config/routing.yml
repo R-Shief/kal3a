@@ -1,3 +1,0 @@
-bangpound_castle_search:
-    resource: "@BangpoundCastleSearchBundle/Controller/"
-    type:     annotation

@@ -1,3 +1,0 @@
-castle:
-    resource: "@BangpoundCastleBundle/Controller"
-    type:     annotation

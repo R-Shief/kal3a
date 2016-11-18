@@ -20,7 +20,7 @@ class CollectionController extends Controller
     {
         $em = $this->getDoctrine();
 
-        $entities = $em->getRepository('Bangpound\\Bundle\\TwitterStreamingBundle\\Entity\\Track')->findAll();
+        $entities = $em->getRepository('AppBundle:StreamParameters')->findAll();
 
         $output = array();
         foreach ($entities as $entity) {

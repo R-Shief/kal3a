@@ -6,17 +6,6 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
 
-rshief_kal3a:
-    resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
-
-castle:
-    resource: "@BangpoundCastleBundle/Resources/config/routing.yml"
-    type: rest
-
-bangpound_castle_search:
-    resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
-
-
 bangpound_elasticsearch_proxy_search:
     type: guzzle_proxy
     resource: elasticsearch
