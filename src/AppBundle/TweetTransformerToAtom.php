@@ -20,14 +20,7 @@ class TweetTransformerToAtom
      */
     public function transformTweet($data)
     {
-        $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
-
-        $tweet_path = $data['user']['screen_name'].'/status/'.$data['id_str'];
-        $id = 'tag:twitter.com,'.$created_at->format('Y-m-d').':/'.$tweet_path;
-
-        /** @var AtomEntry $entry */
         $entry = new AtomEntry();
-        $entry->setId($id);
 
         $title = new TextType($data['text']);
         $entry->setTitle($title);
@@ -41,9 +34,7 @@ class TweetTransformerToAtom
         $author->setUri($data['user']['url']);
         $entry->addAuthor($author);
 
-        $link = new LinkType();
-        $link->setHref('https://twitter.com/intent/user?user_id='.$data['user']['id_str']);
-        $link->setRel('author');
+        $link = $this->makeLink('https://twitter.com/intent/user?user_id='.$data['user']['id_str'], 'author');
         $entry->addLink($link);
 
         if (isset($data['entities']['hashtags'])) {
@@ -57,13 +48,8 @@ class TweetTransformerToAtom
         if (isset($data['entities']['urls'])) {
             foreach ($data['entities']['urls'] as $url) {
                 if (!empty($url['expanded_url'])) {
-                    $link = new LinkType();
-                    $link->setHref($url['expanded_url']);
-                    if (substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0) {
-                        $link->setRel('shortlink');
-                    } else {
-                        $link->setRel('nofollow');
-                    }
+                    $rel = substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0 ? 'shortlink' : 'nofollow';
+                    $link = $this->makeLink($url['expanded_url'], $rel);
                     $entry->addLink($link);
                 }
             }
@@ -71,9 +57,7 @@ class TweetTransformerToAtom
 
         if (isset($data['entities']['media'])) {
             foreach ($data['entities']['media'] as $media) {
-                $link = new LinkType();
-                $link->setHref($media['media_url']);
-                $link->setRel('enclosure');
+                $link = $this->makeLink($media['media_url'], 'enclosure');
                 if ($media['type'] == 'photo') {
                     $link->setType('image');
                 }
@@ -82,22 +66,57 @@ class TweetTransformerToAtom
             }
         }
 
-        $link = new LinkType();
-        $link->setHref('http://twitter.com/'.$tweet_path);
-        $link->setRel('canonical');
+        $link = $this->makeLink('https://twitter.com/'.$data['user']['screen_name'].'/status/'.$data['id_str'], 'canonical');
         $entry->addLink($link);
 
-        $link = new LinkType();
-        $link->setHref(strtr($data['user']['profile_image_url'], ['_normal' => '']));
-        $link->setRel('author thumbnail');
+        $link = $this->makeLink(strtr($data['user']['profile_image_url'], ['_normal' => '']), 'author thumbnail');
         $entry->addLink($link);
 
+        $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
         $entry->setPublished($created_at);
 
         $entry->setLang($data['lang']);
 
-        $entry->setSource(new SourceType('Twitter'));
+        $source = new SourceType();
+        $source->setTitle(new TextType('Twitter'));
+        $entry->setSource($source);
+
+        $id = $this->generateId($created_at, $data['user']['screen_name'], $data['id_str']);
+        $entry->setId($id);
+
+        dump($entry);
 
         return $entry;
+    }
+
+    /**
+     * @param $href
+     * @param $rel
+     *
+     * @return LinkType
+     */
+    private function makeLink($href, $rel)
+    {
+        $link = new LinkType();
+        $link->setHref($href);
+        $link->setRel($rel);
+
+        return $link;
+    }
+
+    /**
+     * Helper function to generate a URI with a tag scheme.
+     *
+     * @todo this could be around URI Templates
+     *
+     * @param \DateTime $created_at
+     * @param $creator_name
+     * @param $id_str
+     *
+     * @return string
+     */
+    private function generateId(\DateTime $created_at, $creator_name, $id_str)
+    {
+        return 'tag:twitter.com,'.$created_at->format('Y-m-d').':/'.$creator_name.'/status/'.$id_str;
     }
 }
