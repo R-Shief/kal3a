@@ -84,8 +84,6 @@ class TweetTransformerToAtom
         $id = $this->generateId($created_at, $data['user']['screen_name'], $data['id_str']);
         $entry->setId($id);
 
-        dump($entry);
-
         return $entry;
     }
 
