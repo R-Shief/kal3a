@@ -36,12 +36,12 @@ framework:
         packages:
             bootstrap_css:
                 version: 3.3.7
-                version_format: %%2$s/css/%%1$s
+                version_format: '%%2$s/css/%%1$s'
                 base_urls:
                     - https://maxcdn.bootstrapcdn.com/bootstrap
             bootstrap_js:
                 version: 3.3.7
-                version_format: %%2$s/js/%%1$s
+                version_format: '%%2$s/js/%%1$s'
                 base_urls:
                     - https://maxcdn.bootstrapcdn.com/bootstrap
     property_info:
