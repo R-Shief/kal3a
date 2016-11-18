@@ -11,19 +11,19 @@ use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 class GeneratorType extends BaseGeneratorType
 {
     /**
-     * @var
+     * @var string
      * @ODM\Field(type="string")
      */
     protected $uri;
 
     /**
-     * @var
+     * @var string
      * @ODM\Field(type="string")
      */
     protected $version;
 
     /**
-     * @var
+     * @var string
      * @ODM\Field(type="string")
      */
     protected $generator;

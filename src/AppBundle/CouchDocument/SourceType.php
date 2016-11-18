@@ -15,35 +15,35 @@ class SourceType extends BaseSourceType
     /**
      * @var PersonType[]
      *
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $authors;
 
     /**
      * @var CategoryType[]
      *
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
      */
     protected $categories;
 
     /**
      * @var PersonType[]
      *
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $contributors;
 
     /**
      * @var LinkType[]
      *
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
      */
     protected $links;
 
     /**
      * @var GeneratorType
      *
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\GeneratorType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\GeneratorType", nullable=true)
      */
     protected $generator;
 
@@ -73,21 +73,21 @@ class SourceType extends BaseSourceType
     /**
      * @var TextType
      *
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $rights;
 
     /**
      * @var TextType
      *
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $subtitle;
 
     /**
      * @var TextType
      *
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $title;
 

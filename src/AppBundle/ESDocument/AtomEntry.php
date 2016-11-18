@@ -24,27 +24,15 @@ class AtomEntry extends EntryType
 
     /**
      * @var string
-     * @App\PropertyInfoType("string", nullable=false)
-     */
-    protected $_id;
-
-    /**
-     * @var string
-     * @App\PropertyInfoType("string", nullable=false)
-     */
-    protected $_rev;
-
-    /**
-     * @var string
      * @ES\Property(type="string")
-     * @App\PropertyInfoType("string", nullable=false)
+     * @App\PropertyInfoType("string")
      */
     protected $id;
 
     /**
      * @var ContentType
      * @ES\Embedded(class="AppBundle\ESDocument\ContentType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\ContentType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\ContentType", nullable=true)
      */
     protected $content;
 
@@ -52,14 +40,14 @@ class AtomEntry extends EntryType
      * @var \DateTime
      *
      * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
-     * @App\PropertyInfoType("object", class="DateTime")
+     * @App\PropertyInfoType("object", class="DateTime", nullable=true)
      */
     protected $published;
 
     /**
      * @var TextType
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $rights;
 
@@ -67,21 +55,21 @@ class AtomEntry extends EntryType
      * @var SourceType
      *
      * @ES\Embedded(class="AppBundle\ESDocument\SourceType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\SourceType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\SourceType", nullable=true)
      */
     protected $source;
 
     /**
      * @var TextType
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $summary;
 
     /**
      * @var TextType
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $title;
 
@@ -89,7 +77,7 @@ class AtomEntry extends EntryType
      * @var \DateTime
      *
      * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
-     * @App\PropertyInfoType("object", class="DateTime")
+     * @App\PropertyInfoType("object", class="DateTime", nullable=true)
      */
     protected $updated;
 
@@ -97,7 +85,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
      */
     protected $authors;
 
@@ -105,7 +93,7 @@ class AtomEntry extends EntryType
      * @var CategoryType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\CategoryType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
      */
     protected $categories;
 
@@ -113,7 +101,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
      */
     protected $contributors;
 
@@ -121,7 +109,7 @@ class AtomEntry extends EntryType
      * @var LinkType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\LinkType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
      */
     protected $links;
 }

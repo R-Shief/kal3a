@@ -26,7 +26,7 @@ class SourceType extends BaseSourceType
      * @var PersonType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
      */
     protected $authors;
 
@@ -34,7 +34,7 @@ class SourceType extends BaseSourceType
      * @var CategoryType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\CategoryType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
      */
     protected $categories;
 
@@ -42,7 +42,7 @@ class SourceType extends BaseSourceType
      * @var PersonType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
      */
     protected $contributors;
 
@@ -50,7 +50,7 @@ class SourceType extends BaseSourceType
      * @var LinkType[]
      *
      * @ES\Embedded(class="AppBundle\ESDocument\LinkType", multiple=true)
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
      */
     protected $links;
 
@@ -58,7 +58,7 @@ class SourceType extends BaseSourceType
      * @var GeneratorType
      *
      * @ES\Embedded(class="AppBundle\ESDocument\GeneratorType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\GeneratorType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\GeneratorType", nullable=true)
      */
     protected $generator;
 
@@ -87,7 +87,7 @@ class SourceType extends BaseSourceType
      * @var TextType
      *
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $rights;
 
@@ -95,7 +95,7 @@ class SourceType extends BaseSourceType
      * @var TextType
      *
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $subtitle;
 
@@ -103,7 +103,7 @@ class SourceType extends BaseSourceType
      * @var TextType
      *
      * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
      */
     protected $title;
 

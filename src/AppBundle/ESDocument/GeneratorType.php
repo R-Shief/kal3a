@@ -13,17 +13,20 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
 class GeneratorType extends BaseGeneratorType
 {
     /**
-     * @var
+     * @var string
+     * @ES\Property(type="string")
      */
     protected $uri;
 
     /**
-     * @var
+     * @var string
+     * @ES\Property(type="string")
      */
     protected $version;
 
     /**
-     * @var
+     * @var string
+     * @ES\Property(type="string")
      */
     protected $generator;
 }

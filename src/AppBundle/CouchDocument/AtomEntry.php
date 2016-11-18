@@ -16,28 +16,28 @@ class AtomEntry extends EntryType
     /**
      * @var string
      * @ODM\Id()
-     * @App\PropertyInfoType("string", nullable=false)
+     * @App\PropertyInfoType("string")
      */
     protected $_id;
 
     /**
      * @var string
      * @ODM\Version()
-     * @App\PropertyInfoType("string", nullable=false)
+     * @App\PropertyInfoType("string")
      */
     protected $_rev;
 
     /**
      * @var string
      * @ODM\Field(type="string")
-     * @App\PropertyInfoType("string", nullable=false)
+     * @App\PropertyInfoType("string")
      */
     protected $id;
 
     /**
      * @var ContentType
      * @ODM\Field()
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\ContentType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\ContentType", nullable=true)
      */
     protected $content;
 
@@ -45,14 +45,14 @@ class AtomEntry extends EntryType
      * @var \DateTime
      *
      * @ODM\Field(type="datetime")
-     * @App\PropertyInfoType("object", class="DateTime")
+     * @App\PropertyInfoType("object", class="DateTime", nullable=true)
      */
     protected $published;
 
     /**
      * @var TextType
      * @ODM\Field()
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $rights;
 
@@ -60,21 +60,21 @@ class AtomEntry extends EntryType
      * @var SourceType
      *
      * @ODM\Field()
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\SourceType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\SourceType", nullable=true)
      */
     protected $source;
 
     /**
      * @var TextType
      * @ODM\Field()
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $summary;
 
     /**
      * @var TextType
      * @ODM\Field()
-     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\CouchDocument\TextType", nullable=true)
      */
     protected $title;
 
@@ -82,7 +82,7 @@ class AtomEntry extends EntryType
      * @var \DateTime
      *
      * @ODM\Field(type="datetime")
-     * @App\PropertyInfoType("object", class="DateTime")
+     * @App\PropertyInfoType("object", class="DateTime", nullable=true)
      */
     protected $updated;
 
@@ -90,7 +90,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ODM\Field()
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $authors;
 
@@ -98,7 +98,7 @@ class AtomEntry extends EntryType
      * @var CategoryType[]
      *
      * @ODM\Field()
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
      */
     protected $categories;
 
@@ -106,7 +106,7 @@ class AtomEntry extends EntryType
      * @var PersonType[]
      *
      * @ODM\Field()
-     * @App\PropertyInfoType("array", collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
      */
     protected $contributors;
 
@@ -114,7 +114,7 @@ class AtomEntry extends EntryType
      * @var LinkType[]
      *
      * @ODM\Field()
-     * @App\PropertyInfoType("array", collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
+     * @App\PropertyInfoType("array", nullable=true, collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
      */
     protected $links;
 }
