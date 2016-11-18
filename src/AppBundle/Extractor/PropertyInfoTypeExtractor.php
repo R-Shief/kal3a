@@ -1,15 +1,6 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-namespace AppBundle;
+namespace AppBundle\Extractor;
 
 use AppBundle\Annotations\PropertyInfoType;
 use Doctrine\Common\Annotations\Reader;
@@ -17,9 +8,7 @@ use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
 use Symfony\Component\PropertyInfo\Type;
 
 /**
- * Extracts data using Doctrine ORM and ODM metadata.
- *
- * @author Kévin Dunglas <dunglas@gmail.com>
+ * Asserts type and varity for values being deserialized.
  */
 class PropertyInfoTypeExtractor implements PropertyTypeExtractorInterface
 {

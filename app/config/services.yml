@@ -89,7 +89,7 @@ services:
             - { name: serializer.normalizer }
 
     property_info_type_extractor:
-        class: AppBundle\PropertyInfoTypeExtractor
+        class: AppBundle\Extractor\PropertyInfoTypeExtractor
         arguments: ['@annotation_reader']
         tags:
             - { name: property_info.type_extractor }
