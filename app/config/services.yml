@@ -62,7 +62,7 @@ services:
 
     aws.signature.provider:
         class: Aws\Signature\SignatureInterface
-        factory: ['SignatureProvider', 'create']
+        factory: ['AppBundle\Security\SignatureProvider', 'create']
 
     s3_consumer:
         class: AppBundle\Consumer\S3Consumer

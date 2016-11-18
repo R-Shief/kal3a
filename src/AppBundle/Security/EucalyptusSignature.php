@@ -1,11 +1,24 @@
 <?php
 
+namespace AppBundle\Security;
+
 use Aws\Credentials\CredentialsInterface;
 use Aws\Signature\SignatureInterface;
 use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7;
 
 class EucalyptusSignature implements SignatureInterface
 {
+    /**
+     * @var string
+     */
+    private $service;
+
+    /**
+     * @var string
+     */
+    private $region;
+
     /**
      * @param string $service Service name to use when signing
      * @param string $region  Region name to use when signing
@@ -41,28 +54,16 @@ class EucalyptusSignature implements SignatureInterface
         $contentType = $request->getHeaderLine('content-type');
         $contentMD5 = '';
 
+        /** @var string $toSign based on what Eucalyptus hacked s3curl.pl does */
         $toSign = $request->getMethod()."\n$contentMD5\n$contentType\n$httpDate\n$xamzHeadersToSign$resource";
         $signature = hash_hmac('sha1', $toSign, $credentials->getSecretKey(), true);
 
-        return \GuzzleHttp\Psr7\modify_request($request, [
-          'set_headers' => [
-            'Date' => $httpDate,
-            'Authorization' => 'AWS '.$credentials->getAccessKeyId().':'.base64_encode($signature),
-          ],
-        ]);
+        return Psr7\modify_request($request, ['set_headers' => [
+          'Date' => $httpDate,
+          'Authorization' => 'AWS '.$credentials->getAccessKeyId().':'.base64_encode($signature),
+        ]]);
     }
 
-    /**
-     * Create a pre-signed request.
-     *
-     * @param RequestInterface     $request     Request to sign
-     * @param CredentialsInterface $credentials Credentials used to sign
-     * @param int|string|\DateTime $expires     The time at which the URL should
-     *                                          expire. This can be a Unix timestamp, a PHP DateTime object, or a
-     *                                          string that can be evaluated by strtotime
-     *
-     * @return RequestInterface
-     */
     public function presign(RequestInterface $request, CredentialsInterface $credentials, $expires)
     {
         return $request;
