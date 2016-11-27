@@ -248,16 +248,15 @@ ongr_elasticsearch:
                     - trim
                     - unique
                 tokenizer: keyword
-    connections:
-        default:
-            index_name: '%elasticsearch_index_name%'
-            analysis:
-                analyzer:
-                    - tag_analyzer
     managers:
         default:
             index:
                 index_name: '%elasticsearch_index_name%'
+                hosts:
+                    - '%elasticsearch_host%:%elasticsearch_port%'
+                analysis:
+                    analyzer:
+                        - tag_analyzer
             mappings:
                 - AppBundle
 
