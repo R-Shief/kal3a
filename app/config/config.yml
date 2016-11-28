@@ -1,5 +1,4 @@
 imports:
-    - { resource: parameters.yml }
     - { resource: parameters.php }
     - { resource: security.yml }
     - { resource: services.yml }
@@ -45,6 +44,7 @@ framework:
                 version_format: '%%2$s/js/%%1$s'
                 base_urls:
                     - https://maxcdn.bootstrapcdn.com/bootstrap
+    ide: 'idea://open?file=%%f&line=%%l'
     property_info:
         enabled: true
 
@@ -148,6 +148,7 @@ easy_admin:
                         property: follow
                         type: collection
                         type_options:
+                            entry_type: Symfony\Component\Form\Extension\Core\Type\IntegerType
                             entry_options:
                                 label: false
                     -
@@ -167,6 +168,8 @@ easy_admin:
                 title:  'Create %%entity_label%%'
             edit:
                 title: 'Edit %%entity_label%% (#%%entity_id%%)'
+            search:
+                fields: ['language', 'follow', 'track', 'locations']
         User:
             class: AppBundle\Entity\User
             form:
@@ -233,12 +236,12 @@ liip_monitor:
                 password:             '%rabbitmq_pass%'
                 vhost:                '%rabbitmq_vhost%'
 
-bangpound_guzzle_proxy:
-    endpoints:
-        elasticsearch:
-            base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
-        couchdb:
-            base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
+#bangpound_guzzle_proxy:
+#    endpoints:
+#        elasticsearch:
+#            base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
+#        couchdb:
+#            base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
 
 ongr_elasticsearch:
     analysis:
@@ -307,7 +310,7 @@ yz_supervisor:
     servers:
         dev:
             locahost:
-                host: 127.0.0.1
+                host: worker
                 username: user
                 password: 123
                 port: 9001

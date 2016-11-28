@@ -1,6 +1,9 @@
 <?php
 
 namespace App {
+
+    use Symfony\Component\Yaml\Yaml;
+
     function app_dns_srv_parameter($hostname) {
         $data = dns_get_record($hostname);
         if (empty($data)) {
@@ -9,12 +12,17 @@ namespace App {
         return $data[0]['target'];
     }
 
-    foreach (['elasticsearch_host', 'database_host', 'rabbitmq_host', 'couchdb_host'] as $name) {
-        try {
-            $value = app_dns_srv_parameter($container->getParameter($name));
-            $container->setParameter($name, $value);
-        } catch (\RuntimeException $e) {
-
+    $data = Yaml::parse(file_get_contents(__DIR__.'/parameters.yml'));
+    /** @var \Symfony\Component\DependencyInjection\ParameterBag\ParameterBag $params */
+    foreach ($data['parameters'] as $k => $v) {
+        $value = $v;
+        if (is_string($v) && !empty($v) && in_array($k, ['elasticsearch_host', 'database_host', 'rabbitmq_host', 'couchdb_host'])) {
+            try {
+                $value = app_dns_srv_parameter($v);
+            } catch (\RuntimeException $e) {
+                $value = $v;
+            }
         }
+        $container->setParameter($k, $value);
     }
 }
