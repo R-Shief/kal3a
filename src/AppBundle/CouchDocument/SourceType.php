@@ -52,6 +52,7 @@ class SourceType extends BaseSourceType
      *
      * @internal element (http://www.w3.org/2001/XMLSchema)
      * @ODM\Field(type="string")
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $icon;
 
@@ -59,6 +60,7 @@ class SourceType extends BaseSourceType
      * @var string
      *
      * @ODM\Field(type="string")
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $id;
 
@@ -67,6 +69,7 @@ class SourceType extends BaseSourceType
      *
      * @internal element (http://www.w3.org/2001/XMLSchema)
      * @ODM\Field(type="string")
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $logo;
 
