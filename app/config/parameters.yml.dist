@@ -48,3 +48,11 @@ parameters:
 
     aws_endpoint_map: ~
     kal3a_web_url: http://localhost:8000/api/
+
+    supervisor_servers:
+        dev:
+            locahost:
+                host: worker
+                username: user
+                password: 123
+                port: 9001

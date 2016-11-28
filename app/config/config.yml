@@ -307,13 +307,8 @@ nelmio_cors:
 
 yz_supervisor:
     default_environment: dev
-    servers:
-        dev:
-            locahost:
-                host: worker
-                username: user
-                password: 123
-                port: 9001
+    servers: %supervisor_servers%
+
 
 aws:
     version: latest
