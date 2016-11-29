@@ -80,6 +80,7 @@ services:
 
     custom_normalizer:
         class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
+        public: false
         tags:
             - { name: serializer.normalizer }
 
