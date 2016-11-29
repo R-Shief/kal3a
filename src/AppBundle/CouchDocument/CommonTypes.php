@@ -78,7 +78,7 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
      *
      * @param PersonTypeInterface[] $authors
      */
-    public function setAuthors(array $authors = [])
+    public function setAuthors($authors = [])
     {
         $this->authors = $authors;
     }
@@ -118,7 +118,7 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
      *
      * @param CategoryTypeInterface[] $categories
      */
-    public function setCategories(array $categories = [])
+    public function setCategories($categories = [])
     {
         $this->categories = $categories;
     }
@@ -158,7 +158,7 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
      *
      * @param PersonTypeInterface[] $contributors
      */
-    public function setContributors(array $contributors = [])
+    public function setContributors($contributors = [])
     {
         $this->contributors = $contributors;
     }
@@ -198,7 +198,7 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
      *
      * @param LinkTypeInterface[] $links
      */
-    public function setLinks(array $links = [])
+    public function setLinks($links = [])
     {
         $this->links = $links;
     }
