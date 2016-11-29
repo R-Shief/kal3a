@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "4111f0f08423cfab4ec967e4721a396a566c469c"
+                "reference": "0fa11b899a68fea51c8f738f5b55fb48f83d8206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/4111f0f08423cfab4ec967e4721a396a566c469c",
-                "reference": "4111f0f08423cfab4ec967e4721a396a566c469c",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/0fa11b899a68fea51c8f738f5b55fb48f83d8206",
+                "reference": "0fa11b899a68fea51c8f738f5b55fb48f83d8206",
                 "shasum": ""
             },
             "type": "library",
@@ -176,7 +176,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-11-29 06:59:19"
+            "time": "2016-11-29 11:33:00"
         },
         {
             "name": "bangpound/callable-compiler-pass",
@@ -1557,12 +1557,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "4957dbb3731f9fb0276d7a480a1aa1150263ee7c"
+                "reference": "6439537c006ae67473647b13cc3ca18e1defa543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/4957dbb3731f9fb0276d7a480a1aa1150263ee7c",
-                "reference": "4957dbb3731f9fb0276d7a480a1aa1150263ee7c",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6439537c006ae67473647b13cc3ca18e1defa543",
+                "reference": "6439537c006ae67473647b13cc3ca18e1defa543",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1623,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-11-28 12:01:11"
+            "time": "2016-11-29 10:40:34"
         },
         {
             "name": "guzzlehttp/guzzle",
