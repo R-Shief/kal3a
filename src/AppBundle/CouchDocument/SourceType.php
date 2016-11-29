@@ -3,7 +3,6 @@
 namespace AppBundle\CouchDocument;
 
 use Bangpound\Atom\Model\SourceType as BaseSourceType;
-use ONGR\ElasticsearchBundle\Collection\Collection;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 use AppBundle\Annotations as App;
 
