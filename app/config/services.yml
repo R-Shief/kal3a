@@ -83,11 +83,6 @@ services:
         tags:
             - { name: serializer.normalizer }
 
-    array_denormalizer:
-        class: Symfony\Component\Serializer\Normalizer\ArrayDenormalizer
-        tags:
-            - { name: serializer.normalizer }
-
     property_info_type_extractor:
         class: AppBundle\Extractor\PropertyInfoTypeExtractor
         arguments: ['@annotation_reader']
