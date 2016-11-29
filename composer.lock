@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "0fa11b899a68fea51c8f738f5b55fb48f83d8206"
+                "reference": "2b993ca5b0c58bd0c0630530fa849f274bba7972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/0fa11b899a68fea51c8f738f5b55fb48f83d8206",
-                "reference": "0fa11b899a68fea51c8f738f5b55fb48f83d8206",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/2b993ca5b0c58bd0c0630530fa849f274bba7972",
+                "reference": "2b993ca5b0c58bd0c0630530fa849f274bba7972",
                 "shasum": ""
             },
             "type": "library",
@@ -176,7 +176,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-11-29 11:33:00"
+            "time": "2016-11-29 11:50:22"
         },
         {
             "name": "bangpound/callable-compiler-pass",
