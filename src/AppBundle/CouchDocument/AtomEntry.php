@@ -3,7 +3,10 @@
 namespace AppBundle\CouchDocument;
 
 use AppBundle\Annotations as App;
-use Bangpound\Atom\Model\EntryType;
+use Bangpound\Atom\Model\ContentTypeInterface;
+use Bangpound\Atom\Model\EntryTypeInterface;
+use Bangpound\Atom\Model\SourceTypeInterface;
+use Bangpound\Atom\Model\TextTypeInterface;
 use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /**
@@ -11,7 +14,7 @@ use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
  *
  * @ODM\Document(type="atom")
  */
-class AtomEntry extends EntryType
+class AtomEntry extends CommonTypes implements EntryTypeInterface
 {
     /**
      * @var string
@@ -87,34 +90,130 @@ class AtomEntry extends EntryType
     protected $updated;
 
     /**
-     * @var PersonType[]
-     *
-     * @ODM\Field()
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @return ContentTypeInterface
      */
-    protected $authors;
+    public function getContent()
+    {
+        return $this->content;
+    }
 
     /**
-     * @var CategoryType[]
-     *
-     * @ODM\Field()
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\CategoryType"))
+     * @param ContentTypeInterface $content
      */
-    protected $categories;
+    public function setContent(ContentTypeInterface $content = null)
+    {
+        $this->content = $content;
+    }
 
     /**
-     * @var PersonType[]
-     *
-     * @ODM\Field()
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\PersonType"))
+     * @return string
      */
-    protected $contributors;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var LinkType[]
-     *
-     * @ODM\Field()
-     * @App\PropertyInfoType("array", nullable=true, collection=true, nullable=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\CouchDocument\LinkType"))
+     * @param string $id
      */
-    protected $links;
+    public function setId($id = null)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTimeInterface $updated
+     */
+    public function setUpdated(\DateTimeInterface $updated = null)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return TextTypeInterface
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * @param TextTypeInterface $summary
+     */
+    public function setSummary(TextTypeInterface $summary = null)
+    {
+        $this->summary = $summary;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param \DateTimeInterface $published
+     */
+    public function setPublished(\DateTimeInterface $published = null)
+    {
+        $this->published = $published;
+    }
+
+    /**
+     * @return TextTypeInterface
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param TextTypeInterface $rights
+     */
+    public function setRights(TextTypeInterface $rights = null)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
+     * @return SourceTypeInterface
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param SourceTypeInterface $source
+     */
+    public function setSource(SourceTypeInterface $source = null)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param TextTypeInterface $title
+     */
+    public function setTitle(TextTypeInterface $title = null)
+    {
+        $this->title = $title;
+    }
 }

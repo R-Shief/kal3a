@@ -2,7 +2,9 @@
 
 namespace AppBundle\ESDocument;
 
-use Bangpound\Atom\Model\SourceType as BaseSourceType;
+use Bangpound\Atom\Model\GeneratorTypeInterface;
+use Bangpound\Atom\Model\SourceTypeInterface;
+use Bangpound\Atom\Model\TextTypeInterface;
 use ONGR\ElasticsearchBundle\Annotation as ES;
 use ONGR\ElasticsearchBundle\Collection\Collection;
 use AppBundle\Annotations as App;
@@ -12,7 +14,7 @@ use AppBundle\Annotations as App;
  *
  * @ES\Object
  */
-class SourceType extends BaseSourceType
+class SourceType extends CommonTypes implements SourceTypeInterface
 {
     public function __construct()
     {
@@ -21,38 +23,6 @@ class SourceType extends BaseSourceType
         $this->contributors = new Collection();
         $this->links = new Collection();
     }
-
-    /**
-     * @var PersonType[]
-     *
-     * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
-     */
-    protected $authors;
-
-    /**
-     * @var CategoryType[]
-     *
-     * @ES\Embedded(class="AppBundle\ESDocument\CategoryType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
-     */
-    protected $categories;
-
-    /**
-     * @var PersonType[]
-     *
-     * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
-     */
-    protected $contributors;
-
-    /**
-     * @var LinkType[]
-     *
-     * @ES\Embedded(class="AppBundle\ESDocument\LinkType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
-     */
-    protected $links;
 
     /**
      * @var GeneratorType
@@ -65,7 +35,7 @@ class SourceType extends BaseSourceType
     /**
      * @var string
      *
-     * @internal element (http://www.w3.org/2001/XMLSchema)
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $icon;
 
@@ -73,6 +43,7 @@ class SourceType extends BaseSourceType
      * @var string
      *
      * @ES\Property(type="string")
+     * @App\PropertyInfoType("string", nullable=true)
      */
     protected $id;
 
@@ -112,6 +83,135 @@ class SourceType extends BaseSourceType
      * @var \DateTime
      *
      * @ES\Property(type="date", options={"format"="strict_date_optional_time||epoch_millis","ignore_malformed"=true})
+     * @App\PropertyInfoType("object", class="\DateTime", nullable=true)
      */
     protected $updated;
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param \DateTimeInterface $updated
+     */
+    public function setUpdated(\DateTimeInterface $updated = null)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return TextTypeInterface
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param TextTypeInterface $title
+     */
+    public function setTitle(TextTypeInterface $title = null)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return TextTypeInterface
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param TextTypeInterface $subtitle
+     */
+    public function setSubtitle(TextTypeInterface $subtitle = null)
+    {
+        $this->subtitle = $subtitle;
+    }
+
+    /**
+     * @return TextTypeInterface
+     */
+    public function getRights()
+    {
+        return $this->rights;
+    }
+
+    /**
+     * @param TextTypeInterface $rights
+     */
+    public function setRights(TextTypeInterface $rights = null)
+    {
+        $this->rights = $rights;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param string $logo
+     */
+    public function setLogo($logo = null)
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId($id = null)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param string $icon
+     */
+    public function setIcon($icon = null)
+    {
+        $this->icon = $icon;
+    }
+
+    /**
+     * @return GeneratorTypeInterface
+     */
+    public function getGenerator()
+    {
+        return $this->generator;
+    }
+
+    /**
+     * @param GeneratorTypeInterface $generator
+     */
+    public function setGenerator(GeneratorTypeInterface $generator = null)
+    {
+        $this->generator = $generator;
+    }
 }
