@@ -3,6 +3,8 @@
 namespace AppBundle\Command;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use React\Http;
 use React\Socket;
@@ -62,11 +64,11 @@ class AccessTokenCommand extends ContainerAwareCommand
               ],
             ]);
             parse_str($response->getBody(), $this->requestToken);
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            dump(\GuzzleHttp\Psr7\str($e->getResponse()));
+        } catch (RequestException $e) {
+            dump(Psr7\str($e->getResponse()));
         }
 
-        $uri = \GuzzleHttp\Psr7\uri_for('https://api.twitter.com/oauth/authorize')->withQuery(\GuzzleHttp\Psr7\build_query(['oauth_token' => $this->requestToken['oauth_token']]));
+        $uri = Psr7\uri_for('https://api.twitter.com/oauth/authorize')->withQuery(Psr7\build_query(['oauth_token' => $this->requestToken['oauth_token']]));
         $url = (string) $uri;
 
         $cmd = self::openBrowser($url);
