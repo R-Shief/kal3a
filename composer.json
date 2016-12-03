@@ -23,9 +23,9 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "bangpound/guzzle-proxy-bundle": "^2.0",
-        "doctrine/couchdb": "^1.0",
-        "doctrine/couchdb-odm": "^1.0",
-        "doctrine/couchdb-odm-bundle": "dev-symfony3",
+        "doctrine/couchdb": "dev-develop as 1.0.x-dev",
+        "doctrine/couchdb-odm": "dev-develop as 1.0.x-dev",
+        "doctrine/couchdb-odm-bundle": "dev-develop",
         "friendsofsymfony/jsrouting-bundle": "^2.0",
         "friendsofsymfony/rest-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "^2.0",
@@ -52,6 +52,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb-odm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb-client.git"
         },
         {
             "type": "vcs",
