@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c42c343a6910ebfb267a33a2cf7802ea",
-    "content-hash": "b1a2185e93877649deeed8abd40689c7",
+    "hash": "e05ce91ebfc578c7aee3651f2c8a47ba",
+    "content-hash": "a02e0b1d470d4fc43a46f89e59510756",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -224,27 +224,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/guzzle-proxy-bundle.git",
-                "reference": "de1a6ebf04923c0dad35c7814c22e65d5c0dd599"
+                "reference": "176b7a55324e203bb2146c44ba57640c6a0c552b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/de1a6ebf04923c0dad35c7814c22e65d5c0dd599",
-                "reference": "de1a6ebf04923c0dad35c7814c22e65d5c0dd599",
+                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/176b7a55324e203bb2146c44ba57640c6a0c552b",
+                "reference": "176b7a55324e203bb2146c44ba57640c6a0c552b",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.1",
-                "symfony/config": "~2.3|3.0.*|3.1.*",
-                "symfony/dependency-injection": "~2.3|3.0.*|3.1.*",
-                "symfony/http-kernel": "~2.3|3.0.*|3.1.*",
+                "symfony/config": "~2.3|^3.0",
+                "symfony/dependency-injection": "~2.3|^3.0",
+                "symfony/http-kernel": "~2.3|^3.0",
                 "symfony/psr-http-message-bridge": "^1.0.0",
-                "symfony/routing": "~2.3|3.0.*|3.1.*",
+                "symfony/routing": "~2.3|^3.0",
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.1",
-                "symfony/browser-kit": "~2.3|3.0.*|3.1.*",
-                "symfony/framework-bundle": "~2.3|3.0.*|3.1.*"
+                "symfony/browser-kit": "~2.3|^3.0",
+                "symfony/framework-bundle": "~2.3|^3.0"
             },
             "type": "library",
             "extra": {
@@ -268,7 +268,7 @@
                 }
             ],
             "description": "Proxy requests through Symfony application",
-            "time": "2016-10-01 19:05:31"
+            "time": "2016-12-03 16:07:39"
         },
         {
             "name": "clue/json-stream",
@@ -1397,16 +1397,16 @@
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "dev-master",
+            "version": "2.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "31462ad469c275dd9994622ba46155566c4dd6eb"
+                "reference": "8f5c55632aada470173264594160865c66f307b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/31462ad469c275dd9994622ba46155566c4dd6eb",
-                "reference": "31462ad469c275dd9994622ba46155566c4dd6eb",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/8f5c55632aada470173264594160865c66f307b3",
+                "reference": "8f5c55632aada470173264594160865c66f307b3",
                 "shasum": ""
             },
             "require": {
@@ -1452,7 +1452,7 @@
                 "javascript",
                 "routing"
             ],
-            "time": "2016-11-26 12:01:27"
+            "time": "2016-02-04 20:16:23"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1553,16 +1553,16 @@
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
+            "version": "v2.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a38940d9b665fea9e40f6e81dcc346f203a8d44f"
+                "reference": "28151dcb25de663c05ce26917fd6a0b5cb2787cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a38940d9b665fea9e40f6e81dcc346f203a8d44f",
-                "reference": "a38940d9b665fea9e40f6e81dcc346f203a8d44f",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/28151dcb25de663c05ce26917fd6a0b5cb2787cf",
+                "reference": "28151dcb25de663c05ce26917fd6a0b5cb2787cf",
                 "shasum": ""
             },
             "require": {
@@ -1571,7 +1571,6 @@
                 "symfony/form": "^2.7 || ^3.0",
                 "symfony/framework-bundle": "^2.7 || ^3.0",
                 "symfony/security-bundle": "^2.7 || ^3.0",
-                "symfony/templating": "^2.7 || ^3.0",
                 "symfony/twig-bundle": "^2.7 || ^3.0"
             },
             "conflict": {
@@ -1624,7 +1623,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-12-03 15:49:50"
+            "time": "2016-11-29 14:53:27"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -5023,16 +5022,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.1.7",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "db1c32c7237a6594e5e1974524c973d18066b141"
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/db1c32c7237a6594e5e1974524c973d18066b141",
-                "reference": "db1c32c7237a6594e5e1974524c973d18066b141",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b96a144bc875684f3338f697687147a2696d73eb",
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb",
                 "shasum": ""
             },
             "require": {
@@ -5100,6 +5099,7 @@
                 "symfony/validator": "self.version",
                 "symfony/var-dumper": "self.version",
                 "symfony/web-profiler-bundle": "self.version",
+                "symfony/workflow": "self.version",
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
@@ -5109,7 +5109,7 @@
                 "doctrine/dbal": "~2.4",
                 "doctrine/doctrine-bundle": "~1.4",
                 "doctrine/orm": "~2.4,>=2.4.5",
-                "egulias/email-validator": "~1.2,>=1.2.1",
+                "egulias/email-validator": "~1.2,>=1.2.8|~2.0",
                 "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
                 "phpdocumentor/reflection-docblock": "^3.0",
@@ -5121,7 +5121,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -5160,7 +5160,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-11-21 02:44:44"
+            "time": "2016-11-30 08:46:24"
         },
         {
             "name": "twig/extensions",
@@ -5703,22 +5703,14 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "bangpound/guzzle-proxy-bundle": 20,
-        "doctrine/couchdb": 20,
-        "doctrine/couchdb-odm": 15,
         "doctrine/couchdb-odm-bundle": 20,
-        "friendsofsymfony/jsrouting-bundle": 20,
-        "friendsofsymfony/user-bundle": 20,
-        "r-shief/nab3a-bundle": 20,
         "react/eep": 20,
         "yzalis/supervisor-bundle": 20,
-        "ongr/elasticsearch-bundle": 20,
-        "phpdocumentor/reflection": 20,
-        "bangpound/atom-models": 20
+        "ongr/elasticsearch-bundle": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.5.9"
