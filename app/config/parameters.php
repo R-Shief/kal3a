@@ -2,6 +2,7 @@
 
 namespace App {
 
+    use Symfony\Component\DependencyInjection\ContainerBuilder;
     use Symfony\Component\Yaml\Yaml;
 
     function app_dns_srv_parameter($hostname) {
@@ -23,6 +24,7 @@ namespace App {
                 $value = $v;
             }
         }
+        /** @var ContainerBuilder $container */
         $container->setParameter($k, $value);
     }
 }
