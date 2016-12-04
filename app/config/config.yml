@@ -232,13 +232,6 @@ liip_monitor:
                 password:             '%rabbitmq_pass%'
                 vhost:                '%rabbitmq_vhost%'
 
-#bangpound_guzzle_proxy:
-#    endpoints:
-#        elasticsearch:
-#            base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
-#        couchdb:
-#            base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
-
 ongr_elasticsearch:
     analysis:
         analyzer:
