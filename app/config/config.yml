@@ -296,7 +296,7 @@ nelmio_cors:
 
 yz_supervisor:
     default_environment: dev
-    servers: %supervisor_servers%
+    servers: '%supervisor_servers%'
 
 
 aws:
