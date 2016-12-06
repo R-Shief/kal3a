@@ -15,21 +15,30 @@ class ContentType extends CommonAttributes implements ContentTypeInterface
 {
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(
+     *   type="text",
+     *   options={
+     *     "fields"={
+     *       "keyword"={
+     *         "type"="keyword"
+     *       }
+     *     }
+     *   }
+     * )
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $type = 'text';
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $src;
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $content;

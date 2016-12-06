@@ -16,7 +16,7 @@ class LinkType extends CommonAttributes implements LinkTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $href;
@@ -24,7 +24,7 @@ class LinkType extends CommonAttributes implements LinkTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $rel;
@@ -32,14 +32,14 @@ class LinkType extends CommonAttributes implements LinkTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $type;
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $hreflang;
@@ -47,7 +47,7 @@ class LinkType extends CommonAttributes implements LinkTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $title;

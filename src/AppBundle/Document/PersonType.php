@@ -16,7 +16,16 @@ class PersonType extends CommonAttributes implements PersonTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(
+     *   type="text",
+     *   options={
+     *     "fields"={
+     *       "keyword"={
+     *         "type"="keyword"
+     *       }
+     *     }
+     *   }
+     * )
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $name;
@@ -24,7 +33,7 @@ class PersonType extends CommonAttributes implements PersonTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $uri;
@@ -32,7 +41,7 @@ class PersonType extends CommonAttributes implements PersonTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $email;

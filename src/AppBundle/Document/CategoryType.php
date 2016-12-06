@@ -16,7 +16,17 @@ class CategoryType extends CommonAttributes implements CategoryTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string", options={"analyzer"="tag_analyzer"})
+     * @ES\Property(
+     *   type="text",
+     *   options={
+     *     "analyzer"="tag_analyzer",
+     *     "fields"={
+     *       "keyword"={
+     *         "type"="keyword"
+     *       }
+     *     }
+     *   }
+     * )
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $term;
@@ -24,7 +34,7 @@ class CategoryType extends CommonAttributes implements CategoryTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $scheme;
@@ -32,7 +42,7 @@ class CategoryType extends CommonAttributes implements CategoryTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $label;

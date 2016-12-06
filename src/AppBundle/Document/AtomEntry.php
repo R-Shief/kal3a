@@ -27,7 +27,7 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string")
      */
     protected $id;

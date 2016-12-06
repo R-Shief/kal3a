@@ -42,7 +42,7 @@ class SourceType extends CommonTypes implements SourceTypeInterface
     /**
      * @var string
      *
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $id;

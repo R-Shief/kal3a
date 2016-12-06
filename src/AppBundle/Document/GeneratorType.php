@@ -15,21 +15,21 @@ class GeneratorType extends CommonAttributes implements GeneratorTypeInterface
 {
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $uri;
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $version;
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string", nullable=true)
      */
     protected $generator;

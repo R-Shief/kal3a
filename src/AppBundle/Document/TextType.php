@@ -18,14 +18,23 @@ class TextType extends CommonAttributes implements TextTypeInterface, Denormaliz
 {
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(
+     *   type="text",
+     *   options={
+     *     "fields"={
+     *       "keyword"={
+     *         "type"="keyword"
+     *       }
+     *     }
+     *   }
+     * )
      * @App\PropertyInfoType("string")
      */
     protected $type = Enum\TextConstructType::text;
 
     /**
      * @var string
-     * @ES\Property(type="string")
+     * @ES\Property(type="keyword")
      * @App\PropertyInfoType("string")
      */
     protected $text;
