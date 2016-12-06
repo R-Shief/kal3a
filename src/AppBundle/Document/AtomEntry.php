@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\ESDocument;
+namespace AppBundle\Document;
 
 use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\ContentTypeInterface;
@@ -34,8 +34,8 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
 
     /**
      * @var ContentType
-     * @ES\Embedded(class="AppBundle\ESDocument\ContentType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\ContentType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\ContentType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\ContentType", nullable=true)
      */
     protected $content;
 
@@ -49,30 +49,30 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
 
     /**
      * @var TextType
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $rights;
 
     /**
      * @var SourceType
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\SourceType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\SourceType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\SourceType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\SourceType", nullable=true)
      */
     protected $source;
 
     /**
      * @var TextType
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $summary;
 
     /**
      * @var TextType
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $title;
 

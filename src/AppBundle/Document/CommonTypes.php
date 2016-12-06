@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\ESDocument;
+namespace AppBundle\Document;
 
 use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\CategoryTypeInterface;
@@ -14,32 +14,32 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
     /**
      * @var PersonType[]
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @ES\Embedded(class="AppBundle\Document\PersonType", multiple=true)
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\Document\PersonType"))
      */
     protected $authors;
 
     /**
      * @var CategoryType[]
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\CategoryType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\CategoryType"))
+     * @ES\Embedded(class="AppBundle\Document\CategoryType", multiple=true)
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\Document\CategoryType"))
      */
     protected $categories;
 
     /**
      * @var PersonType[]
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\PersonType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\PersonType"))
+     * @ES\Embedded(class="AppBundle\Document\PersonType", multiple=true)
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\Document\PersonType"))
      */
     protected $contributors;
 
     /**
      * @var LinkType[]
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\LinkType", multiple=true)
-     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\ESDocument\LinkType"))
+     * @ES\Embedded(class="AppBundle\Document\LinkType", multiple=true)
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("object", nullable=false, class="AppBundle\Document\LinkType"))
      */
     protected $links;
 

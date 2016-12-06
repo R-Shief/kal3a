@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\ESDocument;
+namespace AppBundle\Document;
 
 use Bangpound\Atom\Model\GeneratorTypeInterface;
 use Bangpound\Atom\Model\SourceTypeInterface;
@@ -27,8 +27,8 @@ class SourceType extends CommonTypes implements SourceTypeInterface
     /**
      * @var GeneratorType
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\GeneratorType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\GeneratorType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\GeneratorType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\GeneratorType", nullable=true)
      */
     protected $generator;
 
@@ -58,24 +58,24 @@ class SourceType extends CommonTypes implements SourceTypeInterface
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $rights;
 
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $subtitle;
 
     /**
      * @var TextType
      *
-     * @ES\Embedded(class="AppBundle\ESDocument\TextType")
-     * @App\PropertyInfoType("object", class="AppBundle\ESDocument\TextType", nullable=true)
+     * @ES\Embedded(class="AppBundle\Document\TextType")
+     * @App\PropertyInfoType("object", class="AppBundle\Document\TextType", nullable=true)
      */
     protected $title;
 

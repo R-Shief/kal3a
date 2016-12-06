@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\ESDocument;
+namespace AppBundle\Document;
 
 use Bangpound\Atom\Model\LinkTypeInterface;
 use ONGR\ElasticsearchBundle\Annotation as ES;

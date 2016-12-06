@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\ESDocument;
+namespace AppBundle\Document;
 
 use AppBundle\Annotations as App;
 use Bangpound\Atom\Model\ContentTypeInterface;
