@@ -51,6 +51,12 @@ services:
             base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
             auth: ['%couchdb_user%', '%couchdb_password%']
 
+    bangpound_guzzle_proxy.client.elasticsearch:
+        parent: bangpound_guzzle_proxy.client
+        arguments:
+          -
+            base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
+
     monolog.processor.psr_log_message_processor:
         class: Monolog\Processor\PsrLogMessageProcessor
         tags:
