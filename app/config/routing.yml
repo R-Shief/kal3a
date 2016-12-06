@@ -9,14 +9,14 @@ NelmioApiDocBundle:
 bangpound_elasticsearch_proxy_search:
     type: guzzle_proxy
     resource: elasticsearch
-    prefix: /elasticsearch/production
+    prefix: /elasticsearch
     options:
         expose: true
 
 bangpound_couchdb_proxy:
     type: guzzle_proxy
     resource: couchdb
-    prefix: /couchdb/symfony
+    prefix: /couchdb
     options:
         expose: true
 
