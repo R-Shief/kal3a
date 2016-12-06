@@ -2,7 +2,7 @@
 
 namespace AppBundle\Consumer;
 
-use AppBundle\ESDocument\AtomEntry;
+use AppBundle\Document\AtomEntry;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use ONGR\ElasticsearchBundle\Service\Manager;
 use PhpAmqpLib\Message\AMQPMessage;
