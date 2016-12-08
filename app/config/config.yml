@@ -92,21 +92,26 @@ old_sound_rabbit_mq:
     producers:
         twitter:
             exchange_options:    { name: 'twitter', type: 'fanout' }
+            enable_logger: true
         atom:
             exchange_options:    { name: 'atom', type: 'fanout' }
+            enable_logger: true
     consumers:
         twitter_atom:
             exchange_options: { name: 'twitter', type: 'fanout' }
             queue_options:    { name: 'twitter.atom' }
             callback:         atom_consumer
+            enable_logger: true
         atom_couchdb:
             exchange_options: { name: 'atom', type: 'fanout' }
             queue_options:    { name: 'atom.couchdb' }
             callback:         couchdb_consumer
+            enable_logger: true
         atom_elasticsearch:
             exchange_options: { name: 'atom', type: 'fanout' }
             queue_options:    { name: 'atom.elasticsearch' }
             callback:         elasticsearch_consumer
+            enable_logger: true
 
 sensio_framework_extra:
     view: { annotations: true }
