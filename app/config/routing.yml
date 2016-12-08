@@ -6,6 +6,11 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
 
+elasticsearch_proxy_search:
+    path: /elasticsearch
+    options:
+        expose: true
+
 bangpound_elasticsearch_proxy_search:
     type: guzzle_proxy
     resource: elasticsearch
