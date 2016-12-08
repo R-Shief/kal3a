@@ -80,9 +80,10 @@ services:
 
     elasticsearch_consumer:
         class: AppBundle\Consumer\ElasticsearchConsumer
-        arguments: ['@es.manager.default', 'AppBundle\CouchDocument\AtomEntry']
+        arguments: ['@es.manager.default', 'AppBundle\Document\AtomEntry']
         calls:
-          - ['setSerializer', ['@serializer']]
+            - ['setSerializer', ['@serializer']]
+            - [ 'setLogger', ['@logger']]
 
     custom_normalizer:
         class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
@@ -101,3 +102,5 @@ services:
         arguments: [ "@doctrine_couchdb.client.default_connection", 'AppBundle\CouchDocument\AtomEntry' ]
         calls:
             - [ 'setSerializer', ['@serializer']]
+            - [ 'setLogger', ['@logger']]
+
