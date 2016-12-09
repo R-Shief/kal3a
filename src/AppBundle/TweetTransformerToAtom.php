@@ -32,25 +32,27 @@ class TweetTransformerToAtom
         $author = new PersonType();
         $author->setName($data['user']['name']);
         $author->setUri($data['user']['url']);
-        $entry->addAuthor($author);
-
-        $link = $this->makeLink('https://twitter.com/intent/user?user_id='.$data['user']['id_str'], 'author');
-        $entry->addLink($link);
+        $entry->setAuthors([$author]);
 
         if (isset($data['entities']['hashtags'])) {
+            $categories = [];
             foreach ($data['entities']['hashtags'] as $hashtag) {
                 $category = new CategoryType();
                 $category->setTerm($hashtag['text']);
-                $entry->addCategory($category);
+                $categories[] = $category;
             }
+            $entry->setCategories($categories);
         }
+
+        $links = [];
+        $links[] = $this->makeLink('https://twitter.com/intent/user?user_id='.$data['user']['id_str'], 'author');
 
         if (isset($data['entities']['urls'])) {
             foreach ($data['entities']['urls'] as $url) {
                 if (!empty($url['expanded_url'])) {
                     $rel = substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0 ? 'shortlink' : 'nofollow';
                     $link = $this->makeLink($url['expanded_url'], $rel);
-                    $entry->addLink($link);
+                    $links[] = $link;
                 }
             }
         }
@@ -58,19 +60,20 @@ class TweetTransformerToAtom
         if (isset($data['entities']['media'])) {
             foreach ($data['entities']['media'] as $media) {
                 $link = $this->makeLink($media['media_url'], 'enclosure');
-                if ($media['type'] == 'photo') {
+                if ($media['type'] === 'photo') {
                     $link->setType('image');
                 }
-                $link->setType('image');
-                $entry->addLink($link);
+                $links[] = $link;
             }
         }
 
         $link = $this->makeLink('https://twitter.com/'.$data['user']['screen_name'].'/status/'.$data['id_str'], 'canonical');
-        $entry->addLink($link);
+        $links[] = $link;
 
         $link = $this->makeLink(strtr($data['user']['profile_image_url'], ['_normal' => '']), 'author thumbnail');
-        $entry->addLink($link);
+        $links[] = $link;
+
+        $entry->setLinks($links);
 
         $created_at = \DateTime::createFromFormat('D M j H:i:s P Y', $data['created_at']);
         $entry->setPublished($created_at);
