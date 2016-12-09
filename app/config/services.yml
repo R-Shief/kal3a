@@ -50,12 +50,14 @@ services:
           -
             base_url: 'http://%couchdb_host%:%couchdb_port%/%couchdb_name%/'
             auth: ['%couchdb_user%', '%couchdb_password%']
+            handler: '@guzzle_handler'
 
     bangpound_guzzle_proxy.client.elasticsearch:
         parent: bangpound_guzzle_proxy.client
         arguments:
           -
             base_url: 'http://%elasticsearch_host%:%elasticsearch_port%/%elasticsearch_index_name%/'
+            handler: '@guzzle_handler'
 
     monolog.processor.psr_log_message_processor:
         class: Monolog\Processor\PsrLogMessageProcessor
@@ -104,3 +106,10 @@ services:
             - [ 'setSerializer', ['@serializer']]
             - [ 'setLogger', ['@logger']]
 
+    guzzle_handler:
+        class: GuzzleHttp\HandlerStack
+        factory: ['GuzzleHttp\HandlerStack', 'create']
+        calls:
+            - [ 'remove', ['http_errors']]
+            - [ 'remove', ['allow_redirects']]
+            - [ 'remove', ['cookies']]
