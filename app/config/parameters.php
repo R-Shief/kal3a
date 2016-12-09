@@ -7,12 +7,13 @@ namespace App {
 
     function app_dns_srv_parameter($hostname) {
         $data = dns_get_record($hostname);
-        if (empty($data)) {
+        if (empty($data) || !isset($data[0]['target'])) {
             throw new \RuntimeException($hostname .' could not be found');
         }
         return $data[0]['target'];
     }
 
+    /** @var mixed[] $data */
     $data = Yaml::parse(file_get_contents(__DIR__.'/parameters.yml'));
     /** @var \Symfony\Component\DependencyInjection\ParameterBag\ParameterBag $params */
     foreach ($data['parameters'] as $k => $v) {
