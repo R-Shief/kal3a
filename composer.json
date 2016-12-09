@@ -26,7 +26,7 @@
         "doctrine/couchdb": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm-bundle": "dev-develop",
-        "friendsofsymfony/jsrouting-bundle": "^2.0",
+        "friendsofsymfony/jsrouting-bundle": "dev-feature/non-standard-port as 2.0.x-dev",
         "friendsofsymfony/rest-bundle": "^2.0",
         "friendsofsymfony/user-bundle": "^2.0",
         "javiereguiluz/easyadmin-bundle": "^1.13",
@@ -68,6 +68,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:bangpound/SupervisorBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:R-Shief/FOSJsRoutingBundle.git"
         }
     ],
     "scripts": {

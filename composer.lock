@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42bacb55f7a6f6f9c2ed50859d92e596",
-    "content-hash": "fb091f1b76556ae7dc910a7df7c2a0f8",
+    "hash": "5486542c5a6cae12dcbf7225dd3d98e8",
+    "content-hash": "50e82024ace6e7b7b703434f0ab22016",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.20.1",
+            "version": "3.20.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c83afe188b2f462840a5ab12d43f2e83f356f3f0"
+                "reference": "4541d9e350644a5c70b298d42e526b65275fc804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c83afe188b2f462840a5ab12d43f2e83f356f3f0",
-                "reference": "c83afe188b2f462840a5ab12d43f2e83f356f3f0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4541d9e350644a5c70b298d42e526b65275fc804",
+                "reference": "4541d9e350644a5c70b298d42e526b65275fc804",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-12-01 19:25:12"
+            "time": "2016-12-08 20:59:19"
         },
         {
             "name": "aws/aws-sdk-php-symfony",
@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/atom-models.git",
-                "reference": "2b993ca5b0c58bd0c0630530fa849f274bba7972"
+                "reference": "6c8341e78d323bd5997fe567001bfa5faf2ea397"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/2b993ca5b0c58bd0c0630530fa849f274bba7972",
-                "reference": "2b993ca5b0c58bd0c0630530fa849f274bba7972",
+                "url": "https://api.github.com/repos/bangpound/atom-models/zipball/6c8341e78d323bd5997fe567001bfa5faf2ea397",
+                "reference": "6c8341e78d323bd5997fe567001bfa5faf2ea397",
                 "shasum": ""
             },
             "type": "library",
@@ -176,7 +176,7 @@
                 }
             ],
             "description": "Atom model classes",
-            "time": "2016-11-29 11:50:22"
+            "time": "2016-12-08 14:03:56"
         },
         {
             "name": "bangpound/callable-compiler-pass",
@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/guzzle-proxy-bundle.git",
-                "reference": "176b7a55324e203bb2146c44ba57640c6a0c552b"
+                "reference": "30b3ce25a3f263614cf43fcabb537abfc2866f19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/176b7a55324e203bb2146c44ba57640c6a0c552b",
-                "reference": "176b7a55324e203bb2146c44ba57640c6a0c552b",
+                "url": "https://api.github.com/repos/bangpound/guzzle-proxy-bundle/zipball/30b3ce25a3f263614cf43fcabb537abfc2866f19",
+                "reference": "30b3ce25a3f263614cf43fcabb537abfc2866f19",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 }
             ],
             "description": "Proxy requests through Symfony application",
-            "time": "2016-12-03 16:07:39"
+            "time": "2016-12-09 09:05:20"
         },
         {
             "name": "clue/json-stream",
@@ -765,12 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/DoctrineCouchDBBundle.git",
-                "reference": "b46a3853ea6bd37d47323f75b156196187e9dba6"
+                "reference": "1ac72f8870e70b18eb70884dd12c04258d81d0b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/b46a3853ea6bd37d47323f75b156196187e9dba6",
-                "reference": "b46a3853ea6bd37d47323f75b156196187e9dba6",
+                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/1ac72f8870e70b18eb70884dd12c04258d81d0b6",
+                "reference": "1ac72f8870e70b18eb70884dd12c04258d81d0b6",
                 "shasum": ""
             },
             "require": {
@@ -809,7 +809,7 @@
             "support": {
                 "source": "https://github.com/bangpound/DoctrineCouchDBBundle/tree/develop"
             },
-            "time": "2016-12-03 16:23:58"
+            "time": "2016-12-03 18:42:40"
         },
         {
             "name": "doctrine/dbal",
@@ -1405,16 +1405,16 @@
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "2.0.0-alpha1",
+            "version": "dev-feature/non-standard-port",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "8f5c55632aada470173264594160865c66f307b3"
+                "url": "https://github.com/R-Shief/FOSJsRoutingBundle.git",
+                "reference": "12082de4e5afa31e7e8133ab256449b3d7391808"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/8f5c55632aada470173264594160865c66f307b3",
-                "reference": "8f5c55632aada470173264594160865c66f307b3",
+                "url": "https://api.github.com/repos/R-Shief/FOSJsRoutingBundle/zipball/12082de4e5afa31e7e8133ab256449b3d7391808",
+                "reference": "12082de4e5afa31e7e8133ab256449b3d7391808",
                 "shasum": ""
             },
             "require": {
@@ -1439,28 +1439,30 @@
                     "FOS\\JsRoutingBundle\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "FriendsOfSymfony Community",
-                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
-                },
-                {
                     "name": "William Durand",
                     "email": "will+git@drnd.me"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
                 }
             ],
             "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
-                "Js Routing",
                 "javascript",
+                "js routing",
                 "routing"
             ],
-            "time": "2016-02-04 20:16:23"
+            "support": {
+                "source": "https://github.com/R-Shief/FOSJsRoutingBundle/tree/feature/non-standard-port"
+            },
+            "time": "2016-12-06 06:34:25"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -2552,16 +2554,16 @@
         },
         {
             "name": "mtdowling/jmespath.php",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "192f93e43c2c97acde7694993ab171b3de284093"
+                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/192f93e43c2c97acde7694993ab171b3de284093",
-                "reference": "192f93e43c2c97acde7694993ab171b3de284093",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
                 "shasum": ""
             },
             "require": {
@@ -2603,7 +2605,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2016-01-05 18:25:05"
+            "time": "2016-12-03 22:08:25"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -2800,7 +2802,7 @@
         },
         {
             "name": "ongr/elasticsearch-bundle",
-            "version": "dev-master",
+            "version": "v5.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
@@ -4187,16 +4189,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.14",
+            "version": "v5.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "e64947de9ebc37732a62f5115164484a9bee7fa6"
+                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e64947de9ebc37732a62f5115164484a9bee7fa6",
-                "reference": "e64947de9ebc37732a62f5115164484a9bee7fa6",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/d294b0665cf09c799e9c1993d5c776a5bf55cb85",
+                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85",
                 "shasum": ""
             },
             "require": {
@@ -4235,7 +4237,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-10-30 23:18:01"
+            "time": "2016-12-06 07:29:27"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -5601,28 +5603,28 @@
     "packages-dev": [
         {
             "name": "sensio/generator-bundle",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "0d3c9c4864142dc6a368fa0d952a8b83215e8740"
+                "reference": "ec278c0bd530edf155c4a00900577b5cb80f559e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/0d3c9c4864142dc6a368fa0d952a8b83215e8740",
-                "reference": "0d3c9c4864142dc6a368fa0d952a8b83215e8740",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/ec278c0bd530edf155c4a00900577b5cb80f559e",
+                "reference": "ec278c0bd530edf155c4a00900577b5cb80f559e",
                 "shasum": ""
             },
             "require": {
                 "symfony/console": "~2.7|~3.0",
                 "symfony/framework-bundle": "~2.7|~3.0",
                 "symfony/process": "~2.7|~3.0",
-                "symfony/yaml": "~2.7|~3.0"
+                "symfony/yaml": "~2.7|~3.0",
+                "twig/twig": "^1.28.2|^2.0"
             },
             "require-dev": {
                 "doctrine/orm": "~2.4",
-                "symfony/doctrine-bridge": "~2.7|~3.0",
-                "twig/twig": "~1.18"
+                "symfony/doctrine-bridge": "~2.7|~3.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -5649,7 +5651,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2016-11-07 19:48:31"
+            "time": "2016-12-05 16:01:19"
         },
         {
             "name": "symfony/phpunit-bridge",
@@ -5722,6 +5724,12 @@
             "alias_normalized": "1.0.9999999.9999999-dev",
             "version": "dev-develop",
             "package": "doctrine/couchdb-odm"
+        },
+        {
+            "alias": "2.0.x-dev",
+            "alias_normalized": "2.0.9999999.9999999-dev",
+            "version": "dev-feature/non-standard-port",
+            "package": "friendsofsymfony/jsrouting-bundle"
         }
     ],
     "minimum-stability": "dev",
@@ -5729,9 +5737,9 @@
         "doctrine/couchdb": 20,
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,
+        "friendsofsymfony/jsrouting-bundle": 20,
         "react/eep": 20,
-        "yzalis/supervisor-bundle": 20,
-        "ongr/elasticsearch-bundle": 20
+        "yzalis/supervisor-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
