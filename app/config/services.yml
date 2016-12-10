@@ -113,3 +113,12 @@ services:
             - [ 'remove', ['http_errors']]
             - [ 'remove', ['allow_redirects']]
             - [ 'remove', ['cookies']]
+
+    stream_parameters.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+        arguments: ['AppBundle\Entity\StreamParameters']
+
+    app.controller.collection_parameters_controller:
+        class: AppBundle\Controller\StreamParametersController
+        arguments: ['@stream_parameters.repository']

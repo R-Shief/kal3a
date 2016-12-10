@@ -51,3 +51,9 @@ fos_js_routing:
 YZSupervisorBundle:
     resource: "@YZSupervisorBundle/Resources/config/routing.xml"
     prefix: /admin/supervisor
+
+stream_parameters:
+    type:     rest
+    resource: app.controller.collection_parameters_controller
+    prefix: '/api'
+    defaults: {_format: json}
