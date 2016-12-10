@@ -34,7 +34,7 @@ class TextType extends CommonAttributes implements TextTypeInterface, Denormaliz
 
     /**
      * @var string
-     * @ES\Property(type="keyword")
+     * @ES\Property(type="text")
      * @App\PropertyInfoType("string")
      */
     protected $text;
