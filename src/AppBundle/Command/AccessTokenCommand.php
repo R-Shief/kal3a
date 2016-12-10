@@ -11,6 +11,9 @@ use React\Socket;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
@@ -39,6 +42,9 @@ class AccessTokenCommand extends ContainerAwareCommand
      *
      * @return int|null|void
      *
+     * @throws InvalidArgumentException
+     * @throws ServiceNotFoundException
+     * @throws ServiceCircularReferenceException
      * @throws Socket\ConnectionException
      */
     protected function execute(InputInterface $input, OutputInterface $output)

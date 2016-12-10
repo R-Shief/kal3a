@@ -43,10 +43,11 @@ class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
         try {
             $result = $this->client->postDocument($data);
             $this->logger->info('created new document', array_combine(['id', 'rev'], $result));
+
             return ConsumerInterface::MSG_ACK;
-        }
-        catch (HTTPException $e) {
+        } catch (HTTPException $e) {
             $this->logger->error($e->getMessage());
+
             return ConsumerInterface::MSG_REJECT_REQUEUE;
         }
     }
@@ -57,6 +58,7 @@ class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
         // before filtering empty arrays and nulls.
         if (is_array($data)) {
             $data = array_map('self::filter', $data);
+
             return array_filter($data, function ($value) {
                 // array_filter() would ordinarily remove any value that
                 // converts to a boolean false, so this callback strictly
@@ -64,8 +66,7 @@ class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
                 // zero and empty strings.
                 return !(null === $value || [] === $value);
             });
-        }
-        else {
+        } else {
             return $data;
         }
     }
