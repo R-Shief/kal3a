@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new \YZ\SupervisorBundle\YZSupervisorBundle(),
             new \Aws\Symfony\AwsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

@@ -5,12 +5,14 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class StreamParameters.
  *
  * @ORM\Entity
  * @ORM\Table
+ * @Gedmo\Loggable
  */
 class StreamParameters
 {
@@ -27,6 +29,7 @@ class StreamParameters
      * @ORM\Column
      * @Assert\NotBlank()
      * @Assert\Type("string")
+     * @Gedmo\Versioned
      *
      * @var string
      */
@@ -35,6 +38,7 @@ class StreamParameters
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Assert\Type("string")
+     * @Gedmo\Versioned
      *
      * @var string
      */
@@ -45,6 +49,7 @@ class StreamParameters
      *
      * @ORM\Column(nullable=true)
      * @Serializer\Groups({"default"})
+     * @Gedmo\Versioned
      *
      * @var string
      */
@@ -55,6 +60,7 @@ class StreamParameters
      *
      * @ORM\Column(type="json_array")
      * @Serializer\Groups({"default"})
+     * @Gedmo\Versioned
      *
      * @Assert\Count(
      *   min = "0",
@@ -72,6 +78,7 @@ class StreamParameters
      *
      * @ORM\Column(type="json_array")
      * @Serializer\Groups({"default"})
+     * @Gedmo\Versioned
      *
      * @Assert\Count(
      *   min = "0",
@@ -88,6 +95,7 @@ class StreamParameters
      *
      * @ORM\Column(type="json_array")
      * @Serializer\Groups({"default"})
+     * @Gedmo\Versioned
      *
      * @Assert\Count(
      *   min = "0",
@@ -103,6 +111,38 @@ class StreamParameters
      * })
      */
     protected $locations = [];
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Gedmo\Blameable(on="update")
+     */
+    private $updatedBy;
 
     /**
      * @return int

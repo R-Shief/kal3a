@@ -72,6 +72,13 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            gedmo_loggable:
+                type: annotation
+                prefix: Gedmo\Loggable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                alias: GedmoLoggable
+                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -322,3 +329,11 @@ aws:
     endpoint_provider: '@aws.endpoint.provider'
     signature_provider: '@aws.signature.provider'
     scheme: http
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            blameable: true
+            loggable: true
+
