@@ -140,7 +140,7 @@ easy_admin:
             label: Stream Parameters
             list:
                 title:  '%%entity_label%%'
-                fields: [id, name, language, track, follow, locations ]
+                fields: [id, name, language, track, follow, locations, created_at, created_by ]
                 actions:
                     -
                         name: new
