@@ -24,6 +24,23 @@ class StreamParameters
     protected $id;
 
     /**
+     * @ORM\Column
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     *
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\Type("string")
+     *
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @Assert\Language()
      *
      * @ORM\Column(nullable=true)
@@ -157,5 +174,37 @@ class StreamParameters
     public function setLocations(array $locations)
     {
         $this->locations = array_values($locations);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
