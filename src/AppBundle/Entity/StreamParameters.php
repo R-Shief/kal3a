@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -16,6 +18,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class StreamParameters
 {
+    use BlameableEntity;
+    use TimestampableEntity;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -113,28 +118,12 @@ class StreamParameters
     protected $locations = [];
 
     /**
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     *
-     * @var \DateTime
-     */
-    private $created;
-
-    /**
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     *
-     * @var \DateTime
-     */
-    private $updated;
-
-    /**
      * @var string
      *
-     * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Gedmo\Blameable(on="create")
      */
-    private $createdBy;
+    protected $createdBy;
 
     /**
      * @var string
@@ -142,7 +131,7 @@ class StreamParameters
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @Gedmo\Blameable(on="update")
      */
-    private $updatedBy;
+    protected $updatedBy;
 
     /**
      * @return int
