@@ -1,8 +1,8 @@
 <?php
 
-namespace Rshief\Bundle\Kal3aBundle\Command;
+namespace AppBundle\Command;
 
-use Rshief\Bundle\Kal3aBundle\Entity\TagStatistic;
+use AppBundle\Entity\TagStatistic;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -40,7 +40,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
 
         // MySQL db entity
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $repository = $em->getRepository('Rshief\Bundle\Kal3aBundle\Entity\TagStatistic');
+        $repository = $em->getRepository('AppBundle\Entity\TagStatistic');
 
         /** @var \DateTime $start */
         $start = \DateTime::createFromFormat('Y-m-d', $input->getArgument('start'));

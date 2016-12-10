@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\Bundle\CastleBundle\Command;
+namespace AppBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

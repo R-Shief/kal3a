@@ -1,8 +1,0 @@
-parameters:
-    bangpound_castle_search.controller.statistics.class: Bangpound\Bundle\CastleSearchBundle\Controller\StatisticsController
-
-services:
-    bangpound_castle_search.controller.statistics:
-        class: '%bangpound_castle_search.controller.statistics.class%'
-        arguments:
-            - "@doctrine_couchdb.client.default_connection"

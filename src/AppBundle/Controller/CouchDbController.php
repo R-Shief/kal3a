@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\Bundle\CastleBundle\Controller;
+namespace AppBundle\Controller;
 
 use Doctrine\CouchDB\CouchDBException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

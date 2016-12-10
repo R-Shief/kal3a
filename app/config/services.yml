@@ -2,6 +2,14 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
+    bangpound_castle_search.controller.statistics.class: AppBundle\Controller\StatisticsController
+    bangpound_castle.command.export.class: AppBundle\Command\ExportCommand
+    bangpound_castle.command.prune.class: AppBundle\Command\PruneCommand
+    bangpound_castle.command.update_view.class: AppBundle\Command\UpdateViewCommand
+    rshief_kal3a.command.copy_trends.class: AppBundle\Command\CopyTrendsCommand
+    rshief_kal3a.command.calculate_trends.class: AppBundle\Command\CalculateTrendsCommand
+    rshief_kal3a.controller.tag_statistics.class: AppBundle\Controller\StatisticController
+    rshief_kal3a.listener.default_response_header.class: Rshief\Bundle\Kal3aBundle\EventListener\DefaultResponseHeaderListener
 
 services:
 #    service_name:
@@ -106,6 +114,13 @@ services:
             - [ 'setSerializer', ['@serializer']]
             - [ 'setLogger', ['@logger']]
 
+    rabbitmq_api_client:
+        class: GuzzleHttp\Client
+        arguments:
+            -
+                base_uri: 'http://%rabbitmq_host%:15672/api/'
+                auth: ['%rabbitmq_user%', '%rabbitmq_pass%']
+
     guzzle_handler:
         class: GuzzleHttp\HandlerStack
         factory: ['GuzzleHttp\HandlerStack', 'create']
@@ -122,3 +137,36 @@ services:
     app.controller.collection_parameters_controller:
         class: AppBundle\Controller\StreamParametersController
         arguments: ['@stream_parameters.repository']
+
+    bangpound_castle_search.controller.statistics:
+        class: '%bangpound_castle_search.controller.statistics.class%'
+        arguments:
+            - "@doctrine_couchdb.client.default_connection"
+
+    bangpound_castle.command.export:
+        class: '%bangpound_castle.command.export.class%'
+        tags:
+            - { name: console.command }
+
+    bangpound_castle.command.prune:
+        class: '%bangpound_castle.command.prune.class%'
+        tags:
+            - { name: console.command }
+
+    bangpound_castle.command.update_view:
+        class: '%bangpound_castle.command.update_view.class%'
+        tags:
+            - { name: console.command }
+
+    rshief_kal3a.command.copy_trends:
+        class: '%rshief_kal3a.command.copy_trends.class%'
+        tags:
+            -  { name: console.command }
+
+    rshief_kal3a.command.calculate_trends:
+        class: '%rshief_kal3a.command.calculate_trends.class%'
+        tags:
+            -  { name: console.command }
+
+    rshief_kal3a.controller.tag_statistics:
+        class: '%rshief_kal3a.controller.tag_statistics.class%'

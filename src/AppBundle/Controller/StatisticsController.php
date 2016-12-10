@@ -1,6 +1,6 @@
 <?php
 
-namespace Bangpound\Bundle\CastleSearchBundle\Controller;
+namespace AppBundle\Controller;
 
 use Doctrine\CouchDB\CouchDBClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;

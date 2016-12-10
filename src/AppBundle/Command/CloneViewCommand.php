@@ -1,6 +1,6 @@
 <?php
 
-namespace Rshief\Bundle\Kal3aBundle\Command;
+namespace AppBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;

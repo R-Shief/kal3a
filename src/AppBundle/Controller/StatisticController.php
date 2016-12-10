@@ -1,6 +1,6 @@
 <?php
 
-namespace Rshief\Bundle\Kal3aBundle\Controller;
+namespace AppBundle\Controller;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Query;

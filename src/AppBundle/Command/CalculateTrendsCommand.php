@@ -1,6 +1,6 @@
 <?php
 
-namespace Rshief\Bundle\Kal3aBundle\Command;
+namespace AppBundle\Command;
 
 use Doctrine\ORM\Query;
 use DrQue\PolynomialRegression;

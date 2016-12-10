@@ -1,6 +1,6 @@
 <?php
 
-namespace Rshief\Bundle\Kal3aBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

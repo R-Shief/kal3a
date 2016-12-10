@@ -1,26 +1,6 @@
-parameters:
-    bangpound_castle.command.export.class: Bangpound\Bundle\CastleBundle\Command\ExportCommand
-    bangpound_castle.command.prune.class: Bangpound\Bundle\CastleBundle\Command\PruneCommand
-    bangpound_castle.command.update_view.class: Bangpound\Bundle\CastleBundle\Command\UpdateViewCommand
-
 services:
     bangpound_castle.normalizer.couchdb:
         class: Bangpound\Bundle\CastleBundle\Serializer\CouchDbNormalizer
 
     bangpound_castle.normalizer.couchdb_attachment:
         class: Bangpound\Bundle\CastleBundle\Serializer\AttachmentNormalizer
-
-    bangpound_castle.command.export:
-        class: '%bangpound_castle.command.export.class%'
-        tags:
-            - { name: console.command }
-
-    bangpound_castle.command.prune:
-        class: '%bangpound_castle.command.prune.class%'
-        tags:
-            - { name: console.command }
-
-    bangpound_castle.command.update_view:
-        class: '%bangpound_castle.command.update_view.class%'
-        tags:
-            - { name: console.command }
