@@ -44,7 +44,7 @@ framework:
                 version_format: '%%2$s/js/%%1$s'
                 base_urls:
                     - https://maxcdn.bootstrapcdn.com/bootstrap
-    ide: 'idea://open?file=%%f&line=%%l'
+    ide: 'phpstorm://open?file=%%f&line=%%l'
     property_info:
         enabled: true
 

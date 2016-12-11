@@ -28,8 +28,8 @@ class AppKernel extends Kernel
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new \YZ\SupervisorBundle\YZSupervisorBundle(),
-            new \Aws\Symfony\AwsBundle(),
+            new YZ\SupervisorBundle\YZSupervisorBundle(),
+            new Aws\Symfony\AwsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
