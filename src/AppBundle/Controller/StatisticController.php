@@ -4,11 +4,7 @@ namespace AppBundle\Controller;
 
 use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\View\Result;
-use Doctrine\DBAL\Connection;
-use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations\RouteResource;
-use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Nelmio\ApiDocBundle\Annotation as Nelmio;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
@@ -16,69 +12,21 @@ use FOS\RestBundle\Controller\Annotations as FOSRest;
 /**
  * Class StatisticsController.
  *
- * @RouteResource("TagStatistic")
+ * @FOSRest\RouteResource("Tag")
  */
 class StatisticController extends FOSRestController
 {
     /**
      * @Nelmio\ApiDoc
-     *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return mixed
-     */
-    public function cgetAction(Request $request)
-    {
-        $q = $request->get('q');
-
-        /** @var Connection $conn */
-        $conn = $this->get('database_connection');
-
-        if ($q) {
-            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics WHERE tag LIKE ?', array($q.'%'))->fetchAll(Query::HYDRATE_SCALAR);
-        } else {
-            $result = $conn->executeQuery('SELECT DISTINCT tag FROM tag_statistics')->fetchAll(Query::HYDRATE_SCALAR);
-        }
-        $result = array_map(function ($value) {
-            return $value[0];
-        }, $result);
-
-        return $result;
-    }
-
-    /**
-     * @Nelmio\ApiDoc
-     *
-     * @param $tag
-     *
-     * @return array
-     */
-    public function getAction($tag)
-    {
-        /** @var Connection $conn */
-        $conn = $this->get('database_connection');
-        $queryBuilder = $conn->createQueryBuilder();
-
-        /** @var \Doctrine\DBAL\Statement $query */
-        $query = $queryBuilder->select('t.timestamp', 't.sum')
-            ->from('tag_statistics', 't')
-            ->where('t.tag = ?')
-            ->setParameter(0, $tag)
-            ->execute();
-
-        return $query->fetchAll();
-    }
-
-    /**
-     * @Nelmio\ApiDoc
+     * @FOSRest\Get(requirements={"group"="\d+"}, defaults={"group"="4"})
      * @FOSRest\View(serializerGroups={"default"})
      *
-     * @param string $tag
-     * @param int    $group
+     * @param string $tag   Tag
+     * @param int    $group CouchDB view group level
      *
      * @return \FOS\RestBundle\View\View
      */
-    public function getStatisticsAction($tag, $group = 4)
+    public function getStatisticsAction($tag, int $group = 4)
     {
         $tag = strtolower(ltrim($tag, '#'));
         $dm = $this->get('doctrine_couchdb');
@@ -105,6 +53,7 @@ class StatisticController extends FOSRestController
             return array_map(function ($value) {
                 $date = new \DateTime();
                 $date->setDate($value['key'][1], $value['key'][2], $value['key'][3]);
+                $date->setTime(0, 0);
                 $date = $date->format('Y-m-d');
 
                 return array(
