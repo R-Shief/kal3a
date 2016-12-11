@@ -26,7 +26,7 @@ class StatisticController extends FOSRestController
      *
      * @return \FOS\RestBundle\View\View
      */
-    public function getStatisticsAction($tag, int $group = 4)
+    public function getStatisticsAction(string $tag, int $group = 4)
     {
         $tag = strtolower(ltrim($tag, '#'));
         $dm = $this->get('doctrine_couchdb');
