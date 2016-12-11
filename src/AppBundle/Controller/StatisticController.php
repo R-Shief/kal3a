@@ -2,12 +2,16 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\CouchDB\CouchDBClient;
+use Doctrine\CouchDB\View\Result;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
+use Nelmio\ApiDocBundle\Annotation as Nelmio;
+use FOS\RestBundle\Controller\Annotations as FOSRest;
 
 /**
  * Class StatisticsController.
@@ -17,6 +21,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 class StatisticController extends FOSRestController
 {
     /**
+     * @Nelmio\ApiDoc
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return mixed
@@ -40,6 +46,13 @@ class StatisticController extends FOSRestController
         return $result;
     }
 
+    /**
+     * @Nelmio\ApiDoc
+     *
+     * @param $tag
+     *
+     * @return array
+     */
     public function getAction($tag)
     {
         /** @var Connection $conn */
@@ -53,47 +66,42 @@ class StatisticController extends FOSRestController
             ->setParameter(0, $tag)
             ->execute();
 
-        $result = $query->fetchAll();
-
-        return $result;
+        return $query->fetchAll();
     }
 
     /**
-     * @param $tag
+     * @Nelmio\ApiDoc
+     * @FOSRest\View(serializerGroups={"default"})
+     *
+     * @param string $tag
+     * @param int    $group
      *
      * @return \FOS\RestBundle\View\View
-     * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
      */
     public function getStatisticsAction($tag, $group = 4)
     {
-        $cache = $this->get('doctrine_cache.providers.statistics');
-        $cache->setNamespace($tag);
-        if (!$cache->contains($group)) {
-            $tag = strtolower(ltrim($tag, '#'));
-            $dm = $this->get('doctrine_couchdb');
+        $tag = strtolower(ltrim($tag, '#'));
+        $dm = $this->get('doctrine_couchdb');
 
-            /** @var \Doctrine\CouchDB\CouchDBClient $default_client */
-            $default_client = $dm->getConnection();
+        /** @var CouchDBClient $default_client */
+        $default_client = $dm->getConnection();
 
-            $query = $default_client->createViewQuery('tag', 'timeseries');
-            $query->setStale('ok');
+        $query = $default_client->createViewQuery('tag', 'timeseries');
+        $query->setStale('ok');
 
-            // All other executions will allow stale results.
-            $query->setGroup(true);
-            $query->setGroupLevel($group);
-            $query->setIncludeDocs(false);
-            $query->setReduce(true);
+        // All other executions will allow stale results.
+        $query->setGroup(true);
+        $query->setGroupLevel($group);
+        $query->setIncludeDocs(false);
+        $query->setReduce(true);
 
-            $query->setStartKey(array($tag));
-            $query->setEndKey(array($tag, array()));
+        $query->setStartKey([$tag]);
+        $query->setEndKey([$tag, []]);
 
-            $result = $query->execute();
-            $cache->save($group, $result, 3600);
-        } else {
-            $result = $cache->fetch($group);
-        }
+        /** @var Result $result */
+        $result = $query->execute();
 
-        if ($group == 4) {
+        if ($group === 4) {
             return array_map(function ($value) {
                 $date = new \DateTime();
                 $date->setDate($value['key'][1], $value['key'][2], $value['key'][3]);
@@ -104,25 +112,28 @@ class StatisticController extends FOSRestController
                 );
             }, $result->toArray());
         } else {
-            foreach ($result as $value) {
-                return $value['value'];
-            }
+            return $result[0]['value'];
         }
     }
 
     /**
-     * @return \FOS\RestBundle\View\View
+     * @Nelmio\ApiDoc
+     *
+     * @throws \LogicException
      * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
+     * @FOSRest\View
      */
     public function getSummaryAction()
     {
         $output = array();
-        $tr = $this->getDoctrine()->getRepository('BangpoundTwitterStreamingBundle:Track');
+        $tr = $this->getDoctrine()->getRepository('AppBundle:StreamParameters');
 
-        $tracks = $tr->findActiveTracks();
-        foreach ($tracks as $track) {
-            $output[$track] = $this->getStatisticsAction($track);
-            $output['_total'][$track] = $this->getStatisticsAction($track, 1);
+        $streamParameters = $tr->findAll();
+        foreach ($streamParameters as $streamParameter) {
+            foreach ($streamParameter->getTrack() as $track) {
+                $output[$track] = $this->getStatisticsAction($track);
+                $output['_total'][$track] = $this->getStatisticsAction($track, 1);
+            }
         }
 
         return $output;
