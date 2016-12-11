@@ -18,7 +18,6 @@ class StatisticController extends FOSRestController
 {
     /**
      * @Nelmio\ApiDoc
-     * @FOSRest\Get(requirements={"group"="\d+"}, defaults={"group"="4"})
      * @FOSRest\View(serializerGroups={"default"})
      *
      * @param string $tag   Tag
@@ -49,20 +48,42 @@ class StatisticController extends FOSRestController
         /** @var Result $result */
         $result = $query->execute();
 
-        if ($group === 4) {
-            return array_map(function ($value) {
+        return array_map(function ($value) use ($group) {
+            if ($group > 1) {
                 $date = new \DateTime();
+            }
+            else {
+                $date = 'all';
+            }
+            if ($group === 2) {
+                $date->setDate($value['key'][1], 0, 1);
+            }
+            if ($group === 3) {
+                $date->setDate($value['key'][1], $value['key'][2], 1);
+            }
+            if ($group >= 4) {
                 $date->setDate($value['key'][1], $value['key'][2], $value['key'][3]);
+            }
+            if ($group < 5 && $group > 1) {
                 $date->setTime(0, 0);
-                $date = $date->format('Y-m-d');
+            }
+            if ($group === 5) {
+                $date->setTime($value['key'][4], 0);
+            }
+            if ($group === 6) {
+                $date->setTime($value['key'][4], $value['key'][5]);
+            }
+            if ($group === 7) {
+                $date->setTime($value['key'][4], $value['key'][5], $value['key'][6]);
+            }
+            if ($group > 1) {
+                $date = $date->format(\DateTime::RFC3339);
+            }
 
-                return array(
-                    $date => $value['value'],
-                );
-            }, $result->toArray());
-        } else {
-            return $result[0]['value'];
-        }
+            return array(
+              $date => $value['value'],
+            );
+        }, $result->toArray());
     }
 
     /**
