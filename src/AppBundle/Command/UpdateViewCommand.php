@@ -6,6 +6,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class UpdateViewCommand extends ContainerAwareCommand
@@ -20,7 +21,7 @@ class UpdateViewCommand extends ContainerAwareCommand
         $this
             ->setName('castle:view:update')
             ->setDescription('Update a view')
-            ->addArgument('dbname', InputArgument::REQUIRED, 'Database connection name')
+            ->addOption('dm', null, InputOption::VALUE_OPTIONAL, 'The document manager to use for this command', 'default')
             ->addArgument('designdoc', InputArgument::REQUIRED, 'Design document name')
             ->addArgument('view', InputArgument::REQUIRED, 'View name')
         ;
@@ -28,8 +29,11 @@ class UpdateViewCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $dbname = $input->getArgument('dbname');
+        /** @var string $dbname */
+        $dbname = $input->getOption('dm');
+        /** @var string $designdoc */
         $designdoc = $input->getArgument('designdoc');
+        /** @var string $view */
         $view = $input->getArgument('view');
 
         /** @var \Doctrine\CouchDB\CouchDBClient $client */
