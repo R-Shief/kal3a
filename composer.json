@@ -5,7 +5,8 @@
     "description": "Aggregation and collection engine.",
     "autoload": {
         "psr-4": { "": "src/" },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
+        "files": ["src/functions.php"]
     },
     "autoload-dev": {
         "psr-4": { "Tests\\": "tests/" }
