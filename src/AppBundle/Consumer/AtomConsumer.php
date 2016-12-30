@@ -41,8 +41,9 @@ class AtomConsumer implements ConsumerInterface
     {
         $data = \GuzzleHttp\json_decode($msg->getBody(), true);
         $data = $this->transformer->transformTweet($data);
-        $msg = $this->serializer->serialize($data, 'json');
-        $this->producer->publish($msg, '', ['content_type' => 'application/json']);
+
+        $newMsg = $this->serializer->serialize($data, 'json');
+        $this->producer->publish($newMsg, '', ['content_type' => 'application/json']);
 
         return ConsumerInterface::MSG_ACK;
     }
