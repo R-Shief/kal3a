@@ -2,6 +2,7 @@
 
 namespace AppBundle\Consumer;
 
+use AppBundle\BulkElasticsearch;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use ONGR\ElasticsearchBundle\Exception\BulkWithErrorsException;
 use ONGR\ElasticsearchBundle\Service\Manager;
@@ -14,7 +15,7 @@ class ElasticsearchConsumer implements ConsumerInterface
     use SerializerAwareTrait;
     use LoggerAwareTrait;
 
-    private $manager;
+    private $bulkConsumer;
     private $atomEntryClass;
 
     /**
@@ -23,9 +24,9 @@ class ElasticsearchConsumer implements ConsumerInterface
      * @param Manager $manager
      * @param string  $atomEntryClass
      */
-    public function __construct(Manager $manager, $atomEntryClass)
+    public function __construct($atomEntryClass, BulkElasticsearch $bulkConsumer)
     {
-        $this->manager = $manager;
+        $this->bulkConsumer = $bulkConsumer;
         $this->atomEntryClass = $atomEntryClass;
     }
 
@@ -38,16 +39,6 @@ class ElasticsearchConsumer implements ConsumerInterface
     {
         $data = $this->serializer->deserialize($msg->body, $this->atomEntryClass, 'json');
 
-        $this->manager->persist($data);
-        try {
-            $result = $this->manager->commit();
-            $this->logger->info('created new documents', $result);
-
-            return ConsumerInterface::MSG_ACK;
-        } catch (BulkWithErrorsException $e) {
-            $this->logger->error($e->getMessage());
-
-            return ConsumerInterface::MSG_REJECT_REQUEUE;
-        }
+        $this->bulkConsumer->updateDocument($data);
     }
 }

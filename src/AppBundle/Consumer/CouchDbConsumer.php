@@ -2,7 +2,7 @@
 
 namespace AppBundle\Consumer;
 
-use AppBundle\BulkConsumer;
+use AppBundle\BulkCouchDB;
 use PhpAmqpLib\Message\AMQPMessage;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use Symfony\Component\Serializer\SerializerAwareTrait;
@@ -19,9 +19,9 @@ class CouchDbConsumer implements ConsumerInterface
 
     /**
      * @param string $atomEntryClass
-     * @param BulkConsumer $bulkConsumer
+     * @param BulkCouchDB $bulkConsumer
      */
-    public function __construct($atomEntryClass, BulkConsumer $bulkConsumer)
+    public function __construct($atomEntryClass, BulkCouchDB $bulkConsumer)
     {
         $this->atomEntryClass = $atomEntryClass;
         $this->bulkConsumer = $bulkConsumer;

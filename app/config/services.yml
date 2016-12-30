@@ -90,10 +90,9 @@ services:
 
     elasticsearch_consumer:
         class: AppBundle\Consumer\ElasticsearchConsumer
-        arguments: ['@es.manager.default', 'AppBundle\Document\AtomEntry']
+        arguments: ['AppBundle\Document\AtomEntry', '@bulk_consumer.elasticsearch']
         calls:
             - ['setSerializer', ['@serializer']]
-            - [ 'setLogger', ['@logger']]
 
     custom_normalizer:
         class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
@@ -173,6 +172,15 @@ services:
     bulk_consumer.couchdb:
         class: AppBundle\BulkCouchDB
         arguments: ['@doctrine_couchdb.client.default_connection', 500]
+        calls:
+            - [ setLogger, ['@logger']]
+        tags:
+            - { name: monolog.logger }
+            - { name: kernel.event_listener, event: 'console.terminate', method: 'onEvent' }
+
+    bulk_consumer.elasticsearch:
+        class: AppBundle\BulkElasticsearch
+        arguments: ['@es.manager.default', 500]
         calls:
             - [ setLogger, ['@logger']]
         tags:
