@@ -51,8 +51,7 @@ class StatisticController extends FOSRestController
         return array_map(function ($value) use ($group) {
             if ($group > 1) {
                 $date = new \DateTime();
-            }
-            else {
+            } else {
                 $date = 'all';
             }
             if ($group === 2) {
