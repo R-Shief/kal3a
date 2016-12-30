@@ -2,33 +2,29 @@
 
 namespace AppBundle\Consumer;
 
-use Doctrine\CouchDB\CouchDBClient;
-use Doctrine\CouchDB\HTTP\HTTPException;
+use AppBundle\BulkConsumer;
 use PhpAmqpLib\Message\AMQPMessage;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use Symfony\Component\Serializer\SerializerAwareTrait;
 
 /**
  * Class CouchDbConsumer.
  */
-class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
+class CouchDbConsumer implements ConsumerInterface
 {
     use SerializerAwareTrait;
-    use LoggerAwareTrait;
 
-    private $client;
     private $atomEntryClass;
+    private $bulkConsumer;
 
     /**
-     * @param CouchDBClient $client
-     * @param string        $atomEntryClass
+     * @param string $atomEntryClass
+     * @param BulkConsumer $bulkConsumer
      */
-    public function __construct(CouchDBClient $client, $atomEntryClass)
+    public function __construct($atomEntryClass, BulkConsumer $bulkConsumer)
     {
-        $this->client = $client;
         $this->atomEntryClass = $atomEntryClass;
+        $this->bulkConsumer = $bulkConsumer;
     }
 
     /**
@@ -40,16 +36,7 @@ class CouchDbConsumer implements ConsumerInterface, LoggerAwareInterface
         $data = $this->serializer->normalize($data, 'json');
         $data = self::filter($data);
 
-        try {
-            $result = $this->client->postDocument($data);
-            $this->logger->info('created new document', array_combine(['id', 'rev'], $result));
-
-            return ConsumerInterface::MSG_ACK;
-        } catch (HTTPException $e) {
-            $this->logger->error($e->getMessage());
-
-            return ConsumerInterface::MSG_REJECT_REQUEUE;
-        }
+        $this->bulkConsumer->updateDocument($data);
     }
 
     private static function filter($data)

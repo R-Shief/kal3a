@@ -109,10 +109,9 @@ services:
 
     couchdb_consumer:
         class: AppBundle\Consumer\CouchDbConsumer
-        arguments: [ "@doctrine_couchdb.client.default_connection", 'AppBundle\CouchDocument\AtomEntry' ]
+        arguments: [ 'AppBundle\CouchDocument\AtomEntry', "@bulk_consumer.couchdb" ]
         calls:
             - [ 'setSerializer', ['@serializer']]
-            - [ 'setLogger', ['@logger']]
 
     rabbitmq_api_client:
         class: GuzzleHttp\Client
@@ -170,3 +169,12 @@ services:
 
     rshief_kal3a.controller.tag_statistics:
         class: '%rshief_kal3a.controller.tag_statistics.class%'
+
+    bulk_consumer.couchdb:
+        class: AppBundle\BulkCouchDB
+        arguments: ['@doctrine_couchdb.client.default_connection', 500]
+        calls:
+            - [ setLogger, ['@logger']]
+        tags:
+            - { name: monolog.logger }
+            - { name: kernel.event_listener, event: 'console.terminate', method: 'onEvent' }
