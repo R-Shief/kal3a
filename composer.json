@@ -38,7 +38,7 @@
         "r-shief/nab3a-bundle": "^1.0",
         "react/eep": "dev-master",
         "yzalis/supervisor-bundle": "dev-develop",
-        "ongr/elasticsearch-bundle": "^5.0",
+        "ongr/elasticsearch-bundle": "5.1.x-dev",
         "aws/aws-sdk-php-symfony": "^1.2",
         "react/http": "^0.4.1",
         "phpdocumentor/reflection": "^2.0",

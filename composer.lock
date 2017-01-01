@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "83b2de05872d8ae9203eea26cae7d5e4",
+    "content-hash": "947ad833cb9c6e7a501d9f28ca0e152c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2920,16 +2920,16 @@
         },
         {
             "name": "ongr/elasticsearch-bundle",
-            "version": "v5.0.0-rc2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
-                "reference": "e0d4b6e0d7b506ea5d30af8ae9d00f5403772071"
+                "reference": "bee9dedfd599bd434d1941bb21b2bc8ce61da14b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/e0d4b6e0d7b506ea5d30af8ae9d00f5403772071",
-                "reference": "e0d4b6e0d7b506ea5d30af8ae9d00f5403772071",
+                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/bee9dedfd599bd434d1941bb21b2bc8ce61da14b",
+                "reference": "bee9dedfd599bd434d1941bb21b2bc8ce61da14b",
                 "shasum": ""
             },
             "require": {
@@ -2951,7 +2951,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -2975,7 +2975,7 @@
             ],
             "description": "Elasticsearch bundle for Symfony.",
             "homepage": "http://ongr.io",
-            "time": "2016-12-13T13:56:18+00:00"
+            "time": "2016-12-28 10:33:37"
         },
         {
             "name": "ongr/elasticsearch-dsl",
@@ -5919,7 +5919,8 @@
         "doctrine/couchdb-odm-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "react/eep": 20,
-        "yzalis/supervisor-bundle": 20
+        "yzalis/supervisor-bundle": 20,
+        "ongr/elasticsearch-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
