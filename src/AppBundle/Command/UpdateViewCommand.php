@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class UpdateViewCommand extends ContainerAwareCommand
 {
@@ -29,6 +30,7 @@ class UpdateViewCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $stopwatch = new Stopwatch();
         /** @var string $dbname */
         $dbname = $input->getOption('dm');
         /** @var string $designdoc */
@@ -40,8 +42,10 @@ class UpdateViewCommand extends ContainerAwareCommand
         $client = $this->getContainer()->get('doctrine_couchdb')->getConnection($dbname);
 
         $query = $client->createViewQuery($designdoc, $view);
+        $stopwatch->start('update');
         $ret = $query->execute();
-        $output->writeln('Updated');
+        $event = $stopwatch->stop('update');
+        $output->writeln(sprintf('Updated in %s seconds', $event->getDuration() / 1000));
     }
 
     public function setRegistry(ManagerRegistry $registry)
