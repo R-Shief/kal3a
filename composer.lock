@@ -3973,12 +3973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "e348682700c899831990bd9a796430a2c6fbe0a6"
+                "reference": "1cd6454aa67754eebef868cfc1b1731e912d7baf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/e348682700c899831990bd9a796430a2c6fbe0a6",
-                "reference": "e348682700c899831990bd9a796430a2c6fbe0a6",
+                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/1cd6454aa67754eebef868cfc1b1731e912d7baf",
+                "reference": "1cd6454aa67754eebef868cfc1b1731e912d7baf",
                 "shasum": ""
             },
             "require": {
@@ -4015,7 +4015,7 @@
                 "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
             },
-            "time": "2016-11-28 05:32:31"
+            "time": "2017-01-01 01:02:00"
         },
         {
             "name": "react/child-process",
@@ -4301,16 +4301,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.15",
+            "version": "v5.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85"
+                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/d294b0665cf09c799e9c1993d5c776a5bf55cb85",
-                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/68e3dc02e66fec5036557d457cfdffa332a40da4",
+                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4",
                 "shasum": ""
             },
             "require": {
@@ -4349,7 +4349,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-12-06T07:29:27+00:00"
+            "time": "2016-12-31T08:39:25+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
