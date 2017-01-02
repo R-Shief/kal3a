@@ -129,12 +129,24 @@ easy_admin:
         form_theme: vertical
         menu:
             - { label: 'Twitter Streaming', icon: twitter, children: ['StreamParameters'] }
+            - { label: 'Export Query Result', icon: database, children: ['Query'] }
             - { label: Users, entity: User, icon: 'users' }
             - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
             - { label: 'System Health Status', route: 'liip_monitor_health_interface', icon: 'heartbeat' }
             - { label: 'Supervisor', route: 'supervisor', icon: 'server' }
             - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' } ] }
     entities:
+        'Query':
+            class: AppBundle\Entity\Query
+            label: 'Saved Queries'
+            form:
+                fields:
+                    - q
+                    - term
+                    - publishedStart
+                    - publishedEnd
+            list:
+                fields: [q, term, publishedStart, publishedEnd, createdBy, createdAt ]
         'StreamParameters':
             class: AppBundle\Entity\StreamParameters
             label: Stream Parameters
