@@ -1,0 +1,19 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}Elasticsearch Query{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Query" class="btn btn-default pull-right" />
+    {{ form_end(form) }}
+
+    {% if results %}
+        <h1>{{ results.count }} documents</h1>
+        <ul>
+            {% for bucket in results.aggregation('published').buckets %}
+            <li>{{ bucket.key_as_string | date('Y-m-d') }} {{ bucket.doc_count }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
