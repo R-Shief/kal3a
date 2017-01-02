@@ -212,9 +212,6 @@ doctrine_couch_db:
                     lang:
                         className: Doctrine\CouchDB\View\FolderDesignDocument
                         options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/lang'
-                    maint:
-                        className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/maint'
                     nofollow:
                         className: Doctrine\CouchDB\View\FolderDesignDocument
                         options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/nofollow'
