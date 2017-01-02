@@ -1,0 +1,26 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}AppBundle:Export:index{% endblock %}
+
+{% block content %}
+    <h1>{{ results.count }} documents</h1>
+    <dl class="dl-horizontal">
+        <dt>q</dt>
+        <dd>{{ query.q }}</dd>
+        <dt>term</dt>
+        <dd>{{ query.term }}</dd>
+        <dt>published (start)</dt>
+        <dd>{{ query.publishedStart }}</dd>
+        <dt>published (end)</dt>
+        <dd>{{ query.publishedEnd }}</dd>
+    </dl>
+    <ul>
+        {% for bucket in results.aggregation('published').buckets %}
+            {% set date = bucket.key_as_string | date('Y-m-d') %}
+            <li>{{ bucket.key_as_string | date('Y-m-d') }} {{ bucket.doc_count }}
+                <a href="{{ path('app_export_segment', { query: query.id, date: date, _format: 'json' }) }}">json</a>
+                <a href="{{ path('app_export_segment', { query: query.id, date: date, _format: 'csv' }) }}">csv</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
