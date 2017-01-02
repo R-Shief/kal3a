@@ -26,4 +26,11 @@ class AdminController extends BaseController
     {
         $this->get('fos_user.user_manager')->updateUser($user, false);
     }
+
+    protected function exportAction()
+    {
+        $id = $this->request->query->get('id');
+
+        return $this->redirectToRoute('app_export_index', ['query' => $id]);
+    }
 }

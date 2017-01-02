@@ -147,6 +147,7 @@ easy_admin:
                     - publishedEnd
             list:
                 fields: [q, term, publishedStart, publishedEnd, createdBy, createdAt ]
+                actions: [export]
         'StreamParameters':
             class: AppBundle\Entity\StreamParameters
             label: Stream Parameters
