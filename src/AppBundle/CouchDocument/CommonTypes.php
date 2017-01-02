@@ -78,7 +78,7 @@ class CommonTypes extends CommonAttributes implements CommonTypesInterface
      *
      * @param CategoryTypeInterface[] $categories
      */
-    public function setCategories(array $categories = null)
+    public function setCategories($categories = [])
     {
         $this->categories = $categories;
     }
