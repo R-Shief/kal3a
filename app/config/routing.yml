@@ -36,11 +36,6 @@ _monitor:
     resource: "@LiipMonitorBundle/Resources/config/routing.xml"
     prefix: /monitor/health
 
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin
-
 _fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
