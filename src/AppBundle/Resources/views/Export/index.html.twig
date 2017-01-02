@@ -18,8 +18,8 @@
         {% for bucket in results.aggregation('published').buckets %}
             {% set date = bucket.key_as_string | date('Y-m-d') %}
             <li>{{ bucket.key_as_string | date('Y-m-d') }} {{ bucket.doc_count }}
-                <a href="{{ path('app_export_segment', { query: query.id, date: date, _format: 'json' }) }}">json</a>
-                <a href="{{ path('app_export_segment', { query: query.id, date: date, _format: 'csv' }) }}">csv</a>
+                <a href="{{ path('app_export_json', { query: query.id, date: date }) }}">json</a>
+                <a href="{{ path('app_export_csv', { query: query.id, date: date }) }}">csv</a>
             </li>
         {% endfor %}
     </ul>
