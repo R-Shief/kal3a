@@ -200,7 +200,7 @@ easy_admin:
         User:
             class: AppBundle\Entity\User
             form:
-                fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
+                fields: ['enabled', 'username', 'email', { property: 'plainPassword', type: 'password', label: 'Password' }, 'roles']
 
 fos_user:
     db_driver: orm
