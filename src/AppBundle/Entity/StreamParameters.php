@@ -32,8 +32,8 @@ class StreamParameters
 
     /**
      * @ORM\Column
-     * @Assert\NotBlank()
-     * @Assert\Type("string")
+     * @Assert\NotBlank(groups={"admin"})
+     * @Assert\Type("string", groups={"admin"})
      * @Gedmo\Versioned
      *
      * @var string
@@ -42,7 +42,7 @@ class StreamParameters
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\Type("string")
+     * @Assert\Type("string", groups={"admin"})
      * @Gedmo\Versioned
      *
      * @var string

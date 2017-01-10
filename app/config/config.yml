@@ -159,6 +159,7 @@ easy_admin:
                         name: new
                         label: Add %%entity_label%%
             form:
+                form_options: { validation_groups: ['Default', 'admin'] }
                 fields:
                     -
                         property: name
