@@ -138,7 +138,7 @@ class StreamParameters
      *
      * @ORM\Column(type="boolean")
      */
-    protected $enabled;
+    protected $enabled = true;
 
     /**
      * @return int
