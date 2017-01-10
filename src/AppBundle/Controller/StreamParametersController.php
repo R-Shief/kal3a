@@ -4,10 +4,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\StreamParameters;
 use Doctrine\Common\Persistence\ObjectRepository;
+use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Nelmio\ApiDocBundle\Annotation as Nelmio;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class StreamParametersController.
@@ -34,10 +36,14 @@ class StreamParametersController implements ClassResourceInterface
     /**
      * @Nelmio\ApiDoc(description="All stream parameter entities")
      * @FOSRest\View(serializerGroups={"default"})
+     * @FOSRest\QueryParam(name="enabled", default=true, requirements="(0|1)", strict=true, description="enabled parameters", allowBlank=true)
+     * @param ParamFetcher $paramFetcher
+     * @return array
+     * @throws \UnexpectedValueException
      */
-    public function cgetAction()
+    public function cgetAction(ParamFetcher $paramFetcher)
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy($paramFetcher->all());
     }
 
     /**

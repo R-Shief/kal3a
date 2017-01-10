@@ -134,6 +134,13 @@ class StreamParameters
     protected $updatedBy;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $enabled;
+
+    /**
      * @return int
      */
     public function getId()
@@ -235,5 +242,21 @@ class StreamParameters
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled)
+    {
+        $this->enabled = $enabled;
     }
 }

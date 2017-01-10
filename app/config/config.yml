@@ -153,7 +153,7 @@ easy_admin:
             label: Stream Parameters
             list:
                 title:  '%%entity_label%%'
-                fields: [id, name, language, track, follow, locations, created_at, created_by ]
+                fields: [id, name, language, enabled, track, follow, locations, created_at, created_by ]
                 actions:
                     -
                         name: new
@@ -166,6 +166,8 @@ easy_admin:
                     -
                         property: description
                         type: textarea
+                    -
+                        property: enabled
                     -
                         property: language
                         type: language
