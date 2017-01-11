@@ -86,7 +86,7 @@ services:
 
     atom_consumer:
         class: AppBundle\Consumer\AtomConsumer
-        arguments: ['@old_sound_rabbit_mq.atom_producer', '@serializer']
+        arguments: ['@old_sound_rabbit_mq.atom_producer', '@consumer_matcher', '@serializer']
 
     elasticsearch_consumer:
         class: AppBundle\Consumer\ElasticsearchConsumer
@@ -186,3 +186,7 @@ services:
         tags:
             - { name: monolog.logger }
             - { name: kernel.event_listener, event: 'console.terminate', method: 'onEvent' }
+
+    consumer_matcher:
+        class: AppBundle\Matcher
+        arguments: ['@stream_parameters.repository']

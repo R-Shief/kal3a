@@ -16,7 +16,8 @@ use AppBundle\CouchDocument\TextType;
 class TweetTransformerToAtom
 {
     /**
-     * {@inheritdoc}
+     * @param $data
+     * @return AtomEntry
      */
     public function transformTweet($data)
     {

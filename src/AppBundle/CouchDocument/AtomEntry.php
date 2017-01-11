@@ -3,6 +3,7 @@
 namespace AppBundle\CouchDocument;
 
 use AppBundle\Annotations as App;
+use AppBundle\Entity\StreamParameters;
 use Bangpound\Atom\Model\ContentTypeInterface;
 use Bangpound\Atom\Model\EntryTypeInterface;
 use Bangpound\Atom\Model\SourceTypeInterface;
@@ -88,6 +89,14 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
      * @App\PropertyInfoType("object", class="DateTime", nullable=true)
      */
     protected $updated;
+
+
+    /**
+     * @var string[]
+     * @ODM\Field()
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("string", nullable=false))
+     */
+    protected $parameterNames;
 
     /**
      * @return ContentTypeInterface
@@ -215,5 +224,21 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
     public function setTitle(TextTypeInterface $title = null)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getParameterNames()
+    {
+        return $this->parameterNames;
+    }
+
+    /**
+     * @param \string[] $parameterNames
+     */
+    public function setParameterNames(array $parameterNames)
+    {
+        $this->parameterNames = $parameterNames;
     }
 }

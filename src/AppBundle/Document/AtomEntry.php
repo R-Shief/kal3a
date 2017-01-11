@@ -84,6 +84,23 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
      */
     protected $updated;
 
+
+    /**
+     * @var string[]
+     * @ES\Property(
+     *   type="text",
+     *   options={
+     *     "fields"={
+     *       "keyword"={
+     *         "type"="keyword"
+     *       }
+     *     }
+     *   }
+     * )
+     * @App\PropertyInfoType("array", nullable=true, collection=true, collectionKeyType=@App\PropertyInfoType("int"), collectionValueType=@App\PropertyInfoType("string", nullable=false))
+     */
+    protected $parameterNames;
+
     /**
      * @return ContentTypeInterface
      */
@@ -210,5 +227,21 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
     public function setTitle(TextTypeInterface $title = null)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getParameterNames(): array
+    {
+        return $this->parameterNames;
+    }
+
+    /**
+     * @param \string[] $parameterNames
+     */
+    public function setParameterNames(array $parameterNames)
+    {
+        $this->parameterNames = $parameterNames;
     }
 }

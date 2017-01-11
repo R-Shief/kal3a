@@ -2,7 +2,11 @@
 
 namespace AppBundle\Consumer;
 
+use AppBundle\CouchDocument\AtomEntry;
+use AppBundle\Entity\StreamParameters;
+use AppBundle\Matcher;
 use AppBundle\TweetTransformerToAtom;
+use Doctrine\Common\Persistence\ObjectRepository;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -24,12 +28,17 @@ class AtomConsumer implements ConsumerInterface
      */
     private $serializer;
 
-    public function __construct(ProducerInterface $producer, SerializerInterface $serializer)
+    /**
+     * @var Matcher
+     */
+    private $matcher;
+
+    public function __construct(ProducerInterface $producer, Matcher $matcher, SerializerInterface $serializer)
     {
         $this->producer = $producer;
         $this->transformer = new TweetTransformerToAtom();
-
         $this->serializer = $serializer;
+        $this->matcher = $matcher;
     }
 
     /**
@@ -39,10 +48,13 @@ class AtomConsumer implements ConsumerInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        $data = \GuzzleHttp\json_decode($msg->getBody(), true);
-        $data = $this->transformer->transformTweet($data);
+        $body = $msg->getBody();
+        $data = \GuzzleHttp\json_decode($body, true);
+        /** @var AtomEntry $object */
+        $object = $this->transformer->transformTweet($data);
+        $object->setParameterNames($this->matcher->match($body));
 
-        $newMsg = $this->serializer->serialize($data, 'json');
+        $newMsg = $this->serializer->serialize($object, 'json');
         $this->producer->publish($newMsg, '', ['content_type' => 'application/json']);
 
         return ConsumerInterface::MSG_ACK;
