@@ -4143,12 +4143,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "bb0f4ea503ed11c440c9b480e3e6dccb74015831"
+                "reference": "8decdd77ea67a1da8b5f3278c5010615c9ae7917"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/bb0f4ea503ed11c440c9b480e3e6dccb74015831",
-                "reference": "bb0f4ea503ed11c440c9b480e3e6dccb74015831",
+                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/8decdd77ea67a1da8b5f3278c5010615c9ae7917",
+                "reference": "8decdd77ea67a1da8b5f3278c5010615c9ae7917",
                 "shasum": ""
             },
             "require": {
@@ -4185,7 +4185,7 @@
                 "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
                 "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
             },
-            "time": "2017-01-10 03:48:05"
+            "time": "2017-01-11 12:04:37"
         },
         {
             "name": "react/child-process",
