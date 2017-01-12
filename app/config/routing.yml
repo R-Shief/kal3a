@@ -15,7 +15,6 @@ bangpound_elasticsearch_proxy_search:
     type: guzzle_proxy
     resource: elasticsearch
     prefix: /elasticsearch
-    methods: ['GET']
     options:
         expose: true
 
@@ -23,7 +22,6 @@ bangpound_couchdb_proxy:
     type: guzzle_proxy
     resource: couchdb
     prefix: /couchdb
-    methods: ['GET']
     options:
         expose: true
 
