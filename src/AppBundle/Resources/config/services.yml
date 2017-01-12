@@ -1,0 +1,12 @@
+imports:
+  - { resource: guzzle.yml }
+  - { resource: twitter.yml }
+  - { resource: console.yml }
+  - { resource: stream.yml }
+  - { resource: event_loop.yml }
+  - { resource: rabbitmq.yml }
+  - { resource: logger.yml }
+
+services:
+  nab3a.standalone.parameters:
+    class: Symfony\Component\DependencyInjection\ParameterBag\ParameterBag

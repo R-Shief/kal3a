@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9e1ad7e41da1cd65462fd1992706b381",
-    "content-hash": "442f29a0e58744a9d27e78d7dc51d090",
+    "hash": "9961b15fc89ad402b209b2cd46824642",
+    "content-hash": "4f12b8dedde562104e5894864aac74b9",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -4136,56 +4136,6 @@
                 "psr-3"
             ],
             "time": "2016-10-10 12:19:37"
-        },
-        {
-            "name": "r-shief/nab3a-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/R-Shief/nab3a-bundle.git",
-                "reference": "8decdd77ea67a1da8b5f3278c5010615c9ae7917"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/R-Shief/nab3a-bundle/zipball/8decdd77ea67a1da8b5f3278c5010615c9ae7917",
-                "reference": "8decdd77ea67a1da8b5f3278c5010615c9ae7917",
-                "shasum": ""
-            },
-            "require": {
-                "clue/json-stream": "^0.1",
-                "guzzlehttp/guzzle": "^6.1",
-                "guzzlehttp/oauth-subscriber": "^0.3",
-                "react/child-process": "^0.4",
-                "react/eep": "dev-master",
-                "react/event-loop": "^0.4",
-                "react/stream": "^0.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "RShief\\Nab3aBundle\\": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Doherty",
-                    "email": "bjd@bangpound.org"
-                }
-            ],
-            "description": "Streaming client bundle for kal3a",
-            "support": {
-                "source": "https://github.com/R-Shief/nab3a-bundle/tree/master",
-                "issues": "https://github.com/R-Shief/nab3a-bundle/issues"
-            },
-            "time": "2017-01-11 12:04:37"
         },
         {
             "name": "react/child-process",

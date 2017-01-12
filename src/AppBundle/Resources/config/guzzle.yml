@@ -1,0 +1,94 @@
+parameters:
+
+services:
+    nab3a.guzzle.middleware.http_errors:
+        class: Closure
+        public: false
+        shared: false
+        factory: [ GuzzleHttp\Middleware, httpErrors ]
+        tags:
+            - { name: guzzle.middleware, client: nab3a.guzzle.client, middleware_name: http_errors }
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: http_errors }
+
+    nab3a.guzzle.middleware.prepare_body:
+        class: Closure
+        public: false
+        shared: false
+        factory: [ GuzzleHttp\Middleware, prepareBody ]
+        tags:
+            - { name: guzzle.middleware, client: nab3a.guzzle.client, middleware_name: prepare_body }
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: prepare_body }
+
+    nab3a.guzzle.middleware.history:
+        class: Closure
+        factory: [ AppBundle\Guzzle\HistoryMiddleware, history ]
+        public: false
+        shared: false
+        tags:
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: history }
+
+    nab3a.guzzle.middleware.history.container:
+        class: ArrayObject
+        factory: [ AppBundle\Guzzle\HistoryMiddleware, container ]
+
+    nab3a.guzzle.middleware.retry:
+        class: Closure
+        public: false
+        shared: false
+        factory: [ AppBundle\Guzzle\RetryMiddleware, retry ]
+
+    nab3a.guzzle.middleware.oauth:
+        class: GuzzleHttp\Subscriber\Oauth\Oauth1
+        abstract: true
+        public: false
+        shared: false
+
+    nab3a.guzzle.middleware.log:
+        class: Closure
+        factory: [ GuzzleHttp\Middleware, log ]
+        arguments: [ '@?logger', '@nab3a.guzzle.middleware.log.formatter' ]
+        tags:
+            - { name: monolog.logger, channel: guzzle }
+            - { name: guzzle.middleware, client: nab3a.guzzle.client, middleware_name: log, after: retry }
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: log, after: retry }
+        public: false
+        shared: false
+
+    nab3a.guzzle.middleware.log.formatter:
+        class: GuzzleHttp\MessageFormatter
+        arguments: [ '@=constant(''GuzzleHttp\\MessageFormatter::CLF'')' ]
+        public: false
+
+    nab3a.guzzle.client.handler:
+        class: GuzzleHttp\HandlerStack
+        factory: ['@nab3a.guzzle.client', 'getConfig']
+        arguments: ['handler']
+
+    nab3a.guzzle.client:
+        class: GuzzleHttp\Client
+        public: false
+        arguments:
+            -
+                on_stats: [ '@nab3a.guzzle.emitter', 'onStats' ]
+                on_headers: [ '@nab3a.guzzle.emitter', 'onHeaders' ]
+
+    nab3a.guzzle.client.params:
+        class: GuzzleHttp\Client
+        arguments:
+            -
+                base_uri: '%kal3a_web_url%'
+                headers:
+                    accept: application/json
+
+    nab3a.guzzle.handler_stack:
+        class: GuzzleHttp\HandlerStack
+        public: false
+        shared: false
+
+    nab3a.guzzle.emitter:
+        class: AppBundle\Guzzle\Emitter
+        calls:
+            - [ setLogger, [ '@?logger']]
+        tags:
+            - { name: monolog.logger, channel: guzzle }
+        public: false

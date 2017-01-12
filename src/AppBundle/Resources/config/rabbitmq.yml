@@ -1,0 +1,10 @@
+services:
+    nab3a.twitter.message_emitter.plugin.rabbitmq:
+        class: AppBundle\RabbitMq\EnqueueTweetPlugin
+        arguments:
+            - '@old_sound_rabbit_mq.twitter_producer'
+            - ''
+            - { content_type: 'application/json' }
+        public: false
+        tags:
+            - { name: evenement.plugin, id: nab3a.twitter.message_emitter }

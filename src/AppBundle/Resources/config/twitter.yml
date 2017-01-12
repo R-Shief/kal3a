@@ -1,0 +1,61 @@
+parameters:
+    nab3a.twitter.output.pattern: 'data/{user.screen_name}/{created_at.date}/{id}.json'
+    nab3a.twitter.batch_output.pattern: 'data/{id}.json'
+    nab3a.twitter.consumer_key: '%twitter_consumer_key%'
+    nab3a.twitter.consumer_secret: '%twitter_consumer_secret%'
+    nab3a.twitter.access_token: '%twitter_access_token%'
+    nab3a.twitter.access_token_secret: '%twitter_access_token_secret%'
+
+services:
+    nab3a.twitter.message_emitter:
+        class: AppBundle\Twitter\MessageEmitter
+        arguments: ['@nab3a.twitter.type_guesser']
+
+    nab3a.twitter.type_guesser:
+        class: AppBundle\Twitter\TypeGuesser
+        public: false
+
+    nab3a.twitter.message_emitter.plugin.logging:
+        class: AppBundle\Logger\LogMessagePlugin
+        arguments:
+            -
+                delete:           ~
+                tweet:            ~
+        calls:
+            - [ setLogger, [ '@?logger' ] ]
+        tags:
+            - { name: monolog.logger, channel: twitter }
+            - { name: evenement.plugin, id: nab3a.twitter.message_emitter }
+        public: false
+
+    nab3a.twitter.request_factory:
+        class: AppBundle\Stream\RequestFactory
+        arguments: [ '@nab3a.twitter.guzzle.client', { delimited: length } ]
+
+    nab3a.twitter.guzzle.client:
+        class: GuzzleHttp\Client
+        arguments:
+            -
+                base_uri: https://stream.twitter.com/1.1/
+                auth: oauth
+                decode_content: 'deflate, gzip'
+                stream: true
+                on_stats: [ '@nab3a.guzzle.emitter', 'onStats' ]
+                on_headers: [ '@nab3a.guzzle.emitter', 'onHeaders' ]
+
+    nab3a.twitter.guzzle.middleware.oauth:
+        parent: nab3a.guzzle.middleware.oauth
+        arguments:
+            -
+                consumer_key:    '%nab3a.twitter.consumer_key%'
+                consumer_secret: '%nab3a.twitter.consumer_secret%'
+                token:           '%nab3a.twitter.access_token%'
+                token_secret:    '%nab3a.twitter.access_token_secret%'
+        tags:
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: oauth }
+
+    nab3a.twitter.guzzle.middleware.retry:
+        parent: nab3a.guzzle.middleware.retry
+        tags:
+            - { name: guzzle.middleware, client: nab3a.twitter.guzzle.client, middleware_name: retry }
+

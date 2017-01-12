@@ -1,0 +1,44 @@
+services:
+    nab3a.stream.command:
+        class: AppBundle\Stream\PipeCommand
+        parent: nab3a.console.command
+        tags:
+            - { name: nab3a.console.command }
+
+    nab3a.stream_stdout.command:
+        class: AppBundle\Twitter\ReadStreamCommand
+        parent: nab3a.console.command
+        tags:
+            - { name: nab3a.console.command }
+
+    nab3a.validate.command:
+        class: AppBundle\Twitter\ValidationCommand
+        parent: nab3a.console.command
+        tags:
+            - { name: nab3a.console.command }
+
+    nab3a.stream.eep:
+        class: AppBundle\Stream\Eep
+        calls:
+            - [ setLogger, ['@logger']]
+            - [ setContainer, ['@service_container']]
+        tags:
+            - { name: evenement.plugin, id: nab3a.twitter.message_emitter }
+            - { name: event_loop.plugin }
+
+    nab3a.stream.eep.idle_time:
+        class: React\EEP\Window\Periodic
+        factory: ['@nab3a.stream.eep', makeIdleTimeTracker ]
+
+    nab3a.stream.eep.status_counter:
+        class: React\EEP\Window\Periodic
+        factory: ['@nab3a.stream.eep', makeStatusCounter ]
+
+    nab3a.stream.eep.status_averager:
+        class: React\EEP\Window\Periodic
+        factory: ['@nab3a.stream.eep', makeStatusAverager ]
+
+    nab3a.process.child_process:
+        class: AppBundle\Process\ChildProcess
+        arguments:
+            - '@nab3a.event_loop'
