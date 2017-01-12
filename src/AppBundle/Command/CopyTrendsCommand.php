@@ -80,7 +80,7 @@ class CopyTrendsCommand extends ContainerAwareCommand
                 }
 
                 foreach ($result as $row) {
-                    $timestamp = new \Bangpound\DateTime();
+                    $timestamp = new \DateTime();
                     $timestamp->setDate($row['key'][0], $row['key'][1], $row['key'][2])
                         ->setTime($row['key'][3], $row['key'][4]);
 
