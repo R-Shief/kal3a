@@ -23,23 +23,26 @@ services:
             - '@nab3a.stream.eep.status_counter'
             - '@nab3a.stream.eep.status_averager'
             - '@nab3a.stream.eep.idle_time'
-        calls:
-            - [ setLogger, ['@logger']]
         tags:
             - { name: evenement.plugin, id: nab3a.twitter.message_emitter }
             - { name: event_loop.plugin }
 
+    nab3a.stream.eep.periodic_factory:
+        class: AppBundle\Stream\PeriodicFactory
+        calls:
+            - [ setLogger, ['@logger']]
+
     nab3a.stream.eep.idle_time:
         class: React\EEP\Window\Periodic
-        factory: ['@nab3a.stream.eep', makeIdleTimeTracker ]
+        factory: ['@nab3a.stream.eep.periodic_factory', makeIdleTimeTracker ]
 
     nab3a.stream.eep.status_counter:
         class: React\EEP\Window\Periodic
-        factory: ['@nab3a.stream.eep', makeStatusCounter ]
+        factory: ['@nab3a.stream.eep.periodic_factory', makeStatusCounter ]
 
     nab3a.stream.eep.status_averager:
         class: React\EEP\Window\Periodic
-        factory: ['@nab3a.stream.eep', makeStatusAverager ]
+        factory: ['@nab3a.stream.eep.periodic_factory', makeStatusAverager ]
 
     nab3a.process.child_process:
         class: AppBundle\Process\ChildProcess
