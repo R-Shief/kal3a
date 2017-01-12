@@ -9,7 +9,7 @@
         <table class="table table-condensed">
         {% for result in results %}
             <tr>
-                <th><a href="{{ url('bangpound_castle_search_result', { 'language': result.key | lower }) }}">{{ result.label }}</a></th>
+                <th><!--<a href="{# url('bangpound_castle_search_result', { 'language': result.key | lower }) #}">-->{{ result.label }}<!--</a>--></th>
                 <td class="text-right">{{ result.value|number_format }}</td>
             </tr>
         {% endfor %}

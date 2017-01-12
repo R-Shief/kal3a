@@ -6,7 +6,7 @@ use Doctrine\CouchDB\CouchDBClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Symfony\Component\Intl\Intl;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
-use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Nelmio\ApiDocBundle\Annotation as Nelmio;
 
 /**
  * Class StatisticsController.
@@ -37,7 +37,7 @@ class StatisticsController
      * @FOSRest\QueryParam(name="limit")
      * @FOSRest\Route("/published", methods={"GET"})
      * @FOSRest\View
-     * @ApiDoc
+     * @Nelmio\ApiDoc
      *
      * @param \DateTime $start
      * @param \DateTime $end
@@ -88,7 +88,7 @@ class StatisticsController
 
     /**
      * @FOSRest\Route("/language", methods={"GET"})
-     * @ApiDoc
+     * @Nelmio\ApiDoc
      * @FOSRest\View
      *
      * @return array
@@ -121,7 +121,7 @@ class StatisticsController
      * @FOSRest\QueryParam(name="end")
      * @FOSRest\Route("/top-tag", methods={"GET"})
      * @FOSRest\View
-     * @ApiDoc
+     * @Nelmio\ApiDoc
      *
      * @param \DateTime $start
      * @param \DateTime $end

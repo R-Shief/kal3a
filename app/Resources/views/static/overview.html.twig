@@ -1,0 +1,13 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <div class="col-md-6">
+        {{ render(controller('AppBundle:CollectionStatistics:daily')) }}
+        {{ render(controller('AppBundle:CollectionStatistics:hourly')) }}
+    </div>
+    <div class="col-md-6">
+        {{ render(controller('AppBundle:CollectionStatistics:language')) }}
+    </div>
+    {#{{ render(controller('AppBundle:CollectionStatistics:topTag', {'title': 'Today', 'body': 'Top tags for today', 'start': date('now') | date('Y-m-d'), 'end': date('-1 day') | date('Y-m-d')})) }}#}
+    {#{{ render(controller('AppBundle:CollectionStatistics:topTag', {'title': 'Yesterday', 'body': 'Top tags for yesterday', 'start': date('-1 day') | date('Y-m-d'), 'end': date('-2 day') | date('Y-m-d')})) }}#}
+{% endblock %}

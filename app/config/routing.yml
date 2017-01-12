@@ -62,3 +62,9 @@ rshief_kal3a_stats:
     defaults: {_format: json}
     options:
         expose: true
+
+statistics_overview:
+    path: /overview
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/overview.html.twig
