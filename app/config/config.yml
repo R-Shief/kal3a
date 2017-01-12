@@ -99,7 +99,6 @@ old_sound_rabbit_mq:
     producers:
         twitter:
             exchange_options:    { name: 'twitter', type: 'fanout' }
-            enable_logger: true
         atom:
             exchange_options:    { name: 'atom', type: 'fanout' }
             enable_logger: true

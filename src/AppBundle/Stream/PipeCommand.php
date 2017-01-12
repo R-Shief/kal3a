@@ -5,7 +5,6 @@ namespace AppBundle\Stream;
 use React\ChildProcess\Process;
 use AppBundle\Console\AbstractCommand;
 use Symfony\Component\Console\ConsoleEvents;
-use Symfony\Component\Console\Event\ConsoleEvent;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -30,7 +29,7 @@ class PipeCommand extends AbstractCommand
      * @param InputInterface $input
      * @param OutputInterface $output
      *
-     * @return int|null|void
+     * @return null|int null or 0 if everything went fine, or an error code
      * @throws InvalidArgumentException
      * @throws \RuntimeException
      * @throws ServiceNotFoundException
@@ -39,6 +38,7 @@ class PipeCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $loop = $this->container->get('nab3a.event_loop');
+        $pcntl = $this->container->get('nab3a.pcntl');
 
         // @todo
 
@@ -61,17 +61,28 @@ class PipeCommand extends AbstractCommand
 
         $process = $this->container
           ->get('nab3a.process.child_process')
-          ->makeChildProcess('stream:read:twitter '.$stringOption);
+          ->makeChildProcess('stream:read:twitter -vvv '.$stringOption);
 
         $this->attachListeners($process);
 
         $process->stderr->pipe($this->container->get('nab3a.console.logger_helper'));
         $process->stdout->pipe($this->container->get('nab3a.twitter.message_emitter'));
-        $process->on('exit', function ($x, $y) {
-            dump(func_get_args());
+        $process->on('exit', function ($exitCode, $termSignal) use ($loop, $process) {
+            $this->container->get('logger')->info(sprintf('child process pid %d exited with code %d signal %s', $process->getPid(), $exitCode, $termSignal));
+            $loop->stop();
+        });
+
+        $pcntl->on(SIGTERM, function () use ($loop, $process) {
+            $this->container->get('logger')->info(sprintf('process pid %d exited with code %d signal %s', posix_getpid(), 0, SIGTERM));
+            if ($process->isRunning()) {
+                $process->terminate();
+            }
+            $loop->stop();
         });
 
         $loop->run();
+
+        return 1;
     }
 
     /**
@@ -82,13 +93,15 @@ class PipeCommand extends AbstractCommand
     private function attachListeners(Process $process)
     {
         $dispatcher = $this->container->get('event_dispatcher');
-        $listener = function (ConsoleEvent $event) use ($process) {
+        $listener = function () use ($process) {
             if ($process->isRunning()) {
                 $process->terminate();
                 usleep(self::CHILD_PROC_TIMER * 1e6);
             }
+            $this->container->get('nab3a.event_loop')->stop();
         };
         $dispatcher->addListener(ConsoleEvents::EXCEPTION, $listener);
         $dispatcher->addListener(ConsoleEvents::TERMINATE, $listener);
+        register_shutdown_function($listener);
     }
 }

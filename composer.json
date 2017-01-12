@@ -34,6 +34,7 @@
         "javiereguiluz/easyadmin-bundle": "^1.13",
         "league/csv": "^8.1",
         "liip/monitor-bundle": "^2.3",
+        "mkraemer/react-pcntl": "^2.2",
         "nelmio/api-doc-bundle": "^2.11",
         "nelmio/cors-bundle": "^1.0",
         "ongr/elasticsearch-bundle": "5.1.x-dev",

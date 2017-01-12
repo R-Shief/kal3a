@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9961b15fc89ad402b209b2cd46824642",
-    "content-hash": "4f12b8dedde562104e5894864aac74b9",
+    "hash": "4f251abf556fa41438cd14d0fd9c81ee",
+    "content-hash": "51556b53db9f282215abf483eeb2a823",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2702,6 +2702,52 @@
                 "markdown"
             ],
             "time": "2016-10-29 18:58:20"
+        },
+        {
+            "name": "mkraemer/react-pcntl",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mkraemer/react-pcntl.git",
+                "reference": "b410b6e52965714d44395ac14646a01bd362e5c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mkraemer/react-pcntl/zipball/b410b6e52965714d44395ac14646a01bd362e5c6",
+                "reference": "b410b6e52965714d44395ac14646a01bd362e5c6",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "2.0.*",
+                "ext-pcntl": "*",
+                "php": ">=5.4",
+                "react/event-loop": "0.4.*"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MKraemer": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Krämer",
+                    "email": "marius@marius-kraemer.de"
+                }
+            ],
+            "description": "PCNTL bindings for ReactPHP",
+            "keywords": [
+                "pcntl",
+                "react"
+            ],
+            "time": "2016-11-16 14:20:20"
         },
         {
             "name": "monolog/monolog",

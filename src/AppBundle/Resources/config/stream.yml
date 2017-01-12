@@ -48,3 +48,8 @@ services:
         class: AppBundle\Process\ChildProcess
         arguments:
             - '@nab3a.event_loop'
+
+    nab3a.pcntl:
+        class: MKraemer\ReactPCNTL\PCNTL
+        arguments:
+            - '@nab3a.event_loop'
