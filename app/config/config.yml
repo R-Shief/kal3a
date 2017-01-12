@@ -289,6 +289,8 @@ fos_rest:
         enabled: true
         rules:
             - { path: '^/api/doc', stop: true }
+            - { path: '^/couchdb', priorities: ['json'] }
+            - { path: '^/elasticsearch', priorities: ['json'] }
             - { path: '^/api', priorities: ['json'] }
             - { path: '^/', stop: true }
     view:
