@@ -12,7 +12,6 @@ use React\EEP\Composite;
 use React\EEP\Stats;
 use React\EEP\Window;
 use React\EventLoop\LoopInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
  * Class Eep.
@@ -25,8 +24,29 @@ class Eep implements Evenement\PluginInterface, EventLoop\PluginInterface, Logge
     const SECOND_MS = 1e3;
     const HOUR_MS = 3600e3;
 
+    /**
+     * @var Window\Periodic
+     */
+    private $statusCounter;
+
+    /**
+     * @var Window\Periodic
+     */
+    private $statusAverager;
+
+    /**
+     * @var Window\Periodic
+     */
+    private $idleTime;
+
     use LoggerAwareTrait;
-    use ContainerAwareTrait;
+
+    public function __construct(Window\Periodic $statusCounter, Window\Periodic $statusAverager, Window\Periodic $idleTime)
+    {
+        $this->statusCounter = $statusCounter;
+        $this->statusAverager = $statusAverager;
+        $this->idleTime = $idleTime;
+    }
 
     /**
      * @param EventEmitterInterface $emitter
@@ -52,7 +72,7 @@ class Eep implements Evenement\PluginInterface, EventLoop\PluginInterface, Logge
         if ($time) {
             $ut = microtime(true);
             $v = abs($ut - $time);
-            $this->container->get('nab3a.stream.eep.idle_time')->enqueue($v);
+            $this->idleTime->enqueue($v);
             $time = $ut;
         } else {
             $time = microtime(true);
@@ -64,15 +84,15 @@ class Eep implements Evenement\PluginInterface, EventLoop\PluginInterface, Logge
      */
     public function tweetCounter($data)
     {
-        $this->container->get('nab3a.stream.eep.status_counter')->enqueue($data);
-        $this->container->get('nab3a.stream.eep.status_averager')->enqueue($data);
+        $this->statusCounter->enqueue($data);
+        $this->statusAverager->enqueue($data);
     }
 
     public function ticker()
     {
-        $this->container->get('nab3a.stream.eep.status_counter')->tick();
-        $this->container->get('nab3a.stream.eep.status_averager')->tick();
-        $this->container->get('nab3a.stream.eep.idle_time')->tick();
+        $this->statusCounter->tick();
+        $this->statusAverager->tick();
+        $this->idleTime->tick();
     }
 
     /**

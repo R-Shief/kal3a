@@ -3,10 +3,8 @@
 namespace AppBundle\Consumer;
 
 use AppBundle\CouchDocument\AtomEntry;
-use AppBundle\Entity\StreamParameters;
 use AppBundle\Matcher;
 use AppBundle\TweetTransformerToAtom;
-use Doctrine\Common\Persistence\ObjectRepository;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 use PhpAmqpLib\Message\AMQPMessage;

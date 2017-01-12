@@ -2,15 +2,18 @@
 
 namespace AppBundle\Command;
 
+use OldSound\RabbitMqBundle\Command\ConsumerCommand as BaseConsumerCommand;
 use OldSound\RabbitMqBundle\RabbitMq\Consumer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ConsumerCommand extends \OldSound\RabbitMqBundle\Command\ConsumerCommand
+/**
+ * Class ConsumerCommand
+ * @package AppBundle\Command
+ * @property Consumer $consumer
+ */
+class ConsumerCommand extends BaseConsumerCommand
 {
-    /** @var  \OldSound\RabbitMqBundle\RabbitMq\Consumer */
-    protected $consumer;
-
     protected function configure()
     {
         parent::configure();

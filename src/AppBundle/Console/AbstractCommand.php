@@ -35,7 +35,7 @@ abstract class AbstractCommand extends Command
         $serializer = $this->container->get('serializer');
         $merger = new MergeStreamParameters();
         $params = new StreamParameters();
-        foreach ($input->getOption('stream') as $stream) {
+        foreach ((array) $input->getOption('stream') as $stream) {
             if (ctype_digit($stream)) {
                 $response = $client->get('stream/'.$stream);
                 $streamParameter = $serializer->deserialize($response->getBody(), StreamParameters::class, 'json');

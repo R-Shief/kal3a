@@ -16,18 +16,12 @@ use SRL\Builder;
 class Matcher
 {
     /**
-     * @var ObjectRepository
-     */
-    private $repo;
-
-    /**
      * @var StreamParameters[]
      */
     private $entities;
 
     public function __construct(ObjectRepository $repo)
     {
-        $this->repo = $repo;
         $this->entities = $repo->findBy(['enabled' => true]);
         $this->strings = array_map([$this, 'makeExpression'], $this->entities);
     }
@@ -58,7 +52,7 @@ class Matcher
     {
         $builder = new Builder();
 
-        return $builder->anyOf(function (\SRL\Builder $query) use ($streamParameters) {
+        return $builder->anyOf(function (Builder $query) use ($streamParameters) {
             foreach ($streamParameters->getTrack() as $track) {
                 $query->literally($track);
             }

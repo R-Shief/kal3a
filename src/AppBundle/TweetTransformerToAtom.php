@@ -37,7 +37,7 @@ class TweetTransformerToAtom
 
         if (isset($data['entities']['hashtags'])) {
             $categories = [];
-            foreach ($data['entities']['hashtags'] as $hashtag) {
+            foreach ((array) $data['entities']['hashtags'] as $hashtag) {
                 $category = new CategoryType();
                 $category->setTerm($hashtag['text']);
                 $categories[] = $category;
@@ -49,7 +49,7 @@ class TweetTransformerToAtom
         $links[] = $this->makeLink('https://twitter.com/intent/user?user_id='.$data['user']['id_str'], 'author');
 
         if (isset($data['entities']['urls'])) {
-            foreach ($data['entities']['urls'] as $url) {
+            foreach ((array) $data['entities']['urls'] as $url) {
                 if (!empty($url['expanded_url'])) {
                     $rel = substr_compare($url['expanded_url'], $url['display_url'], -strlen($url['display_url']), strlen($url['display_url'])) === 0 ? 'shortlink' : 'nofollow';
                     $link = $this->makeLink($url['expanded_url'], $rel);
@@ -59,7 +59,7 @@ class TweetTransformerToAtom
         }
 
         if (isset($data['entities']['media'])) {
-            foreach ($data['entities']['media'] as $media) {
+            foreach ((array) $data['entities']['media'] as $media) {
                 $link = $this->makeLink($media['media_url'], 'enclosure');
                 if ($media['type'] === 'photo') {
                     $link->setType('image');

@@ -9,6 +9,7 @@ use Doctrine\CouchDB\HTTP\Response;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\Event;
 
 class BulkCouchDB implements LoggerAwareInterface
 {
@@ -108,7 +109,7 @@ class BulkCouchDB implements LoggerAwareInterface
         return $response;
     }
 
-    public function onEvent(\Symfony\Component\EventDispatcher\Event $event)
+    public function onEvent(Event $event)
     {
         if (!empty($this->data)) {
             $response = $this->execute();

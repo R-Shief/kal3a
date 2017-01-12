@@ -12,16 +12,18 @@ class EnqueueTweetPlugin implements PluginInterface
      * @var ProducerInterface
      */
     private $producer;
+
     /**
      * @var string
      */
     private $routingKey;
+
     /**
      * @var array
      */
     private $additionalProperties;
 
-    public function __construct(ProducerInterface $producer, $routingKey = '', $additionalProperties = array())
+    public function __construct(ProducerInterface $producer, $routingKey = '', array $additionalProperties = array())
     {
         $this->producer = $producer;
         $this->routingKey = $routingKey;

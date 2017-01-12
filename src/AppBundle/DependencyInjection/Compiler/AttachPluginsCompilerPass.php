@@ -46,6 +46,10 @@ class AttachPluginsCompilerPass implements CompilerPassInterface
         $serviceIds = $container->findTaggedServiceIds($this->pluginTag);
 
         $configurators = [];
+        /**
+         * @var string $serviceId
+         * @var array $tags
+         */
         foreach ($serviceIds as $serviceId => $tags) {
             foreach ($tags as $tag) {
                 $configurators[isset($tag['id']) ? $tag['id'] : $this->defaultServiceId][] = $serviceId;

@@ -55,7 +55,7 @@ class PruneCommand extends ContainerAwareCommand
             $result = $query->execute();
             $next_start_key = null;
             if (count($result) > 0) {
-                if (count($result) == $limit + 1) {
+                if (count($result) === $limit + 1) {
                     $next_start_key = $result[$limit]['key'];
                     $query->setStartKey($result[$limit]['key']);
                     $query->setStartKeyDocId($result[$limit]['id']);

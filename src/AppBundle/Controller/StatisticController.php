@@ -49,11 +49,7 @@ class StatisticController extends FOSRestController
         $result = $query->execute();
 
         return array_map(function ($value) use ($group) {
-            if ($group > 1) {
-                $date = new \DateTime();
-            } else {
-                $date = 'all';
-            }
+            $date = $group > 1 ? new \DateTime() : 'all';
             if ($group === 2) {
                 $date->setDate($value['key'][1], 0, 1);
             }

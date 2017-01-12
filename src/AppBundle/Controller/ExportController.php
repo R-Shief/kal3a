@@ -128,6 +128,7 @@ class ExportController extends Controller
         }, 200, [
           'Content-Type' => 'text/csv',
         ]);
+
         $response->headers->set('Content-Disposition', $response->headers->makeDisposition(
           ResponseHeaderBag::DISPOSITION_ATTACHMENT,
           $date->format('Y-m-d').'.csv'
@@ -158,7 +159,6 @@ class ExportController extends Controller
         ]);
         $search->addFilter($rangeQuery);
 
-        $results = $repo->findRaw($search);
-        return $results;
+        return $repo->findRaw($search);
     }
 }

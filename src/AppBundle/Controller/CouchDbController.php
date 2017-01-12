@@ -23,7 +23,7 @@ class CouchDbController extends Controller
 
         $response = $conn->getHttpClient()->request('GET', '/_active_tasks');
 
-        if ($response->status != 200) {
+        if ($response->status !== 200) {
             throw new CouchDBException('Could not retrieve active tasks from CouchDB.');
         }
 

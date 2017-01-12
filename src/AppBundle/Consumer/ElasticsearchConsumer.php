@@ -21,8 +21,8 @@ class ElasticsearchConsumer implements ConsumerInterface
     /**
      * ElasticsearchConsumer constructor.
      *
-     * @param Manager $manager
-     * @param string  $atomEntryClass
+     * @param string $atomEntryClass
+     * @param BulkElasticsearch $bulkConsumer
      */
     public function __construct($atomEntryClass, BulkElasticsearch $bulkConsumer)
     {

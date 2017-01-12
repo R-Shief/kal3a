@@ -107,7 +107,7 @@ function mapUser($v)
     $v = mapCommon($v);
 
     if (isset($v['entities'])) {
-        foreach ($v['entities'] as &$entries) {
+        foreach ((array) $v['entities'] as &$entries) {
             $entries = t\xform($entries, t\comp(
               t\map('Nab3aBundle\Process\mapEntities')
             ));

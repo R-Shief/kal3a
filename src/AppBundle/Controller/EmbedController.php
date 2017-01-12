@@ -17,6 +17,8 @@ class EmbedController extends Controller
     /**
      * @Route
      * @Template
+     * @param Request $request
+     * @return array
      */
     public function indexAction(Request $request)
     {

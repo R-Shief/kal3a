@@ -93,7 +93,7 @@ class CloneViewCommand extends ContainerAwareCommand
                 );
 
                 $rev_map = array();
-                foreach ($results->body['rows'] as $row) {
+                foreach ((array) $results->body['rows'] as $row) {
                     if (!isset($row['error'])) {
                         $rev_map[$row['id']] = $row['value']['rev'];
                     }

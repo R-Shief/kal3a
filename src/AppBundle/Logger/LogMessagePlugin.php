@@ -38,7 +38,7 @@ class LogMessagePlugin implements PluginInterface
 
     public function attachEvents(EventEmitterInterface $emitter)
     {
-        foreach ($this->events as $event => $level) {
+        foreach ((array) $this->events as $event => $level) {
             $emitter->on($event, $this->log($event, $level));
         }
     }

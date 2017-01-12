@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class QueueController.
@@ -14,6 +15,8 @@ class QueueController extends Controller
 {
     /**
      * @Route("/{path}", requirements={"path"=".+"})
+     * @param $path
+     * @return Response
      */
     public function indexAction($path)
     {

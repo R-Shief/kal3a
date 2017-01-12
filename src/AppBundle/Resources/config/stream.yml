@@ -19,9 +19,12 @@ services:
 
     nab3a.stream.eep:
         class: AppBundle\Stream\Eep
+        arguments:
+            - '@nab3a.stream.eep.status_counter'
+            - '@nab3a.stream.eep.status_averager'
+            - '@nab3a.stream.eep.idle_time'
         calls:
             - [ setLogger, ['@logger']]
-            - [ setContainer, ['@service_container']]
         tags:
             - { name: evenement.plugin, id: nab3a.twitter.message_emitter }
             - { name: event_loop.plugin }

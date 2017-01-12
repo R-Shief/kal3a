@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\Reference;
 
 class StackMiddlewareCompilerPass implements CompilerPassInterface
@@ -19,6 +20,10 @@ class StackMiddlewareCompilerPass implements CompilerPassInterface
     {
         $serviceIds = $container->findTaggedServiceIds('guzzle.middleware');
         $stacks = [];
+        /**
+         * @var string $serviceId
+         * @var array $tags
+         */
         foreach ($serviceIds as $serviceId => $tags) {
             foreach ($tags as $tag) {
                 $clientId = $tag['client'];
@@ -28,7 +33,11 @@ class StackMiddlewareCompilerPass implements CompilerPassInterface
         }
 
         foreach ($stacks as $clientId => $middlewares) {
-            $clientDefinition = $container->getDefinition($clientId);
+            try {
+                $clientDefinition = $container->getDefinition($clientId);
+            } catch (ServiceNotFoundException $e) {
+                continue;
+            }
             $arguments = $clientDefinition->getArguments();
 
             $handlerDefinition = self::hasHandlerDefinition($arguments) ? self::getHandlerDefinition($arguments) : self::newHandlerDefinition($container);
@@ -43,7 +52,7 @@ class StackMiddlewareCompilerPass implements CompilerPassInterface
                 $method = $middleware['method'];
                 $stackArguments = [
                   new Reference($middleware['service']),
-                  $middleware['middleware_name']
+                  $middleware['middleware_name'],
                 ];
                 if (isset($middleware['before']) || isset($middleware['after'])) {
                     $method = isset($middleware['before']) ? 'before' : 'after';
