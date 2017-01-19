@@ -47,24 +47,20 @@ YZSupervisorBundle:
     resource: "@YZSupervisorBundle/Resources/config/routing.xml"
     prefix: /admin/supervisor
 
-stream_parameters:
-    type:     rest
-    resource: app.controller.collection_parameters_controller
-    prefix: '/api'
-    defaults: {_format: json}
-    options:
-        expose: true
-
-rshief_kal3a_stats:
-    resource: AppBundle\Controller\StatisticController
-    type:     rest
-    prefix: '/api'
-    defaults: {_format: json}
-    options:
-        expose: true
-
 statistics_overview:
     path: /overview
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    static/overview.html.twig
+
+_rest:
+    resource: routing_rest.yml
+    type: rest
+
+_tag_stats_redirect:
+    path: /tagstatistic/summary.json
+    defaults:
+        _controller: AppBundle:StreamParametersStatistics:getSummary
+        parameters: 1
+        _format: json
+

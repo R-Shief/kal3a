@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\StreamParameters;
 use Doctrine\CouchDB\CouchDBClient;
 use Doctrine\CouchDB\View\Result;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -12,9 +13,9 @@ use FOS\RestBundle\Controller\Annotations as FOSRest;
 /**
  * Class StatisticsController.
  *
- * @FOSRest\RouteResource("Tag")
+ * @FOSRest\RouteResource("Stream", pluralize=false)
  */
-class StatisticController extends FOSRestController
+class StreamParametersStatisticsController extends FOSRestController
 {
     /**
      * @Nelmio\ApiDoc
@@ -25,7 +26,7 @@ class StatisticController extends FOSRestController
      *
      * @return \FOS\RestBundle\View\View
      */
-    public function getStatisticsAction(string $tag, int $group = 4)
+    private function getStatisticsAction(string $tag, int $group = 4)
     {
         $tag = strtolower(ltrim($tag, '#'));
         $dm = $this->get('doctrine_couchdb');
@@ -84,21 +85,20 @@ class StatisticController extends FOSRestController
     /**
      * @Nelmio\ApiDoc
      *
-     * @throws \LogicException
+     * @param StreamParameters $parameters
+     * @return array
      * @Sensio\Cache(maxage="3600", public=true, vary={"Accept-Encoding", "Origin"})
+     * @FOSRest\QueryParam(name="enabled", default=true, requirements="(0|1)", strict=true, description="enabled parameters", allowBlank=true)
      * @FOSRest\View
      */
-    public function getSummaryAction()
+    public function getSummaryAction(StreamParameters $parameters)
     {
         $output = array();
         $tr = $this->getDoctrine()->getRepository('AppBundle:StreamParameters');
 
-        $streamParameters = $tr->findAll();
-        foreach ($streamParameters as $streamParameter) {
-            foreach ($streamParameter->getTrack() as $track) {
-                $output[$track] = $this->getStatisticsAction($track);
-                $output['_total'][$track] = $this->getStatisticsAction($track, 1);
-            }
+        foreach ($parameters->getTrack() as $track) {
+            $output[$track] = $this->getStatisticsAction($track);
+            $output['_total'][$track] = $this->getStatisticsAction($track, 1);
         }
 
         return $output;
