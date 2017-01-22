@@ -1,0 +1,14 @@
+{% extends "YZSupervisorBundle::layout.html.twig" %}
+
+{% block yz_supervisor_content %}
+    <div class="page-header">
+        <h1>Supervisor</h1>
+    </div>
+    {% include "YZSupervisorBundle:Supervisor:list_content.html.twig" %}
+    {% include "YZSupervisorBundle:Supervisor:list_javascript.html.twig" %}
+{% endblock yz_supervisor_content %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>#}
+{% endblock %}
