@@ -1,0 +1,4 @@
+services:
+    orm_acl_security.filter.acl:
+        class: OrmAclSecurityBundle\Bridge\Doctrine\AclFilter
+        arguments: ['@doctrine', '@security.token_storage', '%orm_acl_security.acl_walker%', '%security.role_hierarchy.roles%' ]

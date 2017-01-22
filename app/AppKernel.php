@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new YZ\SupervisorBundle\YZSupervisorBundle(),
             new Aws\Symfony\AwsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new OrmAclSecurityBundle\OrmAclSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

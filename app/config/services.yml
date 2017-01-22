@@ -190,3 +190,19 @@ services:
     consumer_matcher:
         class: AppBundle\Matcher
         arguments: ['@stream_parameters.repository']
+
+    admin_security_subscriber:
+        class: AppBundle\EventListener\AdminSecuritySubscriber
+        arguments: ['@security.authorization_checker']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    admin_acl_subscriber:
+        class: AppBundle\EventListener\AdminAclSubscriber
+        arguments: ['@security.token_storage', '@acl_manager']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    acl_manager:
+        class: AppBundle\Security\AclManager
+        arguments: ['@security.acl.dbal.provider']

@@ -54,6 +54,21 @@ class Query
      */
     private $publishedEnd;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Gedmo\Blameable(on="create")
+     */
+    protected $createdBy;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Gedmo\Blameable(on="update")
+     */
+    protected $updatedBy;
 
     /**
      * Get id

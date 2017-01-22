@@ -128,11 +128,11 @@ easy_admin:
         menu:
             - { label: 'Twitter Streaming', icon: twitter, children: ['StreamParameters'] }
             - { label: 'Export Query Result', icon: database, children: ['Query'] }
-            - { label: Users, entity: User, icon: 'users' }
+            - { label: 'User Management', icon: 'users', children: [ { label: Users, entity: User }, { label: Groups, entity: Group } ] }
             - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
             - { label: 'System Health Status', route: 'liip_monitor_health_interface', icon: 'heartbeat' }
             - { label: 'Supervisor', route: 'supervisor', icon: 'server' }
-            - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' } ] }
+            - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' }, { label: 'Logout', route: 'fos_user_security_logout' } ] }
     entities:
         'Query':
             class: AppBundle\Entity\Query
@@ -151,7 +151,7 @@ easy_admin:
             label: Stream Parameters
             list:
                 title:  '%%entity_label%%'
-                fields: [id, name, language, enabled, track, follow, locations, created_at, created_by ]
+                fields: [id, name, language, enabled, track, follow, locations, createdAt, createdBy ]
                 actions:
                     -
                         name: new
@@ -196,17 +196,22 @@ easy_admin:
                 title:  'Create %%entity_label%%'
             edit:
                 title: 'Edit %%entity_label%% (#%%entity_id%%)'
-            search:
-                fields: ['language', 'follow', 'track', 'locations']
         User:
             class: AppBundle\Entity\User
+            list:
+                fields: ['username','email','enabled','lastLogin','groups', 'roles']
             form:
-                fields: ['enabled', 'username', 'email', { property: 'plainPassword', type: 'password', label: 'Password' }, 'roles']
+                fields: ['enabled', 'username', 'email', { property: 'plainPassword', type: 'password', label: 'Password' }, 'groups', 'roles']
+
+        Group:
+            class: AppBundle\Entity\Group
 
 fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    group:
+        group_class: AppBundle\Entity\Group
 
 # Doctrine CouchDB Configuration
 doctrine_couch_db:

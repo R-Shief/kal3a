@@ -60,3 +60,6 @@ security:
         - { path: ^/elasticsearch, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
         - { path: ^/elasticsearch/_search, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET,POST] }
         - { path: ^/elasticsearch, role: [ROLE_SUPER_ADMIN] }
+
+    acl:
+        connection: default
