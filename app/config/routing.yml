@@ -25,13 +25,6 @@ bangpound_couchdb_proxy:
     options:
         expose: true
 
-root:
-    path:     /
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /search
-        permanent: true
-
 _monitor:
     resource: "@LiipMonitorBundle/Resources/config/routing.xml"
     prefix: /monitor/health
