@@ -1,6 +1,13 @@
 {% extends '::layout.html.twig' %}
 
+{% block title %}
+    Active Tasks
+{% endblock %}
+
 {% block content %}
+    <div class="page-header">
+        <h1>{{ block('title') }}</h1>
+    </div>
     <table class="table table-condensed">
         <thead>
         <tr>

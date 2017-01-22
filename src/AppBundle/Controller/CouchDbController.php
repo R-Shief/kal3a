@@ -4,8 +4,7 @@ namespace AppBundle\Controller;
 
 use Doctrine\CouchDB\CouchDBException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 
 class CouchDbController extends Controller
 {
@@ -13,8 +12,9 @@ class CouchDbController extends Controller
      * @return mixed
      *
      * @throws \Doctrine\CouchDB\CouchDBException
-     * @Route("/_active_tasks")
-     * @Template
+     * @Sensio\Route("/_active_tasks")
+     * @Sensio\Template
+     * @Sensio\Security("has_role('ROLE_ADMIN')")
      */
     public function tasksAction()
     {
