@@ -833,12 +833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bangpound/DoctrineCouchDBBundle.git",
-                "reference": "03d7a7f167e1934d32b101922fe2e97155eb16f9"
+                "reference": "6426325cf6ca51e3f44fde14ddb02302ee5126af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/03d7a7f167e1934d32b101922fe2e97155eb16f9",
-                "reference": "03d7a7f167e1934d32b101922fe2e97155eb16f9",
+                "url": "https://api.github.com/repos/bangpound/DoctrineCouchDBBundle/zipball/6426325cf6ca51e3f44fde14ddb02302ee5126af",
+                "reference": "6426325cf6ca51e3f44fde14ddb02302ee5126af",
                 "shasum": ""
             },
             "require": {
@@ -877,7 +877,7 @@
             "support": {
                 "source": "https://github.com/bangpound/DoctrineCouchDBBundle/tree/develop"
             },
-            "time": "2016-12-12 06:47:43"
+            "time": "2017-01-22 13:13:02"
         },
         {
             "name": "doctrine/dbal",
@@ -2157,16 +2157,16 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.16.3",
+            "version": "v1.16.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "2bf7a787902b5f20bcececd0a40602c1ca6e67b0"
+                "reference": "eeec501f1a3500b80071d9ef8f844d261b88042f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/2bf7a787902b5f20bcececd0a40602c1ca6e67b0",
-                "reference": "2bf7a787902b5f20bcececd0a40602c1ca6e67b0",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/eeec501f1a3500b80071d9ef8f844d261b88042f",
+                "reference": "eeec501f1a3500b80071d9ef8f844d261b88042f",
                 "shasum": ""
             },
             "require": {
@@ -2186,6 +2186,7 @@
                 "symfony/framework-bundle": "~2.3|~3.0",
                 "symfony/http-foundation": "~2.3|~3.0",
                 "symfony/http-kernel": "~2.3|~3.0",
+                "symfony/polyfill-mbstring": "^1.0",
                 "symfony/property-access": "~2.3|~3.0",
                 "symfony/security-bundle": "~2.3|~3.0",
                 "symfony/twig-bridge": "^2.3.4|~3.0",
@@ -2204,6 +2205,7 @@
                 "symfony/finder": "~2.3|~3.0",
                 "symfony/phpunit-bridge": "^2.7",
                 "symfony/validator": "~2.3|~3.0",
+                "symfony/var-dumper": "~2.3|~3.0",
                 "symfony/yaml": "~2.3|~3.0"
             },
             "type": "symfony-bundle",
@@ -2236,7 +2238,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2016-12-11 19:45:42"
+            "time": "2017-01-22 17:23:36"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2736,16 +2738,16 @@
         },
         {
             "name": "nelmio/cors-bundle",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioCorsBundle.git",
-                "reference": "58c2ae30bc52f61492bc3639f04ab322cb1d98e9"
+                "reference": "cc9a26517b65769e6e3cea10099d4a40ce11ca29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioCorsBundle/zipball/58c2ae30bc52f61492bc3639f04ab322cb1d98e9",
-                "reference": "58c2ae30bc52f61492bc3639f04ab322cb1d98e9",
+                "url": "https://api.github.com/repos/nelmio/NelmioCorsBundle/zipball/cc9a26517b65769e6e3cea10099d4a40ce11ca29",
+                "reference": "cc9a26517b65769e6e3cea10099d4a40ce11ca29",
                 "shasum": ""
             },
             "require": {
@@ -2789,7 +2791,7 @@
                 "cors",
                 "crossdomain"
             ],
-            "time": "2016-12-30 18:10:59"
+            "time": "2017-01-22 21:34:09"
         },
         {
             "name": "nikic/php-parser",
