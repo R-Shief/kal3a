@@ -31,7 +31,7 @@
         "guzzlehttp/guzzle": "^6.1",
         "guzzlehttp/oauth-subscriber": "^0.3",
         "incenteev/composer-parameter-handler": "^2.0",
-        "javiereguiluz/easyadmin-bundle": "^1.13",
+        "javiereguiluz/easyadmin-bundle": "1.16.3",
         "league/csv": "^8.1",
         "liip/monitor-bundle": "^2.3",
         "mkraemer/react-pcntl": "^2.2",
