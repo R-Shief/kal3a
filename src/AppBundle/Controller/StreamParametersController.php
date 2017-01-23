@@ -37,7 +37,7 @@ class StreamParametersController implements ClassResourceInterface
      * @Nelmio\ApiDoc(description="All stream parameter entities")
      * @FOSRest\View(serializerGroups={"default"})
      * @FOSRest\QueryParam(name="enabled", default=true, requirements="(0|1)", strict=true, description="enabled parameters", allowBlank=true)
-     * @Sensio\Security("has_role('ROLE_USER')")
+     * @Sensio\Security("has_role('ROLE_USER') or has_role('ROLE_API')")
      * @param ParamFetcher $paramFetcher
      * @return array
      * @throws \UnexpectedValueException

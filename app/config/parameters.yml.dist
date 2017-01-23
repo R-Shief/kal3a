@@ -56,3 +56,6 @@ parameters:
                 username: user
                 password: 123
                 port: 9001
+
+    api_user: ~
+    api_password: ~

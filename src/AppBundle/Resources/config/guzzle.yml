@@ -79,6 +79,7 @@ services:
                 base_uri: '%kal3a_web_url%'
                 headers:
                     accept: application/json
+                auth: ['%api_user%', '%api_password%']
 
     nab3a.guzzle.handler_stack:
         class: GuzzleHttp\HandlerStack
