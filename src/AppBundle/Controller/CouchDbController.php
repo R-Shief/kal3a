@@ -35,7 +35,7 @@ class CouchDbController extends Controller
           'data' => $response->body,
         );
     }
-    
+
     /**
      * CouchDB database API.
      *

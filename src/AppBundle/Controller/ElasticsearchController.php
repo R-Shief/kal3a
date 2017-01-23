@@ -2,10 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations as FOSRest;
+use Nelmio\ApiDocBundle\Annotation as Nelmio;
 use ONGR\ElasticsearchDSL\Aggregation\Bucketing\DateHistogramAggregation;
 use ONGR\ElasticsearchDSL\Query\QueryStringQuery;
 use ONGR\ElasticsearchDSL\Query\RangeQuery;
 use ONGR\ElasticsearchDSL\Query\TermQuery;
+use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -73,5 +76,37 @@ class ElasticsearchController extends Controller
           'form' => $form->createView(),
           'results' => $results,
         ));
+    }
+
+    /**
+     * Read access to Elasticsearch indices, document and search APIs.
+     *
+     * @Nelmio\ApiDoc(section="Elasticsearch")
+     * @FOSRest\Get("/elasticsearch")
+     * @link https://www.elastic.co/guide/en/elasticsearch/reference/5.1/
+     */
+    public function indexAction($op = null, ServerRequestInterface $serverRequest)
+    {
+        return $this->forward('bangpound_guzzle_proxy.controller:proxy', [
+          'endpoint' => 'elasticsearch',
+          'path' => $op,
+          'request' => $serverRequest,
+        ]);
+    }
+
+    /**
+     * Read access to Elasticsearch search APIs.
+     *
+     * @Nelmio\ApiDoc(section="Elasticsearch")
+     * @FOSRest\Route("/elasticsearch/_search", methods={"GET","POST"})
+     * @link https://www.elastic.co/guide/en/elasticsearch/reference/5.1/search.html
+     */
+    public function searchAction($op = null, ServerRequestInterface $serverRequest)
+    {
+        return $this->forward('bangpound_guzzle_proxy.controller:proxy', [
+          'endpoint' => 'elasticsearch',
+          'path' => '_search',
+          'request' => $serverRequest,
+        ]);
     }
 }
