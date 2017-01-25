@@ -59,16 +59,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.21.3",
+            "version": "3.21.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f371482c631b24c6e7168e745653f4b47942481"
+                "reference": "6408a4904a04eca44461a65ba4a0fae53f80417b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f371482c631b24c6e7168e745653f4b47942481",
-                "reference": "3f371482c631b24c6e7168e745653f4b47942481",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6408a4904a04eca44461a65ba4a0fae53f80417b",
+                "reference": "6408a4904a04eca44461a65ba4a0fae53f80417b",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-01-20 21:24:50"
+            "time": "2017-01-25 00:43:08"
         },
         {
             "name": "aws/aws-sdk-php-symfony",
@@ -882,16 +882,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.9",
+            "version": "v2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e"
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fc376f7a61498e18520cd6fa083752a4ca08072b",
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b",
                 "shasum": ""
             },
             "require": {
@@ -949,7 +949,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-01-19 13:27:33"
+            "time": "2017-01-23 23:17:10"
         },
         {
             "name": "doctrine/doctrine-bundle",
