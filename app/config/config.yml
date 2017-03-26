@@ -284,6 +284,9 @@ ongr_elasticsearch:
                 index_name: '%elasticsearch_index_name%'
                 hosts:
                     - '%elasticsearch_host%:%elasticsearch_port%'
+                settings:
+                    number_of_replicas: 2
+                    number_of_shards: 8
             mappings:
                 - AppBundle
 
