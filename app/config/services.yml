@@ -21,6 +21,17 @@ services:
     templating.helper.assets: '@assets.packages'
     templating.helper.router: '@router'
 
+    session.memcached:
+        class: Memcached
+        arguments:
+            persistent_id: 'sess'
+        calls:
+            - [ addServer, [ 'localhost', '11211' ]]
+
+    session.handler.memcached:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler
+        arguments: ['@session.memcached', { prefix: 'sess', expiretime: 3600 }]
+
     check_couchdb:
         class: ZendDiagnostics\Check\CouchDBCheck
         arguments:
