@@ -232,7 +232,7 @@ class AtomEntry extends CommonTypes implements EntryTypeInterface
     /**
      * @return \string[]
      */
-    public function getParameterNames(): array
+    public function getParameterNames()
     {
         return $this->parameterNames;
     }
