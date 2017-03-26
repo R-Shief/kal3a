@@ -34,7 +34,9 @@ class ConsulHealthController
     public function node($node, Request $request)
     {
         $result = $this->health->node($node, $request->query->all());
-        return new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response = new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response->headers->remove('Transfer-Encoding');
+        return $response;
     }
 
     /**
@@ -46,7 +48,9 @@ class ConsulHealthController
     public function checks($service, Request $request)
     {
         $result = $this->health->checks($service, $request->query->all());
-        return new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response = new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response->headers->remove('Transfer-Encoding');
+        return $response;
     }
 
     /**
@@ -58,7 +62,9 @@ class ConsulHealthController
     public function service($service, Request $request)
     {
         $result = $this->health->service($service, $request->query->all());
-        return new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response = new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response->headers->remove('Transfer-Encoding');
+        return $response;
     }
 
     /**
@@ -70,6 +76,8 @@ class ConsulHealthController
     public function state($state, Request $request)
     {
         $result = $this->health->state($state, $request->query->all());
-        return new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response = new Response($result->getBody(), $result->getStatusCode(), $result->getHeaders());
+        $response->headers->remove('Transfer-Encoding');
+        return $response;
     }
 }
