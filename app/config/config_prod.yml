@@ -23,7 +23,8 @@ monolog:
             handler:      nested
             channels: [!phirehose]
         nested:
-            type:  syslog
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
         console:
             type:  console
