@@ -16,11 +16,6 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-    # workaround for implicit dependency on PHP templating library.
-    # see https://github.com/liip/LiipMonitorBundle/issues/125#issuecomment-220337440
-    templating.helper.assets: '@assets.packages'
-    templating.helper.router: '@router'
-
     session.memcached:
         class: Memcached
         arguments:
@@ -31,34 +26,6 @@ services:
     session.handler.memcached:
         class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler
         arguments: ['@session.memcached', { prefix: 'sess', expiretime: 3600 }]
-
-    check_couchdb:
-        class: ZendDiagnostics\Check\CouchDBCheck
-        arguments:
-            -
-                dbname: '%couchdb_name%'
-                host: '%couchdb_host%'
-                protocol: 'http'
-                port: '%couchdb_port%'
-                username: '%couchdb_user%'
-                password: '%couchdb_password%'
-        calls:
-            - [ setLabel, ['CouchDB']]
-        tags:
-            - { name: liip_monitor.check, alias: couchdb }
-
-    check_elasticsearch:
-        class: ZendDiagnostics\Check\GuzzleHttpService
-        arguments:
-            - 'http://%elasticsearch_host%:%elasticsearch_port%/_cluster/health'
-            - []
-            - []
-            - 200
-            - status
-        calls:
-            - [ setLabel, ['Elasticsearch']]
-        tags:
-            - { name: liip_monitor.check, alias: elasticsearch }
 
     amqp.callback.noop:
         class: AppBundle\RabbitMQ\NoopMessageConsumer

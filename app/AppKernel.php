@@ -22,7 +22,6 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
-            new Liip\MonitorBundle\LiipMonitorBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),

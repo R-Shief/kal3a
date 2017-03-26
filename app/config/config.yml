@@ -133,7 +133,7 @@ easy_admin:
             - { label: 'Export Query Result', icon: database, children: ['Query'] }
             - { label: 'User Management', icon: 'users', children: [ { label: Users, entity: User }, { label: Groups, entity: Group } ] }
             - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
-            - { label: 'System Health Status', route: 'liip_monitor_health_interface', icon: 'heartbeat' }
+            - { label: 'System Health Status', route: 'consul_ui', icon: 'heartbeat' }
             - { label: 'Supervisor', route: 'supervisor', icon: 'server' }
             - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' }, { label: 'Logout', route: 'fos_user_security_logout' } ] }
     entities:
@@ -248,26 +248,6 @@ doctrine_couch_db:
                         options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tag_trends'
                 auto_mapping: false
 #                all_or_nothing_flush: false
-
-# Liip monitor
-liip_monitor:
-    enable_controller: true
-    checks:
-        php_extensions: [ intl, mcrypt, curl ]
-        writable_directory:
-            - '%kernel.cache_dir%'
-            - '%kernel.logs_dir%'
-        doctrine_dbal:            default
-        symfony_version:          ~
-        security_advisory:
-            lock_file:            '%kernel.root_dir%/../composer.lock'
-        rabbit_mq:
-            default:
-                host:                 '%rabbitmq_host%'
-                port:                 '%rabbitmq_port%'
-                user:                 '%rabbitmq_user%'
-                password:             '%rabbitmq_pass%'
-                vhost:                '%rabbitmq_vhost%'
 
 ongr_elasticsearch:
     analysis:

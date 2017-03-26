@@ -25,10 +25,6 @@ bangpound_couchdb_proxy:
     options:
         expose: true
 
-_monitor:
-    resource: "@LiipMonitorBundle/Resources/config/routing.xml"
-    prefix: /monitor/health
-
 _fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
