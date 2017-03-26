@@ -19,6 +19,7 @@
         "bangpound/callable-compiler-pass": "^1.0",
         "bangpound/guzzle-proxy-bundle": "^2.0",
         "clue/json-stream": "^0.1",
+        "dlapps/consul-php-envvar": "^1.1",
         "doctrine/couchdb": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm-bundle": "dev-develop",

@@ -137,6 +137,7 @@ services:
             - [ 'remove', ['http_errors']]
             - [ 'remove', ['allow_redirects']]
             - [ 'remove', ['cookies']]
+#            - [ 'remove', ['prepare_body']]
 
     stream_parameters.repository:
         class: Doctrine\ORM\EntityRepository
@@ -217,3 +218,42 @@ services:
     acl_manager:
         class: AppBundle\Security\AclManager
         arguments: ['@security.acl.dbal.provider']
+
+    consule_service_factory:
+        class: SensioLabs\Consul\ServiceFactory
+        arguments:
+            - []
+            - '@logger'
+
+    consul.service:
+        factory: ['@consule_service_factory', 'get']
+        abstract: true
+
+    consul.agent:
+        parent: consul.service
+        class: SensioLabs\Consul\Services\KV
+        arguments: ['agent']
+
+    consul.catalog:
+        parent: consul.service
+        class: SensioLabs\Consul\Services\KV
+        arguments: ['catalog']
+
+    consul.health:
+        parent: consul.service
+        class: SensioLabs\Consul\Services\KV
+        arguments: ['health']
+
+    consul.kv:
+        parent: consul.service
+        class: SensioLabs\Consul\Services\KV
+        arguments: ['kv']
+
+    consul.session:
+        parent: consul.service
+        class: SensioLabs\Consul\Services\KV
+        arguments: ['session']
+
+    consul_health_controller:
+        class: AppBundle\Controller\ConsulHealthController
+        arguments: ['@consul.health']

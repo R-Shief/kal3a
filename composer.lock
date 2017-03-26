@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ceda2b2a7d7e0dbe464b8972247bdb7",
-    "content-hash": "986d7f7395ec15e33e34dfbb298e65d1",
+    "hash": "a1fa9333c12c25d369b9452e50627344",
+    "content-hash": "6db6fd53208a906a085e5c42ace23e14",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -432,6 +432,56 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14 19:40:03"
+        },
+        {
+            "name": "dlapps/consul-php-envvar",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dlapps/consul-php-envvar.git",
+                "reference": "d5538c329c2aaf359d9aa30addebceb8a77b0841"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dlapps/consul-php-envvar/zipball/d5538c329c2aaf359d9aa30addebceb8a77b0841",
+                "reference": "d5538c329c2aaf359d9aa30addebceb8a77b0841",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "sensiolabs/consul-php-sdk": "^2.0",
+                "symfony/dependency-injection": "^3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DL\\ConsulPhpEnvVar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Petre Pătrașc",
+                    "email": "petre@dreamlabs.ro",
+                    "homepage": "https://www.dreamlabs.ro"
+                }
+            ],
+            "description": "Define missing environment variables from Consul KV and expose them in Symfony 3.2+ containers",
+            "homepage": "https://github.com/dlapps/consul-php-envvar",
+            "keywords": [
+                "consul",
+                "environment",
+                "php",
+                "variable"
+            ],
+            "time": "2017-02-02 11:14:36"
         },
         {
             "name": "doctrine/annotations",
@@ -4134,6 +4184,48 @@
                 "controllers"
             ],
             "time": "2017-03-02 20:17:28"
+        },
+        {
+            "name": "sensiolabs/consul-php-sdk",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/consul-php-sdk.git",
+                "reference": "2e09b2e36f937438157c2f97e51b32bbd735fd26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/consul-php-sdk/zipball/2e09b2e36f937438157c2f97e51b32bbd735fd26",
+                "reference": "2e09b2e36f937438157c2f97e51b32bbd735fd26",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "psr/log": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SensioLabs\\Consul\\": "Consul"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info"
+                }
+            ],
+            "description": "SDK to talk with consul.io API",
+            "time": "2017-03-06 13:16:38"
         },
         {
             "name": "sensiolabs/security-checker",
