@@ -57,3 +57,6 @@ _tag_stats_redirect:
         parameters: 1
         _format: json
 
+consul:
+    prefix: /consul
+    resource: '@ConsulBundle/Resources/config/routing.yml'

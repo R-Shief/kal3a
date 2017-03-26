@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a1fa9333c12c25d369b9452e50627344",
-    "content-hash": "6db6fd53208a906a085e5c42ace23e14",
+    "hash": "e36aa6f959934b71b6ddd2512e1398d6",
+    "content-hash": "98d4d4c76fd05290c73e11c023696f36",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -267,6 +267,49 @@
             ],
             "description": "Create compiler passes in Symfony without defining another class",
             "time": "2016-03-11 01:49:53"
+        },
+        {
+            "name": "bangpound/consul-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bangpound/consul-bundle.git",
+                "reference": "d1a79bb2fab45850c88772171e5e5784e2bf40fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bangpound/consul-bundle/zipball/d1a79bb2fab45850c88772171e5e5784e2bf40fd",
+                "reference": "d1a79bb2fab45850c88772171e5e5784e2bf40fd",
+                "shasum": ""
+            },
+            "require": {
+                "sensiolabs/consul-php-sdk": "^2.1",
+                "symfony/config": "^3.2",
+                "symfony/dependency-injection": "^3.2",
+                "symfony/http-kernel": "^3.2",
+                "symfony/routing": "^3.2",
+                "symfony/yaml": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConsulBundle\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Doherty",
+                    "email": "bjd@bangpound.org"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/bangpound/consul-bundle/tree/master",
+                "issues": "https://github.com/bangpound/consul-bundle/issues"
+            },
+            "time": "2017-03-26 12:36:09"
         },
         {
             "name": "bangpound/guzzle-proxy-bundle",
@@ -4436,16 +4479,16 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v3.0.3",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64"
+                "reference": "6f96c7dbb6b2ef70b307a1a6f897153cbca3da47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
-                "reference": "ebce76a39a65495a66c34eb1574cc4b9e35a4e64",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/6f96c7dbb6b2ef70b307a1a6f897153cbca3da47",
+                "reference": "6f96c7dbb6b2ef70b307a1a6f897153cbca3da47",
                 "shasum": ""
             },
             "require": {
@@ -4492,7 +4535,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-01-10 20:01:51"
+            "time": "2017-03-26 11:55:59"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -6367,6 +6410,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bangpound/consul-bundle": 20,
         "doctrine/couchdb": 20,
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,

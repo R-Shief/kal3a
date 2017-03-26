@@ -59,6 +59,7 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin, role: [ROLE_USER] }
+        - { path: ^/consul, role: [ROLE_USER] }
 
         - { path: ^/couchdb, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
         - { path: ^/couchdb, role: [ROLE_SUPER_ADMIN] }
