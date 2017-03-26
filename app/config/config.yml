@@ -351,7 +351,6 @@ yz_supervisor:
     default_environment: dev
     servers: '%supervisor_servers%'
 
-
 aws:
     version: latest
     region: '%aws_region%'
@@ -368,4 +367,3 @@ stof_doctrine_extensions:
             timestampable: true
             blameable: true
             loggable: true
-
