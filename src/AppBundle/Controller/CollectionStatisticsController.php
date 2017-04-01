@@ -29,23 +29,22 @@ class CollectionStatisticsController extends Controller
         $query->setGroup(true);
         $query->setGroupLevel(3);
 
-        if ($query) {
-            $date_key = 0;
-            $format = 'M-d-Y';
-            foreach ($query->execute() as $result) {
-                $date = date($format, mktime(
-                  isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
-                  isset($result['key'][$date_key + 4]) ? $result['key'][$date_key + 4] : 0,
-                  isset($result['key'][$date_key + 5]) ? $result['key'][$date_key + 5] : 0,
-                  isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
-                  isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
-                  isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
-                ));
-                if ($date_key > 0) {
-                    $results[$result['key'][0]][$date] = $result['value'];
-                } else {
-                    $results[$date] = $result['value'];
-                }
+        $date_key = 0;
+        $format = 'M-d-Y';
+        $results = [];
+        foreach ($query->execute() as $result) {
+            $date = date($format, mktime(
+              isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
+              isset($result['key'][$date_key + 4]) ? $result['key'][$date_key + 4] : 0,
+              isset($result['key'][$date_key + 5]) ? $result['key'][$date_key + 5] : 0,
+              isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
+              isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
+              isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
+            ));
+            if ($date_key > 0) {
+                $results[$result['key'][0]][$date] = $result['value'];
+            } else {
+                $results[$date] = $result['value'];
             }
         }
 
@@ -72,30 +71,29 @@ class CollectionStatisticsController extends Controller
         );
         $query = $conn->createViewQuery('timeseries', 'published');
 
-        if ($query) {
-            $query->setStale('ok');
-            $query->setLimit(24);
-            $query->setDescending(true);
-            $query->setReduce(true);
-            $query->setGroup(true);
-            $query->setGroupLevel(4);
+        $query->setStale('ok');
+        $query->setLimit(24);
+        $query->setDescending(true);
+        $query->setReduce(true);
+        $query->setGroup(true);
+        $query->setGroupLevel(4);
 
-            $date_key = 0;
-            $format = 'H:i';
-            foreach ($query->execute() as $result) {
-                $date = date($format, mktime(
-                  isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
-                  isset($result['key'][$date_key + 4]) ? $result['key'][$date_key + 4] : 0,
-                  isset($result['key'][$date_key + 5]) ? $result['key'][$date_key + 5] : 0,
-                  isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
-                  isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
-                  isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
-                ));
-                if ($date_key > 0) {
-                    $results[$result['key'][0]][$date] = $result['value'];
-                } else {
-                    $results[$date] = $result['value'];
-                }
+        $date_key = 0;
+        $format = 'H:i';
+        $results = [];
+        foreach ($query->execute() as $result) {
+            $date = date($format, mktime(
+              isset($result['key'][$date_key + 3]) ? $result['key'][$date_key + 3] : 0,
+              isset($result['key'][$date_key + 4]) ? $result['key'][$date_key + 4] : 0,
+              isset($result['key'][$date_key + 5]) ? $result['key'][$date_key + 5] : 0,
+              isset($result['key'][$date_key + 1]) ? $result['key'][$date_key + 1] : 0,
+              isset($result['key'][$date_key + 2]) ? $result['key'][$date_key + 2] : 0,
+              isset($result['key'][$date_key]) ? $result['key'][$date_key] : 0
+            ));
+            if ($date_key > 0) {
+                $results[$result['key'][0]][$date] = $result['value'];
+            } else {
+                $results[$date] = $result['value'];
             }
         }
 
