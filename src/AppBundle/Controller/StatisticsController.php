@@ -52,7 +52,7 @@ class StatisticsController
           'hourly' => ['group_level' => 4, 'format' => 'H:i'],
           'daily' => ['group_level' => 3, 'format' => 'M-d-Y'],
         );
-        $query = $this->conn->createViewQuery('published', 'timeseries');
+        $query = $this->conn->createViewQuery('timeseries', 'published');
 
         $query->setStale('ok');
         $query->setLimit($limit);
@@ -95,7 +95,7 @@ class StatisticsController
      */
     public function languageAction()
     {
-        $query = $this->conn->createViewQuery('lang', 'basic');
+        $query = $this->conn->createViewQuery('tags', 'lang');
         $query->setGroup(true);
         $query->setStale('ok');
         $query->setGroupLevel(1);
@@ -136,7 +136,7 @@ class StatisticsController
         /*
          * @var \Doctrine\CouchDB\View\Query
          */
-        $query = $this->conn->createViewQuery('tag_trends', 'PT1M');
+        $query = $this->conn->createViewQuery('tags', 'timeseries');
         $query->setStale('ok');
         $query->setLimit(10);
         $query->setGroup(true);

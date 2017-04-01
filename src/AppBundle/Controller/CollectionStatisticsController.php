@@ -20,7 +20,7 @@ class CollectionStatisticsController extends Controller
           'title' => 'Daily',
           'body' => 'Count of items per day for last week.',
         );
-        $query = $conn->createViewQuery('published', 'timeseries');
+        $query = $conn->createViewQuery('timeseries', 'published');
 
         $query->setStale('ok');
         $query->setLimit(7);
@@ -70,7 +70,7 @@ class CollectionStatisticsController extends Controller
           'title' => 'Hourly',
           'body' => 'Count of items per hour for last 24 hours.',
         );
-        $query = $conn->createViewQuery('published', 'timeseries');
+        $query = $conn->createViewQuery('timeseries', 'published');
 
         if ($query) {
             $query->setStale('ok');
@@ -153,7 +153,7 @@ class CollectionStatisticsController extends Controller
           'title' => 'Languages',
           'body' => 'Collected from '.$start->format('n M').' to '.$end->format('n M'),
         );
-        $query = $conn->createViewQuery('lang', 'basic');
+        $query = $conn->createViewQuery('tags', 'lang');
         $query->setGroup(true);
         $query->setStale('ok');
         $query->setGroupLevel(1);
@@ -197,7 +197,7 @@ class CollectionStatisticsController extends Controller
         /**
          * @var \Doctrine\CouchDB\View\Query $query
          */
-        $query = $conn->createViewQuery('tag_trends', 'PT1M');
+        $query = $conn->createViewQuery('tags', 'timeseries');
         $query->setStale('ok');
         $query->setLimit(10);
         $query->setGroup(true);

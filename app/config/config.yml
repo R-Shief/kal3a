@@ -231,24 +231,12 @@ doctrine_couch_db:
         document_managers:
             default:
                 design_documents:
-                    enclosure:
+                    tags:
                         className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/enclosure'
-                    lang:
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tags'
+                    timeseries:
                         className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/lang'
-                    nofollow:
-                        className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/nofollow'
-                    published:
-                        className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/published'
-                    tag:
-                        className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tag'
-                    tag_trends:
-                        className: Doctrine\CouchDB\View\FolderDesignDocument
-                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tag_trends'
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/timeseries'
                 auto_mapping: false
 #                all_or_nothing_flush: false
 

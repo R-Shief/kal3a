@@ -34,7 +34,7 @@ class StreamParametersStatisticsController extends FOSRestController
         /** @var CouchDBClient $default_client */
         $default_client = $dm->getConnection();
 
-        $query = $default_client->createViewQuery('tag', 'timeseries');
+        $query = $default_client->createViewQuery('timeseries', 'tag');
         $query->setStale('ok');
 
         // All other executions will allow stale results.
