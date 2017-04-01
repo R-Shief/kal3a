@@ -210,6 +210,9 @@ easy_admin:
             class: AppBundle\Entity\Group
 
 fos_user:
+    from_email:
+        address:        %fos_user_from_email_address%
+        sender_name:    %fos_user_from_email_sender_name%
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User

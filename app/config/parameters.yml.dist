@@ -59,3 +59,6 @@ parameters:
 
     api_user: ~
     api_password: ~
+
+    fos_user_from_email_address: ~
+    fos_user_from_email_sender_name: ~
