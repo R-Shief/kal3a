@@ -322,16 +322,6 @@ yz_supervisor:
     default_environment: dev
     servers: '%supervisor_servers%'
 
-aws:
-    version: latest
-    region: '%aws_region%'
-    credentials:
-        key: '%aws_access_key_id%'
-        secret: '%aws_secret_access_key%'
-    endpoint_provider: '@aws.endpoint.provider'
-    signature_provider: '@aws.signature.provider'
-    scheme: http
-
 stof_doctrine_extensions:
     orm:
         default:

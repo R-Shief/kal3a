@@ -27,7 +27,6 @@ class AppKernel extends Kernel
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new YZ\SupervisorBundle\YZSupervisorBundle(),
-            new Aws\Symfony\AwsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new OrmAclSecurityBundle\OrmAclSecurityBundle(),
             new ConsulBundle\ConsulBundle(),

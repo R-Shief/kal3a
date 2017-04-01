@@ -14,7 +14,6 @@
     "require": {
         "php": ">=7.0.0",
         "anahkiasen/underscore-php": "^2.0",
-        "aws/aws-sdk-php-symfony": "^1.2",
         "bangpound/atom-models": "^2.0",
         "bangpound/callable-compiler-pass": "^1.0",
         "bangpound/consul-bundle": "dev-master",
