@@ -3,6 +3,7 @@
 namespace AppBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\CouchDB\HTTP\Response;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,7 +25,7 @@ class UpdateViewCommand extends ContainerAwareCommand
             ->setDescription('Update a view')
             ->addOption('dm', null, InputOption::VALUE_OPTIONAL, 'The document manager to use for this command', 'default')
             ->addArgument('designdoc', InputArgument::REQUIRED, 'Design document name')
-            ->addArgument('view', InputArgument::REQUIRED, 'View name')
+            ->addArgument('view', InputArgument::OPTIONAL, 'View name')
         ;
     }
 
@@ -40,6 +41,10 @@ class UpdateViewCommand extends ContainerAwareCommand
 
         /** @var \Doctrine\CouchDB\CouchDBClient $client */
         $client = $this->getContainer()->get('doctrine_couchdb')->getConnection($dbname);
+        if (!$view) {
+            $ret = $client->findDocument('_design/'.$designdoc);
+            $view = key($ret->body['views']);
+        }
 
         $query = $client->createViewQuery($designdoc, $view);
         $stopwatch->start('update');
