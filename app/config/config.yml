@@ -256,7 +256,7 @@ ongr_elasticsearch:
                 hosts:
                     - '%elasticsearch_host%:%elasticsearch_port%'
                 settings:
-                    number_of_replicas: 2
+                    number_of_replicas: 3
                     number_of_shards: 8
             mappings:
                 - AppBundle
