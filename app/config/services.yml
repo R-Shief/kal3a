@@ -12,6 +12,12 @@ parameters:
     rshief_kal3a.listener.default_response_header.class: Rshief\Bundle\Kal3aBundle\EventListener\DefaultResponseHeaderListener
 
 services:
+    twitter_stream_consul_listener:
+        class: AppBundle\EventListener\TwitterParametersListener
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
