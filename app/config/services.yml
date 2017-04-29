@@ -34,7 +34,7 @@ services:
         arguments: ['@session.memcached', { prefix: 'sess', expiretime: 3600 }]
 
     amqp.callback.noop:
-        class: AppBundle\RabbitMQ\NoopMessageConsumer
+        class: AppBundle\RabbitMq\NoopMessageConsumer
 
     bangpound_guzzle_proxy.client.couchdb:
         parent: bangpound_guzzle_proxy.client
