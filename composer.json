@@ -32,7 +32,7 @@
         "guzzlehttp/guzzle": "^6.1",
         "guzzlehttp/oauth-subscriber": "^0.3",
         "incenteev/composer-parameter-handler": "^2.0",
-        "javiereguiluz/easyadmin-bundle": "1.16.3",
+        "javiereguiluz/easyadmin-bundle": "^1.16.3",
         "league/csv": "^8.1",
         "mkraemer/react-pcntl": "^2.2",
         "nelmio/api-doc-bundle": "^2.11",
