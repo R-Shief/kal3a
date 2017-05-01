@@ -16,7 +16,7 @@
         "anahkiasen/underscore-php": "^2.0",
         "bangpound/atom-models": "^2.0",
         "bangpound/callable-compiler-pass": "^1.0",
-        "bangpound/consul-bundle": "dev-master",
+        "bangpound/consul-bundle": "^0.0.1",
         "bangpound/guzzle-proxy-bundle": "^2.0",
         "clue/json-stream": "^0.1",
         "dlapps/consul-php-envvar": "^1.1",
