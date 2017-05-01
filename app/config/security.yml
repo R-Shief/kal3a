@@ -37,8 +37,6 @@ security:
                 provider:       chain_provider
             form_login:
                 provider:       chain_provider
-            remember_me:
-                secret:   '%secret%'
             logout: ~
 
     access_control:
