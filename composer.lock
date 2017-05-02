@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3df52b6e2193bae625f547b7e02f2d04",
+    "content-hash": "31be92efe46efcda55e5a3710f9b5ad4",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2751,22 +2751,21 @@
         },
         {
             "name": "ongr/elasticsearch-bundle",
-            "version": "dev-master",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
-                "reference": "aa9f0e575318f575545ac0e8698a929b434aa744"
+                "reference": "765918fc751a784e0e0af8d4fb5807aa80e36c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/aa9f0e575318f575545ac0e8698a929b434aa744",
-                "reference": "aa9f0e575318f575545ac0e8698a929b434aa744",
+                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/765918fc751a784e0e0af8d4fb5807aa80e36c6f",
+                "reference": "765918fc751a784e0e0af8d4fb5807aa80e36c6f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "~1.2",
                 "doctrine/cache": "~1.4",
-                "doctrine/collections": "~1.4",
                 "doctrine/inflector": "~1.0",
                 "monolog/monolog": "~1.10",
                 "ongr/elasticsearch-dsl": "~5.0",
@@ -2782,7 +2781,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -2806,7 +2805,7 @@
             ],
             "description": "Elasticsearch bundle for Symfony.",
             "homepage": "http://ongr.io",
-            "time": "2017-04-13 06:30:59"
+            "time": "2017-03-30T06:28:45+00:00"
         },
         {
             "name": "ongr/elasticsearch-dsl",
@@ -6161,7 +6160,6 @@
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
-        "ongr/elasticsearch-bundle": 20,
         "react/eep": 20
     },
     "prefer-stable": true,

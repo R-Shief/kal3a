@@ -37,7 +37,7 @@
         "mkraemer/react-pcntl": "^2.2",
         "nelmio/api-doc-bundle": "^2.11",
         "nelmio/cors-bundle": "^1.0",
-        "ongr/elasticsearch-bundle": "5.1.x-dev",
+        "ongr/elasticsearch-bundle": "^5.0.1",
         "php-amqplib/rabbitmq-bundle": "^1.10",
         "phpdocumentor/reflection": "^2.0",
         "react/child-process": "^0.4",
