@@ -56,14 +56,6 @@ services:
         tags:
             - { name: monolog.processor }
 
-    aws.endpoint.provider:
-        class: Aws\Endpoint\PatternEndpointProvider
-        arguments: ['%aws_endpoint_map%']
-
-    aws.signature.provider:
-        class: Aws\Signature\SignatureInterface
-        factory: ['AppBundle\Security\SignatureProvider', 'create']
-
     atom_consumer:
         class: AppBundle\Consumer\AtomConsumer
         arguments: ['@old_sound_rabbit_mq.atom_producer', '@consumer_matcher', '@serializer']
