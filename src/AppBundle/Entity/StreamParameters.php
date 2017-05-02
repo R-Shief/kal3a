@@ -25,6 +25,7 @@ class StreamParameters
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serializer\Groups({"default"})
      *
      * @var int
      */
@@ -34,6 +35,7 @@ class StreamParameters
      * @ORM\Column
      * @Assert\NotBlank(groups={"admin"})
      * @Assert\Type("string", groups={"admin"})
+     * @Serializer\Groups({"default"})
      * @Gedmo\Versioned
      *
      * @var string
@@ -43,6 +45,7 @@ class StreamParameters
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Assert\Type("string", groups={"admin"})
+     * @Serializer\Groups({"default"})
      * @Gedmo\Versioned
      *
      * @var string
@@ -53,7 +56,7 @@ class StreamParameters
      * @Assert\Language()
      *
      * @ORM\Column(nullable=true)
-     * @Serializer\Groups({"default"})
+     * @Serializer\Groups({"default","api_request"})
      * @Gedmo\Versioned
      *
      * @var string
@@ -64,7 +67,7 @@ class StreamParameters
      * @var string[]
      *
      * @ORM\Column(type="json_array")
-     * @Serializer\Groups({"default"})
+     * @Serializer\Groups({"default","api_request"})
      * @Gedmo\Versioned
      *
      * @Assert\Count(
@@ -82,7 +85,7 @@ class StreamParameters
      * @var int[]
      *
      * @ORM\Column(type="json_array")
-     * @Serializer\Groups({"default"})
+     * @Serializer\Groups({"default","api_request"})
      * @Gedmo\Versioned
      *
      * @Assert\Count(
@@ -99,7 +102,7 @@ class StreamParameters
      * @var array[]
      *
      * @ORM\Column(type="json_array")
-     * @Serializer\Groups({"default"})
+     * @Serializer\Groups({"default","api_request"})
      * @Gedmo\Versioned
      *
      * @Assert\Count(
@@ -121,6 +124,7 @@ class StreamParameters
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Serializer\Groups({"default"})
      * @Gedmo\Blameable(on="create")
      */
     protected $createdBy;
@@ -129,6 +133,7 @@ class StreamParameters
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @Serializer\Groups({"default"})
      * @Gedmo\Blameable(on="update")
      */
     protected $updatedBy;
@@ -137,6 +142,7 @@ class StreamParameters
      * @var boolean
      *
      * @ORM\Column(type="boolean")
+     * @Serializer\Groups({"default"})
      */
     protected $enabled = true;
 

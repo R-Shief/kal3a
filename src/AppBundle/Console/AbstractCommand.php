@@ -49,7 +49,9 @@ abstract class AbstractCommand extends Command
 
         $this->params = [
           'type' => 'filter',
-          'parameters' => $serializer->normalize($params, 'json'),
+          'parameters' => $serializer->normalize($params, 'json', [
+            'groups' => ['api_request'],
+          ]),
         ];
     }
 }
