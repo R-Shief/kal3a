@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Symfony\Component\Intl\Intl;
 
+/**
+ * Class CollectionStatisticsController
+ * @package AppBundle\Controller
+ * @Sensio\Cache(maxage="3600", public=true)
+ */
 class CollectionStatisticsController extends Controller
 {
     /**
@@ -13,7 +18,7 @@ class CollectionStatisticsController extends Controller
      * @return array
      * @Sensio\Cache(expires="+1 hour", public=true)
      */
-    public function dailyAction()
+    public function dailyAction(): array
     {
         /** @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
@@ -62,7 +67,7 @@ class CollectionStatisticsController extends Controller
      * @return array
      * @Sensio\Cache(expires="+1 hour", public=true)
      */
-    public function hourlyAction()
+    public function hourlyAction(): array
     {
         /** @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
@@ -109,7 +114,7 @@ class CollectionStatisticsController extends Controller
      * @Sensio\Template
      * @return array
      */
-    public function collectionAction()
+    public function collectionAction(): array
     {
         $map = $this->container->getParameter('bangpound_castle.types');
         /** @var \Doctrine\CouchDB\CouchDBClient $dm */
@@ -139,10 +144,10 @@ class CollectionStatisticsController extends Controller
     }
 
     /**
-     * @Sensio\Template("AppBundle:CollectionStatistics:language.html.twig")
+     * @Sensio\Template
      * @return array
      */
-    public function languageAction()
+    public function languageAction(): array
     {
         /** @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
@@ -181,7 +186,7 @@ class CollectionStatisticsController extends Controller
      * @Sensio\ParamConverter("end", options={"format": "Y-m-d"})
      * @return array
      */
-    public function topTagAction(\DateTime $start, \DateTime $end, $title, $body = '')
+    public function topTagAction(\DateTime $start, \DateTime $end, $title, $body = ''): array
     {
         /** @var \Doctrine\CouchDB\CouchDBClient $dm */
         $conn = $this->get('doctrine_couchdb.client.default_connection');
@@ -219,7 +224,7 @@ class CollectionStatisticsController extends Controller
         );
     }
 
-    public function languagesArrayAction()
+    public function languagesArrayAction(): array
     {
         return Intl::getLanguageBundle()->getLanguageNames();
     }
