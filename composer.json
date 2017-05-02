@@ -4,7 +4,7 @@
     "type": "project",
     "description": "Aggregation and collection engine.",
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": { "AppBundle\\": "src/AppBundle", "OrmAclSecurityBundle\\": "src/OrmAclSecurityBundle" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
         "files": ["src/functions.php"]
     },
