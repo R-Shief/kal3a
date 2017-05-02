@@ -72,10 +72,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:bangpound/couchdb-client.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:bangpound/consul-bundle.git"
         }
     ],
     "scripts": {
