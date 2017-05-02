@@ -11,7 +11,8 @@ use Nelmio\ApiDocBundle\Annotation as Nelmio;
 /**
  * Class StatisticsController.
  *
- * @FOSRest\Route("/api/statistics", service="bangpound_castle_search.controller.statistics")
+ * @FOSRest\Route("/api/statistics", service="bangpound_castle_search.controller.statistics", options={"expose"=true})
+ * @Sensio\Cache(maxage="3600", public=true)
  */
 class StatisticsController
 {
