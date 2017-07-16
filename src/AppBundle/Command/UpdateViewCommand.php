@@ -3,7 +3,6 @@
 namespace AppBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\CouchDB\HTTP\Response;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

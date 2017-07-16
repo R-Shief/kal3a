@@ -9,7 +9,6 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 use Nelmio\ApiDocBundle\Annotation as Nelmio;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class StreamParametersController.

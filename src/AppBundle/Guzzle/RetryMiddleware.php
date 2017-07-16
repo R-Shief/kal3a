@@ -6,7 +6,6 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 class RetryMiddleware
 {

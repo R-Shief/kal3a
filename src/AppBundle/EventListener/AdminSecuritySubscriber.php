@@ -6,11 +6,8 @@ use AppBundle\Entity\Group;
 use AppBundle\Entity\Query;
 use AppBundle\Entity\StreamParameters;
 use AppBundle\Entity\User;
-use AppBundle\Security\AclManager;
-use OrmAclSecurityBundle\Bridge\Doctrine\AclFilter;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 

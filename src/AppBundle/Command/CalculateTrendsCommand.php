@@ -2,7 +2,6 @@
 
 namespace AppBundle\Command;
 
-use Doctrine\ORM\Query;
 use DrQue\PolynomialRegression;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;

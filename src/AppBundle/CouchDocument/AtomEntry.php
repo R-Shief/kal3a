@@ -3,7 +3,6 @@
 namespace AppBundle\CouchDocument;
 
 use AppBundle\Annotations as App;
-use AppBundle\Entity\StreamParameters;
 use Bangpound\Atom\Model\ContentTypeInterface;
 use Bangpound\Atom\Model\EntryTypeInterface;
 use Bangpound\Atom\Model\SourceTypeInterface;

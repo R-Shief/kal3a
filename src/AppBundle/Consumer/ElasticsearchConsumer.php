@@ -4,8 +4,6 @@ namespace AppBundle\Consumer;
 
 use AppBundle\BulkElasticsearch;
 use OldSound\RabbitMqBundle\RabbitMq\ConsumerInterface;
-use ONGR\ElasticsearchBundle\Exception\BulkWithErrorsException;
-use ONGR\ElasticsearchBundle\Service\Manager;
 use PhpAmqpLib\Message\AMQPMessage;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\Serializer\SerializerAwareTrait;
