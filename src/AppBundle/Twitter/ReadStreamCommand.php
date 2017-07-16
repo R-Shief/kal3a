@@ -2,7 +2,7 @@
 
 namespace AppBundle\Twitter;
 
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\RequestInterface;
 use AppBundle\Console\AbstractCommand;
 use AppBundle\Stream\TwitterStream;
 use Symfony\Component\Console\Input\InputInterface;
@@ -22,9 +22,12 @@ class ReadStreamCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $rf = $this->container->get('nab3a.twitter.request_factory');
+        $client = $this->container->get('nab3a.twitter.guzzle.client');
 
-        /** @var ResponseInterface $response */
-        $response = $rf->fromStreamConfig($this->params)->wait();
+        /** @var RequestInterface $request */
+        $request = $rf->fromStreamConfig($this->params);
+        $response = $client->send($request);
+
         $stream = $response->getBody();
 
         while (!$stream->eof() && $stream->isReadable()) {

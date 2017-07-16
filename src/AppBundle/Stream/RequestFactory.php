@@ -2,9 +2,10 @@
 
 namespace AppBundle\Stream;
 
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Promise\PromiseInterface;
 use AppBundle\Loader\LoaderHelper;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\RequestInterface;
 
 class RequestFactory
 {
@@ -15,68 +16,52 @@ class RequestFactory
     const SAMPLE_URL = 'statuses/sample.json';
 
     /**
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
      * @var array
      */
     private $options;
 
-    public function __construct(ClientInterface $client, array $options = array())
+    public function __construct(array $options = array())
     {
-        $this->client = $client;
         $this->options = $options;
     }
 
     /**
      * @param $params
      *
-     * @return PromiseInterface
+     * @return RequestInterface
      */
-    public function filter(array $params)
+    public function filter(array $params): RequestInterface
     {
         // @todo At least one predicate parameter (follow, locations, or track)
         //   must be specified. The default access level allows up to 400 track
-        //   keywords, 5,000 follow userids and 25 0.1-360 degree location boxes.
-        return $this->request(self::FILTER_METHOD, self::FILTER_URL, [
-          'form_params' => array_filter($params) + $this->options,
-        ]);
+        //   keywords, 5,000 follow user IDs and 25 0.1-360 degree location boxes.
+        $body = http_build_query(array_filter($params) + $this->options, '', '&');
+        return new Request(self::FILTER_METHOD, self::FILTER_URL, [
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ], $body);
     }
 
     /**
-     * @param $params
+     * @param array $params
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return RequestInterface
      */
-    public function sample(array $params)
+    public function sample(array $params): RequestInterface
     {
-        $promise = $this->request(self::SAMPLE_METHOD, self::SAMPLE_URL, [
-          'query' => array_filter($params) + $this->options,
-        ]);
-
-        return $promise;
-    }
-
-    /**
-     * @param $method
-     * @param $uri
-     * @param array $options
-     *
-     * @return PromiseInterface
-     */
-    public function request($method, $uri, array $options = [])
-    {
-        return $this->client->requestAsync($method, $uri, $options);
+        $uri = new Uri(self::SAMPLE_URL);
+        $value = array_filter($params) + $this->options;
+        $query = http_build_query($value, null, '&', PHP_QUERY_RFC3986);
+        $uri = $uri->withQuery($query);
+        return new Request(self::SAMPLE_METHOD, $uri);
     }
 
     /**
      * @param $config
      *
-     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @return RequestInterface
+     * @throws \RuntimeException
      */
-    public function fromStreamConfig($config)
+    public function fromStreamConfig($config): RequestInterface
     {
         switch ($config['type']) {
             case 'filter':
@@ -88,5 +73,6 @@ class RequestFactory
 
                 return $this->sample($params);
         }
+        throw new \RuntimeException('Unsupported type');
     }
 }

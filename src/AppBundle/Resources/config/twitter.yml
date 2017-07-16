@@ -30,7 +30,7 @@ services:
 
     nab3a.twitter.request_factory:
         class: AppBundle\Stream\RequestFactory
-        arguments: [ '@nab3a.twitter.guzzle.client', { delimited: length } ]
+        arguments: [ { delimited: length } ]
 
     nab3a.twitter.guzzle.client:
         class: GuzzleHttp\Client
