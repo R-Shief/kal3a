@@ -176,3 +176,7 @@ services:
     acl_manager:
         class: AppBundle\Security\AclManager
         arguments: ['@security.acl.dbal.provider']
+
+    React\EventLoop\LoopInterface:
+        class: React\EventLoop\LoopInterface
+        factory: ['React\EventLoop\Factory','create']

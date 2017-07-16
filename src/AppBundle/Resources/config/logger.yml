@@ -4,18 +4,3 @@ services:
         arguments: [ true, false ]
         tags:
             - { name: monolog.processor, handler: console }
-
-    nab3a.logger.formatter.json:
-        parent: monolog.formatter.loggly
-        arguments: ['@=constant(''Monolog\\Formatter\\JsonFormatter::BATCH_MODE_NEWLINES'')', true]
-        public: true
-
-    nab3a.logger.handler:
-        class: Symfony\Bridge\Monolog\Handler\ConsoleHandler
-        calls:
-            - [ setFormatter, [ '@=service(''nab3a.console.input'').hasParameterOption(''--child'') ? service(''nab3a.logger.formatter.json'') : service(''nab3a.logger.formatter.console'')'] ]
-        tags:
-            - { name: kernel.event_subscriber }
-
-    nab3a.logger.formatter.console:
-        class: Symfony\Bridge\Monolog\Formatter\ConsoleFormatter

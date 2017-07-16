@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
+use React\EventLoop\LoopInterface;
 use React\Http;
 use React\Socket;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -85,7 +86,7 @@ class AccessTokenCommand extends ContainerAwareCommand
             $output->writeln('no suitable browser opening command found, open yourself: '.$url);
         }
 
-        $loop = $this->getContainer()->get('nab3a.event_loop');
+        $loop = $this->getContainer()->get(LoopInterface::class);
 
         $socket = new Socket\Server($loop);
         $socket->listen($port);

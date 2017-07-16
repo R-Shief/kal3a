@@ -37,12 +37,6 @@ services:
         shared: false
         factory: [ AppBundle\Guzzle\RetryMiddleware, retry ]
 
-    nab3a.guzzle.middleware.oauth:
-        class: GuzzleHttp\Subscriber\Oauth\Oauth1
-        abstract: true
-        public: false
-        shared: false
-
     nab3a.guzzle.middleware.log:
         class: Closure
         factory: [ GuzzleHttp\Middleware, log ]

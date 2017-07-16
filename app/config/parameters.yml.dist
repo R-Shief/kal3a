@@ -21,11 +21,6 @@ parameters:
     superfeedr_user: user
     superfeedr_password: password
 
-    twitter_consumer_key: ~
-    twitter_consumer_secret: ~
-    twitter_access_token: ~
-    twitter_access_token_secret: ~
-
     rabbitmq_host: localhost
     rabbitmq_user: guest
     rabbitmq_pass: guest

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c7041d0ab929a4633a7a256c50156cc",
+    "content-hash": "53c75954056ae7e7258aecc393e9b91b",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -274,48 +274,6 @@
                 "transliterator"
             ],
             "time": "2017-04-04T11:38:05+00:00"
-        },
-        {
-            "name": "clue/json-stream",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/php-json-stream.git",
-                "reference": "85aca00beef6b59f9e063ca10320e32dde062d29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/php-json-stream/zipball/85aca00beef6b59f9e063ca10320e32dde062d29",
-                "reference": "85aca00beef6b59f9e063ca10320e32dde062d29",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Clue\\JsonStream\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@lueck.tv"
-                }
-            ],
-            "description": "Lightweight incremental streaming JSON parser",
-            "homepage": "https://github.com/clue/php-json-stream",
-            "keywords": [
-                "incremental parser",
-                "json",
-                "streaming parser"
-            ],
-            "time": "2015-03-10T22:43:19+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1519,20 +1477,23 @@
         },
         {
             "name": "evenement/evenement",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/igorw/evenement.git",
-                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e"
+                "reference": "6ba9a777870ab49f417e703229d53931ed40fd7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/igorw/evenement/zipball/f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
-                "reference": "f6e843799fd4f4184d54d8fc7b5b3551c9fa803e",
+                "url": "https://api.github.com/repos/igorw/evenement/zipball/6ba9a777870ab49f417e703229d53931ed40fd7a",
+                "reference": "6ba9a777870ab49f417e703229d53931ed40fd7a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0||^5.7||^4.8.35"
             },
             "type": "library",
             "extra": {
@@ -1552,8 +1513,7 @@
             "authors": [
                 {
                     "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
+                    "email": "igor@wiedler.ch"
                 }
             ],
             "description": "Événement is a very simple event dispatching library for PHP",
@@ -1561,7 +1521,7 @@
                 "event-dispatcher",
                 "event-emitter"
             ],
-            "time": "2012-11-02T14:49:47+00:00"
+            "time": "2017-07-17T17:39:19+00:00"
         },
         {
             "name": "fig/link-util",
@@ -1996,57 +1956,6 @@
                 "web service"
             ],
             "time": "2017-06-22T18:50:49+00:00"
-        },
-        {
-            "name": "guzzlehttp/oauth-subscriber",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/oauth-subscriber.git",
-                "reference": "04960cdef3cd80ea401d6b0ca8b3e110e9bf12cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/04960cdef3cd80ea401d6b0ca8b3e110e9bf12cf",
-                "reference": "04960cdef3cd80ea401d6b0ca8b3e110e9bf12cf",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.0",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Subscriber\\Oauth\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle OAuth 1.0 subscriber",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "oauth"
-            ],
-            "time": "2015-08-15T19:44:28+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2562,52 +2471,6 @@
                 "markdown"
             ],
             "time": "2016-10-29T18:58:20+00:00"
-        },
-        {
-            "name": "mkraemer/react-pcntl",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mkraemer/react-pcntl.git",
-                "reference": "b410b6e52965714d44395ac14646a01bd362e5c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mkraemer/react-pcntl/zipball/b410b6e52965714d44395ac14646a01bd362e5c6",
-                "reference": "b410b6e52965714d44395ac14646a01bd362e5c6",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "2.0.*",
-                "ext-pcntl": "*",
-                "php": ">=5.4",
-                "react/event-loop": "0.4.*"
-            },
-            "require-dev": {
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "MKraemer": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marius Krämer",
-                    "email": "marius@marius-kraemer.de"
-                }
-            ],
-            "description": "PCNTL bindings for ReactPHP",
-            "keywords": [
-                "pcntl",
-                "react"
-            ],
-            "time": "2016-11-16T14:20:20+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3791,85 +3654,6 @@
             "time": "2017-01-02T13:31:39+00:00"
         },
         {
-            "name": "react/child-process",
-            "version": "v0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/child-process.git",
-                "reference": "b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/child-process/zipball/b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6",
-                "reference": "b81d06daaafb5d7d592b6f7f8b1b7905cdef9ac6",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "^2.0 || ^1.0",
-                "php": ">=5.3.0",
-                "react/event-loop": "^0.4 || ^0.3",
-                "react/stream": "^0.5 || ^0.4.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0 || ^4.8.10",
-                "sebastian/environment": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\ChildProcess\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Library for executing child processes.",
-            "keywords": [
-                "process"
-            ],
-            "time": "2017-03-14T13:23:20+00:00"
-        },
-        {
-            "name": "react/eep",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ianbarber/eep-php.git",
-                "reference": "f551d9e168a557cf2e2dd192d7923fa47324bab7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ianbarber/eep-php/zipball/f551d9e168a557cf2e2dd192d7923fa47324bab7",
-                "reference": "f551d9e168a557cf2e2dd192d7923fa47324bab7",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "1.0 - 2.0",
-                "php": ">=5.3.2",
-                "react/event-loop": "0.2 - 0.5"
-            },
-            "require-dev": {
-                "ext-pcntl": "*",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "React\\EEP": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "description": "EEP event process for React.",
-            "keywords": [
-                "eep"
-            ],
-            "time": "2016-04-19T03:06:52+00:00"
-        },
-        {
             "name": "react/event-loop",
             "version": "v0.4.3",
             "source": {
@@ -4046,16 +3830,16 @@
         },
         {
             "name": "react/stream",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/stream.git",
-                "reference": "6ccc4bd601e362aebfe5f449411a08b5f38b229d"
+                "reference": "b68463756d8be851829b7a9de8200c9d19eb997e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/6ccc4bd601e362aebfe5f449411a08b5f38b229d",
-                "reference": "6ccc4bd601e362aebfe5f449411a08b5f38b229d",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/b68463756d8be851829b7a9de8200c9d19eb997e",
+                "reference": "b68463756d8be851829b7a9de8200c9d19eb997e",
                 "shasum": ""
             },
             "require": {
@@ -4082,12 +3866,18 @@
             "license": [
                 "MIT"
             ],
-            "description": "Basic readable and writable stream interfaces that support piping.",
+            "description": "Event-driven readable and writable streams for non-blocking I/O in ReactPHP",
             "keywords": [
+                "event-driven",
+                "io",
+                "non-blocking",
                 "pipe",
-                "stream"
+                "reactphp",
+                "readable",
+                "stream",
+                "writable"
             ],
-            "time": "2017-03-08T08:17:17+00:00"
+            "time": "2017-03-26T18:02:15+00:00"
         },
         {
             "name": "ringcentral/psr7",
@@ -6416,8 +6206,7 @@
         "doctrine/couchdb-odm": 20,
         "doctrine/couchdb-odm-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
-        "phpdocumentor/reflection": 15,
-        "react/eep": 20
+        "phpdocumentor/reflection": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
