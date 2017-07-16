@@ -23,6 +23,7 @@ class TwitterParametersListener implements EventSubscriberInterface
      * @var RequestFactory
      */
     private $requestFactory;
+
     /**
      * @var ObjectRepository
      */
@@ -66,7 +67,7 @@ class TwitterParametersListener implements EventSubscriberInterface
             $response = $this->kv->delete('twitter/1/request');
             $result = $response->json();
             if (!$result) {
-                throw new \Exception();
+                throw new \RuntimeException('No result');
             }
             return;
         }
@@ -88,7 +89,7 @@ class TwitterParametersListener implements EventSubscriberInterface
         $result = $response->json();
 
         if (!$result) {
-            throw new \Exception();
+            throw new \RuntimeException('No result');
         }
     }
 
