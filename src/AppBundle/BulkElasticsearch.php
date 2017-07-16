@@ -9,14 +9,14 @@ use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Class BulkElasticsearch
+ * @package AppBundle
+ * @property LoggerInterface $logger
+ */
 class BulkElasticsearch implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
-
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
 
     /**
      * @var Manager

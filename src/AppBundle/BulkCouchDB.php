@@ -11,14 +11,14 @@ use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Class BulkCouchDB
+ * @package AppBundle
+ * @property LoggerInterface $logger
+ */
 class BulkCouchDB implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
-
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
 
     /**
      * @var CouchDBClient

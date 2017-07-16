@@ -16,7 +16,7 @@ use React\EventLoop\LoopInterface;
 /**
  * Class Eep.
  *
- * @property LoggerInterface logger
+ * @property LoggerInterface $logger
  */
 class Eep implements Evenement\PluginInterface, EventLoop\PluginInterface
 {
