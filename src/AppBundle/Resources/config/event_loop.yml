@@ -1,0 +1,4 @@
+services:
+    nab3a.event_loop:
+        class: React\EventLoop\LoopInterface
+        factory: ['React\EventLoop\Factory','create']

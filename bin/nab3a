@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+function main($argv)
+{
+    set_time_limit(0);
+
+    $appRoot = dirname(__DIR__);
+
+    if (file_exists($appRoot.'/app/autoload.php')) {
+        $loader = require $appRoot.'/app/autoload.php';
+    } else {
+        echo 'Could not find autoloader; try running `composer install`.'.PHP_EOL;
+        exit(1);
+    }
+
+    $kernel = new AppKernel('worker', true);
+    $kernel->boot();
+    $container = $kernel->getContainer();
+    $kernel->shutdown();
+    $application = $container->get('nab3a.console.application');
+
+    return $application->run($container->get('nab3a.console.input'), $container->get('nab3a.console.output'));
+}
+
+exit(main($argv));

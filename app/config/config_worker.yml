@@ -1,0 +1,9 @@
+imports:
+    - { resource: config.yml }
+
+monolog:
+    handlers:
+        console:
+            type: service
+            id: nab3a.logger.handler
+            level: debug

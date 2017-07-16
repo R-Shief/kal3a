@@ -4,95 +4,104 @@
     "type": "project",
     "description": "Aggregation and collection engine.",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-4": { "AppBundle\\": "src/AppBundle", "OrmAclSecurityBundle\\": "src/OrmAclSecurityBundle" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
+        "files": ["src/functions.php"]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" },
+        "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "anahkiasen/underscore-php": "^2.0",
+        "bangpound/atom-models": "^2.0",
+        "bangpound/callable-compiler-pass": "^1.0",
+        "bangpound/consul-bundle": "^0.0.1",
+        "bangpound/guzzle-proxy-bundle": "^2.0",
+        "clue/json-stream": "^0.1",
+        "dlapps/consul-php-envvar": "^1.1",
+        "doctrine/couchdb": "dev-develop as 1.0.x-dev",
+        "doctrine/couchdb-odm": "dev-develop as 1.0.x-dev",
+        "doctrine/couchdb-odm-bundle": "dev-develop",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.2",
+        "doctrine/orm": "^2.5",
+        "friendsofsymfony/jsrouting-bundle": "2.0.x-dev",
+        "friendsofsymfony/rest-bundle": "^2.0",
+        "friendsofsymfony/user-bundle": "^2.0",
+        "guzzlehttp/guzzle": "^6.1",
+        "guzzlehttp/oauth-subscriber": "^0.3",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "javiereguiluz/easyadmin-bundle": "^1.16.3",
+        "league/csv": "^8.1",
+        "mkraemer/react-pcntl": "^2.2",
+        "nelmio/api-doc-bundle": "^2.11",
+        "nelmio/cors-bundle": "^1.0",
+        "ongr/elasticsearch-bundle": "^5.0.1",
+        "php-amqplib/rabbitmq-bundle": "^1.10",
+        "phpdocumentor/reflection": "^2.0",
+        "react/child-process": "^0.4",
+        "react/eep": "dev-master",
+        "react/event-loop": "^0.4",
+        "react/http": "^0.6",
+        "react/stream": "^0.5",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "simpleregex/srl-php": "^0.1.0",
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/polyfill-apcu": "^1.0",
+        "symfony/security-acl": "^3.0",
+        "symfony/swiftmailer-bundle": "^2.3",
+        "symfony/symfony": "3.2.*",
+        "yzalis/supervisor-bundle": "^1.3"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^3.0"
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "http://bangpound.github.io/packages"
+            "type": "vcs",
+            "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb-odm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:bangpound/couchdb-client.git"
         }
     ],
-    "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "2.7.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
-        "twig/extensions": "~1.0",
-        "symfony/assetic-bundle": "~2.4",
-        "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0",
-        "bangpound/angularjs-bundle": "1.0.*@dev",
-        "bangpound/atom-data-bundle": "~1.0@dev",
-        "bangpound/castle-bundle": "~1.0",
-        "bangpound/castle-search-bundle": "1.0.*@dev",
-        "bangpound/doctrine-datetime": "~1.0@dev",
-        "bangpound/guzzle-proxy-bundle": "~1.0@dev",
-        "bangpound/pubsub-bundle": "~1.0@dev",
-        "bangpound/twitter-streaming-bundle": "~1.0@dev",
-        "creof/doctrine2-spatial": "dev-master",
-        "doctrine/couchdb-odm-bundle": "dev-develop",
-        "doctrine/couchdb-odm": "dev-master",
-        "doctrine/couchdb": "dev-develop as dev-master",
-        "doctrine/doctrine-cache-bundle": "~1.0",
-        "dr-que/polynomial-regression": "~1.1.1",
-        "fennb/phirehose": "dev-master",
-        "friendsofsymfony/jsrouting-bundle": "~1.5.3",
-        "friendsofsymfony/rest-bundle": "~1.5",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "javiereguiluz/easyadmin-bundle": "~1.4",
-        "jms/serializer-bundle": "0.13.*@dev",
-        "liip/monitor-bundle": "~2.0.2",
-        "nelmio/cors-bundle": "~1.0",
-        "nesbot/Carbon": "~1.12",
-        "nojimage/twitter-text-php": "dev-master",
-        "oldsound/rabbitmq-bundle": "~1.6.0@dev",
-        "phayes/geophp": "dev-master",
-        "robotsnowfall/enum": "dev-master",
-        "rshief/kal3a-bundle": "1.0.*@dev",
-        "rshief/migration-bundle": "1.0.*@dev",
-        "caxy/elasticsearch-bundle": "dev-develop"
-    },
-    "require-dev": {
-        "bangpound/invoker-bundle": "~1.0@dev",
-        "react/child-process": "~0.5@dev",
-        "sensio/generator-bundle": "~2.3"
-    },
     "scripts": {
-        "post-install-cmd": [
-            "Sp\\BowerBundle\\Composer\\ScriptHandler::bowerInstall",
+        "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
         ],
         "post-update-cmd": [
-            "Sp\\BowerBundle\\Composer\\ScriptHandler::bowerInstall",
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "Liip\\MonitorBundle\\Composer\\ScriptHandler::checkHealth"
+            "@symfony-scripts"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
-        "bin-dir": "bin"
+        "sort-packages": true
     },
-    "minimum-stability": "stable",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"

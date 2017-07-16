@@ -1,9 +1,13 @@
 imports:
     - { resource: config.yml }
 
-#framework:
+framework:
+    session:
+      handler_id:     session.handler.memcached
 #    validation:
-#        cache: apc
+#        cache: validator.mapping.cache.apc
+#    serializer:
+#        cache: serializer.mapping.cache.apc
 
 #doctrine:
 #    orm:
@@ -17,27 +21,10 @@ monolog:
             type:         fingers_crossed
             action_level: error
             handler:      nested
+            channels: [!phirehose]
         nested:
             type:  stream
             path:  "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
         console:
             type:  console
-
-# Liip monitor
-liip_monitor:
-    checks:
-        disk_usage:
-            warning:              70
-            critical:             90
-            path:                 %kernel.cache_dir%
-        http_service:
-            httpd:
-                host:                 localhost
-                port:                 80
-                path:                 /
-                status_code:          200
-                content:              ~
-
-sputnik_pubsub:
-    live_hub: true

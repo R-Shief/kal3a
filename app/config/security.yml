@@ -1,36 +1,43 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 13
 
     role_hierarchy:
         ROLE_ADMIN:       [ROLE_USER]
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
+        chain_provider:
+            chain:
+                providers: [fos_userbundle, in_memory]
         fos_userbundle:
             id: fos_user.user_provider.username
+        in_memory:
+            memory:
+                users:
+                    streaming:
+                        password: $2y$12$GyHxSk/74mnltP5KlceRTe72Xxa775Z7x6gbr4adAlYLvwwCDpuTe
+                        roles: 'ROLE_API'
 
     firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
-            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        admin:
-            switch_user:        true
-            context:            user
-            pattern:            /admin(.*)
+        main:
+            anonymous: ~
+            http_basic:
+                provider:       chain_provider
             form_login:
-                provider:       fos_userbundle
-                login_path:     /admin/login
-                use_forward:    false
-                check_path:     /admin/login_check
-                failure_path:   null
-                use_referer:    true
-            logout:
-                path:           /admin/logout
-                target:         /admin/login
-
-            anonymous:    true
+                provider:       chain_provider
+            logout: ~
 
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
@@ -38,9 +45,9 @@ security:
         - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # -> custom access control for the admin area of the URL
-        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         # -> end
 
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -49,7 +56,17 @@ security:
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
-        - { path: ^/admin, role: [ROLE_ADMIN] }
+        - { path: ^/admin, role: [ROLE_USER] }
+        - { path: ^/consul, role: [ROLE_USER] }
+
+        - { path: ^/couchdb, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+        - { path: ^/couchdb, role: [ROLE_SUPER_ADMIN] }
+
+        - { path: ^/elasticsearch, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+        - { path: ^/elasticsearch/_search, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET,POST] }
+        - { path: ^/elasticsearch, role: [ROLE_SUPER_ADMIN] }
+
+        - { path: ^/api, role: [ROLE_API, ROLE_USER, IS_AUTHENTICATED_ANONYMOUSLY] }
 
     acl:
         connection: default

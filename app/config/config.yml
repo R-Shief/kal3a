@@ -1,7 +1,13 @@
 imports:
+    - { resource: parameters.php }
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: elasticsearch.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
 
 framework:
     #esi:             ~
@@ -13,6 +19,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -20,43 +27,34 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
-        # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
+    assets:
+        enabled: true
+        packages:
+            bootstrap_css:
+                version: 3.3.7
+                version_format: '%%2$s/css/%%1$s'
+                base_urls:
+                    - https://maxcdn.bootstrapcdn.com/bootstrap
+            bootstrap_js:
+                version: 3.3.7
+                version_format: '%%2$s/js/%%1$s'
+                base_urls:
+                    - https://maxcdn.bootstrapcdn.com/bootstrap
+    ide: 'phpstorm://open?file=%%f&line=%%l'
+    property_info:
+        enabled: true
 
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    globals:
-        castle_type_names: %bangpound_castle.types.lower%
-
-# Assetic Configuration
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        compass:
-            load_paths:
-                - "%kernel.root_dir%/../web/bundles/applicationassets/components/bootstrap-sass/lib"
-            apply_to: "\.(scss|sass)$"
-        #closure:
-        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-        #yui_css:
-        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
-    assets:
-        underscore_string_js:
-            inputs:
-                - "bundles/bangpoundcastlesearch/components/underscore.string/dist/underscore.string.min.js"
-        elasticsearch_angular_js:
-            inputs:
-                - "bundles/bangpoundcastlesearch/components/elasticsearch/elasticsearch.angular.js"
-        hinclude_js:
-            inputs:
-                - "bundles/applicationassets/components/hinclude/hinclude.js"
+    form_themes:
+        - bootstrap_3_layout.html.twig
 
 # Doctrine Configuration
 doctrine:
@@ -64,38 +62,24 @@ doctrine:
         default_connection:       default
         connections:
             default:
-                driver:   "%database_driver%"
+                driver:   pdo_mysql
                 host:     "%database_host%"
                 port:     "%database_port%"
                 dbname:   "%database_name%"
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
-                mapping_types:
-                    enum: string
-                    polygon: Polygon
-                    point: Point
-            collector:
-                driver:   %database_driver%
-                host:     %database_host%
-                port:     %database_port%
-                dbname:   rshief0_collector
-                user:     %database_user%
-                password: %database_password%
-                charset:  UTF8
-        types:
-            json:       Bangpound\Bundle\TwitterStreamingBundle\Types\JsonType
-            Geometry:   CrEOF\Spatial\DBAL\Types\GeometryType
-            Point:      CrEOF\Spatial\DBAL\Types\Geometry\PointType
-            Polygon:    CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
-            LineString: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
-
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            ApplicationUserBundle: ~
-
+            gedmo_loggable:
+                type: annotation
+                prefix: Gedmo\Loggable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                alias: GedmoLoggable
+                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -106,141 +90,242 @@ swiftmailer:
     spool:     { type: memory }
 
 old_sound_rabbit_mq:
-    enable_collector: true
     connections:
         default:
-            host:     %rabbitmq_host%
-            user:     %rabbitmq_user%
-            password: %rabbitmq_pass%
-            port:     %rabbitmq_port%
-            vhost:    %rabbitmq_vhost%
+            host:     '%rabbitmq_host%'
+            user:     '%rabbitmq_user%'
+            password: '%rabbitmq_pass%'
+            port:     '%rabbitmq_port%'
+            vhost:    '%rabbitmq_vhost%'
     producers:
         twitter:
-            connection:       default
-            exchange_options: { name: 'twitter', type: direct }
-            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
-        pubsub:
-            connection:       default
-            exchange_options: { name: 'pubsub', type: direct }
-            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
+            exchange_options:    { name: 'twitter', type: 'fanout' }
+        atom:
+            exchange_options:    { name: 'atom', type: 'fanout' }
+        reindex:
+            exchange_options:    { name: 'elasticsearch', type: 'direct' }
     consumers:
-        twitter:
-            connection:       default
-            exchange_options: { name: 'twitter', type: direct }
-            queue_options:    { name: 'twitter_stream', routing_keys: [ 'twitter_data.tweet' ] }
-            callback:         bangpound_twitter_streaming.consumer.notification
-        pubsub:
-            connection:       default
-            exchange_options: { name: 'pubsub', type: direct }
-            queue_options:    { name: 'pubsub', routing_keys: [ 'pubsub_notification' ] }
-            callback:         rshief_bundle.consumer.notification
+        twitter_atom:
+            exchange_options: { name: 'twitter', type: 'fanout' }
+            queue_options:    { name: 'twitter.atom' }
+            callback:         atom_consumer
+        atom_couchdb:
+            exchange_options: { name: 'atom', type: 'fanout' }
+            queue_options:    { name: 'atom.couchdb' }
+            callback:         couchdb_consumer
+        atom_elasticsearch:
+            exchange_options: { name: 'atom', type: 'fanout' }
+            queue_options:    { name: 'atom.elasticsearch' }
+            callback:         elasticsearch_consumer
+        reindex_elasticsearch:
+            exchange_options: { name: 'elasticsearch', type: 'direct' }
+            queue_options:    { name: 'reindex.elasticsearch' }
+            callback:         elasticsearch_consumer
+
+sensio_framework_extra:
+    view: { annotations: true }
 
 easy_admin:
     site_name: Castle
+    design:
+        form_theme: vertical
+        menu:
+            - { label: 'Twitter Streaming', icon: twitter, children: ['StreamParameters'] }
+            - { label: 'Export Query Result', icon: database, children: ['Query'] }
+            - { label: 'User Management', icon: 'users', children: [ { label: Users, entity: User }, { label: Groups, entity: Group } ] }
+            - { label: 'kal3a API', route: 'nelmio_api_doc_index', icon: 'cogs' }
+            - { label: 'System Health Status', route: 'consul_ui', icon: 'heartbeat' }
+            - { label: 'Supervisor', route: 'supervisor', icon: 'server' }
+            - { label: 'Profile', icon: 'user', children: [ { label: 'Show', route: 'fos_user_profile_show' }, { label: 'Edit', route: 'fos_user_profile_edit' }, { label: 'Change Password', route: 'fos_user_change_password' }, { label: 'Logout', route: 'fos_user_security_logout' } ] }
     entities:
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Follow
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Location
-        - Bangpound\Bundle\TwitterStreamingBundle\Entity\Track
-        - Sputnik\Bundle\PubsubBundle\Entity\Topic
+        'Query':
+            class: AppBundle\Entity\Query
+            label: 'Saved Queries'
+            form:
+                fields:
+                    - q
+                    - term
+                    - publishedStart
+                    - publishedEnd
+            list:
+                fields: [q, term, publishedStart, publishedEnd, createdBy, createdAt ]
+                actions: [export]
+        'StreamParameters':
+            class: AppBundle\Entity\StreamParameters
+            label: Stream Parameters
+            list:
+                title:  '%%entity_label%%'
+                fields: [id, name, language, enabled, track, follow, locations, createdAt, createdBy ]
+                actions:
+                    -
+                        name: new
+                        label: Add %%entity_label%%
+            form:
+                form_options: { validation_groups: ['Default', 'admin'] }
+                fields:
+                    -
+                        property: name
+                        type: text
+                    -
+                        property: description
+                        type: textarea
+                    -
+                        property: enabled
+                    -
+                        property: language
+                        type: language
+                        type_options:
+                            preferred_choices: ['zh','es','en','hi','ar','pt','bn','ru','jp','ms','te']
+                    -
+                        property: follow
+                        type: collection
+                        type_options:
+                            entry_type: Symfony\Component\Form\Extension\Core\Type\IntegerType
+                            entry_options:
+                                label: false
+                    -
+                        property: track
+                        type: collection
+                        type_options:
+                            entry_options:
+                                label: false
+                    -
+                        property: locations
+                        type: collection
+                        type_options:
+                            entry_type: AppBundle\Form\LocationType
+                            entry_options:
+                                label: false
+            new:
+                title:  'Create %%entity_label%%'
+            edit:
+                title: 'Edit %%entity_label%% (#%%entity_id%%)'
+        User:
+            class: AppBundle\Entity\User
+            list:
+                fields: ['username','email','enabled','lastLogin','groups', 'roles']
+            form:
+                fields: ['enabled', 'username', 'email', { property: 'plainPassword', type: 'password', label: 'Password' }, 'groups', 'roles']
+
+        Group:
+            class: AppBundle\Entity\Group
 
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    from_email:
+        address:        %fos_user_from_email_address%
+        sender_name:    %fos_user_from_email_sender_name%
+    db_driver: orm
     firewall_name: main
-    user_class: Application\UserBundle\Entity\User
+    user_class: AppBundle\Entity\User
     group:
-        group_class: Application\UserBundle\Entity\Group
-
-sensio_framework_extra:
-    router:  { annotations: true }
-    request: { converters: true }
-    view:    { annotations: false }
-    cache:   { annotations: true }
+        group_class: AppBundle\Entity\Group
 
 # Doctrine CouchDB Configuration
 doctrine_couch_db:
     client:
-        connections:
-            default:
-                dbname: %doctrine_couch_db.default.dbname%
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
-            stats:
-                dbname: %doctrine_couch_db.default.dbname%_stats
-                user: %doctrine_couch_db.default.user%
-                password: %doctrine_couch_db.default.password%
+        host: '%couchdb_host%'
+        dbname: '%couchdb_name%'
+        user: '%couchdb_user%'
+        password: '%couchdb_password%'
+        timeout: 10
     odm:
-        auto_mapping: true
-
-# Liip monitor
-liip_monitor:
-    enable_controller: true
-    checks:
-        php_extensions: [ intl, mcrypt, curl ]
-        writable_directory:
-            - %kernel.cache_dir%
-            - %kernel.logs_dir%
-        doctrine_dbal:            default
-        symfony_version:          ~
-        security_advisory:
-            lock_file:            %kernel.root_dir%/../composer.lock
-        http_service:
-            couchdb:
-                host:                 localhost
-                port:                 5984
-                path:                 /
-            elasticsearch:
-                host:                 localhost
-                port:                 9200
-                path:                 /
-        rabbit_mq:
+        document_managers:
             default:
-                host:                 localhost
-                port:                 5672
-                user:                 guest
-                password:             guest
-                vhost:                /
+                design_documents:
+                    tags:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/tags'
+                    timeseries:
+                        className: Doctrine\CouchDB\View\FolderDesignDocument
+                        options: '%kernel.root_dir%/../src/AppBundle/Resources/couchdb/timeseries'
+                auto_mapping: false
+#                all_or_nothing_flush: false
 
-bangpound_guzzle_proxy:
-
-caxy_elasticsearch:
-    client:
+ongr_elasticsearch:
+    analysis:
+        analyzer:
+            tag_analyzer:
+                filter:
+                    - lowercase
+                    - trim
+                    - unique
+                tokenizer: keyword
+    managers:
         default:
-            hosts: [ "localhost:9200" ]
+            index:
+                index_name: '%elasticsearch_index_name%'
+                hosts:
+                    - '%elasticsearch_host%:%elasticsearch_port%'
+                settings:
+                    number_of_replicas: 3
+                    number_of_shards: 8
+            mappings:
+                - AppBundle
 
 fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
-    format_listener: true
+    param_fetcher_listener: force
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/api/doc', stop: true }
+            - { path: '^/couchdb', priorities: ['json'] }
+            - { path: '^/elasticsearch', priorities: ['json'] }
+            - { path: '^/api', priorities: ['json'] }
+            - { path: '^/', stop: true }
     view:
-        view_response_listener: 'force'
-        jsonp_handler: ~
+        view_response_listener:
+            enabled: true
+    routing_loader:
+        default_format: json
+        include_format:       false
+    disable_csrf_role: ROLE_API
 
-sp_bower:
-    bundles:
-        BangpoundAngularJsBundle: ~
-        BangpoundCastleSearchBundle: ~
-        ApplicationAssetsBundle: ~
-    assetic:
-        enabled:              true
-        nest_dependencies: false
+nelmio_api_doc:
+    sandbox:
+        request_format:
+            method: accept_header
+        body_format:
+            formats:
+                - json
+        authentication:
+            delivery: http
+            type: basic
 
 nelmio_cors:
     defaults:
         allow_credentials: false
         allow_origin: []
-        allow_headers: []
+        allow_headers: ['Content-Type']
         allow_methods: []
         expose_headers: []
         max_age: 0
         hosts: []
     paths:
+        '^/couchdb':
+            allow_credentials: true
+            allow_origin: ['*']
+            allow_methods: ['GET', 'POST']
+            max_age: 3600
+        '^/elasticsearch':
+            allow_origin: ['*']
+            allow_methods: ['GET', 'POST']
+            max_age: 3600
+        '^/api':
+            allow_origin: ['*']
+            allow_methods: ['GET']
+            max_age: 3600
         '^/tagstatistic/summary.json':
             allow_origin: ['*']
             allow_methods: ['GET']
             max_age: 3600
 
-doctrine_cache:
-    providers:
-        statistics:
-            type: file_system
-            namespace: statistics
+yz_supervisor:
+    default_environment: dev
+    servers: '%supervisor_servers%'
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            blameable: true
+            loggable: true

@@ -1,0 +1,15 @@
+stream_parameters:
+    type:     rest
+    resource: app.controller.collection_parameters_controller
+    prefix: '/api'
+    defaults: {_format: json}
+    options:
+        expose: true
+
+rshief_kal3a_stats:
+    resource: 'AppBundle\Controller\StreamParametersStatisticsController'
+    type:     rest
+    prefix: '/api'
+    defaults: {_format: json}
+    options:
+        expose: true

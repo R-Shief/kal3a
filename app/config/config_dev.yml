@@ -8,8 +8,11 @@ framework:
     profiler: { only_exceptions: false }
 
 web_profiler:
-    toolbar: %debug_toolbar%
-    intercept_redirects: %debug_redirects%
+    toolbar: true
+    intercept_redirects: false
+
+old_sound_rabbit_mq:
+    enable_collector: false
 
 monolog:
     handlers:
@@ -17,13 +20,10 @@ monolog:
             type:   stream
             path:   "%kernel.logs_dir%/%kernel.environment%.log"
             level:  debug
+            channels: [!event]
         console:
             type:   console
-            bubble: false
-        elasticsearch:
-            type:   stream
-            path:   %kernel.logs_dir%/elasticsearch.%kernel.environment%.log
-            level:  debug
+            channels: [!event, !doctrine]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:
@@ -33,11 +33,5 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
-assetic:
-    use_controller: %use_assetic_controller%
-
 #swiftmailer:
 #    delivery_address: me@example.com
-
-sputnik_pubsub:
-    live_hub: false

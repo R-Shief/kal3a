@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Queue:index{% endblock %}
+
+{% block body %}
+    <dl>
+
+    {% for k, v in response %}
+        <dt>{{ k }}</dt>
+        <dd><pre>{{ v | yaml_encode(8) }}</pre></dd>
+    {% endfor %}
+    </dl>
+{% endblock %}

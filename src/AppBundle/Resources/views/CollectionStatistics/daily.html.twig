@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    {% if settings.title %}
+        <div class="panel-heading">{{ settings.title }}</div>
+    {% endif %}
+    {% if settings.body %}
+        <div class="panel-body">{{ settings.body }}</div>
+    {% endif %}
+    {% block block_body %}
+        <table class="table table-condensed">
+        {% for key,value in results %}
+            <tr>
+                <th>{{ key }}</th>
+                <td class="text-right">{{ value | number_format }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endblock %}
+</div>

@@ -1,65 +1,58 @@
-rshief_kal3a:
-    resource: "@RshiefKal3aBundle/Resources/config/routing.yml"
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
-castle:
-    resource: "@BangpoundCastleBundle/Resources/config/routing.yml"
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
 
-bangpound_castle_search:
-    resource: "@BangpoundCastleSearchBundle/Resources/config/routing.yml"
-
-bangpound_elasticsearch_proxy:
-    path: /elasticsearch/production
+elasticsearch_proxy_search:
+    path: /elasticsearch
     options:
         expose: true
 
 bangpound_elasticsearch_proxy_search:
-    path: /elasticsearch/{path}
-    requirements:
-        path: 'production/_search'
-    defaults:
-        _controller: BangpoundGuzzleProxyBundle:Default:index
-        endpoint: http://localhost:9200
-        path: 'production/_search'
-        _format: json
-    methods: [GET,POST]
+    type: guzzle_proxy
+    resource: elasticsearch
+    prefix: /elasticsearch
+    options:
+        expose: true
 
 bangpound_couchdb_proxy:
-    path: /couchdb/symfony/{path}
-    requirements:
-        path: '.+'
-    defaults:
-        _controller: BangpoundGuzzleProxyBundle:Default:index
-        endpoint: http://127.0.0.1:5984/symfony
-        _format: json
-    methods: [GET]
-
-root:
-    path:     /
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /search
-        permanent: true
-
-_monitor:
-    resource: "@LiipMonitorBundle/Resources/config/routing.xml"
-    prefix: /monitor/health
-
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin
+    type: guzzle_proxy
+    resource: couchdb
+    prefix: /couchdb
+    options:
+        expose: true
 
 _fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix:   /admin
-
-sputnik_pubsub_hub:
-    resource: "@SputnikPubsubBundle/Resources/config/routing/hub.xml"
-    prefix:   /hub
-
-sputnik_pubsub_callback:
-    resource: "@SputnikPubsubBundle/Resources/config/routing/callback.xml"
-    prefix:   /push
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+# app/config/routing.yml
+YZSupervisorBundle:
+    resource: "@YZSupervisorBundle/Resources/config/routing.xml"
+    prefix: /admin/supervisor
+
+statistics_overview:
+    path: /overview
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/overview.html.twig
+
+_rest:
+    resource: routing_rest.yml
+    type: rest
+
+_tag_stats_redirect:
+    path: /tagstatistic/summary.json
+    defaults:
+        _controller: AppBundle:StreamParametersStatistics:getSummary
+        parameters: 1
+        _format: json
+
+consul:
+    prefix: /consul
+    resource: '@ConsulBundle/Resources/config/routing.yml'

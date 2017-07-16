@@ -1,0 +1,6 @@
+services:
+    bangpound_castle.normalizer.couchdb:
+        class: Bangpound\Bundle\CastleBundle\Serializer\CouchDbNormalizer
+
+    bangpound_castle.normalizer.couchdb_attachment:
+        class: Bangpound\Bundle\CastleBundle\Serializer\AttachmentNormalizer

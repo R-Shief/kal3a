@@ -1,0 +1,39 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>kal3a</h1>
+    <ul>
+        <li>
+            <a href="{{ url('nelmio_api_doc_index') }}">API Docs</a>
+        </li>
+        <li>
+            <a href="{{ url('easyadmin') }}">Admin</a>
+        </li>
+        <li>
+            <a href="{{ url('consul_ui') }}">Consul</a>
+        </li>
+        <li>
+            <a href="{{ url('statistics_overview') }}">Collection Overview</a>
+        </li>
+        <li>
+            <a href="/tags/index.html">Tags</a>
+        </li>
+        <li>
+            <a href="/search/index.html">Search</a>
+        </li>
+    </ul>
+    <h2>JS Routes</h2>
+    <pre>
+&lt;script src="{{ asset('bundles/fosjsrouting/js/router.js', null, true) }}"&gt;&lt;/script&gt;
+&lt;script src="{{ url('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"&gt;&lt;/script&gt;
+    </pre>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bootstrap.min.css', 'bootstrap_css') }}" rel="stylesheet">
+    <style>
+        body {
+            padding: 2em;
+        }
+    </style>
+{% endblock %}

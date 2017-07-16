@@ -13,43 +13,30 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Application\AssetsBundle\ApplicationAssetsBundle(),
-            new Application\UserBundle\ApplicationUserBundle(),
-            new Bangpound\Atom\DataBundle\BangpoundAtomDataBundle(),
-            new Bangpound\Bundle\AngularJsBundle\BangpoundAngularJsBundle(),
-            new Bangpound\Bundle\CastleBundle\BangpoundCastleBundle(),
-            new Bangpound\Bundle\CastleSearchBundle\BangpoundCastleSearchBundle(),
+            new AppBundle\AppBundle(),
             new Bangpound\Bundle\GuzzleProxyBundle\BangpoundGuzzleProxyBundle(),
-            new Bangpound\Bundle\PubsubBundle\BangpoundPubsubBundle(),
-            new Bangpound\Bundle\TwitterStreamingBundle\BangpoundTwitterStreamingBundle(),
-            new Bangpound\PhirehoseBundle\BangpoundPhirehoseBundle(),
-            new Ddeboer\DataImportBundle\DdeboerDataImportBundle(),
             new Doctrine\Bundle\CouchDBBundle\DoctrineCouchDBBundle(),
-            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Liip\MonitorBundle\LiipMonitorBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
-            new Rshief\Bundle\Kal3aBundle\RshiefKal3aBundle(),
-            new Rshief\Bundle\MigrationBundle\RshiefMigrationBundle(),
-            new Sp\BowerBundle\SpBowerBundle(),
-            new Sputnik\Bundle\PubsubBundle\SputnikPubsubBundle(),
-            new Caxy\Bundle\ElasticsearchBundle\CaxyElasticsearchBundle(),
+            new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new YZ\SupervisorBundle\YZSupervisorBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new OrmAclSecurityBundle\OrmAclSecurityBundle(),
+            new ConsulBundle\ConsulBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            $bundles[] = new Bangpound\Bundle\InvokerBundle\BangpoundInvokerBundle();
         }
 
         return $bundles;
@@ -58,5 +45,15 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+    }
+
+    public function getCacheDir()
+    {
+        return $this->rootDir.'/../var/cache/'.$this->environment;
+    }
+
+    public function getLogDir()
+    {
+        return $this->rootDir.'/../var/logs';
     }
 }
