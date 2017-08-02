@@ -157,7 +157,7 @@ class ExportController extends Controller
           'gte' => $date->add(new \DateInterval('P1D'))->format('Y-m-d'),
           'lt' => $date->add(new \DateInterval('P1D'))->format('Y-m-d'),
         ]);
-        $search->addFilter($rangeQuery);
+        $search->addQuery($rangeQuery);
 
         return $repo->findRaw($search);
     }
