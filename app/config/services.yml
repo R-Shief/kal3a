@@ -25,7 +25,7 @@ services:
     session.memcached:
         class: Memcached
         arguments:
-            persistent_id: 'sess'
+            $persistent_id: 'sess'
         calls:
             - [ addServer, [ 'localhost', '11211' ]]
 
