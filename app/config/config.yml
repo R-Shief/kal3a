@@ -25,7 +25,6 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
@@ -212,8 +211,8 @@ easy_admin:
 
 fos_user:
     from_email:
-        address:        %fos_user_from_email_address%
-        sender_name:    %fos_user_from_email_sender_name%
+        address:        '%fos_user_from_email_address%'
+        sender_name:    '%fos_user_from_email_sender_name%'
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
