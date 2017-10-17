@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Group;
-use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Sensio;
 
 /**
