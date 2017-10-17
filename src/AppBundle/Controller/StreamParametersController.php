@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\StreamParameters;
-use Doctrine\Common\Persistence\ObjectRepository;
+use AppBundle\Repository\StreamParametersRepository;
 use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations as FOSRest;
@@ -18,16 +18,16 @@ use Nelmio\ApiDocBundle\Annotation as Nelmio;
 class StreamParametersController implements ClassResourceInterface
 {
     /**
-     * @var ObjectRepository
+     * @var StreamParametersRepository
      */
     protected $repository;
 
     /**
      * StreamParametersController constructor.
      *
-     * @param ObjectRepository $repository
+     * @param StreamParametersRepository $repository
      */
-    public function __construct(ObjectRepository $repository)
+    public function __construct(StreamParametersRepository $repository)
     {
         $this->repository = $repository;
     }

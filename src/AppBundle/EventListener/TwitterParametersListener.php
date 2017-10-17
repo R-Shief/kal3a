@@ -5,6 +5,7 @@ namespace AppBundle\EventListener;
 use AppBundle\Entity\StreamParameters;
 use AppBundle\Loader\LoaderHelper;
 use AppBundle\MergeStreamParameters;
+use AppBundle\Repository\StreamParametersRepository;
 use AppBundle\Stream\RequestFactory;
 use Doctrine\Common\Persistence\ObjectRepository;
 use SensioLabs\Consul\ConsulResponse;
@@ -25,11 +26,11 @@ class TwitterParametersListener implements EventSubscriberInterface
     private $requestFactory;
 
     /**
-     * @var ObjectRepository
+     * @var StreamParametersRepository
      */
     private $repo;
 
-    public function __construct(KV $kv, RequestFactory $requestFactory, ObjectRepository $repo)
+    public function __construct(KV $kv, RequestFactory $requestFactory, StreamParametersRepository $repo)
     {
         $this->kv = $kv;
         $this->requestFactory = $requestFactory;

@@ -12,7 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Class StreamParameters.
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\StreamParametersRepository")
  * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(columns={"name"})})
  * @Gedmo\Loggable
  */

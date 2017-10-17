@@ -101,9 +101,11 @@ services:
 #            - [ 'remove', ['prepare_body']]
 
     stream_parameters.repository:
-        class: Doctrine\ORM\EntityRepository
+        class: AppBundle\Repository\StreamParametersRepository
         factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
         arguments: ['AppBundle\Entity\StreamParameters']
+
+    AppBundle\Repository\StreamParametersRepository: '@stream_parameters.repository'
 
     app.controller.collection_parameters_controller:
         class: AppBundle\Controller\StreamParametersController

@@ -4,7 +4,7 @@ namespace AppBundle;
 
 use AppBundle\CouchDocument\AtomEntry;
 use AppBundle\Entity\StreamParameters;
-use Doctrine\Common\Persistence\ObjectRepository;
+use AppBundle\Repository\StreamParametersRepository;
 use SRL\Builder;
 
 class Matcher
@@ -14,7 +14,7 @@ class Matcher
      */
     private $entities;
 
-    public function __construct(ObjectRepository $repo)
+    public function __construct(StreamParametersRepository $repo)
     {
         $this->entities = $repo->findBy(['enabled' => true]);
         $this->strings = array_map([$this, 'makeExpression'], $this->entities);
