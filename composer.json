@@ -15,10 +15,10 @@
     "require": {
         "php": ">=7.0.0",
         "anahkiasen/underscore-php": "^2.0",
-        "bangpound/atom-models": "^2.0",
+        "bangpound/atom-models": "^2.0@dev",
         "bangpound/callable-compiler-pass": "^1.0",
         "bangpound/consul-bundle": "^0.0.1",
-        "bangpound/guzzle-proxy-bundle": "^2.0",
+        "bangpound/guzzle-proxy-bundle": "^2.0@dev",
         "clue/json-stream": "^0.1",
         "dlapps/consul-php-envvar": "^1.1",
         "doctrine/couchdb": "dev-develop as 1.0.x-dev",
@@ -40,7 +40,7 @@
         "nelmio/cors-bundle": "^1.0",
         "ongr/elasticsearch-bundle": "^5.0.1",
         "php-amqplib/rabbitmq-bundle": "^1.10",
-        "phpdocumentor/reflection": "^2.0",
+        "phpdocumentor/reflection": "^2.0@alpha",
         "react/child-process": "^0.4",
         "react/eep": "dev-master",
         "react/event-loop": "^0.4",
@@ -91,8 +91,6 @@
             "@symfony-scripts"
         ]
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "platform": {
             "php": "7.0.17"
