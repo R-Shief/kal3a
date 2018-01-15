@@ -1,0 +1,22 @@
+version: "3"
+services:
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
+
+    couchdb:
+        image: couchdb:2.1
+
+    rabbitmq:
+        image: rabbitmq:3.7-management
+
+    twitter_collector:
+        image: php:7.1
+
+    consume_elasticsearch:
+        image: php:7.1
+
+    consume_atom:
+        image: php:7.1
+
+    consume_couchdb:
+        image: php:7.1
