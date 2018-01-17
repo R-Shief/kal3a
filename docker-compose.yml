@@ -2,12 +2,29 @@ version: "3"
 services:
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
+        ports:
+            - 9200:9200
 
     couchdb:
         image: couchdb:2.1
+        environment:
+            COUCHDB_USER: couchdb
+            COUCHDB_PASSWORD: couchdb
+        ports:
+            - 5984:5984
 
     rabbitmq:
         image: rabbitmq:3.7-management
+        ports:
+            - 15672:15672
+
+    mysql:
+        image: mysql:5.7
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
+    web:
+        image: php:7.1
 
     twitter_collector:
         image: php:7.1
