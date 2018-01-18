@@ -1,9 +1,21 @@
 version: "3"
 services:
+    consul:
+        image: consul:latest
+        ports:
+            - 8500:8500
+            - 8600:8600
+
+    memcached:
+        image: memcached
+
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
         ports:
             - 9200:9200
+        environment:
+            - discovery.type=single-node
+            - xpack.security.enabled=false
 
     couchdb:
         image: couchdb:2.1
@@ -24,16 +36,72 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
     web:
-        image: php:7.1
+        build:
+            context: ./docker/web
+        volumes:
+              - .:/srv/kal3a
+        ports:
+            - 8000:80
+        depends_on:
+          - fpm
+
+    fpm:
+        build:
+            context: ./docker/fpm
+        volumes:
+              - .:/srv/kal3a
+        depends_on:
+            - consul
+            - memcached
+            - couchdb
+            - elasticsearch
+            - mysql
 
     twitter_collector:
-        image: php:7.1
+        build:
+            context: ./docker/worker
+        volumes:
+              - .:/srv/kal3a
+        working_dir: /srv/kal3a
+        command: [bin/nab3a, pipe, -vvv]
+        depends_on:
+            - web
 
     consume_elasticsearch:
-        image: php:7.1
+        build:
+            context: ./docker/worker
+        volumes:
+              - .:/srv/kal3a
+        working_dir: /srv/kal3a
+        command: [bin/console, --env=prod, 'rabbitmq:consumer', atom_elasticsearch, -m, '2000']
+        depends_on:
+            - elasticsearch
+            - rabbitmq
 
     consume_atom:
-        image: php:7.1
+        build:
+            context: ./docker/worker
+        volumes:
+              - .:/srv/kal3a
+        working_dir: /srv/kal3a
+        command: [bin/console, --env=prod, 'rabbitmq:consumer', twitter_atom, -m, '2000']
+        depends_on:
+            - rabbitmq
 
     consume_couchdb:
-        image: php:7.1
+        build:
+            context: ./docker/worker
+        volumes:
+              - .:/srv/kal3a
+        working_dir: /srv/kal3a
+        command: [bin/console, --env=prod, 'rabbitmq:consumer', atom_couchdb, -m, '2000']
+        depends_on:
+            - rabbitmq
+            - couchdb
+
+    composer:
+        image: composer
+        volumes:
+          - .:/app
+        tty: true
+#        docker run --rm --interactive      --volume $PWD:/app composer install --ignore-platform-reqs --no-scripts
