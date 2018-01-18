@@ -17,10 +17,10 @@
         "anahkiasen/underscore-php": "^2.0",
         "bangpound/atom-models": "^2.0@dev",
         "bangpound/callable-compiler-pass": "^1.0",
-        "bangpound/consul-bundle": "^0.0.2",
+        "bangpound/consul-bundle": "0.1.x@dev",
         "bangpound/guzzle-proxy-bundle": "^2.0@dev",
         "clue/json-stream": "^0.1",
-        "dlapps/consul-php-envvar": "^1.1",
+        "dlapps/consul-php-envvar": "dev-SDKv3",
         "doctrine/couchdb": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm": "dev-develop as 1.0.x-dev",
         "doctrine/couchdb-odm-bundle": "dev-develop",
@@ -64,6 +64,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "git@github.com:bangpound/consul-php-envvar.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:bangpound/DoctrineCouchDBBundle.git"
         },
         {
@@ -92,6 +96,7 @@
         ]
     },
     "config": {
+        "preferred-install": "source",
         "sort-packages": true
     },
     "extra": {
