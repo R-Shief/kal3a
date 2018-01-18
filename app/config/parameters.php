@@ -4,9 +4,14 @@ declare(strict_types = 1);
 
 use DL\ConsulPhpEnvVar\Builder\ConsulEnvManagerBuilder;
 
-$manager = (new ConsulEnvManagerBuilder())
-  ->withOverwriteEvenIfDefined(true)
-  ->build();
+$builder = (new ConsulEnvManagerBuilder())
+  ->withOverwriteEvenIfDefined(true);
+
+if (getenv('CONSUL_SERVER')) {
+    $builder->withConsulServer(getenv('CONSUL_SERVER'));
+}
+
+$manager = $builder->build();
 
 $mappings = [
   'TWITTER_CONSUMER_KEY' => 'twitter/consumer_key',
