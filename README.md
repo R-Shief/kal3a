@@ -53,15 +53,72 @@ make free space if it is colocated with CouchDB. For Kal3a, Elasticsearch never 
   documentation assumes you are running the services on `localhost` listening on the application's default port.
 * `git clone https://github.com/R-Shief/kal3a.git` This downloads a copy of the project to your environment.
 * `cd kal3a`
-* `invoker start`
-* `mysqladmin create kal3a` to create the MySQL database.
-* `curl -XPUT http://localhost:5984/kal3a` to create the CouchDB database.
-* `curl -XPUT http://localhost:9200/kal3a` to create the Elasticsearch index.
-* `composer install` This installs all the PHP dependencies and then asks you for some configuration details. You can
+* Install Docker.
+* Run `docker-compose run -e COMPOSER_AUTH="${COMPOSER_AUTH}" --rm composer install --ignore-platform-reqs --no-scripts`
+  to install PHP dependencies. During this step, you may be asked to review some configuration details. You can
   safely accept the default value for every choice. These settings are saved to `app/config/parameters.yml`.
-* Run `bin/console server:run` and visit `http://localhost:8000` to confirm that the basic install is complete.
-* `bin/console doctrine:schema:create` to create the MySQL database schema.
-* Create a user with `bin/console fos:user:create --super-admin` to create your admin user.
+
+### Starting up
+
+First start Consul. In production, Consul performs health check, supports service discovery and distributes key-value
+data for use as configuration.
+
+* `docker-compose up consul`
+
+### Twitter Keys
+
+Use your own Twitter application keys and credentials and put them into Consul.
+
+* `docker-compose exec consul consul kv put twitter/consumer_key 20202020202020202020`
+* `docker-compose exec consul consul kv put twitter/consumer_secret 393939393939393939393939393939393939393`
+* `docker-compose exec consul consul kv put twitter/1/access_token 55555-4343434343434343434343434343434343434343434`
+* `docker-compose exec consul consul kv put twitter/1/access_token_secret 646464646464646464646464646464646464646464646`
+
+Once Consul has Twitter credentials, it is safe to launch other services.
+
+### Web
+
+Launch the web service and all of its dependencies:
+
+* `docker-compose up web`
+
+CouchDB, Elasticsearch, RabbitMQ and MySQL should now be running.
+
+Establish the CouchDB instance as a single node cluster:
+
+* `curl -X PUT http://127.0.0.1:5984/_users -u couchdb:couchdb`
+* `curl -X PUT http://127.0.0.1:5984/_replicator -u couchdb:couchdb`
+* `curl -X PUT http://127.0.0.1:5984/_global_changes -u couchdb:couchdb`
+
+Create the kal3a database in CouchDB:
+
+* `curl -X PUT http://127.0.0.1:5984/kal3a -u couchdb:couchdb`
+* `docker-compose run --rm console doctrine:couchdb:update-design-doc`
+
+Create the MySQL database and install the schema:
+
+* `docker-compose run --rm console doctrine:database:create`
+* `docker-compose run --rm console doctrine:schema:create`
+
+Create the Elasticsearch index:
+
+* `docker-compose run --rm console ongr:es:index:create`
+
+Setup RabbitMQ:
+
+* `docker-compose run --rm console rabbitmq:setup-fabric`
+
+Create the administrator user:
+
+* `docker-compose run --rm console fos:user:create --super-admin`
+
+Finally, visit `http://localhost:8000` to access the web interface of your local development instance of kal3a.
+
+### Beware!
+
+All data in the containers are volatile. The kal3a source code is mounted into the containers,
+but the databases, queue storage and Elasticsearch index are all destroyed when containers are
+shut down.
 
 ### Orientation
 

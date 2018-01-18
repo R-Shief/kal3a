@@ -101,7 +101,16 @@ services:
 
     composer:
         image: composer
+        environment:
+            - COMPOSER_AUTH
         volumes:
-          - .:/app
+            - .:/app
         tty: true
-#        docker run --rm --interactive      --volume $PWD:/app composer install --ignore-platform-reqs --no-scripts
+
+    console:
+        build:
+            context: ./docker/worker
+        volumes:
+              - .:/srv/kal3a
+        working_dir: /srv/kal3a
+        entrypoint: bin/console
